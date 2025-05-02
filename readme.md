@@ -164,14 +164,13 @@ Flask 後端根據需求，調用爬蟲取得最新資料，或直接查詢 MySQ
   pip install pymysql
   pip isntall line-bot-sdk
   pip install selenium
-  pip install 
   ```
 
 ### Installation
 
 _Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
 
-1. Get a free domain  at [https://www.noip.com/]if you want your own(https://www.noip.com/)
+1. Get a free domain  at [https://www.noip.com/](https://www.noip.com/) if you want your own
 2. Clone the repo
    ```sh
    git clone https://github.com/Hanson0901/SQL_final_project.git
