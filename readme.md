@@ -136,7 +136,7 @@ Flask 後端根據需求，調用爬蟲取得最新資料，或直接查詢 MySQ
 
 使用以下工具完成此專案
 
-* [![Flask][Flask]][-url]
+* [![Flask][Flask]][Flask-url]
 * [![beautifulsoup][beautifulsoup4]][beautifulsoup4-url]
 * [![Linebot][Linebot]][Linebot-url]
 * [![html5][html5]][html5-url]
