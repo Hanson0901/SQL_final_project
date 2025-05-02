@@ -41,7 +41,7 @@
     <a href="https://github.com/Hanson0901/SQL_final_project"><strong>查看所有檔案»</strong></a>
     <br />
     <br />
-    <a href="https://github.com/Hanson0901/SQL_final_project/blob/main/messageImage_1746199525381.jpg">檢視分工</a>
+    <a href="https://github.com/Hanson0901/SQL_final_project/blob/main/images/messageImage_1746199525381.jpg">檢視分工</a>
     &middot;
     <a href="https://github.com/Hanson0901/SQL_final_project/issues/new?labels=bug&template=bug-report---.md">回報 Bug</a>
     &middot;
