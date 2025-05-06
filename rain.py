@@ -1,1 +1,1 @@
-print("JOYURI!!")
+print("CHOI YENA!!")
