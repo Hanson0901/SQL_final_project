@@ -12,7 +12,6 @@ options.add_argument("--headless")
 driver = webdriver.Chrome(options=options)
 driver.get(url)
 
-
 response = requests.get(url)
 response.encoding = "utf-8"
 soup = BeautifulSoup(response.text, "html.parser")
