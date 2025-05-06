@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{{ url_for('static', filename='login_style.css') }}">
+  <title>運動賽事管理者介面</title>
+</head>
+<body>
+  <header>
+    <h1>🛠️ 管理者介面</h1>
+  </header>
+
+  <div class="login-container">
+    <h2>管理者登入</h2>
+    <form id="login-form" action="/login" method="POST">
+      <label for="username">帳號：</label>
+      <input type="text" id="username" name="username" required>
+
+      <label for="password">密碼：</label>
+      <input type="password" id="password" name="password" required>
+
+      <input type="submit" value="登入">
+    </form>
+  </div>
+</body>
+<script src="{{ url_for('static', filename='loginjs.js') }}"></script>
+</html>

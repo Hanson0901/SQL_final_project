@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="{{ url_for('static', filename='ms_styles.css') }}">
+  <title>📚 綜合查詢</title>
+</head>
+<body>
+
+  <h1>📚 綜合查詢系統</h1>
+
+  <div class="form-card">
+    <!-- 查詢選項 -->
+    <label for="query-type">1️⃣ 選擇查詢類型</label>
+    <select id="query-type">
+      <option value="player">球員名稱</option>
+      <option value="team">球隊名稱</option>
+      <option value="event">賽事名稱</option>
+      <option value="rule">運動規則相關問題</option>
+    </select>
+
+    <!-- 關鍵字輸入 -->
+    <label for="keyword">2️⃣ 輸入關鍵字</label>
+    <input type="text" id="keyword" placeholder="例如：Stephen Curry、湖人、NBA、羽球挑戰規則">
+
+    <!-- 查詢按鈕 -->
+    <div class="button-wrapper">
+      <button onclick="searchComposite();resetForm();">查詢</button>
+      <button class="reset" onclick="resetForm()">重設</button>
+    </div>
+  </div>
+  <script src="{{ url_for('static', filename='mix_search.js') }}"></script>
+</body>
+</html>
