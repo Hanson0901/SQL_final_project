@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <title>MLB Scoreboard</title>
+  <style>
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: #fff;
+      color: #222;
+      margin: 40px;
+    }
+    .scoreboard {
+      max-width: 480px;
+      border: 1px solid #eee;
+      border-radius: 10px;
+      padding: 24px 24px 0 24px;
+      box-shadow: 0 2px 8px #eee;
+      margin: auto;
+    }
+    .final {
+      color: #888;
+      font-weight: bold;
+      letter-spacing: 2px;
+      margin-bottom: 16px;
+    }
+    .teams {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .team-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .team-info {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .team-logo {
+      font-size: 32px;
+      width: 36px;
+      text-align: center;
+    }
+    .team-name {
+      font-size: 20px;
+      font-weight: bold;
+    }
+    .team-record {
+      font-size: 14px;
+      color: #888;
+      margin-left: 4px;
+    }
+    .rhe-header, .rhe-row {
+      display: flex;
+      gap: 32px;
+      justify-content: flex-end;
+      margin-right: 12px;
+    }
+    .rhe-header {
+      color: #888;
+      font-size: 13px;
+      margin-bottom: 2px;
+      letter-spacing: 8px;
+    }
+    .rhe-row {
+      font-size: 18px;
+      font-weight: bold;
+    }
+    .pitchers {
+      display: flex;
+      justify-content: space-between;
+      margin: 24px 0 16px 0;
+      font-size: 15px;
+      color: #444;
+    }
+    .pitcher {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .pitcher-icon {
+      width: 32px;
+      height: 32px;
+      background: #eee;
+      border-radius: 50%;
+      display: inline-block;
+      background: linear-gradient(135deg, #f35 60%, #fff 100%);
+    }
+    .links {
+      display: flex;
+      justify-content: space-around;
+      border-top: 1px solid #eee;
+      margin-top: 10px;
+      padding: 10px 0 12px 0;
+    }
+    .links a {
+      color: #2a1aff;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 15px;
+      transition: color 0.2s;
+    }
+    .links a:hover {
+      color: #f35;
+    }
+  </style>
+</head>
+<body>
+  <div class="scoreboard">
+    <div class="times">time</div>
+    <div class="teams">
+      <div class="rhe-header">
+        <span style="width: 120px;"></span>
+        <span>R</span>
+        <span>H</span>
+        <span>E</span>
+      </div>
+      <div class="team-row">
+        <div class="team-info">
+          <span class="team-logo">🖊️</span>
+          <span class="team-name">Nationals</span>
+          <span class="team-record">14 - 19</span>
+        </div>
+        <div class="rhe-row">
+          <span>1</span>
+          <span>4</span>
+          <span>0</span>
+        </div>
+      </div>
+      <div class="team-row">
+        <div class="team-info">
+          <span class="team-logo">🧢</span>
+          <span class="team-name">Reds</span>
+          <span class="team-record">18 - 15</span>
+        </div>
+        <div class="rhe-row">
+          <span>6</span>
+          <span>7</span>
+          <span>0</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
