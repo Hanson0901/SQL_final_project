@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>📆 近期比賽</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='c_styles.css') }}">
+</head>
+<body>
+  <h1>📆 近期比賽查詢</h1>
+
+  <div class="clock-container">
+    🕓 現在時間：<span id="now-time"></span>
+  </div>
+
+  <div class="calendar-controls">
+    <button onclick="prevMonth()">上個月</button>
+    <span id="current-month"></span>
+    <button onclick="nextMonth()">下個月</button>
+  </div>
+
+  <div id="calendar" class="calendar-grid"></div>
+
+  <div id="matchInfo" class="match-info-box">
+    <h2 id="selected-date">請點選日期</h2>
+    <ul id="match-list"></ul>
+
+    
+
+    <h3>📋 我的預約清單</h3><p id="booking-count"></p>
+    <div id="booked-matches"></div>
+
+    <div class="bottom_button">
+      <button onclick="clearAllBookings()" id="cancel">❌ 清除所有預約</button>
+      <button onclick="saveBookings()" id="save">💾 儲存預約資料</button>
+    </div>
+    
+  </div>
+</body>
+<script src="{{ url_for('static', filename='calendar.js') }}"></script>
+</html>
+

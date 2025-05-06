@@ -1,0 +1,19 @@
+{
+    "2025-05-03": [
+      { "name": "NBA總決賽 G2", "time": "12:00", "point": "99:81", "platform": "LineToday" },
+      { "name": "Wimbledon 女單八強", "time": "22:00", "point": "21:19", "platform": "愛爾達TV" }
+    ],
+    "2025-05-12": [
+      { "name": "NBA總決賽 G4", "time": "19:00", "point": "/", "platform": "LineToday" },
+      { "name": "Wimbledon 男單八強", "time": "21:00", "point": "/", "platform": "愛爾達TV" }
+    ],
+    "2025-05-15": [
+      { "name": "MLB 洋基 vs 道奇", "time": "13:30", "point": "/", "platform": "愛爾達TV" },
+      { "name": "F1 加拿大站 預賽", "time": "18:00", "point": "/", "platform": "Youtube" }
+    ],
+    "2025-05-22": [
+      { "name": "MLB 洋基 vs 道奇", "time": "19:30", "point": "/", "platform": "愛爾達TV" },
+      { "name": "F1 加拿大站 預賽", "time": "12:00", "point": "/", "platform": "Youtube" }
+    ]
+  }
+  
