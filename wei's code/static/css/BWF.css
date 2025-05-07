@@ -1,0 +1,157 @@
+.bwf-match-list {
+  list-style: none;
+  margin: 0 auto;
+  padding: 0;
+  max-width: 440px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* 卡片樣式 */
+.bwf-match-item {
+  border-bottom: none;
+  border-radius: 14px;
+  box-shadow: 0 2px 10px rgba(30, 30, 30, 0.07);
+  margin-bottom: 22px;
+  padding: 16px 20px 12px 20px;
+  background: #fff;
+}
+
+/* 場地標題 */
+.bwf-court-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
+  color: #222;
+  margin-bottom: 10px;
+  align-items: center;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+/* 比賽用時顯示 */
+.bwf-court-row .bwf-timer {
+  font-size: 14px;
+  color: #666;
+  margin-left: 10px;
+  font-weight: 500;
+}
+.bwf-court-row .bwf-timer::before {
+  content: "用時 ";
+  color: #888;
+  font-size: 13px;
+}
+
+/* 球員區塊 */
+.bwf-player-row {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 10px;
+}
+
+.bwf-player {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 2px;
+}
+
+.bwf-flag {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1px solid #ccc;
+  background: #fff;
+  object-fit: cover;
+}
+
+.bwf-player-names {
+  font-size: 16px;
+  font-weight: bold;
+  color: #222;
+  min-width: 120px;
+}
+
+/* 分數區塊 */
+.bwf-score-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-left: auto;
+  font-size: 22px;
+  font-weight: bold;
+  min-width: 80px;
+  justify-content: flex-end;
+}
+
+.bwf-dot {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+.bwf-dot.active {
+  background: #43a047;
+}
+.bwf-dot.inactive {
+  display: none;
+}
+
+/* 賽事類型與狀態 */
+.bwf-match-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 8px;
+}
+
+.bwf-match-type {
+  font-size: 15px;
+  font-weight: bold;
+  color: #1565c0;
+}
+
+.bwf-match-status {
+  display: inline-block;
+  padding: 2px 12px;
+  border-radius: 14px;
+  background: #ffeaea;
+  color: #a00;
+  font-size: 15px;
+  font-weight: bold;
+  border: 1px solid #ffcdd2;
+  letter-spacing: 1px;
+}
+
+/* 響應式設計 */
+@media (max-width: 600px) {
+  .bwf-match-list {
+    width: 100%;
+    padding: 0 2vw;
+  }
+  .bwf-match-item {
+    padding: 12px 6px 10px 6px;
+  }
+  .bwf-player-names {
+    min-width: 0;
+    font-size: 15px;
+  }
+  .bwf-score-row {
+    font-size: 18px;
+    min-width: 48px;
+  }
+}
+
+.scoreboard-update {
+  margin-top: 16px;
+  text-align: center;
+}
+#last-update-time {
+  font-size: 0.9em;
+  color: #555;
+}

@@ -16,74 +16,59 @@ response = requests.get(url)
 response.encoding = "utf-8"
 soup = BeautifulSoup(response.text, "html.parser")
 
-wrapper = soup.find("div", class_="GameCardMatchup_wrapper__uUdW8")
-
-if wrapper:
-    team_logo_divs = wrapper.find_all("div", class_="TeamLogo_block__rSWmO")
-    # for div in team_logo_divs:
-
-    #     print(div)
-else:
-    print("找不到 GameCardMatchup_wrapper__uUdW8")
-img1 = team_logo_divs[0].find("img")
-img2 = team_logo_divs[1].find("img")
-# print(img1)
-
-
-team_name = soup.find_all("span", class_="MatchupCardTeamName_teamName__9YaBA")
-# print(team_name)
-Team_name1 = team_name[0].text.strip()
-Team_name2 = team_name[1].text.strip()
-# print(Team_name1, Team_name2)
-
-score1_elem = WebDriverWait(driver, 2).until(
+# 預先等待所有需要的元素
+wait = WebDriverWait(driver, 2)
+score_elements = wait.until(
     EC.presence_of_all_elements_located(
         (
             By.CSS_SELECTOR,
             "p.MatchupCardScore_p__dfNvc.GameCardMatchup_matchupScoreCard__owb6w",
         )
     )
-)[0]
-score2_elem = WebDriverWait(driver, 2).until(
-    EC.presence_of_all_elements_located(
-        (
-            By.CSS_SELECTOR,
-            "p.MatchupCardScore_p__dfNvc.GameCardMatchup_matchupScoreCard__owb6w",
-        )
-    )
-)[1]
-
-series_elem = WebDriverWait(driver, 2).until(
+)
+series_element = wait.until(
     EC.presence_of_element_located(
         (By.CSS_SELECTOR, "p.GameCardMatchup_gameSeriesText__zqvUF")
     )
 )
-
-series_text = (
-    series_elem.find_element(By.TAG_NAME, "span").text.strip()
-    if series_elem.find_elements(By.TAG_NAME, "span")
-    else "No series information"
+team_rank_elements = wait.until(
+    EC.presence_of_all_elements_located(
+        (By.CSS_SELECTOR, "span.MatchupCardTeamName_seed__Bb84k")
+    )
 )
 
+# BeautifulSoup 部分
+wrapper = soup.find("div", class_="GameCardMatchup_wrapper__uUdW8")
+
+if wrapper:
+    team_logo_divs = wrapper.find_all("div", class_="TeamLogo_block__rSWmO")
+else:
+    print("找不到 GameCardMatchup_wrapper__uUdW8")
+img1 = team_logo_divs[0].find("img")
+img2 = team_logo_divs[1].find("img")
+
+team_name = soup.find_all("span", class_="MatchupCardTeamName_teamName__9YaBA")
+Team_name1 = team_name[0].text.strip()
+Team_name2 = team_name[1].text.strip()
+
+# 使用預先等待的元素
+score1_elem = score_elements[0]
+score2_elem = score_elements[1]
+
+series_text = (
+    series_element.find_element(By.TAG_NAME, "span").text.strip()
+    if series_element.find_elements(By.TAG_NAME, "span")
+    else "No series information"
+)
 
 game_status_elem = soup.find("p", class_="GameCardMatchupStatusText_gcsText__PcQUX")
 if game_status_elem:
     game_status_text = game_status_elem.text.strip()
 else:
     game_status_text = "No status"
-print(game_status_text)
 
-
-team_rank1_elem = WebDriverWait(driver, 2).until(
-    EC.presence_of_element_located(
-        (By.CSS_SELECTOR, "span.MatchupCardTeamName_seed__Bb84k")
-    )
-)
-team_rank2_elem = WebDriverWait(driver, 2).until(
-    EC.presence_of_all_elements_located(
-        (By.CSS_SELECTOR, "span.MatchupCardTeamName_seed__Bb84k")
-    )
-)[1]
+team_rank1_elem = team_rank_elements[0]
+team_rank2_elem = team_rank_elements[1]
 
 Team_rank1 = team_rank1_elem.text.strip()
 Team_rank2 = team_rank2_elem.text.strip()

@@ -11,7 +11,7 @@ app = Flask(__name__)
 
 
 @app.route("/app/NBAscore", methods=["GET"])
-def get_score():
+def get_NBAscore():
     url = "https://www.nba.com/games"
     options = webdriver.ChromeOptions()
     options.add_argument("--headless")
@@ -22,61 +22,59 @@ def get_score():
     response.encoding = "utf-8"
     soup = BeautifulSoup(response.text, "html.parser")
 
+    # 預先等待所有需要的元素
+    wait = WebDriverWait(driver, 2)
+    score_elements = wait.until(
+        EC.presence_of_all_elements_located(
+            (
+                By.CSS_SELECTOR,
+                "p.MatchupCardScore_p__dfNvc.GameCardMatchup_matchupScoreCard__owb6w",
+            )
+        )
+    )
+    series_element = wait.until(
+        EC.presence_of_element_located(
+            (By.CSS_SELECTOR, "p.GameCardMatchup_gameSeriesText__zqvUF")
+        )
+    )
+    team_rank_elements = wait.until(
+        EC.presence_of_all_elements_located(
+            (By.CSS_SELECTOR, "span.MatchupCardTeamName_seed__Bb84k")
+        )
+    )
+
+    # BeautifulSoup 部分
     wrapper = soup.find("div", class_="GameCardMatchup_wrapper__uUdW8")
-    team_logo_divs = wrapper.find_all("div", class_="TeamLogo_block__rSWmO")
+
+    if wrapper:
+        team_logo_divs = wrapper.find_all("div", class_="TeamLogo_block__rSWmO")
+    else:
+        print("找不到 GameCardMatchup_wrapper__uUdW8")
     img1 = team_logo_divs[0].find("img")
     img2 = team_logo_divs[1].find("img")
 
     team_name = soup.find_all("span", class_="MatchupCardTeamName_teamName__9YaBA")
-    # print(team_name)
     Team_name1 = team_name[0].text.strip()
     Team_name2 = team_name[1].text.strip()
-    # print(Team_name1, Team_name2)
+
+    # 使用預先等待的元素
+    score1_elem = score_elements[0]
+    score2_elem = score_elements[1]
+
+    series_text = (
+        series_element.find_element(By.TAG_NAME, "span").text.strip()
+        if series_element.find_elements(By.TAG_NAME, "span")
+        else "No series information"
+    )
 
     game_status_elem = soup.find("p", class_="GameCardMatchupStatusText_gcsText__PcQUX")
     if game_status_elem:
         game_status_text = game_status_elem.text.strip()
     else:
         game_status_text = "No status"
-    score1_elem = WebDriverWait(driver, 2).until(
-        EC.presence_of_all_elements_located(
-            (
-                By.CSS_SELECTOR,
-                "p.MatchupCardScore_p__dfNvc.GameCardMatchup_matchupScoreCard__owb6w",
-            )
-        )
-    )[0]
-    score2_elem = WebDriverWait(driver, 2).until(
-        EC.presence_of_all_elements_located(
-            (
-                By.CSS_SELECTOR,
-                "p.MatchupCardScore_p__dfNvc.GameCardMatchup_matchupScoreCard__owb6w",
-            )
-        )
-    )[1]
 
-    series_elem = WebDriverWait(driver, 2).until(
-        EC.presence_of_element_located(
-            (By.CSS_SELECTOR, "p.GameCardMatchup_gameSeriesText__zqvUF")
-        )
-    )
-
-    series_text = (
-        series_elem.find_element(By.TAG_NAME, "span").text.strip()
-        if series_elem.find_elements(By.TAG_NAME, "span")
-        else "No series information"
-    )
-
-    team_rank1_elem = WebDriverWait(driver, 2).until(
-        EC.presence_of_element_located(
-            (By.CSS_SELECTOR, "span.MatchupCardTeamName_seed__Bb84k")
-        )
-    )
-    team_rank2_elem = WebDriverWait(driver, 2).until(
-        EC.presence_of_all_elements_located(
-            (By.CSS_SELECTOR, "span.MatchupCardTeamName_seed__Bb84k")
-        )
-    )[1]
+    team_rank1_elem = team_rank_elements[0]
+    team_rank2_elem = team_rank_elements[1]
 
     Team_rank1 = team_rank1_elem.text.strip()
     Team_rank2 = team_rank2_elem.text.strip()
@@ -110,9 +108,125 @@ def get_score():
         "playoff_round": playoff_round_text,
         "game_number": game_number_text,
     }
+    print(data)
 
     driver.quit()
     return jsonify(data)
+
+
+@app.route("/app/BWFscore", methods=["GET"])
+def get_bwf_score():
+    url = "https://match-centre.bwfbadminton.com/5233/match/44"
+
+    options = webdriver.ChromeOptions()
+    # options.add_argument("--headless")
+    driver = webdriver.Chrome(options=options)
+
+    driver.get(url)
+
+    try:
+        close_button = driver.find_element(By.CLASS_NAME, "close-button")
+        close_button.click()
+    except Exception as e:
+        print("Close button not found or not clickable:", e)
+
+    # 用 CSS_SELECTOR 並延長等待時間
+    match_cards_ul = WebDriverWait(driver, 1).until(
+        EC.presence_of_element_located((By.CLASS_NAME, "result-match-cards"))
+    )
+
+    # Find all `li` elements within the `ul`
+    match_cards_li = match_cards_ul.find_elements(By.TAG_NAME, "li")
+
+    # Store the `li` elements in an array, including court information if available
+    match_cards_array = []
+    for li in match_cards_li:
+        court_info = (
+            li.find_element(By.CLASS_NAME, "round-court").text
+            if li.find_elements(By.CLASS_NAME, "round-court")
+            else "No court info"
+        )
+        flag_elements = li.find_elements(By.CSS_SELECTOR, ".flag img")
+        flag = (
+            [element.get_attribute("src") for element in flag_elements]
+            if flag_elements
+            else "No flag info"
+        )
+        flag_1 = flag[0] if flag else "No flag info"
+        flag_2 = flag[1] if len(flag) > 1 else "No flag info"
+
+        player_name_1 = (
+            li.find_element(By.CSS_SELECTOR, ".player1").text.strip()
+            if li.find_elements(By.CSS_SELECTOR, ".player1")
+            else "player1 not found"
+        )
+        player_name_2 = (
+            li.find_element(By.CSS_SELECTOR, ".player2").text.strip()
+            if li.find_elements(By.CSS_SELECTOR, ".player2")
+            else ""
+        )
+        player_name_3 = (
+            li.find_element(By.CSS_SELECTOR, ".player3").text.strip()
+            if li.find_elements(By.CSS_SELECTOR, ".player3")
+            else "player3 not found"
+        )
+        player_name_4 = (
+            li.find_element(By.CSS_SELECTOR, ".player4").text.strip()
+            if li.find_elements(By.CSS_SELECTOR, ".player4")
+            else ""
+        )
+
+        team_details = li.find_elements(By.CSS_SELECTOR, ".team-details-wrap-card")
+        score1 = []
+        score2 = []
+
+        if len(team_details) > 0:
+            scores_team1 = team_details[0].find_elements(By.CSS_SELECTOR, ".score span")
+            score1 = [
+                score.text for score in scores_team1[:3]
+            ]  # Get up to 3 scores for team 1
+
+        if len(team_details) > 1:
+            scores_team2 = team_details[1].find_elements(By.CSS_SELECTOR, ".score span")
+            score2 = [
+                score.text for score in scores_team2[:3]
+            ]  # Get up to 3 scores for team 2
+
+        round_oop = li.find_elements(By.CSS_SELECTOR, ".round-oop")
+        round_oop_text = round_oop[0].text if round_oop else "No round info"
+
+        round_status = li.find_elements(By.CSS_SELECTOR, ".round-status")
+        round_status_text = round_status[0].text if round_status else "No status info"
+        game_time = (
+            li.find_element(By.CSS_SELECTOR, ".time").text.strip()
+            if li.find_elements(By.CSS_SELECTOR, ".time")
+            else "No game time info"
+        )
+        animated_gif = li.find_elements(By.CSS_SELECTOR, ".animated-line img")
+        animated_gif_src = (
+            animated_gif[0].get_attribute("src") if animated_gif else "No animated gif"
+        )
+
+        match_cards_array.append(
+            {
+                "court": court_info,
+                "flag1": flag_1,
+                "flag2": flag_2,
+                "player1": player_name_1,
+                "player2": player_name_2,
+                "player3": player_name_3,
+                "player4": player_name_4,
+                "score1": score1,
+                "score2": score2,
+                "round_oop": round_oop_text,
+                "round_status": round_status_text,
+                "game_time": game_time,
+                "animated_gif": animated_gif_src,
+            }
+        )
+
+    driver.quit()
+    return jsonify(match_cards_array)
 
 
 @app.route("/NBAscore")

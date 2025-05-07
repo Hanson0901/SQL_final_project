@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <title>羽球比賽中心 - 比賽詳情</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/BWF.css') }}">
+</head>
+
+<body>
+    <ul id="bwf-match-list" class="bwf-match-list"></ul>
+
+    <div class="scoreboard-update">
+        <div id="last-update-time">上次更新時間：</div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/BWF.js') }}"></script>
+</body>
+
+</html>
