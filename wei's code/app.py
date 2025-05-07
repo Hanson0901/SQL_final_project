@@ -10,7 +10,7 @@ from flask import render_template
 app = Flask(__name__)
 
 
-@app.route("/api/NBAscore", methods=["GET"])
+@app.route("/app/NBAscore", methods=["GET"])
 def get_score():
     url = "https://www.nba.com/games"
     options = webdriver.ChromeOptions()
@@ -33,6 +33,11 @@ def get_score():
     Team_name2 = team_name[1].text.strip()
     # print(Team_name1, Team_name2)
 
+    game_status_elem = soup.find("p", class_="GameCardMatchupStatusText_gcsText__PcQUX")
+    if game_status_elem:
+        game_status_text = game_status_elem.text.strip()
+    else:
+        game_status_text = "No status"
     score1_elem = WebDriverWait(driver, 2).until(
         EC.presence_of_all_elements_located(
             (
@@ -96,6 +101,7 @@ def get_score():
         "away_team": Team_name2,
         "home_score": score1_elem.text.strip(),
         "away_score": score2_elem.text.strip(),
+        "game_status": game_status_text,
         "home_flag": img1["src"] if img1 else "",
         "away_flag": img2["src"] if img2 else "",
         "series": series_text,

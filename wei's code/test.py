@@ -66,6 +66,14 @@ series_text = (
 )
 
 
+game_status_elem = soup.find("p", class_="GameCardMatchupStatusText_gcsText__PcQUX")
+if game_status_elem:
+    game_status_text = game_status_elem.text.strip()
+else:
+    game_status_text = "No status"
+print(game_status_text)
+
+
 team_rank1_elem = WebDriverWait(driver, 2).until(
     EC.presence_of_element_located(
         (By.CSS_SELECTOR, "span.MatchupCardTeamName_seed__Bb84k")
@@ -100,6 +108,7 @@ data = {
     "away_team": Team_name2,
     "home_score": score1_elem.text.strip(),
     "away_score": score2_elem.text.strip(),
+    "game_status": game_status_text,
     "home_flag": img1["src"] if img1 else "",
     "away_flag": img2["src"] if img2 else "",
     "series": series_text,
