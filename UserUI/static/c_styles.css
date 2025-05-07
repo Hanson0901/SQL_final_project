@@ -270,3 +270,15 @@ button.match-box .disabled {
   background-color: #555;
 }
 
+.backbtn {
+  position: absolute;
+  right: 5px;
+  padding: 8px 16px;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  background-color:#A593E0;
+}

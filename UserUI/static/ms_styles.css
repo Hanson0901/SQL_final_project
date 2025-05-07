@@ -76,3 +76,16 @@ body {
     margin: 0 auto;
   }
   
+  .backbtn {
+    position: absolute;
+    right: 5px;
+    padding: 8px 16px;
+    color: #ffffff;
+    border: none;
+    bottom: 10px;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    background-color:#A593E0;
+  }
