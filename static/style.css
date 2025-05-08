@@ -67,11 +67,9 @@ body {
     flex-direction: column;
     gap: 15px;
   }
-  
-  .team-row {
+  .game-status{
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: row;
   }
   
   .team-info {
@@ -99,27 +97,27 @@ body {
   }
 
   .rhe {
-    display: grid;
-    margin-left: auto; /* 將 rhe 推到右邊 */
+    display: flex;
+    margin-left: auto;
+    flex-direction: column;
     grid-template-columns: 30px 30px 30px; /* 固定 R、H、E 的欄位寬度 */
-    text-align: center; /* 讓內容向右對齊 */
-    gap: 5px; /* 欄位之間的間距 */
+    text-align: right; /* 讓內容向右對齊 */
+    gap: 10px;
 }
   .rhe-header {
-    display: grid;
-    grid-template-columns: 1fr 30px 30px 30px; /* 隊伍名稱和 RHE 欄位的比例 */
-    color: #666;
-    margin-bottom: 10px; /* 保持標題與內容的間距 */
-    padding: 0 20px;
-    text-align: right; /* 讓 RHE 標題向右對齊 */
+    display: flex;
+    flex-direction: row;
+    grid-template-columns: 30px 30px 30px; /* 固定 R、H、E 的欄位寬度 */
+    text-align: right; /* 讓內容向右對齊 */
+    gap: 15px; /* 欄位之間的間距 */
 }
 
 
 .rhe-row {
-  display: grid;
+  display: flex;
+  flex-direction: row;
   grid-template-columns: 30px 30px 30px; /* 固定 R、H、E 的欄位寬度 */
-  text-align: center; /* 讓內容居中對齊 */
-  gap: 5px; /* 欄位之間的間距 */
+  gap: 15px; /* 欄位之間的間距 */
   margin-top: 5px; /* 每行之間的間距 */
 }
 

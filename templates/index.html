@@ -21,39 +21,39 @@
         {% for game in games %}
         <div class="scoreboard">
           <div class="game-time">{{ game.time | truncate(4, True, '')  }}</div>
+          <div class="game-status">
             <div class="teams">
-                <div class = "rhe">
-                  <span>R</span>
-                  <span>H</span>
-                  <span>E</span>
+              <div>隊伍</div>
+              <div class="team-info">
+                <img  src ={{game.img[0]}} class="team-logo">
+                <div>
+                    <div class="team-name">{{ game.teams[0] }}</div>
                 </div>
-              <div class="team-row">
-                  <div class="team-info">
-                      <img  src ={{game.img[0]}} class="team-logo">
-                      <div>
-                          <div class="team-name">{{ game.teams[0] }}</div>
-                      </div>
-                  </div>
-
-                  <div class="rhe-row">
-                      <span><b>{{ game.rhe.away.R }}</b></span>
-                      <span>{{ game.rhe.away.H }}</span>
-                      <span>{{ game.rhe.away.E }}</span>
-                  </div>
               </div>
-              <div class="team-row">
-                  <div class="team-info">
-                      <img  src ={{game.img[1]}} class="team-logo">
-                      <div>
-                          <div class="team-name">{{ game.teams[1] }}</div>
-                      </div>
-                  </div>
-                  <div class="rhe-row">
-                      <span><b>{{ game.rhe.home.R }}</b></span>
-                      <span>{{ game.rhe.home.H }}</span>
-                      <span>{{ game.rhe.home.E }}</span>
-                  </div>
+              <div class="team-info">
+                <img  src ={{game.img[1]}} class="team-logo">
+                <div>
+                    <div class="team-name">{{ game.teams[1] }}</div>
+                </div>
               </div>
+            </div>
+            <div class = "rhe">
+              <div class="rhe-header">
+                <span>R</span>
+                <span>H</span>
+                <span>E</span>
+              </div>
+              <div class="rhe-row">
+                <span><b>{{ game.rhe.away.R }}</b></span>
+                <span>{{ game.rhe.away.H }}</span>
+                <span>{{ game.rhe.away.E }}</span>
+              </div>
+              <div class="rhe-row">
+                <span><b>{{ game.rhe.home.R }}</b></span>
+                <span>{{ game.rhe.home.H }}</span>
+                <span>{{ game.rhe.home.E }}</span>
+              </div>
+            </div>
           </div>
         </div>
         {% endfor %}
@@ -62,5 +62,9 @@
       <div class="no-games">當日無賽事或數據獲取失敗</div>
     {% endif %}
   </div>
+  <script>
+    window.pageDate = "{{ date }}";
+  </script>
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>
