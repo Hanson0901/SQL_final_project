@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <title>MLB 每日賽程 - {{ date }}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h1>MLB 每日賽程 - {{ date }}</h1>
+    <form method="POST">
+      <div class="date-picker">
+        <input type="number" name="year" placeholder="年份" min="2000" max="2100" required>
+        <input type="number" name="month" placeholder="月份" min="1" max="12" required>
+        <input type="number" name="day" placeholder="日期" min="1" max="31" required>
+        <button type="submit">查詢</button>
+      </div>
+    </form>
+    {% if games %}
+      <div class="scoreboards">
+        {% for game in games %}
+        <div class="scoreboard">
+          <div class="game-time">{{ game.time | truncate(4, True, '')  }}</div>
+            <div class="teams">
+                <div class = "rhe">
+                  <span>R</span>
+                  <span>H</span>
+                  <span>E</span>
+                </div>
+              <div class="team-row">
+                  <div class="team-info">
+                      <img  src ={{game.img[0]}} class="team-logo">
+                      <div>
+                          <div class="team-name">{{ game.teams[0] }}</div>
+                      </div>
+                  </div>
+
+                  <div class="rhe-row">
+                      <span><b>{{ game.rhe.away.R }}</b></span>
+                      <span>{{ game.rhe.away.H }}</span>
+                      <span>{{ game.rhe.away.E }}</span>
+                  </div>
+              </div>
+              <div class="team-row">
+                  <div class="team-info">
+                      <img  src ={{game.img[1]}} class="team-logo">
+                      <div>
+                          <div class="team-name">{{ game.teams[1] }}</div>
+                      </div>
+                  </div>
+                  <div class="rhe-row">
+                      <span><b>{{ game.rhe.home.R }}</b></span>
+                      <span>{{ game.rhe.home.H }}</span>
+                      <span>{{ game.rhe.home.E }}</span>
+                  </div>
+              </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    {% else %}
+      <div class="no-games">當日無賽事或數據獲取失敗</div>
+    {% endif %}
+  </div>
+</body>
+</html>
