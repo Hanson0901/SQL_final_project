@@ -3,7 +3,7 @@ from bs4 import BeautifulSoup
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.firefox.options import Options
 import json
 import datetime
 import os
@@ -13,9 +13,11 @@ def get_mlb_score(date):
 
     
 
-    chrome_options = Options()
-    chrome_options.add_argument("--headless=new")  # 推薦用這個
-    driver = webdriver.Chrome(options=chrome_options)
+
+
+    options = Options()
+    options.add_argument("--headless")
+    driver = webdriver.Firefox(options=options)
     #輸入年月日
     
 
