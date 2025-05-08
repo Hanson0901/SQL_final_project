@@ -12,7 +12,7 @@ function formatLocalTime(utcTimeString, offsetHours = -12) {
   
     const refreshInterval = setInterval(() => {
       console.log('定時刷新觸發:', new Date().toLocaleTimeString());
-      fetch(`/api/mlb_games?date=${today}&_=${Date.now()}`, {
+      fetch(`/finalpj/api/mlb_games?date=${today}&_=${Date.now()}`, {
         headers: { 'Cache-Control': 'no-cache' }
       })
         .then(response => {

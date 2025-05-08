@@ -5,7 +5,7 @@ from get_mlb_score import get_mlb_score
 
 app = Flask(__name__)
 
-@app.route('/finalpj', methods=['GET', 'POST'])
+@app.route('/finalpj/mlb', methods=['GET', 'POST'])
 def index():
     if request.method == 'POST':
         year = int(request.form['year'])
@@ -20,7 +20,7 @@ def index():
     return render_template('index.html', games=games, date=date_str)
 
 # 新增 API 路由
-@app.route('/api/mlb_games')
+@app.route('/finalpj/api/mlb_games')
 def api_games():
     date_str = request.args.get('date', datetime.date.today().strftime("%Y-%m-%d"))
     games = get_mlb_score(date_str)
