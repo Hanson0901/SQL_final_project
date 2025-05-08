@@ -5,7 +5,7 @@ from get_mlb_score import get_mlb_score
 
 app = Flask(__name__)
 
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/finalpj', methods=['GET', 'POST'])
 def index():
     if request.method == 'POST':
         year = int(request.form['year'])
