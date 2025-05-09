@@ -28,4 +28,8 @@ def api_games():
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0',debug=True)
+    context = (
+        "/etc/letsencrypt/live/cgusqlpj.ddns.net/fullchain.pem",
+        "/etc/letsencrypt/live/cgusqlpj.ddns.net/privkey.pem"
+    )
+    app.run(host='0.0.0.0',debug=True, ssl_context=context)
