@@ -93,7 +93,7 @@ function formatLocalTime(utcTimeString, offsetHours = -12) {
                 </div>
               </div>
               <div class="bag">
-                {{ game.bag|safe }}
+                ${ game.bag|safe }
               </div>
             </div>
           </div>
