@@ -93,12 +93,15 @@ function formatLocalTime(utcTimeString, offsetHours = -12) {
                 </div>
               </div>
               <div class="bag">
-                {{ game.bag|safe }}
               </div>
             </div>
           </div>
         `;
         container.insertAdjacentHTML('beforeend', gameHTML);
+        if (game.bag && game.bag.trim().length > 0 && !game.bag.includes('無每局比分資料')) {
+  // 正常插入
+        bagDiv.innerHTML = game.bag;
+        }
       });
     }
   })();
