@@ -29,7 +29,7 @@ def api_games():
 
 if __name__ == '__main__':
     context = (
-        "/home/cbes100070/pem/fullchain.pem",
-        "/home/cbes100070/pem/privkey.pem"
+        "/opt/lampp/etc/pem/fullchain.pem",
+        "/opt/lampp/etc/pem/privkey.pem"
     )
     app.run(host='0.0.0.0',debug=True, ssl_context=context)
