@@ -4,6 +4,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.chrome.options import Options
+from markupsafe import Markup
 import json
 import datetime
 import os
@@ -18,7 +19,7 @@ def get_mlb_score(date):
     driver = webdriver.Chrome(options=chrome_options)
     #輸入年月日
     
-
+    #url="C:/Users/cbes1/Desktop/MLB%20Scores_%20Scoreboard,%20Results%20and%20Highlights.mhtml"
     url=f"https://www.mlb.com/scores/{date}"
     driver.get(url)
 
@@ -38,6 +39,7 @@ def get_mlb_score(date):
             R=[]
             H=[]
             E=[]
+            bag=[]
             game_info = game.select("div[class^='TeamMatchupLayerstyle__InlineWrapper-sc'] div[data-test-id='teamRecordWrapper']")
             rhe_info = game.select("div[class^='GameInfoLayoutstyle__GameInfoWrapper-sc'] tbody tr")
             time_info_element = game.select_one("div[class*='StatusLayerstyle__StatusLayerValue']")
@@ -49,6 +51,11 @@ def get_mlb_score(date):
                 'away': {'R': "", 'H': "", 'E': ""},
                 'home': {'R': "", 'H': "", 'E': ""}
                 }
+            bag_info = game.select("[class*='inningStatestyle__StyledInningWrapper-sc']")if game.select("[class*='inningStatestyle__StyledInningWrapper-sc']") else ""
+            bag_html = ''.join(str(b) for b in bag_info)
+            bag_html = Markup(bag_html)
+
+            bag.append(bag_info)
             for team in game_info:
                 a_tag=team.find('a', attrs={'data-team-name': True})
                 team_name = a_tag['data-team-name']  # 直接取屬性值
@@ -73,7 +80,8 @@ def get_mlb_score(date):
                 'time': time_info,
                 'img': img,
                 'teams': teams,
-                'rhe': rhe_data
+                'rhe': rhe_data,
+                'bag':bag_html
                 })
         print(games)
         return games
