@@ -98,10 +98,30 @@ function formatLocalTime(utcTimeString, offsetHours = -12) {
           </div>
         `;
         container.insertAdjacentHTML('beforeend', gameHTML);
-        if (game.bag && game.bag.trim().length > 0 && !game.bag.includes('無每局比分資料')) {
-  // 正常插入
-        bagDiv.innerHTML = game.bag;
-        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+  // 選出所有 class="bag" 的元素
+  document.querySelectorAll('.bag').forEach(function(bagDiv) {
+    // 檢查是否有內容（去除空白後長度大於 0）
+    if (bagDiv.innerHTML.trim().length > 0) { // [4][7]
+      // 建立新的 div
+      var rheRow = document.createElement('div');
+      rheRow.className = 'bag-inner-space';
+      // 插入到 bagDiv 最前面
+      bagDiv.insertBefore(rheRow, bagDiv.firstChild); // [5][6]
+    }
+  });
+  document.querySelectorAll('.bag').forEach(function(bagDiv) {
+    // 檢查內容是否為空（去除空白後長度大於 0）
+    if (bagDiv.innerHTML.trim().length > 0) {
+      // 建立新的 div
+      var rheRow = document.createElement('div');
+      rheRow.className = 'bag-space';
+      // 將 rheRow 插入到 bagDiv 的前面（bag 的父元素下）
+      bagDiv.parentNode.insertBefore(rheRow, bagDiv);
+    }
+  });
+})
       });
     }
   })();
