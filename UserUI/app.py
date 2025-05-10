@@ -22,9 +22,9 @@ def result():
 def search():
     return render_template("search.html")
 
-@app.route("/recent_race")
-def recent_race():
-    return render_template("recent_race.html")
+@app.route("/recent_match")
+def recent_match():
+    return render_template("recent_match.html")
 
 
 #讀取比賽清單json 和 儲存預約資料 以 timestamp為單位
@@ -55,8 +55,6 @@ def archive_bookings():
     save_json(BOOKINGS_PATH, archive)
     return jsonify({"status": "saved"}), 200
 
-
-
 # ✅ 查詢某個 UID 的預約資料
 @app.route('/api/bookings/user/<uid>', methods=['GET'])
 def get_user_bookings(uid):
@@ -72,7 +70,6 @@ def save_user_bookings(uid):
     archive[uid] = user_data  # 覆蓋該使用者資料
     save_json(BOOKINGS_PATH, archive)
     return jsonify({"status": "saved"}), 200
-
 
 # ✅ 刪除某個 UID 的所有預約資料
 @app.route('/api/bookings/user/<uid>', methods=['DELETE'])

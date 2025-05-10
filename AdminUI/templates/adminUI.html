@@ -6,7 +6,7 @@
   <link rel = "stylesheet" href = "{{ url_for('static', filename = 'admin.css') }}">
   <title>管理者介面</title>
 </head>
-<body>
+<body data-page="UI">
   <header>
     <h1>🛠️ 管理員後台介面</h1>
   </header>
@@ -15,32 +15,32 @@
     <div class="btn-block">
       <h2>🧾 賽事資料管理操作區</h2>
       <p>進行對賽事資料的基本操作與檢視。</p>
-      <button onclick="goToSQL()">進入賽事資料管理區</button>
+      <button id="sqlBtn">進入賽事資料管理區</button>
     </div>
 
     <div class="btn-block">
       <h2>📢 公告與提醒管理</h2>
       <p>管理者可編輯並發佈系統公告，將內容透過 LINE 通知使用者，例如賽事延後、平台維護等。</p>
-      <button onclick="goToAnnouncements()">進入公告管理</button>
+      <button id="announcementsBtn">進入公告管理</button>
     </div>
 
     <div class="btn-block">
       <h2>💬 意見回饋 FeedBack 功能</h2>
       <p>查看並回應使用者意見。可標記處理狀態並透過 LINE 通知使用者。</p>
-      <button onclick="goToFeedback()">查看意見回饋</button>
+      <button id="feedbackBtn">查看意見回饋</button>
     </div>
 
     <div class="btn-block">
       <h2>📈 更新內容摘要顯示</h2>
       <p>顯示此次資料爬取成果，包括新增、結束或已更新的比賽。可選擇進一步更新或插入資料。</p>
-      <button onclick="goToUpdateSummary()">查看更新摘要</button>
+      <button id="updateSummaryBtn">查看更新摘要</button>
     </div>
 
     <div class="corner-buttons">
-      <button id = 'back-btn'onclick="history.back()">返回上一頁</button>
+      <button id = 'back-btn' onclick="history.back()">返回上一頁</button>
       <button id = 'refresh-btn' onclick="location.reload()">重新整理</button>
     </div>
   </div>
 </body>
-<script src = "{{ url_for('static', filename = 'admin.js') }}"></script>
+<script src = "{{ url_for('static', filename = 'script.js') }}"></script>
 </html>

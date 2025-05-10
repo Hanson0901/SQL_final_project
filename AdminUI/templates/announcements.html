@@ -8,7 +8,7 @@
     
   </style>
 </head>
-<body>
+<body data-page="announcement">
   <div class="announcement-container">
     <h2>📢 發佈公告</h2>
     <p>輸入要發送的公告內容（如：賽事延後、系統維護通知等）。</p>
@@ -17,16 +17,16 @@
     <br>
     <div class="button-group">
         <input type="text" id="authorInput" placeholder="輸入公告發布者（如：admin）">
-        <button type="button" onclick="submitAnnouncement()">發布公告</button>
+        <button id="PostBtn" type="button">發布公告</button>
       </div>
     <div id="announceStatus"></div>
     <button id = 'back_brn' onclick="history.back();">返回上一頁</button>
     <hr>
-    <h3 style="cursor: pointer;" onclick="toggleHistory()">📜 顯示 / 隱藏 歷史公告</h3>
+    <h3 id="ShowAndHideBtn" style="cursor: pointer;">📜 顯示 / 隱藏 歷史公告</h3>
     <div id="historyArea" style="display: none;"></div>
 
   </div>
 
-  <script src = "{{ url_for('static', filename = 'ans.js') }}"></script>
+  <script src = "{{ url_for('static', filename = 'script.js') }}"></script>
 </body>
 </html>

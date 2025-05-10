@@ -103,3 +103,9 @@ body {
     transition: background-color 0.2s;
     background-color:#A593E0;
   }
+
+  .dateinput{
+    width:350px;
+    height: 40px;
+    font-size: 18px;
+  }

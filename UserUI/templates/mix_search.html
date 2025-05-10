@@ -6,7 +6,7 @@
   <link rel="stylesheet" href="{{ url_for('static', filename='ms_styles.css') }}">
   <title>📚 綜合查詢</title>
 </head>
-<body>
+<body data-page="mix_search">
 
   <h1>📚 綜合查詢系統</h1>
 
@@ -26,12 +26,12 @@
 
     <!-- 查詢按鈕 -->
     <div class="button-wrapper">
-      <button onclick="searchComposite();resetForm();">查詢</button>
-      <button class="reset" onclick="resetForm()">重設</button>
+      <button id="SearchBtn">查詢</button>
+      <button id="ResetBtn" class="reset">重設</button>
     </div>
 
     <button class="backbtn" onclick = history.back();>返回上一頁</button>
   </div>
-  <script src="{{ url_for('static', filename='mix_search.js') }}"></script>
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>

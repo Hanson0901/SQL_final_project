@@ -6,23 +6,29 @@
   <link rel="stylesheet" href="{{ url_for('static', filename='login_style.css') }}">
   <title>運動賽事管理者介面</title>
 </head>
-<body>
+<body data-page="login">
   <header>
     <h1>🛠️ 管理者介面</h1>
   </header>
 
   <div class="login-container">
-    <h2>管理者登入</h2>
-    <form id="login-form" action="/login" method="POST">
-      <label for="username">帳號：</label>
-      <input type="text" id="username" name="username" required>
+    <div class="title" >
+      <h2 id="form-title">管理者登入</h2>
+      <button class="sign_in">Sign In</button>
+    </div>
+    
+    <div class="login-wrapper">
+      <form id="login-form" class="login-form" action="/login" method="POST">
+          <label for="username">帳號：</label>
+          <input type="text" id="username" name="username" required>
 
-      <label for="password">密碼：</label>
-      <input type="password" id="password" name="password" required>
+          <label for="password">密碼：</label>
+          <input type="password" id="password" name="password" required>
 
-      <input type="submit" value="登入">
-    </form>
+          <input id="submit-button" type="submit" value="登入">
+      </form>
+    </div>
   </div>
 </body>
-<script src="{{ url_for('static', filename='loginjs.js') }}"></script>
+<script src="{{ url_for('static', filename='script.js') }}"></script>
 </html>

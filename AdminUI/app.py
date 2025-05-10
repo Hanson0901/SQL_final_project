@@ -2,16 +2,15 @@ from flask import Flask, request, jsonify, redirect, url_for, render_template
 import json
 import os
 
-DATA_PATH = 'AdminUI/mock_data.json'
-
-def load_data():
-    if not os.path.exists(DATA_PATH):
+#管理員資料
+ADMIN_PATH = 'AdminUI/user.json'
+def load_admin_data():
+    if not os.path.exists(ADMIN_PATH):
         return []
-    with open(DATA_PATH, 'r', encoding='utf-8') as f:
+    with open(ADMIN_PATH, 'r', encoding='utf-8') as f:
         return json.load(f)
-
-def save_data(data):
-    with open(DATA_PATH, 'w', encoding='utf-8') as f:
+def save_admin_data(data):
+    with open(ADMIN_PATH, 'w', encoding='utf-8') as f:
         json.dump(data, f, indent=2, ensure_ascii=False)
 
 app = Flask(__name__)
@@ -20,17 +19,46 @@ app = Flask(__name__)
 def index():
     return render_template("login.html")
 
+#登入
 @app.route('/login', methods=['POST'])
 def login():
     data = request.get_json()
     username = data.get('username')
     password = data.get('password')
 
-    if username == 'admin' and password == '1234':
+    users = load_admin_data()  # 讀取 JSON 裡的帳密列表
+
+    # 在 users 裡找看看是否有符合的帳號密碼
+    matched = any(u.get('username') == username and u.get('password') == password for u in users)
+
+    if matched:
         return jsonify(success=True)
     else:
         return jsonify(success=False)
 
+#註冊
+@app.route('/register', methods=['POST'])
+def register():
+    data = request.get_json()
+    username = data.get('username')
+    password = data.get('password')
+
+    if not username or not password:
+        return jsonify(success=False, message='帳號和密碼不得為空')
+
+    users = load_admin_data()
+
+    # 檢查帳號是否已存在
+    if any(u.get('username') == username for u in users):
+        return jsonify(success=False, message='帳號已存在')
+
+    # 加入新使用者
+    users.append({'username': username, 'password': password})
+    save_admin_data(users)  
+
+    return jsonify(success=True, message='註冊成功')
+
+#主要功能介面
 @app.route('/control_panel')
 def dashboard():
     return render_template("adminUI.html")
@@ -53,14 +81,17 @@ def feedback():
 def update_summary():
     return render_template("update_summary.html")
 
-def load_data():
-    if not os.path.exists(DATA_PATH):
+
+#賽事資料
+MATCH_DATA_PATH = 'AdminUI/match_data.json'
+def load_match_data():
+    if not os.path.exists(MATCH_DATA_PATH):
         return []
-    with open(DATA_PATH, 'r', encoding='utf-8') as f:
+    with open(MATCH_DATA_PATH, 'r', encoding='utf-8') as f:
         return json.load(f)
 
-def save_data(data):
-    with open(DATA_PATH, 'w', encoding='utf-8') as f:
+def save_match_data(data):
+    with open(MATCH_DATA_PATH, 'w', encoding='utf-8') as f:
         json.dump(data, f, indent=2, ensure_ascii=False)
 
 
@@ -70,7 +101,7 @@ def search():
     keyword = request.args.get("keyword", "").strip().lower()
     if not keyword:
         return jsonify(matches=[])
-    db = load_data()
+    db = load_match_data()
     results = [m for m in db if keyword in m["match"].lower()]
     return jsonify(matches=results)
 
@@ -82,7 +113,7 @@ def add_many():
     if not new_matches:
         return jsonify(success=False, message="沒有資料可新增"), 400
 
-    db = load_data()
+    db = load_match_data()
     added = 0
 
     for m in new_matches:
@@ -93,12 +124,12 @@ def add_many():
         db.append(m)
         added += 1
 
-    save_data(db)
+    save_match_data(db)
     return jsonify(success=True, count=added)
 
 @app.route("/api/match/<int:id>")
 def get_match(id):
-    db = load_data()
+    db = load_match_data()
     match = next((m for m in db if m["id"] == id), None)
     if match:
         return jsonify(success=True, match=match)
@@ -107,7 +138,7 @@ def get_match(id):
 @app.route("/api/edit/<int:id>", methods=["POST"])
 def edit_match(id):
     data = request.json
-    db = load_data()
+    db = load_match_data()
     match = next((m for m in db if m["id"] == id), None)
     if not match:
         return jsonify(success=False, message="找不到比賽"), 404
@@ -118,20 +149,21 @@ def edit_match(id):
         "time": data.get("time", match["time"])
     })
 
-    save_data(db)
+    save_match_data(db)
     return jsonify(success=True)
 
 @app.route("/api/delete/<int:id>", methods=["DELETE"])
 def delete_match(id):
-    db = load_data()
+    db = load_match_data()
     new_db = [m for m in db if m["id"] != id]
     if len(new_db) == len(db):
         return jsonify(success=False, message="找不到比賽"), 404
 
-    save_data(new_db)
+    save_match_data(new_db)
     return jsonify(success=True)
 
 
+#公告處理
 ANNOUNCE_FILE = 'AdminUI/announcements.json'
 
 def load_announcements():

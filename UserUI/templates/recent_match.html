@@ -6,7 +6,7 @@
   <title>📆 近期比賽</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='c_styles.css') }}">
 </head>
-<body>
+<body data-page="recent_match">
   <h1>📆 近期比賽查詢</h1>
 
   <div class="clock-container">
@@ -14,9 +14,9 @@
   </div>
 
   <div class="calendar-controls">
-    <button onclick="prevMonth()">上個月</button>
+    <button id="PrevMonthBtn">上個月</button>
     <span id="current-month"></span>
-    <button onclick="nextMonth()">下個月</button>
+    <button id="NextMonthBtn">下個月</button>
   </div>
 
   <div id="calendar" class="calendar-grid"></div>
@@ -31,12 +31,12 @@
     <div id="booked-matches"></div>
 
     <div class="bottom_button">
-      <button onclick="clearAllBookings()" id="cancel">❌ 清除所有預約</button>
-      <button onclick="saveBookings()" id="save">💾 儲存預約資料</button>
+      <button id="cancel">❌ 清除所有預約</button>
+      <button id="save">💾 儲存預約資料</button>
     </div>
   </div>
   <button class="backbtn" onclick = history.back();>返回上一頁</button>
 </body>
-<script src="{{ url_for('static', filename='calendar.js') }}"></script>
+<script src="{{ url_for('static', filename='script.js') }}"></script>
 </html>
 

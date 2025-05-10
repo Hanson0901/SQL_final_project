@@ -6,7 +6,7 @@
   <link rel = "stylesheet" href = "{{ url_for('static', filename = 'sql.css') }}"
 </head>
 
-<body>
+<body data-page="sql">
   <header>
     <h1>賽事資料操作區</h1>
   </header>
@@ -16,7 +16,7 @@
         <h2>查詢比賽</h2>
         <p>輸入條件查詢比賽</p>
         <input type="text" id="searchInput" placeholder="輸入比賽關鍵字">
-        <button onclick="searchMatch()">查詢</button>
+        <button id="SearchBtn">查詢</button>
         <div id="searchResult" class="search-result" style="margin-top: 1rem;"></div>
     </div>
 
@@ -44,10 +44,10 @@
         
         <div class="btns">
             <div class="add-btn">
-                <button onclick="addRow();">增加一行</button>
+                <button id="AddBtn">增加一行</button>
             </div>
             <div class="right-btn">
-              <button onclick="submitAllMatches();">送出新增</button>
+              <button id="SendAddBtn">送出新增</button>
             </div>
           </div>
       
@@ -61,6 +61,6 @@
       
   </div>
 
-  <script src = "{{ url_for('static', filename = 'sql.js') }}"></script>
+  <script src = "{{ url_for('static', filename = 'script.js') }}"></script>
 </body>
 </html>

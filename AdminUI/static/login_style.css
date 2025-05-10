@@ -19,6 +19,13 @@
     text-align: center;
   }
 
+  .title{
+    display: flex;
+    align-items: center;
+    gap: 200px; /* 間距 */
+    text-align: center;
+  }
+
   nav {
     display: flex;
     justify-content: space-around;
@@ -65,7 +72,7 @@
 
   .login-container {
     max-width: 400px;
-    margin: 3rem auto;
+    margin: 50px auto;
     background-color: var(--color-2);
     padding: 2rem;
     border-radius: 10px;
@@ -98,7 +105,10 @@
     border: none;
     padding: 0.7rem;
     margin-top: 1.5rem;
-    width: 100%;
+    width:20%;               /* ✅ 可以讓它大一點，比如 50% */
+    display: block;           /* ✅ 變成區塊元素 */
+    margin-left: auto;        /* ✅ 自動置中 */
+    margin-right: auto;       /* ✅ 自動置中 */
     border-radius: 4px;
     font-size: 1rem;
     cursor: pointer;
