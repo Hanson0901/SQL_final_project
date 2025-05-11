@@ -84,16 +84,6 @@ h1 {
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
 
-.booking-card button {
-  margin-top: 8px;
-  background-color: #566270;
-  color: #fff;
-  padding: 6px 12px;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-}
-
 .booking-card button:hover {
   background-color: #3c424d;
 }
@@ -117,6 +107,7 @@ h1 {
   background-color: #A593E0;
   color: white;
 }
+
 .match-card:disabled {
   background-color: #ccc;
   cursor: not-allowed;
@@ -130,11 +121,6 @@ h1 {
   margin-bottom: 20px;
 }
 
-/* .calendar-grid > div.past {
-  background-color: #e0e0e0;
-  color: #888;
-  cursor: not-allowed;
-} */
 .calendar-grid {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
@@ -159,7 +145,7 @@ h1 {
   background-color: #e0e0e0;
   color: #777;
   cursor: not-allowed;
-  pointer-events: auto; /* 可點擊 alert */
+  pointer-events: auto;
 }
 
 .calendar-controls button {
@@ -242,16 +228,16 @@ button.match-box .disabled {
 .booking-card {
   display: flex;
   justify-content: space-between;
-  align-items: center; /* ✅ 垂直置中 */
-  padding: 12px;
-  margin-bottom: 10px;
-  background-color: #e8ebe8;
+  align-items: center;
+  padding: 0.5em;
+  background-color: #e8ebea;
   border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  margin: 0.5em 0;
+  margin-bottom: 5%;
 }
 
-.booking-card .card-content {
-  flex: 1;
+.card-content {
+  flex-grow: 1;
 }
 
 .booking-card button {
@@ -264,14 +250,19 @@ button.match-box .disabled {
   cursor: pointer;
   display: flex;
   align-items: center; /* ✅ 讓按鈕圖示與文字垂直置中 */
-}
+} 
+
 
 .booking-card button:hover {
   background-color: #555;
 }
 
-.backbtn {
-  position: absolute;
+.backbtn{
+  display: flex;
+  justify-content: center;
+}
+
+.backbtn button{
   right: 5px;
   padding: 8px 16px;
   color: #ffffff;

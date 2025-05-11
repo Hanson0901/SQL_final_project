@@ -120,7 +120,7 @@ if(page === "door"){
     
 }else if(page === "recent_match"){
     //UID
-    let uid = "22222222222"; // ⚠️ 你可以從登入系統或 LINE 傳來
+    let uid = "22222222222";
 
     const calendarEl = document.getElementById("calendar");
     const currentMonthEl = document.getElementById("current-month");
@@ -132,7 +132,9 @@ if(page === "door"){
     let currentMonth = today.getMonth();
 
     let matchData = {};
-    let bookingData = {};
+    let existingBookings = {};
+    let deletedBookings = [];
+    let pendingBookings = {};
 
     const weekdayNames = ["日", "一", "二", "三", "四", "五", "六"];
 
@@ -142,7 +144,7 @@ if(page === "door"){
 
     async function loadBookings() {
         const res = await fetch(`/api/bookings/user/${uid}`);
-        bookingData = await res.json();  // ⚠️ bookingData 就會是多筆的
+        existingBookings = await res.json(); 
         displayBookedMatches();
     }
 
@@ -157,6 +159,171 @@ if(page === "door"){
         }
     }
 
+    function isBooked(dateStr, matchName) {
+        const data = existingBookings[dateStr] || [];
+        return data.some(m => m.name === matchName);
+    }
+
+    function displayBookedMatches() {
+        const bookedEl = document.getElementById("booked-matches");
+        if (!bookedEl) return;
+        bookedEl.innerHTML = "";
+
+        bookedEl.innerHTML += `<h3>🆕 剛新增</h3>`;
+        for (let date in pendingBookings) {
+            for (let match of pendingBookings[date]) {
+                bookedEl.appendChild(createBookingCard(date, match, true));
+            }
+        }
+
+        bookedEl.innerHTML += `<h3>✅ 已預約</h3>`;
+        for (let date in existingBookings) {
+            for (let match of existingBookings[date]) {
+                bookedEl.appendChild(createBookingCard(date, match, false));
+            }
+        }
+
+        const total =
+            Object.values(existingBookings).reduce((sum, arr) => sum + arr.length, 0) +
+            Object.values(pendingBookings).reduce((sum, arr) => sum + arr.length, 0);
+        document.getElementById("booking-count").textContent = `已預約 + 新增 ${total} 場比賽`;
+    }
+
+    function createBookingCard(date, match, isNew) {
+        const card = document.createElement("div");
+        card.className = "booking-card";
+
+        const content = document.createElement("div");
+        content.className = "card-content";
+        const bookedTime = match.booked_at ? new Date(match.booked_at).toLocaleString() : "未知時間";
+
+        content.innerHTML = `
+            🏟️ ${match.name}<br>
+            📅 <strong>${date}</strong> - 🕒 ${match.time}<br>
+            📺 平台：${match.platform}<br>
+            📆 預約時間：${bookedTime}<br>
+        `;
+
+        const cancelBtn = document.createElement("button");
+        cancelBtn.textContent = "X";
+        cancelBtn.dataset.date = date;
+        cancelBtn.dataset.name = match.name;
+        cancelBtn.dataset.time = match.time;
+        cancelBtn.dataset.isNew = isNew;
+
+        card.appendChild(content);
+        card.appendChild(cancelBtn);
+        return card;
+    }
+
+    document.getElementById("booked-matches").addEventListener("click", function (e) {
+        if (e.target.tagName === "BUTTON" && e.target.textContent === "X") {
+            const { date, name, time, isNew } = e.target.dataset;
+            const target = isNew === "true" ? pendingBookings : existingBookings;
+
+            if (!target[date]) return;
+
+            const idx = target[date].findIndex(m => m.name === name && m.time === time);
+            if (idx !== -1) {
+                const removed = target[date].splice(idx, 1)[0];
+                if (target[date].length === 0) delete target[date];
+                deletedBookings.push({ date, match: removed, isNew: isNew === "true" });
+            }
+
+            displayBookedMatches();
+            refreshSelectedDate(date);
+        }
+    });
+
+    function isAlreadySelected(dateStr, matchObj) {
+        const check = list => (list[dateStr] || []).some(m => m.name === matchObj.name && m.time === matchObj.time);
+        return check(existingBookings) || check(pendingBookings);
+    }
+
+    function selectDate(dateStr, cell) {
+        document.querySelectorAll(".calendar-grid .selected").forEach(el => el.classList.remove("selected"));
+        cell.classList.add("selected");
+
+        selectedDateEl.textContent = `📅 ${dateStr} 的比賽`;
+        matchListEl.innerHTML = "";
+
+        const matches = matchData[dateStr];
+        if (matches) {
+        let hasVisible = false;
+
+        matches.forEach((matchObj) => {
+            const matchDateTime = new Date(`${dateStr}T${matchObj.time}:00`);
+            const now = new Date();
+            const diffMinutes = (matchDateTime - now) / (1000 * 60);
+
+            if (isAlreadySelected(dateStr, matchObj)) return;  // 已選擇就跳過
+
+            hasVisible = true; // 有比賽可以顯示
+
+            const btn = document.createElement("button");
+            btn.className = "match-card";
+            btn.textContent = `🏟️ ${matchObj.name} 🕒 ${matchObj.time}`;
+
+            if (diffMinutes < 30) {
+                btn.classList.add("disabled");
+                btn.addEventListener("click", () => {
+                alert(`⛔ 此比賽已過或即將開始，無法預約。\n🏟️ ${matchObj.name}\n📅 ${dateStr}\n🕒 ${matchObj.time}`);
+            });
+            } else {
+            btn.addEventListener("click", async () => {
+                console.log('selected');
+                if (!pendingBookings[dateStr]) pendingBookings[dateStr] = [];
+                const now = new Date();
+                pendingBookings[dateStr].push({ ...matchObj, booked_at: now.toISOString() });
+                displayBookedMatches();
+                btn.remove();
+
+                // ✅ 檢查是否所有比賽都被選完
+                const remaining = matchData[dateStr].filter(m => !isAlreadySelected(dateStr, m));
+                if (remaining.length === 0) {
+                    matchListEl.innerHTML = "<li>✅ 今天的比賽都已預約或選擇完畢！</li>";
+                }
+            });
+            }
+
+            matchListEl.appendChild(btn);
+        });
+
+        // 若全部比賽都已選擇，顯示提示
+        if(!hasVisible) {
+            matchListEl.innerHTML = "<li>✅ 今天的比賽都已預約或選擇完畢！</li>";
+            displayBookedMatches();
+        }
+
+        }else{
+            matchListEl.innerHTML = "<li>❌ 沒有比賽資訊</li>";
+        }
+
+    }
+
+    function refreshSelectedDate(dateOverride) {
+        const selectedDayCell = document.querySelector(".calendar-grid .selected");
+
+        if (dateOverride) {
+            // 傳入的是完整的 date 字串：2025-05-12
+            const [y, m, d] = dateOverride.split("-");
+            const selectedKey = `${y}-${String(m).padStart(2, "0")}-${String(d).padStart(2, "0")}`;
+            const allCells = document.querySelectorAll(".calendar-grid div");
+
+            // 嘗試找對應的 cell 並選起來
+            for (let cell of allCells) {
+            if (cell.textContent.padStart(2, "0") === d) {
+                selectDate(selectedKey, cell);
+                break;
+            }
+            }
+        } else if (selectedDayCell) {
+            const selectedDate = selectedDayCell.textContent.padStart(2, "0");
+            const today = new Date();
+            const selectedKey = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, "0")}-${selectedDate}`;
+            selectDate(selectedKey, selectedDayCell);
+        }
+    }
 
     function renderCalendar(year, month) {
         calendarEl.innerHTML = "";
@@ -211,190 +378,62 @@ if(page === "door"){
         }
     }
 
-    function isBooked(dateStr, matchName) {
-        if (!bookingData[dateStr]) return false;
-        return bookingData[dateStr].some(m => m.name === matchName);
-    }
-
-    function displayBookedMatches() {
-        const bookedEl = document.getElementById("booked-matches");
-        if (!bookedEl) return;
-
-        
-        const count = Object.values(bookingData).reduce((sum, arr) => sum + arr.length, 0);
-        document.getElementById("booking-count").textContent = `✅ 已預約 ${count} 場比賽`;
-
-        bookedEl.innerHTML = "";
-
-        for (let date in bookingData) {
-            for (let match of bookingData[date]) {
-            // const key = `${date}-${match.name}`;
-            const card = document.createElement("div");
-            card.className = "booking-card";
-            
-            const content = document.createElement("div");
-            content.className = "card-content";
-
-            const bookedTime = match.booked_at
-            ? new Date(match.booked_at).toLocaleString()
-            : "未知時間";
-
-            content.innerHTML = `
-                🏟️ ${match.name}<br>
-                📅 <strong>${date}</strong> - 🕒 ${match.time}<br>
-                📺 平台：${match.platform}<br>
-                📆 預約時間：${bookedTime}<br>
-            `;
-            
-            const cancelBtn = document.createElement("button");
-            cancelBtn.textContent = "❌ 取消預約";
-            cancelBtn.onclick = () => {
-                bookingData[date] = bookingData[date].filter(m => m.name !== match.name);
-                if (bookingData[date].length === 0) delete bookingData[date];
-                displayBookedMatches();
-                refreshSelectedDate();
-            };
-            
-            card.appendChild(content);
-            card.appendChild(cancelBtn);
-            bookedEl.appendChild(card);
-            }
-        }
-
-        if (!bookedEl.innerHTML) {
-            bookedEl.innerHTML = "<p>目前沒有已預約的比賽</p>";
-        }
-    }
-
-
-    function selectDate(dateStr, cell) {
-        document.querySelectorAll(".calendar-grid .selected").forEach(el => el.classList.remove("selected"));
-        cell.classList.add("selected");
-
-        selectedDateEl.textContent = `📅 ${dateStr} 的比賽`;
-        matchListEl.innerHTML = "";
-
-        const matches = matchData[dateStr];
-        if (matches) {
-            matches.forEach((matchObj, index) => {
-            const matchKey = `${dateStr}-match-${index}`;
-            const matchDateTime = new Date(`${dateStr}T${matchObj.time}:00`);
-            const now = new Date();
-            const diffMinutes = (matchDateTime - now) / (1000 * 60);
-
-            // if (isBooked(matchKey)) return;
-            if (isBooked(dateStr, matchObj.name)) return;
-
-
-            const btn = document.createElement("button");
-            btn.className = "match-card";
-            btn.textContent = `🏟️ ${matchObj.name} 🕒 ${matchObj.time}`;
-
-            if (diffMinutes < 30) {
-                btn.classList.add("disabled");
-                btn.addEventListener("click", () => {
-                alert(`
-                    （⛔ 此比賽已過或即將開始，無法預約）
-                    🏟️ ${matchObj.name}
-                    📅 ${dateStr}
-                    🕒 ${matchObj.time}
-                    📺 平台：${matchObj.platform}
-                    🎯 比分：${matchObj.point}`.trim());
-                });
-            } else {
-                btn.addEventListener("click", async () => {
-                if (!bookingData[dateStr]) {
-                    bookingData[dateStr] = [];
-                }
-                const now = new Date();
-                const matchWithTime = {
-                    ...matchObj,
-                    booked_at: now.toISOString()  // ✅ 存下預約當下時間
-                };
-
-                bookingData[dateStr].push(matchWithTime);
-                displayBookedMatches();     // 更新下方列表
-                btn.remove();               // 拿掉上方按鈕
-                });
-            }
-
-            matchListEl.appendChild(btn);
-            });
-        } else {
-            matchListEl.innerHTML = "<li>沒有比賽資訊</li>";
-        }
-    }
-
-    function refreshSelectedDate() {
-        const selectedDayCell = document.querySelector(".calendar-grid .selected");
-        if (selectedDayCell) {
-            const selectedDate = selectedDayCell.textContent.padStart(2, "0");
-            const selectedKey = `${currentYear}-${String(currentMonth + 1).padStart(2, "0")}-${selectedDate}`;
-            selectDate(selectedKey, selectedDayCell);
-        }
-    }
-
-    function addBookedCard(key) {
-        const bookedEl = document.getElementById("booked-matches");
-        const [date, index] = key.split("-match-");
-        const matchObj = matchData[date]?.[index];
-        if (!matchObj) return;
-
-        const card = document.createElement("div");
-        card.className = "booking-card";
-        card.id = "booked-" + key;
-
-        const title = document.createElement("div");
-        title.innerHTML = `
-            📅 <strong>${date}</strong> - 🕒 ${matchObj.time}<br>
-            🏟️ ${matchObj.name}<br>
-            📺 平台：${matchObj.platform}<br>
-            🎯 比分：${matchObj.point}
-        `;
-
-        const cancelBtn = document.createElement("button");
-        cancelBtn.textContent = "❌ 取消預約";
-        cancelBtn.onclick = async () => {
-            await fetch(`/api/bookings/${key}`, { method: 'DELETE' });
-            delete bookingData[key];
-            card.remove();
-            refreshSelectedDate();
-            displayBookedMatches();
-        };
-
-        card.appendChild(title);
-        card.appendChild(cancelBtn);
-        bookedEl.appendChild(card);
+    function addPendingBooking(dateStr, matchObj) {
+        if (!pendingBookings[dateStr]) pendingBookings[dateStr] = [];
+        const now = new Date();
+        pendingBookings[dateStr].push({
+            ...matchObj,
+            booked_at: now.toISOString()
+        });
+        displayBookedMatches();
     }
 
     async function clearAllBookings() {
+        if (Object.keys(pendingBookings).length + Object.keys(existingBookings).length === 0) {
+            alert("⚠️ 沒有新增預約可刪除！");
+            return;
+        }
         if (confirm("確定要清除所有預約嗎？")) {
             await fetch(`/api/bookings/user/${uid}`, { method: 'DELETE' });
             bookingData = {};
             alert("所有預約已清除！");
-            displayBookedMatches();
-            refreshSelectedDate();
         }
+        displayBookedMatches();
+        loadMatchData();
     }
 
     async function saveBookings() {
-        if (Object.keys(bookingData).length === 0) {
-            alert("⚠️ 沒有預約資料可儲存！");
+        if (Object.keys(pendingBookings).length === 0 && deletedBookings.length === 0) {
+            alert("⚠️ 沒有新增或刪除的預約可儲存！");
             return;
         }
 
-        //原本是timestamp當獨立ID
-        // const timestamp = Date.now().toString();
+        const merged = structuredClone(existingBookings);
+
+        for (let date in pendingBookings) {
+            if (!merged[date]) merged[date] = [];
+            merged[date] = merged[date].concat(pendingBookings[date]);
+        }
+
+        for (let { date, match } of deletedBookings) {
+            if (!merged[date]) continue;
+            merged[date] = merged[date].filter(m => !(m.name === match.name && m.time === match.time));
+            if (merged[date].length === 0) delete merged[date];
+        }
 
         const res = await fetch(`/api/bookings/user/${uid}`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(bookingData)
+            body: JSON.stringify(merged)
         });
 
         if (res.ok) {
-            const total = Object.values(bookingData).reduce((sum, arr) => sum + arr.length, 0);
-            alert(`✅ 已儲存 ${total} 筆預約資料，ID：${uid}`);
+            const total = Object.values(merged).reduce((sum, arr) => sum + arr.length, 0);
+            alert(`✅ 已儲存 ${total} 筆預約資料！`);
+            pendingBookings = {};
+            deletedBookings = [];
+            existingBookings = merged;
+            displayBookedMatches();
         } else {
             alert("❌ 儲存失敗！");
         }
@@ -404,7 +443,7 @@ if(page === "door"){
         const res = await fetch(`/api/bookings/user/${uid}`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(bookingData)  // ✅ 傳整包
+            body: JSON.stringify(bookingData)
         });
 
         if (res.ok) {
@@ -445,11 +484,10 @@ if(page === "door"){
     updateClock();
     setInterval(updateClock, 1000);
 
-    loadMatchData();  // ⬅️ 主入口
+    loadMatchData();
 
     document.getElementById('PrevMonthBtn').addEventListener('click', prevMonth);
     document.getElementById('NextMonthBtn').addEventListener('click', nextMonth);
     document.getElementById('save').addEventListener('click', saveBookings);
     document.getElementById('cancel').addEventListener('click', clearAllBookings);
-
 }

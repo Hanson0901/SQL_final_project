@@ -1,7 +1,9 @@
-from flask import Flask, request, jsonify, redirect, url_for, render_template
+from flask import Flask, request, jsonify, redirect, url_for, render_template, session
 import json
 import os
 
+app = Flask(__name__)
+app.secret_key = "yuuuuuuuriz"
 #管理員資料
 ADMIN_PATH = 'AdminUI/user.json'
 def load_admin_data():
@@ -13,7 +15,7 @@ def save_admin_data(data):
     with open(ADMIN_PATH, 'w', encoding='utf-8') as f:
         json.dump(data, f, indent=2, ensure_ascii=False)
 
-app = Flask(__name__)
+
 
 @app.route('/')
 def index():
@@ -32,6 +34,7 @@ def login():
     matched = any(u.get('username') == username and u.get('password') == password for u in users)
 
     if matched:
+        session['username'] = username
         return jsonify(success=True)
     else:
         return jsonify(success=False)
@@ -71,11 +74,17 @@ def sql_area():
 
 @app.route('/announcements')
 def announcements():
-    return render_template("announcements.html")
+    username = session.get('username')
+    if not username:
+        return redirect(url_for('index'))
+    return render_template("announcements.html", username=username)
 
 @app.route('/feedback')
 def feedback():
-    return render_template("feedback.html")
+    username = session.get('username')
+    if not username:
+        return redirect(url_for('index'))
+    return render_template("feedback.html", username=username)
 
 @app.route('/update-summary')
 def update_summary():
@@ -214,6 +223,98 @@ def delete_announcement(timestamp):
 
     save_announcements(new_announcements)
     return jsonify(success=True)
+
+#意見回饋區
+
+FEEDBACK_PATH = "AdminUI/feedback.json"
+
+# 載入 JSON 檔
+def load_feedback():
+    if not os.path.exists(FEEDBACK_PATH):
+        return {}
+    with open(FEEDBACK_PATH, 'r', encoding='utf-8') as f:
+        return json.load(f)
+
+# 儲存 JSON 檔
+def save_feedback(data):
+    with open(FEEDBACK_PATH, 'w', encoding='utf-8') as f:
+        json.dump(data, f, indent=2, ensure_ascii=False)
+
+
+# ✅ 接收新的 feedback
+@app.route('/api/feedback', methods=['POST'])
+def submit_feedback():
+    data = request.get_json()
+
+    uid = data.get('uid')
+    date = data.get('date')
+    fb_type = data.get('type')
+    time = data.get('time')
+    feedback_content = data.get('feedback')
+
+    if not all([uid, date, fb_type, time, feedback_content]):
+        return jsonify(success=False, message='缺少必要欄位')
+
+    # 讀取現有資料
+    feedback_data = load_feedback()
+
+    # 如果這個 UID 還沒出現過，就創一個
+    if uid not in feedback_data:
+        feedback_data[uid] = {}
+
+    # 新增/更新這個日期的回饋
+    feedback_data[uid][date] = {
+        'type': fb_type,
+        'time': time,
+        'feedback': feedback_content,
+        'status': '未處理'  # 新增時預設是未處理
+    }
+
+    # 存回去
+    save_feedback(feedback_data)
+
+    return jsonify(success=True, message='已收到回饋！')
+
+#讀取所有Feedback
+@app.route('/api/feedback/all', methods=['GET'])
+def get_all_feedback():
+    feedback_data = load_feedback()
+    return jsonify(feedback_data)
+
+@app.route('/api/feedback/<uid>/<date>', methods=['POST'])
+def update_feedback(uid, date):
+    data = request.get_json()
+    feedback_data = load_feedback()
+
+    if uid not in feedback_data or date not in feedback_data[uid]:
+        return jsonify(success=False, message='找不到指定的回饋')
+
+    fb = feedback_data[uid][date]
+
+    # 支援認領（admin + 處理中）
+    if 'admin' in data and ('status' not in data or data['status'] == '處理中'):
+        fb['admin'] = data['admin']
+        fb['status'] = '處理中'
+        save_feedback(feedback_data)
+        return jsonify(success=True, message='已認領')
+
+    # 正常狀態更新
+    fb['status'] = data.get('status', fb['status'])
+    fb['admin'] = data.get('admin', fb.get('admin', ''))
+    fb['reply_date'] = data.get('reply_date', fb.get('reply_date', ''))
+    fb['reply_time'] = data.get('reply_time', fb.get('reply_time', ''))
+    fb['reason'] = data.get('reason', fb.get('reason', ''))
+
+    # 若狀態為「已處理」或「不採納」自動補上 reply 欄位（供前端顯示）
+    if fb['status'] in ['已處理', '不採納']:
+        fb['reply'] = fb['reason']
+    elif 'reply' in fb:
+        del fb['reply']  # 其他狀態則移除 reply 欄位避免干擾
+
+    save_feedback(feedback_data)
+    return jsonify(success=True, message='資料已更新')
+
+
 
 if __name__ == "__main__":
     app.run(port = 5050, host='0.0.0.0', debug=True)

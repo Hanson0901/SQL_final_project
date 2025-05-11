@@ -45,7 +45,7 @@
     background-color: var(--color-1);
     color: white;
     border: none;
-    padding: 0.6rem 1.2rem;
+    padding: 0.3rem 0.6rem;
     border-radius: 8px;
     font-size: 1rem;
     cursor: pointer;
@@ -94,4 +94,66 @@
     color: var(--color-4);
     font-size: 0.9rem;
   }
+
+  #historyArea {
+    transition: all 0.3s ease;
+  }
+
+  .center-btn {
+    display: flex;
+    justify-content: center;
+  }
+
+  #back_btn{
+    margin: 2.2rem auto 0 auto;
+  }
   
+  @media (max-width: 768px) {
+  body {
+    padding: 1rem;
+  }
+
+  .announcement-container {
+    padding: 1rem;
+    text-align: center;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  textarea {
+    width: 85%;
+    font-size: 1rem;
+  }
+
+  #authorInput {
+    width: 100%;
+    font-size: 1rem;
+  }
+
+  button {
+    width: 45%;
+    justify-content: center;
+    margin: 0.5rem auto 0 auto;
+  }
+
+  .button-group {
+    flex-direction: column;
+    position: static;
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+
+  .announcement {
+    font-size: 1rem;
+  }
+
+  .meta {
+    font-size: 0.85rem;
+  }
+
+  #back_btn{
+    margin: 2.2rem auto 0 auto;
+  }
+}

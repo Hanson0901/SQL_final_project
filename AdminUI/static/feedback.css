@@ -1,0 +1,190 @@
+:root {
+    --color-1: #D3A28B;
+    --color-2: #FCDDDD;
+    --color-3: #4A4040;
+    --color-4: #9C8282;
+}
+
+body {
+    background-color: var(--color-2);
+    font-family: Arial, sans-serif;
+    color: var(--color-3);
+    margin: 0;
+    padding: 2rem;
+}
+
+.section-title{
+    background-color: var(--color-2);
+    height: 30px;
+}
+
+.feedback-container {
+    max-width: 800px;
+    margin: auto;
+    background-color: white;
+    border: 2px solid var(--color-1);
+    border-radius: 8px;
+    padding: 2rem;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.feedback-container h1 {
+    color: var(--color-3);
+    text-align: center;
+}
+
+.description {
+    background-color: var(--color-2);
+    padding: 1rem;
+    border-radius: 8px;
+    border-left: 5px solid var(--color-1);
+    margin-bottom: 2rem;
+    line-height: 1.5;
+}
+
+.feedback-list {
+    background-color: white;
+    display: none;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 0;
+    margin: 0;
+    transition: max-height 0.4s ease;
+}
+
+
+.feedback-content {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: var(--color-3);
+}
+
+.status {
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+    color: var(--color-4);
+}
+
+.status-text {
+    font-weight: bold;
+}
+
+.status-text.done {
+    color: green;
+}
+
+.status-text.processing {
+    color: rgb(0, 153, 255);
+}
+
+.status-text.unprocessed {
+    color: orange;
+}
+
+.status-text.rejected {
+    color: red;
+}
+
+.reply-textarea {
+    width: 90%;
+    height: 80px;
+    border: 1px solid var(--color-4);
+    border-radius: 4px;
+    padding: 0.5rem;
+    margin-top: 5%;
+    margin-bottom: 0.8rem;
+    resize: vertical;
+    font-size: 0.95rem;
+}
+
+.btn-group {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.status-btn, .reply-btn {
+    background-color: var(--color-1);
+    color: white;
+    border: none;
+    padding: 0.3rem 0.75rem;
+    border-radius: 8px;
+    margin-right: 3%;
+    margin-left: 2%;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.2s;
+}
+.claim-btn{
+    background-color: var(--color-1);
+    color: white;
+    border: none;
+    padding: 0.3rem 0.75rem;
+    border-radius: 8px;
+    margin-right: 3%;
+    margin-left: 75%;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.2s;
+}
+
+.status-btn:hover, .reply-btn:hover {
+    background-color: var(--color-4);
+}
+
+.feedback-section {
+    margin-bottom: 2rem;
+    cursor: pointer;
+    border-radius: 6px;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    border-left: 5px solid var(--color-1);
+    padding-left: 0.5rem;
+    border-radius: 8px;
+    color: var(--color-3);
+}
+
+.feedback-card {
+    background-color: var(--color-2);
+    border: 1px solid var(--color-1);
+    border-radius: 8px;
+    padding: 0.8rem;
+    margin-bottom: 0.8rem;
+    transition: box-shadow 0.2s;
+}
+
+.feedback-card:hover {
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+}
+
+.feedback-title {
+    font-weight: bold;
+    /* color: var(--color-3); */
+}
+
+.feedback-detail {
+    margin-top: 0.8rem;
+    padding-left: 1rem;
+    border-left: 3px solid var(--color-1);
+    background-color: var(--color-2);
+}
+
+.backbtn{
+    display: flex;
+    background-color: var(--color-1);
+    color: white;
+    border: none;
+    padding: 0.3rem 0.6rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    margin: auto;
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

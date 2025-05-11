@@ -23,9 +23,8 @@
 
   <div id="matchInfo" class="match-info-box">
     <h2 id="selected-date">請點選日期</h2>
-    <ul id="match-list"></ul>
-
     
+    <ul id="match-list"></ul>
 
     <h3>📋 我的預約清單</h3><p id="booking-count"></p>
     <div id="booked-matches"></div>
@@ -35,7 +34,10 @@
       <button id="save">💾 儲存預約資料</button>
     </div>
   </div>
-  <button class="backbtn" onclick = history.back();>返回上一頁</button>
+  <div class="backbtn">
+    <button onclick = history.back();>返回上一頁</button>
+  </div>
+  
 </body>
 <script src="{{ url_for('static', filename='script.js') }}"></script>
 </html>

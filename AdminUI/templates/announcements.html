@@ -2,31 +2,31 @@
 <html lang="zh-Hant">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>📢 公告與提醒管理</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='ans.css') }}">
   <style>
     
   </style>
 </head>
-<body data-page="announcement">
+<body data-page="announcement" data-username="{{ username }}">
   <div class="announcement-container">
     <h2>📢 發佈公告</h2>
     <p>輸入要發送的公告內容（如：賽事延後、系統維護通知等）。</p>
     <p>🗓️ 發布日期：<span id="announceDate"></span></p>
     <textarea id="announcementInput" placeholder="例如：因天候因素，5/22 台灣 vs 日本 延後至 5/24 舉行"></textarea>
     <br>
-    <div class="button-group">
-        <input type="text" id="authorInput" placeholder="輸入公告發布者（如：admin）">
-        <button id="PostBtn" type="button">發布公告</button>
-      </div>
+    <div class="center-btn">
+      <button id="PostBtn" type="button">發布公告</button>
+    </div>
     <div id="announceStatus"></div>
-    <button id = 'back_brn' onclick="history.back();">返回上一頁</button>
+    
     <hr>
     <h3 id="ShowAndHideBtn" style="cursor: pointer;">📜 顯示 / 隱藏 歷史公告</h3>
     <div id="historyArea" style="display: none;"></div>
 
   </div>
-
-  <script src = "{{ url_for('static', filename = 'script.js') }}"></script>
+  <button id = 'back_btn' onclick="history.back();">返回上一頁</button>
 </body>
+<script src = "{{ url_for('static', filename = 'script.js') }}"></script>
 </html>

@@ -7,47 +7,50 @@
   <title>比賽查詢系統</title>
 </head>
 <body data-page="search">
+  <div class = "container">
+    <h1>🔍 查詢比賽</h1>
 
-  <h1>🔍 查詢比賽</h1>
+    <!-- 運動選擇 -->
+    <div class="form-card">
+      <label for="sport">✅ 選擇運動類型 (必選)</label>
+      <select id="sport">
+        <option value="badminton">羽毛球</option>
+        <option value="basketball">籃球</option>
+        <option value="F1">F1</option>
+        <option value="volleyball">排球</option>
+        <option value="MLB">MLB (美國職業棒球大聯盟)</option>
+        <option value="CPBL">CPBL (中華職棒)</option>
+      </select>
 
-  <!-- 運動選擇 -->
-  <div class="form-card">
-    <label for="sport">✅ 選擇運動類型 (必選)</label>
-    <select id="sport">
-      <option value="badminton">羽毛球</option>
-      <option value="basketball">籃球</option>
-      <option value="F1">F1</option>
-      <option value="volleyball">排球</option>
-      <option value="MLB">MLB (美國職業棒球大聯盟)</option>
-      <option value="CPBL">CPBL (中華職棒)</option>
-    </select>
+      <!-- 選手輸入欄 -->
+      <label for="player">👤 輸入選手／球員名稱（可選）</label>
+      <input type="text" id="player" placeholder="例如：戴資穎, Stephen Curry">
 
-    <!-- 選手輸入欄 -->
-    <label for="player">👤 輸入選手／球員名稱（可選）</label>
-    <input type="text" id="player" placeholder="例如：戴資穎, Stephen Curry">
+      <!-- 選擇日期 -->
+      <label for="date">📅 選擇日期</label>
+      <br>
+      <input class="dateinput" type="date" id = "date" name = "match-date">
+      <br>
 
-    <!-- 選擇日期 -->
-    <label for="date">📅 選擇日期</label>
-    <br>
-    <input class="dateinput" type="date" id = "date" name = "match-date">
-    <br>
+      <!-- 時間篩選 -->
+      <label for="start-time">🕒 起始時間（可選）</label>
+      <select id="start-time"></select>
 
-    <!-- 時間篩選 -->
-    <label for="start-time">🕒 起始時間（可選）</label>
-    <select id="start-time"></select>
+      <label for="end-time">🕒 結束時間（可選）</label>
+      <select id="end-time"></select>
 
-    <label for="end-time">🕒 結束時間（可選）</label>
-    <select id="end-time"></select>
+    </div>
+
+    <!-- 查詢按鈕 -->
+    <div class="button-wrapper">
+      <button id="SearchBtn">查詢比賽</button>
+      <button id="ResetBtn" class="reset">重設</button>
+    </div>
 
   </div>
-
-  <!-- 查詢按鈕 -->
-  <div class="button-wrapper">
-    <button id="SearchBtn">查詢比賽</button>
-    <button id="ResetBtn" class="reset">重設</button>
+  <div >
+    <button class="backbtn" onclick = history.back();>返回上一頁</button>
   </div>
-  <button class="backbtn" onclick = history.back();>返回上一頁</button>
-
 </body>
 <script src="{{ url_for('static', filename='script.js') }}"></script>
 </html>

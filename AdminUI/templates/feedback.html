@@ -3,9 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='feedback.css') }}">
+    <title>意見回饋</title>
 </head>
-<body data-page="feedback">
-    
+<body data-page="feedback" data-username="{{ username }}">
+    <div class="feedback-container">
+    <h1>💬 意見回饋 FeedBack 功能</h1>
+    <p class="description">
+        （使用者與管理者互動）<br>
+        管理者在後台可查看並回應使用者：進一步補充資料、調整演算法或標記優先處理事項<br>
+        可標記意見狀態（已處理 / 處理中 / 未處理 / 不採納）<br>
+        回覆結果會直接傳 LINE 訊息給使用者
+    </p>
+
+    <!-- 已處理區塊 -->
+    <div class="feedback-section">
+        <h2 class="section-title done-title">✅已處理</h2>
+        <div class="feedback-list" id="done-list">
+            <!-- 已處理的卡片們放這 -->
+        </div>
+    </div>
+
+    <!-- 處理中區塊 -->
+    <div class="feedback-section">
+        <h2 class="section-title processing-title">🔄處理中</h2>
+        <div class="feedback-list" id="processing-list">
+            <!-- 處理中的卡片們放這 -->
+        </div>
+    </div>
+
+    <!-- 未處理區塊 -->
+    <div class="feedback-section">
+        <h2 class="section-title unprocessed-title">⚠️未處理</h2>
+        <div class="feedback-list" id="unprocessed-list">
+            <!-- 未處理的卡片們放這 -->
+        </div>
+    </div>
+
+    <!-- 未採納區塊 -->
+    <div class="feedback-section">
+        <h2 class="section-title rejected-title">❌不採納</h2>
+        <div class="feedback-list" id="rejected-list">
+            <!-- 不採納的卡片們放這 -->
+        </div>
+    </div>
+
+    <div>
+        <button class="backbtn" onclick="history.back();">返回上一頁</button>
+    </div>
+</div>
 </body>
+<script src="{{ url_for('static', filename='script.js') }}"></script>
 </html>

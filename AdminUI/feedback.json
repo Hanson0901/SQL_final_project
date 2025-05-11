@@ -1,0 +1,652 @@
+{
+  "77194500030": {
+    "2025-06-19": {
+      "type": "籃球",
+      "time": "12:00",
+      "feedback": "建議改善 UI",
+      "status": "不採納",
+      "admin": "takumi",
+      "reply_date": "",
+      "reply_time": "",
+      "reason": "感謝建議，未來將考慮",
+      "reply": ""
+    }
+  },
+  "63974824834": {
+    "2025-06-11": {
+      "type": "F1",
+      "time": "22:00",
+      "feedback": "希望可以增加場地選擇",
+      "status": "不採納",
+      "admin": "akira",
+      "reply_date": "",
+      "reply_time": "",
+      "reason": "感謝建議，未來將考慮",
+      "reply": ""
+    }
+  },
+  "71072478029": {
+    "2025-06-19": {
+      "type": "排球",
+      "time": "18:00",
+      "feedback": "希望可以增加場地選擇",
+      "status": "已處理",
+      "admin": "sakura",
+      "reply_date": "2025-05-11",
+      "reply_time": "10:30",
+      "reason": "",
+      "reply": "幫你處理好了><"
+    }
+  },
+  "51308301955": {
+    "2025-06-13": {
+      "type": "羽球",
+      "time": "09:30",
+      "feedback": "排程邏輯有點怪",
+      "status": "未處理",
+      "admin": "",
+      "reply_date": "",
+      "reply_time": "",
+      "reason": "",
+      "reply": ""
+    }
+  },
+  "37632912109": {
+    "2025-06-16": {
+      "type": "籃球",
+      "time": "17:00",
+      "feedback": "希望可以增加場地選擇",
+      "status": "已處理",
+      "admin": "takumi",
+      "reply_date": "2025-05-11",
+      "reply_time": "12:30",
+      "reason": "",
+      "reply": "幫你處理好了><"
+    }
+  },
+  "58415121241": {
+    "2025-06-11": {
+      "type": "羽球",
+      "time": "16:00",
+      "feedback": "排程邏輯有點怪",
+      "status": "不採納",
+      "admin": "sakura",
+      "reply_date": "",
+      "reply_time": "",
+      "reason": "目前尚無資源調整",
+      "reply": ""
+    }
+  },
+  "83099603470": {
+    "2025-06-20": {
+      "type": "羽球",
+      "time": "13:00",
+      "feedback": "希望可以增加場地選擇",
+      "status": "已處理",
+      "admin": "minami",
+      "reply_date": "2025-05-11",
+      "reply_time": "20:00",
+      "reason": "",
+      "reply": "搞定瞜，確認一下~"
+    }
+  },
+  "69506900454": {
+    "2025-06-11": {
+      "type": "籃球",
+      "time": "10:00",
+      "feedback": "登入畫面可以更簡化",
+      "status": "不採納",
+      "admin": "takumi",
+      "reply_date": "",
+      "reply_time": "",
+      "reason": "感謝建議，未來將考慮",
+      "reply": ""
+    }
+  },
+  "46289900097": {
+    "2025-06-16": {
+      "type": "棒球",
+      "time": "14:00",
+      "feedback": "排程邏輯有點怪",
+      "status": "未處理",
+      "admin": "",
+      "reply_date": "",
+      "reply_time": "",
+      "reason": "",
+      "reply": ""
+    }
+  },
+  "77588679055": {
+    "2025-06-20": {
+      "type": "排球",
+      "time": "14:00",
+      "feedback": "排程邏輯有點怪",
+      "status": "已處理",
+      "admin": "minami",
+      "reply_date": "2025-05-11",
+      "reply_time": "21:00",
+      "reason": "",
+      "reply": "謝謝告知，已修復"
+    }
+  },
+  "65670636116": {
+    "2025-06-11": {
+      "type": "籃球",
+      "time": "20:00",
+      "feedback": "希望新增更多比賽",
+      "status": "已處理",
+      "admin": "minami",
+      "reply_date": "2025-05-11",
+      "reply_time": "22:30",
+      "reason": "",
+      "reply": "已經處理完瞜~"
+    }
+  },
+  "64545878768": {
+    "2025-06-12": {
+      "type": "棒球",
+      "time": "09:00",
+      "feedback": "希望新增更多比賽",
+      "status": "不採納",
+      "admin": "sakura",
+      "reply_date": "",
+      "reply_time": "",
+      "reason": "功能已在開發中",
+      "reply": ""
+    }
+  },
+  "69973316568": {
+    "2025-06-12": {
+      "type": "F1",
+      "time": "18:00",
+      "feedback": "建議改善 UI",
+      "status": "未處理",
+      "admin": "",
+      "reply_date": "",
+      "reply_time": "",
+      "reason": "",
+      "reply": ""
+    }
+  },
+  "25274245275": {
+    "2025-06-19": {
+      "type": "籃球",
+      "time": "08:30",
+      "feedback": "希望新增更多比賽",
+      "status": "未處理",
+      "admin": "",
+      "reply_date": "",
+      "reply_time": "",
+      "reason": "",
+      "reply": ""
+    }
+  },
+  "34819736552": {
+    "2025-06-10": {
+      "type": "棒球",
+      "time": "08:30",
+      "feedback": "想加入留言功能",
+      "status": "不採納",
+      "admin": "akira",
+      "reply_date": "",
+      "reply_time": "",
+      "reason": "目前尚無資源調整",
+      "reply": ""
+    }
+  },
+  "81262015810": {
+    "2025-06-20": {
+      "type": "羽球",
+      "time": "21:30",
+      "feedback": "登入畫面可以更簡化",
+      "status": "不採納",
+      "admin": "minami",
+      "reply_date": "2025-05-11",
+      "reply_time": "20:28",
+      "reason": "我不要",
+      "reply": "我不要"
+    }
+  },
+  "47920146199": {
+    "2025-06-11": {
+      "type": "F1",
+      "time": "22:30",
+      "feedback": "希望新增更多比賽",
+      "status": "已處理",
+      "admin": "sakura",
+      "reply_date": "2025-05-11",
+      "reply_time": "15:00",
+      "reason": "",
+      "reply": "謝謝告知，已修復"
+    }
+  },
+  "55707826854": {
+    "2025-06-10": {
+      "type": "羽球",
+      "time": "09:00",
+      "feedback": "建議改善 UI",
+      "status": "未處理",
+      "admin": "",
+      "reply_date": "",
+      "reply_time": "",
+      "reason": "",
+      "reply": ""
+    }
+  },
+  "10107670810": {
+    "2025-06-10": {
+      "type": "籃球",
+      "time": "16:00",
+      "feedback": "希望能夠顯示即時比分",
+      "status": "已處理",
+      "admin": "minami",
+      "reply_date": "2025-05-11",
+      "reply_time": "20:17",
+      "reason": "已處理~",
+      "reply": "已處理~"
+    }
+  },
+  "48749324565": {
+    "2025-06-12": {
+      "type": "排球",
+      "time": "14:00",
+      "feedback": "希望支援 LINE 通知",
+      "status": "處理中",
+      "admin": "takumi",
+      "reply_date": "",
+      "reply_time": "",
+      "reason": "",
+      "reply": ""
+    }
+  },
+  "53536913196": {
+    "2025-06-16": {
+      "type": "F1",
+      "time": "19:30",
+      "feedback": "希望新增更多比賽",
+      "status": "未處理",
+      "admin": "",
+      "reply_date": "",
+      "reply_time": "",
+      "reason": "",
+      "reply": ""
+    }
+  },
+  "31630889927": {
+    "2025-06-11": {
+      "type": "棒球",
+      "time": "16:00",
+      "feedback": "登入畫面可以更簡化",
+      "status": "不採納",
+      "admin": "sakura",
+      "reply_date": "",
+      "reply_time": "",
+      "reason": "感謝建議，未來將考慮",
+      "reply": ""
+    }
+  },
+  "42983476204": {
+    "2025-06-14": {
+      "type": "排球",
+      "time": "14:30",
+      "feedback": "排程邏輯有點怪",
+      "status": "處理中",
+      "admin": "takumi",
+      "reply_date": "",
+      "reply_time": "",
+      "reason": "",
+      "reply": ""
+    }
+  },
+  "49264587047": {
+    "2025-06-20": {
+      "type": "F1",
+      "time": "20:00",
+      "feedback": "配對有時候不太準",
+      "status": "已處理",
+      "admin": "yamada",
+      "reply_date": "2025-05-11",
+      "reply_time": "12:00",
+      "reason": "",
+      "reply": "搞定瞜，確認一下~"
+    }
+  },
+  "92683619575": {
+    "2025-06-16": {
+      "type": "排球",
+      "time": "20:30",
+      "feedback": "希望新增更多比賽",
+      "status": "已處理",
+      "admin": "minami",
+      "reply_date": "2025-05-11",
+      "reply_time": "19:00",
+      "reason": "",
+      "reply": "謝謝告知，已修復"
+    }
+  },
+  "10510607255": {
+    "2025-06-20": {
+      "type": "棒球",
+      "time": "14:30",
+      "feedback": "建議改善 UI",
+      "status": "不採納",
+      "admin": "sakura",
+      "reply_date": "",
+      "reply_time": "",
+      "reason": "建議不符實際需求",
+      "reply": ""
+    }
+  },
+  "96171871496": {
+    "2025-06-10": {
+      "type": "羽球",
+      "time": "21:30",
+      "feedback": "希望能夠顯示即時比分",
+      "status": "已處理",
+      "admin": "takumi",
+      "reply_date": "2025-05-11",
+      "reply_time": "21:00",
+      "reason": "",
+      "reply": "已經處理完瞜~"
+    }
+  },
+  "18888191062": {
+    "2025-06-14": {
+      "type": "排球",
+      "time": "09:00",
+      "feedback": "希望能夠顯示即時比分",
+      "status": "不採納",
+      "admin": "minami",
+      "reply_date": "2025-05-11",
+      "reply_time": "20:18",
+      "reason": "",
+      "reply": ""
+    }
+  },
+  "42986153048": {
+    "2025-06-18": {
+      "type": "排球",
+      "time": "08:30",
+      "feedback": "排程邏輯有點怪",
+      "status": "處理中",
+      "admin": "akira",
+      "reply_date": "",
+      "reply_time": "",
+      "reason": "",
+      "reply": ""
+    }
+  },
+  "11363247342": {
+    "2025-06-10": {
+      "type": "羽球",
+      "time": "20:00",
+      "feedback": "想加入留言功能",
+      "status": "已處理",
+      "admin": "minami",
+      "reply_date": "2025-05-11",
+      "reply_time": "20:27",
+      "reason": "我不要啊",
+      "reply": "我不要啊"
+    }
+  },
+  "38459358249": {
+    "2025-06-15": {
+      "type": "羽球",
+      "time": "16:00",
+      "feedback": "登入畫面可以更簡化",
+      "status": "不採納",
+      "admin": "sakura",
+      "reply_date": "",
+      "reply_time": "",
+      "reason": "感謝建議，未來將考慮",
+      "reply": ""
+    }
+  },
+  "87673635574": {
+    "2025-06-14": {
+      "type": "F1",
+      "time": "19:30",
+      "feedback": "希望支援夜間場次",
+      "status": "不採納",
+      "admin": "takumi",
+      "reply_date": "",
+      "reply_time": "",
+      "reason": "功能已在開發中",
+      "reply": ""
+    }
+  },
+  "96271277925": {
+    "2025-06-18": {
+      "type": "排球",
+      "time": "08:30",
+      "feedback": "希望能夠顯示即時比分",
+      "status": "未處理",
+      "admin": "",
+      "reply_date": "",
+      "reply_time": "",
+      "reason": "",
+      "reply": ""
+    }
+  },
+  "35266544642": {
+    "2025-06-13": {
+      "type": "棒球",
+      "time": "15:30",
+      "feedback": "希望能夠顯示即時比分",
+      "status": "已處理",
+      "admin": "takumi",
+      "reply_date": "2025-05-11",
+      "reply_time": "19:30",
+      "reason": "",
+      "reply": "搞定瞜，確認一下~"
+    }
+  },
+  "18275789144": {
+    "2025-06-10": {
+      "type": "排球",
+      "time": "22:30",
+      "feedback": "希望支援 LINE 通知",
+      "status": "已處理",
+      "admin": "yamada",
+      "reply_date": "2025-05-11",
+      "reply_time": "17:00",
+      "reason": "",
+      "reply": "幫你處理好了><"
+    }
+  },
+  "79600016116": {
+    "2025-06-10": {
+      "type": "羽球",
+      "time": "18:00",
+      "feedback": "排程邏輯有點怪",
+      "status": "未處理",
+      "admin": "",
+      "reply_date": "",
+      "reply_time": "",
+      "reason": "",
+      "reply": ""
+    }
+  },
+  "27752015449": {
+    "2025-06-12": {
+      "type": "籃球",
+      "time": "13:30",
+      "feedback": "排程邏輯有點怪",
+      "status": "不採納",
+      "admin": "takumi",
+      "reply_date": "",
+      "reply_time": "",
+      "reason": "建議不符實際需求",
+      "reply": ""
+    }
+  },
+  "78297930768": {
+    "2025-06-14": {
+      "type": "排球",
+      "time": "12:30",
+      "feedback": "配對有時候不太準",
+      "status": "已處理",
+      "admin": "minami",
+      "reply_date": "2025-05-11",
+      "reply_time": "20:25",
+      "reason": "安安你好",
+      "reply": "安安你好"
+    }
+  },
+  "81605958229": {
+    "2025-06-13": {
+      "type": "棒球",
+      "time": "22:30",
+      "feedback": "建議改善 UI",
+      "status": "處理中",
+      "admin": "yamada",
+      "reply_date": "",
+      "reply_time": "",
+      "reason": "",
+      "reply": ""
+    }
+  },
+  "62922057093": {
+    "2025-06-10": {
+      "type": "排球",
+      "time": "16:30",
+      "feedback": "配對有時候不太準",
+      "status": "不採納",
+      "admin": "minami",
+      "reply_date": "",
+      "reply_time": "",
+      "reason": "感謝建議，未來將考慮",
+      "reply": ""
+    }
+  },
+  "77994768872": {
+    "2025-06-11": {
+      "type": "F1",
+      "time": "17:30",
+      "feedback": "希望可以增加場地選擇",
+      "status": "處理中",
+      "admin": "takumi",
+      "reply_date": "",
+      "reply_time": "",
+      "reason": "",
+      "reply": ""
+    }
+  },
+  "27426864788": {
+    "2025-06-11": {
+      "type": "棒球",
+      "time": "11:30",
+      "feedback": "希望可以增加場地選擇",
+      "status": "不採納",
+      "admin": "yamada",
+      "reply_date": "",
+      "reply_time": "",
+      "reason": "建議不符實際需求",
+      "reply": ""
+    }
+  },
+  "84929158264": {
+    "2025-06-20": {
+      "type": "排球",
+      "time": "13:30",
+      "feedback": "希望支援 LINE 通知",
+      "status": "已處理",
+      "admin": "takumi",
+      "reply_date": "2025-05-11",
+      "reply_time": "08:30",
+      "reason": "",
+      "reply": "已經處理完瞜~"
+    }
+  },
+  "93784304789": {
+    "2025-06-11": {
+      "type": "籃球",
+      "time": "16:30",
+      "feedback": "希望支援夜間場次",
+      "status": "不採納",
+      "admin": "akira",
+      "reply_date": "",
+      "reply_time": "",
+      "reason": "目前尚無資源調整",
+      "reply": ""
+    }
+  },
+  "96896713964": {
+    "2025-06-13": {
+      "type": "羽球",
+      "time": "13:00",
+      "feedback": "想加入留言功能",
+      "status": "未處理",
+      "admin": "",
+      "reply_date": "",
+      "reply_time": "",
+      "reason": "",
+      "reply": ""
+    }
+  },
+  "45129380336": {
+    "2025-06-11": {
+      "type": "羽球",
+      "time": "18:00",
+      "feedback": "建議改善 UI",
+      "status": "處理中",
+      "admin": "takumi",
+      "reply_date": "",
+      "reply_time": "",
+      "reason": "",
+      "reply": ""
+    }
+  },
+  "93925440584": {
+    "2025-06-13": {
+      "type": "羽球",
+      "time": "13:30",
+      "feedback": "希望新增更多比賽",
+      "status": "不採納",
+      "admin": "yamada",
+      "reply_date": "",
+      "reply_time": "",
+      "reason": "目前尚無資源調整",
+      "reply": ""
+    }
+  },
+  "69650758803": {
+    "2025-06-15": {
+      "type": "籃球",
+      "time": "15:00",
+      "feedback": "建議改善 UI",
+      "status": "不採納",
+      "admin": "takumi",
+      "reply_date": "",
+      "reply_time": "",
+      "reason": "目前尚無資源調整",
+      "reply": ""
+    }
+  },
+  "11111025945": {
+    "2025-06-16": {
+      "type": "羽球",
+      "time": "17:30",
+      "feedback": "希望支援夜間場次",
+      "status": "未處理",
+      "admin": "",
+      "reply_date": "",
+      "reply_time": "",
+      "reason": "",
+      "reply": ""
+    }
+  },
+  "10163509164": {
+    "2025-06-16": {
+      "type": "F1",
+      "time": "08:30",
+      "feedback": "希望新增更多比賽",
+      "status": "處理中",
+      "admin": "akira",
+      "reply_date": "",
+      "reply_time": "",
+      "reason": "",
+      "reply": ""
+    }
+  }
+}
