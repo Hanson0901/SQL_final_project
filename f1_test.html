@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <title>F1 Live Timing 簡易範例（含 DRS、圈速差距、Sector）</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Bootstrap 5 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body { background: #191919; color: #fff; }
+    .table-dark th, .table-dark td { vertical-align: middle; }
+    .leader { color: #FFD700; font-weight: bold; }
+    .drs-available { color: #00ff00; font-weight: bold; }
+    .drs-unavailable { color: #ff3333; }
+    .sector-purple { color: #a259ff !important; font-weight: bold; }
+    .sector-green { color: #00ff00 !important; }
+    .sector-yellow { color: #ffe066 !important; }
+    .bold { font-weight: bold; }
+  </style>
+</head>
+<body>
+  <div class="container py-4">
+    <h1 class="mb-4">F1 Live Timing</h1>
+    <div id="clock" class="mb-3"></div>
+    <table class="table table-dark table-striped">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>車手</th>
+          <th>車隊</th>
+          <th>Sector 1</th>
+          <th>Sector 2</th>
+          <th>Sector 3</th>
+          <th>圈速</th>
+          <th>圈速差距</th>
+          <th>輪胎</th>
+          <th>DRS</th>
+        </tr>
+      </thead>
+      <tbody id="live-table">
+        <!-- 動態資料 -->
+      </tbody>
+    </table>
+  </div>
+  <script>
+    // 模擬即時資料，包含 sector 時間
+    const drivers = [
+  {
+    name: "Max Verstappen", team: "Red Bull", lap: 92.123, tyre: "Soft", drs: true,
+    sectors: [28.321, 31.456, 32.346]
+  },
+  {
+    name: "Yuki Tsunoda", team: "Red Bull", lap: 93.145, tyre: "Medium", drs: true,
+    sectors: [29.043, 31.876, 32.226]
+  },
+  {
+    name: "Lewis Hamilton", team: "Ferrari", lap: 92.456, tyre: "Medium", drs: false,
+    sectors: [28.789, 31.789, 31.878]
+  },
+  {
+    name: "Charles Leclerc", team: "Ferrari", lap: 92.789, tyre: "Hard", drs: true,
+    sectors: [29.012, 31.567, 32.210]
+  },
+  {
+    name: "George Russell", team: "Mercedes", lap: 92.678, tyre: "Soft", drs: true,
+    sectors: [28.865, 31.732, 32.081]
+  },
+  {
+    name: "Kimi Antonelli", team: "Mercedes", lap: 93.546, tyre: "Hard", drs: false,
+    sectors: [29.232, 32.121, 32.193]
+  },
+  {
+    name: "Lando Norris", team: "McLaren", lap: 92.234, tyre: "Soft", drs: true,
+    sectors: [28.435, 31.502, 32.297]
+  },
+  {
+    name: "Oscar Piastri", team: "McLaren", lap: 92.345, tyre: "Soft", drs: true,
+    sectors: [28.521, 31.528, 32.296]
+  },
+  {
+    name: "Fernando Alonso", team: "Aston Martin", lap: 93.121, tyre: "Medium", drs: false,
+    sectors: [29.134, 31.890, 32.097]
+  },
+  {
+    name: "Lance Stroll", team: "Aston Martin", lap: 93.453, tyre: "Medium", drs: false,
+    sectors: [29.221, 32.021, 32.211]
+  },
+  {
+    name: "Alex Albon", team: "Williams", lap: 93.245, tyre: "Hard", drs: true,
+    sectors: [29.091, 31.821, 32.333]
+  },
+  {
+    name: "Carlos Sainz", team: "Williams", lap: 93.432, tyre: "Medium", drs: true,
+    sectors: [29.212, 31.957, 32.263]
+  },
+  {
+    name: "Nico Hulkenberg", team: "Sauber", lap: 94.123, tyre: "Medium", drs: false,
+    sectors: [29.467, 32.245, 32.411]
+  },
+  {
+    name: "Gabriel Bortoleto", team: "Sauber", lap: 94.654, tyre: "Soft", drs: false,
+    sectors: [29.765, 32.432, 32.457]
+  },
+  {
+    name: "Pierre Gasly", team: "Alpine", lap: 93.897, tyre: "Hard", drs: true,
+    sectors: [29.367, 32.112, 32.418]
+  },
+  {
+    name: "Franco Colapinto", team: "Alpine", lap: 94.231, tyre: "Medium", drs: false,
+    sectors: [29.534, 32.233, 32.464]
+  },
+  {
+    name: "Esteban Ocon", team: "Haas", lap: 93.765, tyre: "Soft", drs: true,
+    sectors: [29.321, 32.009, 32.435]
+  },
+  {
+    name: "Oliver Bearman", team: "Haas", lap: 94.012, tyre: "Hard", drs: false,
+    sectors: [29.432, 32.145, 32.435]
+  },
+  {
+    name: "Liam Lawson", team: "Racing Bulls", lap: 93.876, tyre: "Medium", drs: true,
+    sectors: [29.321, 32.120, 32.435]
+  },
+  {
+    name: "Isack Hadjar", team: "Racing Bulls", lap: 94.345, tyre: "Soft", drs: false,
+    sectors: [29.576, 32.322, 32.447]
+  }
+];
+
+
+    // 計算個人最佳 sector
+    function getPersonalBestSectors(driver) {
+      // 本例只有一圈資料，個人最佳即為該圈
+      return driver.sectors.slice();
+    }
+
+    // 將秒數轉為 1:32.123 格式
+    function formatLapTime(sec) {
+      const min = Math.floor(sec / 60);
+      const s = (sec % 60).toFixed(3).padStart(6, '0');
+      return `${min}:${s}`;
+    }
+
+    function updateTable() {
+      // 找出最快圈速
+      const fastestLap = Math.min(...drivers.map(d => d.lap));
+      // 找出每個 sector 的全場最快
+      const sectorBest = [0, 1, 2].map(i => Math.min(...drivers.map(d => d.sectors[i])));
+
+      let html = "";
+      drivers.forEach((d, i) => {
+        const gap = d.lap - fastestLap;
+        // 個人最佳 sector（本例只有一圈，等於該圈 sector）
+        const personalBest = getPersonalBestSectors(d);
+
+        html += `<tr${i === 0 ? ' class="leader"' : ''}>
+          <td>${i + 1}</td>
+          <td class="bold">${d.name}</td>
+          <td class="bold">${d.team}</td>`;
+
+        d.sectors.forEach((s, idx) => {
+          let sectorClass = '';
+          if (s === sectorBest[idx]) {
+            sectorClass = 'sector-purple';
+          } else if (s === personalBest[idx]) {
+            sectorClass = 'sector-green';
+          } else {
+            sectorClass = 'sector-yellow';
+          }
+          html += `<td class="${sectorClass}">${s.toFixed(3)}</td>`;
+        });
+
+        html += `
+          <td>${formatLapTime(d.lap)}</td>
+          <td>${i === 0 ? 'Leader' : '+' + gap.toFixed(3) + 's'}</td>
+          <td>${d.tyre}</td>
+          <td class="${d.drs ? 'drs-available' : 'drs-unavailable'}">
+             ${d.drs ? '●' : '○'}
+          </td>
+        </tr>`;
+      });
+      document.getElementById("live-table").innerHTML = html;
+    }
+
+    function updateClock() {
+      const now = new Date();
+      const time = now.toLocaleTimeString("zh-Hant", { hour12: false });
+      document.getElementById("clock").textContent = "目前時間：" + time;
+    }
+
+    // 模擬每秒更新
+    setInterval(() => {
+      updateTable();
+      updateClock();
+    }, 1000);
+
+    // 初始載入
+    updateTable();
+    updateClock();
+  </script>
+</body>
+</html>

@@ -13,7 +13,7 @@ def index():
         day = int(request.form['day'])
         date = datetime.date(year, month, day)
     else:
-        date = datetime.date.today() - datetime.timedelta(days=1)
+        date = datetime.date.today() - datetime.timedelta(days=0)
     
     date_str = date.strftime("%Y-%m-%d")
     games = get_mlb_score(date_str)

@@ -1,4 +1,4 @@
-function formatLocalTime(utcTimeString, offsetHours = -12) {
+function formatLocalTime(utcTimeString, offsetHours = 0) {
     const date = new Date(utcTimeString);
     date.setHours(date.getHours() + offsetHours);
     return date.toISOString().slice(11, 16);
