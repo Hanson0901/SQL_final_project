@@ -5,11 +5,11 @@
       "time": "12:00",
       "feedback": "建議改善 UI",
       "status": "不採納",
-      "admin": "takumi",
       "reply_date": "",
       "reply_time": "",
       "reason": "感謝建議，未來將考慮",
-      "reply": ""
+      "reply": "",
+      "admin_id": 4
     }
   },
   "63974824834": {
@@ -18,11 +18,11 @@
       "time": "22:00",
       "feedback": "希望可以增加場地選擇",
       "status": "不採納",
-      "admin": "akira",
       "reply_date": "",
       "reply_time": "",
       "reason": "感謝建議，未來將考慮",
-      "reply": ""
+      "reply": "",
+      "admin_id": 1
     }
   },
   "71072478029": {
@@ -31,11 +31,11 @@
       "time": "18:00",
       "feedback": "希望可以增加場地選擇",
       "status": "已處理",
-      "admin": "sakura",
       "reply_date": "2025-05-11",
       "reply_time": "10:30",
       "reason": "",
-      "reply": "幫你處理好了><"
+      "reply": "幫你處理好了><",
+      "admin_id": 2
     }
   },
   "51308301955": {
@@ -44,11 +44,11 @@
       "time": "09:30",
       "feedback": "排程邏輯有點怪",
       "status": "未處理",
-      "admin": "",
       "reply_date": "",
       "reply_time": "",
       "reason": "",
-      "reply": ""
+      "reply": "",
+      "admin_id": ""
     }
   },
   "37632912109": {
@@ -57,11 +57,11 @@
       "time": "17:00",
       "feedback": "希望可以增加場地選擇",
       "status": "已處理",
-      "admin": "takumi",
       "reply_date": "2025-05-11",
       "reply_time": "12:30",
       "reason": "",
-      "reply": "幫你處理好了><"
+      "reply": "幫你處理好了><",
+      "admin_id": 2
     }
   },
   "58415121241": {
@@ -70,11 +70,11 @@
       "time": "16:00",
       "feedback": "排程邏輯有點怪",
       "status": "不採納",
-      "admin": "sakura",
       "reply_date": "",
       "reply_time": "",
       "reason": "目前尚無資源調整",
-      "reply": ""
+      "reply": "",
+      "admin_id": 2
     }
   },
   "83099603470": {
@@ -83,11 +83,11 @@
       "time": "13:00",
       "feedback": "希望可以增加場地選擇",
       "status": "已處理",
-      "admin": "minami",
       "reply_date": "2025-05-11",
       "reply_time": "20:00",
       "reason": "",
-      "reply": "搞定瞜，確認一下~"
+      "reply": "搞定瞜，確認一下~",
+      "admin_id": 3
     }
   },
   "69506900454": {
@@ -96,11 +96,11 @@
       "time": "10:00",
       "feedback": "登入畫面可以更簡化",
       "status": "不採納",
-      "admin": "takumi",
       "reply_date": "",
       "reply_time": "",
       "reason": "感謝建議，未來將考慮",
-      "reply": ""
+      "reply": "",
+      "admin_id": 2
     }
   },
   "46289900097": {
@@ -109,11 +109,11 @@
       "time": "14:00",
       "feedback": "排程邏輯有點怪",
       "status": "未處理",
-      "admin": "",
       "reply_date": "",
       "reply_time": "",
       "reason": "",
-      "reply": ""
+      "reply": "",
+      "admin_id": ""
     }
   },
   "77588679055": {
@@ -122,11 +122,11 @@
       "time": "14:00",
       "feedback": "排程邏輯有點怪",
       "status": "已處理",
-      "admin": "minami",
       "reply_date": "2025-05-11",
       "reply_time": "21:00",
       "reason": "",
-      "reply": "謝謝告知，已修復"
+      "reply": "謝謝告知，已修復",
+      "admin_id": 3
     }
   },
   "65670636116": {
@@ -135,11 +135,11 @@
       "time": "20:00",
       "feedback": "希望新增更多比賽",
       "status": "已處理",
-      "admin": "minami",
       "reply_date": "2025-05-11",
       "reply_time": "22:30",
       "reason": "",
-      "reply": "已經處理完瞜~"
+      "reply": "已經處理完瞜~",
+      "admin_id": 3
     }
   },
   "64545878768": {
@@ -148,11 +148,11 @@
       "time": "09:00",
       "feedback": "希望新增更多比賽",
       "status": "不採納",
-      "admin": "sakura",
       "reply_date": "",
       "reply_time": "",
       "reason": "功能已在開發中",
-      "reply": ""
+      "reply": "",
+      "admin_id": 1
     }
   },
   "69973316568": {
@@ -161,11 +161,11 @@
       "time": "18:00",
       "feedback": "建議改善 UI",
       "status": "未處理",
-      "admin": "",
       "reply_date": "",
       "reply_time": "",
       "reason": "",
-      "reply": ""
+      "reply": "",
+      "admin_id": ""
     }
   },
   "25274245275": {
@@ -173,12 +173,12 @@
       "type": "籃球",
       "time": "08:30",
       "feedback": "希望新增更多比賽",
-      "status": "未處理",
-      "admin": "",
-      "reply_date": "",
-      "reply_time": "",
-      "reason": "",
-      "reply": ""
+      "status": "已處理",
+      "reply_date": "2025-05-11",
+      "reply_time": "23:51",
+      "reason": "安安<3",
+      "reply": "安安<3",
+      "admin_id": 3
     }
   },
   "34819736552": {
@@ -187,11 +187,11 @@
       "time": "08:30",
       "feedback": "想加入留言功能",
       "status": "不採納",
-      "admin": "akira",
       "reply_date": "",
       "reply_time": "",
       "reason": "目前尚無資源調整",
-      "reply": ""
+      "reply": "",
+      "admin_id": 3
     }
   },
   "81262015810": {
@@ -200,11 +200,11 @@
       "time": "21:30",
       "feedback": "登入畫面可以更簡化",
       "status": "不採納",
-      "admin": "minami",
       "reply_date": "2025-05-11",
       "reply_time": "20:28",
       "reason": "我不要",
-      "reply": "我不要"
+      "reply": "我不要",
+      "admin_id": 3
     }
   },
   "47920146199": {
@@ -213,11 +213,11 @@
       "time": "22:30",
       "feedback": "希望新增更多比賽",
       "status": "已處理",
-      "admin": "sakura",
       "reply_date": "2025-05-11",
       "reply_time": "15:00",
       "reason": "",
-      "reply": "謝謝告知，已修復"
+      "reply": "謝謝告知，已修復",
+      "admin_id": 1
     }
   },
   "55707826854": {
@@ -226,11 +226,11 @@
       "time": "09:00",
       "feedback": "建議改善 UI",
       "status": "未處理",
-      "admin": "",
       "reply_date": "",
       "reply_time": "",
       "reason": "",
-      "reply": ""
+      "reply": "",
+      "admin_id": ""
     }
   },
   "10107670810": {
@@ -239,11 +239,11 @@
       "time": "16:00",
       "feedback": "希望能夠顯示即時比分",
       "status": "已處理",
-      "admin": "minami",
       "reply_date": "2025-05-11",
       "reply_time": "20:17",
       "reason": "已處理~",
-      "reply": "已處理~"
+      "reply": "已處理~",
+      "admin_id": 3
     }
   },
   "48749324565": {
@@ -252,11 +252,11 @@
       "time": "14:00",
       "feedback": "希望支援 LINE 通知",
       "status": "處理中",
-      "admin": "takumi",
       "reply_date": "",
       "reply_time": "",
       "reason": "",
-      "reply": ""
+      "reply": "",
+      "admin_id": 1
     }
   },
   "53536913196": {
@@ -264,12 +264,12 @@
       "type": "F1",
       "time": "19:30",
       "feedback": "希望新增更多比賽",
-      "status": "未處理",
-      "admin": "",
-      "reply_date": "",
-      "reply_time": "",
+      "status": "不採納",
+      "reply_date": "2025-05-11",
+      "reply_time": "23:52",
       "reason": "",
-      "reply": ""
+      "reply": "",
+      "admin_id": 3
     }
   },
   "31630889927": {
@@ -278,11 +278,11 @@
       "time": "16:00",
       "feedback": "登入畫面可以更簡化",
       "status": "不採納",
-      "admin": "sakura",
       "reply_date": "",
       "reply_time": "",
       "reason": "感謝建議，未來將考慮",
-      "reply": ""
+      "reply": "",
+      "admin_id": 3
     }
   },
   "42983476204": {
@@ -291,11 +291,11 @@
       "time": "14:30",
       "feedback": "排程邏輯有點怪",
       "status": "處理中",
-      "admin": "takumi",
       "reply_date": "",
       "reply_time": "",
       "reason": "",
-      "reply": ""
+      "reply": "",
+      "admin_id": 2
     }
   },
   "49264587047": {
@@ -304,11 +304,11 @@
       "time": "20:00",
       "feedback": "配對有時候不太準",
       "status": "已處理",
-      "admin": "yamada",
       "reply_date": "2025-05-11",
       "reply_time": "12:00",
       "reason": "",
-      "reply": "搞定瞜，確認一下~"
+      "reply": "搞定瞜，確認一下~",
+      "admin_id": 2
     }
   },
   "92683619575": {
@@ -317,11 +317,11 @@
       "time": "20:30",
       "feedback": "希望新增更多比賽",
       "status": "已處理",
-      "admin": "minami",
       "reply_date": "2025-05-11",
       "reply_time": "19:00",
       "reason": "",
-      "reply": "謝謝告知，已修復"
+      "reply": "謝謝告知，已修復",
+      "admin_id": 3
     }
   },
   "10510607255": {
@@ -330,11 +330,11 @@
       "time": "14:30",
       "feedback": "建議改善 UI",
       "status": "不採納",
-      "admin": "sakura",
       "reply_date": "",
       "reply_time": "",
       "reason": "建議不符實際需求",
-      "reply": ""
+      "reply": "",
+      "admin_id": 3
     }
   },
   "96171871496": {
@@ -343,11 +343,11 @@
       "time": "21:30",
       "feedback": "希望能夠顯示即時比分",
       "status": "已處理",
-      "admin": "takumi",
       "reply_date": "2025-05-11",
       "reply_time": "21:00",
       "reason": "",
-      "reply": "已經處理完瞜~"
+      "reply": "已經處理完瞜~",
+      "admin_id": 4
     }
   },
   "18888191062": {
@@ -356,11 +356,11 @@
       "time": "09:00",
       "feedback": "希望能夠顯示即時比分",
       "status": "不採納",
-      "admin": "minami",
       "reply_date": "2025-05-11",
       "reply_time": "20:18",
       "reason": "",
-      "reply": ""
+      "reply": "",
+      "admin_id": 3
     }
   },
   "42986153048": {
@@ -369,11 +369,11 @@
       "time": "08:30",
       "feedback": "排程邏輯有點怪",
       "status": "處理中",
-      "admin": "akira",
       "reply_date": "",
       "reply_time": "",
       "reason": "",
-      "reply": ""
+      "reply": "",
+      "admin_id": 1
     }
   },
   "11363247342": {
@@ -382,11 +382,11 @@
       "time": "20:00",
       "feedback": "想加入留言功能",
       "status": "已處理",
-      "admin": "minami",
       "reply_date": "2025-05-11",
       "reply_time": "20:27",
       "reason": "我不要啊",
-      "reply": "我不要啊"
+      "reply": "我不要啊",
+      "admin_id": 3
     }
   },
   "38459358249": {
@@ -395,11 +395,11 @@
       "time": "16:00",
       "feedback": "登入畫面可以更簡化",
       "status": "不採納",
-      "admin": "sakura",
       "reply_date": "",
       "reply_time": "",
       "reason": "感謝建議，未來將考慮",
-      "reply": ""
+      "reply": "",
+      "admin_id": 2
     }
   },
   "87673635574": {
@@ -408,11 +408,11 @@
       "time": "19:30",
       "feedback": "希望支援夜間場次",
       "status": "不採納",
-      "admin": "takumi",
       "reply_date": "",
       "reply_time": "",
       "reason": "功能已在開發中",
-      "reply": ""
+      "reply": "",
+      "admin_id": 2
     }
   },
   "96271277925": {
@@ -421,11 +421,11 @@
       "time": "08:30",
       "feedback": "希望能夠顯示即時比分",
       "status": "未處理",
-      "admin": "",
       "reply_date": "",
       "reply_time": "",
       "reason": "",
-      "reply": ""
+      "reply": "",
+      "admin_id": ""
     }
   },
   "35266544642": {
@@ -434,11 +434,11 @@
       "time": "15:30",
       "feedback": "希望能夠顯示即時比分",
       "status": "已處理",
-      "admin": "takumi",
       "reply_date": "2025-05-11",
       "reply_time": "19:30",
       "reason": "",
-      "reply": "搞定瞜，確認一下~"
+      "reply": "搞定瞜，確認一下~",
+      "admin_id": 2
     }
   },
   "18275789144": {
@@ -447,11 +447,11 @@
       "time": "22:30",
       "feedback": "希望支援 LINE 通知",
       "status": "已處理",
-      "admin": "yamada",
       "reply_date": "2025-05-11",
       "reply_time": "17:00",
       "reason": "",
-      "reply": "幫你處理好了><"
+      "reply": "幫你處理好了><",
+      "admin_id": 4
     }
   },
   "79600016116": {
@@ -460,11 +460,11 @@
       "time": "18:00",
       "feedback": "排程邏輯有點怪",
       "status": "未處理",
-      "admin": "",
       "reply_date": "",
       "reply_time": "",
       "reason": "",
-      "reply": ""
+      "reply": "",
+      "admin_id": ""
     }
   },
   "27752015449": {
@@ -473,11 +473,11 @@
       "time": "13:30",
       "feedback": "排程邏輯有點怪",
       "status": "不採納",
-      "admin": "takumi",
       "reply_date": "",
       "reply_time": "",
       "reason": "建議不符實際需求",
-      "reply": ""
+      "reply": "",
+      "admin_id": 1
     }
   },
   "78297930768": {
@@ -486,11 +486,11 @@
       "time": "12:30",
       "feedback": "配對有時候不太準",
       "status": "已處理",
-      "admin": "minami",
       "reply_date": "2025-05-11",
       "reply_time": "20:25",
       "reason": "安安你好",
-      "reply": "安安你好"
+      "reply": "安安你好",
+      "admin_id": 3
     }
   },
   "81605958229": {
@@ -499,11 +499,11 @@
       "time": "22:30",
       "feedback": "建議改善 UI",
       "status": "處理中",
-      "admin": "yamada",
       "reply_date": "",
       "reply_time": "",
       "reason": "",
-      "reply": ""
+      "reply": "",
+      "admin_id": 2
     }
   },
   "62922057093": {
@@ -512,11 +512,11 @@
       "time": "16:30",
       "feedback": "配對有時候不太準",
       "status": "不採納",
-      "admin": "minami",
       "reply_date": "",
       "reply_time": "",
       "reason": "感謝建議，未來將考慮",
-      "reply": ""
+      "reply": "",
+      "admin_id": 3
     }
   },
   "77994768872": {
@@ -525,11 +525,11 @@
       "time": "17:30",
       "feedback": "希望可以增加場地選擇",
       "status": "處理中",
-      "admin": "takumi",
       "reply_date": "",
       "reply_time": "",
       "reason": "",
-      "reply": ""
+      "reply": "",
+      "admin_id": 3
     }
   },
   "27426864788": {
@@ -538,11 +538,11 @@
       "time": "11:30",
       "feedback": "希望可以增加場地選擇",
       "status": "不採納",
-      "admin": "yamada",
       "reply_date": "",
       "reply_time": "",
       "reason": "建議不符實際需求",
-      "reply": ""
+      "reply": "",
+      "admin_id": 4
     }
   },
   "84929158264": {
@@ -551,11 +551,11 @@
       "time": "13:30",
       "feedback": "希望支援 LINE 通知",
       "status": "已處理",
-      "admin": "takumi",
       "reply_date": "2025-05-11",
       "reply_time": "08:30",
       "reason": "",
-      "reply": "已經處理完瞜~"
+      "reply": "已經處理完瞜~",
+      "admin_id": 3
     }
   },
   "93784304789": {
@@ -564,11 +564,11 @@
       "time": "16:30",
       "feedback": "希望支援夜間場次",
       "status": "不採納",
-      "admin": "akira",
       "reply_date": "",
       "reply_time": "",
       "reason": "目前尚無資源調整",
-      "reply": ""
+      "reply": "",
+      "admin_id": 4
     }
   },
   "96896713964": {
@@ -576,12 +576,12 @@
       "type": "羽球",
       "time": "13:00",
       "feedback": "想加入留言功能",
-      "status": "未處理",
-      "admin": "",
+      "status": "處理中",
       "reply_date": "",
       "reply_time": "",
       "reason": "",
-      "reply": ""
+      "reply": "",
+      "admin_id": 3
     }
   },
   "45129380336": {
@@ -589,12 +589,12 @@
       "type": "羽球",
       "time": "18:00",
       "feedback": "建議改善 UI",
-      "status": "處理中",
-      "admin": "takumi",
-      "reply_date": "",
-      "reply_time": "",
-      "reason": "",
-      "reply": ""
+      "status": "已處理",
+      "reply_date": "2025-05-17",
+      "reply_time": "19:13",
+      "reason": "終於修好這個了~",
+      "reply": "終於修好這個了~",
+      "admin_id": 3
     }
   },
   "93925440584": {
@@ -603,11 +603,11 @@
       "time": "13:30",
       "feedback": "希望新增更多比賽",
       "status": "不採納",
-      "admin": "yamada",
       "reply_date": "",
       "reply_time": "",
       "reason": "目前尚無資源調整",
-      "reply": ""
+      "reply": "",
+      "admin_id": 2
     }
   },
   "69650758803": {
@@ -616,11 +616,11 @@
       "time": "15:00",
       "feedback": "建議改善 UI",
       "status": "不採納",
-      "admin": "takumi",
       "reply_date": "",
       "reply_time": "",
       "reason": "目前尚無資源調整",
-      "reply": ""
+      "reply": "",
+      "admin_id": 4
     }
   },
   "11111025945": {
@@ -629,11 +629,11 @@
       "time": "17:30",
       "feedback": "希望支援夜間場次",
       "status": "未處理",
-      "admin": "",
       "reply_date": "",
       "reply_time": "",
       "reason": "",
-      "reply": ""
+      "reply": "",
+      "admin_id": ""
     }
   },
   "10163509164": {
@@ -642,11 +642,11 @@
       "time": "08:30",
       "feedback": "希望新增更多比賽",
       "status": "處理中",
-      "admin": "akira",
       "reply_date": "",
       "reply_time": "",
       "reason": "",
-      "reply": ""
+      "reply": "",
+      "admin_id": 4
     }
   }
 }

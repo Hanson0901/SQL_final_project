@@ -39,7 +39,10 @@ if(page === 'login'){
 
             const data = await res.json();
             if (data.success) {
-                window.location.href = '/control_panel';
+              sessionStorage.setItem('username', data.username); 
+              sessionStorage.setItem('admin_id', data.admin_id); 
+
+              window.location.href = '/control_panel';
             } else {
                 alert('帳號或密碼錯誤');
             }
@@ -379,7 +382,10 @@ if(page === 'login'){
       
 
       //抓管理者帳號
-      const author = document.body.dataset.username;
+      // const author = document.body.dataset.username;
+
+      //抓管理者ID
+      const admin_id = document.body.dataset.adminId;
 
       if (!content) {
           status.innerText = "❌ 請輸入公告內容";
@@ -390,7 +396,7 @@ if(page === 'login'){
       const res = await fetch("/api/announce", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ content, author, datetime, timestamp })
+          body: JSON.stringify({ content, admin_id, datetime, timestamp })
       });
 
       const result = await res.json();
@@ -442,7 +448,7 @@ if(page === 'login'){
           <p>📣 ${ann.content}</p>
           <hr>
           <div class="meta">
-          🕒 ${ann.datetime} ｜ 👤 ${ann.author}
+          🕒 ${ann.datetime} ｜ 👤 ${ann.admin_name}
           <button class="DeleteAnsBtn" data-timestamp="${ann.timestamp}" style="margin: 0.3rem auto 0 auto;">刪除</button>
           </div>
           `;
@@ -553,9 +559,6 @@ if(page === 'login'){
             });
         });
 
-
-    // === createFeedbackCard 函數 ===
-
     function createFeedbackCard(uid, date, fb) {
         const card = document.createElement('div');
         card.className = 'feedback-card';
@@ -577,9 +580,9 @@ if(page === 'login'){
         status.innerHTML = `❓ 狀態：<span class="status-text">${fb.status}</span>`;
         detail.appendChild(status);
 
-        if (fb.admin) {
+        if (fb.admin_id != "") {
             const admin = document.createElement('div');
-            admin.innerHTML = `👤 管理者：<span>${fb.admin}</span>`;
+            admin.innerHTML = `👤 管理者：<span>${fb.admin_name}</span>`;
             detail.appendChild(admin);
         }
         if (fb.reply_date || fb.reply_time) {
@@ -596,7 +599,7 @@ if(page === 'login'){
         }
 
         // 🔘 認領按鈕：僅在 admin 欄位為空且狀態為未處理時顯示
-        if (!fb.admin && fb.status === '未處理') {
+        if (!fb.admin_id && fb.status === '未處理') {
             const claimBtn = document.createElement('button');
             claimBtn.textContent = '認領';
             claimBtn.className = 'claim-btn';
@@ -605,7 +608,7 @@ if(page === 'login'){
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
-                        admin: document.body.dataset.username,
+                        admin_id: document.body.dataset.adminId,
                         status: '處理中'
                     })
                 });
@@ -621,7 +624,7 @@ if(page === 'login'){
         }
 
         // ✅ 僅「處理中」且 admin 為當前使用者才顯示可編輯區塊（可提交為已處理/不採納）
-        if (fb.status === '處理中' && fb.admin === document.body.dataset.username) {
+        if (fb.status === '處理中' && String(fb.admin_id) === String(document.body.dataset.adminId)) {
             const replyInput = document.createElement('textarea');
             replyInput.className = 'reply-textarea';
             replyInput.placeholder = '輸入回覆內容（可留空）';
@@ -652,7 +655,7 @@ if(page === 'login'){
 
                 const payload = {
                     status: finalStatus,
-                    admin: document.body.dataset.username,
+                    admin_id: document.body.dataset.admin_id,
                     reply_date: dateStr,
                     reply_time: timeStr,
                     reason: updatedReason
