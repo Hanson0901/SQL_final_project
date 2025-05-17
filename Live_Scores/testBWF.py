@@ -5,12 +5,30 @@ from selenium.webdriver.support import expected_conditions as EC
 from bs4 import BeautifulSoup
 import time
 
-url = "https://match-centre.bwfbadminton.com/5233/match/44"
+
 options = webdriver.ChromeOptions()
 # options.add_argument("--headless")
 driver = webdriver.Chrome(options=options)
 
+
+options = webdriver.ChromeOptions()
+# options.add_argument("--headless")
+driver = webdriver.Chrome(options=options)
+url = "https://bwfbadminton.com/"
 driver.get(url)
+
+# 取得所有下一場賽事的連結（div.menu-next-tmt-outer 裡的 href）
+next_tmt_links = []
+try:
+    next_tmt_divs = driver.find_elements(By.CSS_SELECTOR, "div.menu-next-tmt-outer a")
+    for a in next_tmt_divs:
+        href = a.get_attribute("href")
+        if href:
+            next_tmt_links.append(href)
+except Exception as e:
+    print("Error finding next tournament links:", e)
+
+driver.get(href)
 # Locate and click the close button
 try:
     close_button = driver.find_element(By.CLASS_NAME, "close-button")

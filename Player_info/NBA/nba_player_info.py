@@ -55,5 +55,3 @@ for team_name, team_url in team_links:
                 with open(output_filename, "w", encoding="utf-8") as f:
                     json.dump(data, f, ensure_ascii=False, indent=4)
                     # print(f"Data saved to {output_filename}")
-
-print(f"Total players: {len(data)}")

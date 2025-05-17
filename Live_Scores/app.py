@@ -116,7 +116,8 @@ def get_NBAscore():
 
 @app.route("/app/BWFscore", methods=["GET"])
 def get_bwf_score():
-    url = "https://match-centre.bwfbadminton.com/5233/match/44"
+
+    url = "https://bwfbadminton.com/"
 
     options = webdriver.ChromeOptions()
     # options.add_argument("--headless")
@@ -124,6 +125,20 @@ def get_bwf_score():
 
     driver.get(url)
 
+    # 取得所有下一場賽事的連結（div.menu-next-tmt-outer 裡的 href）
+    next_tmt_links = []
+    try:
+        next_tmt_divs = driver.find_elements(
+            By.CSS_SELECTOR, "div.menu-next-tmt-outer a"
+        )
+        for a in next_tmt_divs:
+            href = a.get_attribute("href")
+            if href:
+                next_tmt_links.append(href)
+    except Exception as e:
+        print("Error finding next tournament links:", e)
+
+    driver.get(href)
     try:
         close_button = driver.find_element(By.CLASS_NAME, "close-button")
         close_button.click()

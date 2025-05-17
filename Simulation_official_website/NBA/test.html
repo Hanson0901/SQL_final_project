@@ -4,13 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <title>NBA GAMES & SCORES</title>
-    <link rel="stylesheet" href="/SQL_final_project/Simulation_official_website/NBA_offical.css">
-    <script src="/SQL_final_project/Simulation_official_website/NBA_offical.js"></script>
+    <link rel="stylesheet" href="/Simulation_official_website/NBA_offical.css">
+    <script src="/Simulation_official_website/NBA_offical.js"></script>
 </head>
 
 <body>
     <div class="navbar">
-        <img src="/SQL_final_project/Simulation_official_website/img/logo-nba.svg" alt="NBA" class="nba-logo">
+        <img src="/Simulation_official_website/img/logo-nba.svg" alt="NBA" class="nba-logo">
         <a href="#" class="active">Games</a>
         <a href="#">Schedule</a>
         <a href="#">Watch</a>
@@ -80,7 +80,8 @@
                                         <div class="logo-list">
                                             <script>
                                                 for (let i = 0; i <= 29; i++) {
-                                                    document.write(`<img src="/SQL_final_project/Simulation_official_website/img/logo(${i}).svg" data-n="${i}">`);
+                                                    //Simulation_official_website\img\logo(0).svg
+                                                    document.write(`<img src="/Simulation_official_website/img/logo(${i}).svg" data-n="${i}">`);
                                                 }
                                             </script>
                                         </div>
@@ -133,7 +134,7 @@
                                         <div class="logo-list">
                                             <script>
                                                 for (let i = 0; i <= 29; i++) {
-                                                    document.write(`<img src="/SQL_final_project/Simulation_official_website/img/logo(${i}).svg" data-n="${i}">`);
+                                                    document.write(`<img src="/Simulation_official_website/img/logo(${i}).svg" data-n="${i}">`);
                                                 }
                                             </script>
                                         </div>
@@ -155,13 +156,13 @@
                     </div>
                 </div>
                 <div class="scoreboard-update">
-                    <div id="last-update-time">上次更新時間：--</div>
+                    <!-- <div id="last-update-time">上次更新時間：--</div> -->
                 </div>
 
                 <!-- Side Panel -->
                 <div class="side-panel">
                     <div class="leaguepass-box">
-                        <img src="leaguepass_logo.png" class="lp-banner" alt="League Pass">
+                        <img src="/Simulation_official_website/img/logo-nba.svg" class="lp-banner" alt="League Pass">
                         <div class="lp-title">STREAM THE PLAYOFFS. DON'T MISS A THING.</div>
                         <div class="lp-desc">
                             League Pass Premium is your home for streaming the playoffs commercial-free. Sign up today

@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const closeBtn = block.querySelector('.close-modal-btn');
         function updatePreview() {
             const n = select.value;
-            const path = `/SQL_final_project/Simulation_official_website/img/logo(${n}).svg`;
+            const path = `/Simulation_official_website/img/logo(${n}).svg`;
             preview.innerHTML = `<img src="${path}" alt="logo${n}" style="max-width:50px;max-height:50px;">`;
             const teamName = name_list[n] || '';
             preview.innerHTML = `
