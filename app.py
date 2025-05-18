@@ -5,6 +5,7 @@ import random
 from datetime import datetime
 from getf1timig import get_timing
 
+
 app = Flask(__name__)
 
 # 模擬F1即時數據生成

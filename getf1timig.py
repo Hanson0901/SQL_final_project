@@ -5,19 +5,62 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from bs4 import BeautifulSoup
 import pandas as pd
+import requests
+import time
+from fake_useragent import UserAgent
 
 
 
 def get_timing():
     options = Options()
-    options.add_argument("--headless")  # 無頭模式
-    options.add_argument("--disable-gpu")
-    options.add_argument("--window-size=1920,1200")
-    driver = webdriver.Chrome(options=options)
-    try:
-        driver.get("C:/Users/cbes1/Desktop/F1%20-%20The%20Official%20Home%20of%20Formula%201%C2%AE%20Racing.mhtml")
-        soup = BeautifulSoup(driver.page_source, 'html.parser')
 
+    # 設置完整 User-Agent
+    user_agent = UserAgent().random
+    options.add_argument(f"user-agent={user_agent}")
+
+    # 其他反檢測設定
+    options.add_argument("--disable-blink-features=AutomationControlled")
+    options.add_experimental_option("excludeSwitches", ["enable-automation"])
+    options.add_experimental_option("useAutomationExtension", False)
+
+    driver = webdriver.Chrome(options=options)
+
+# 執行 JavaScript 移除 webdriver 痕跡
+    driver.execute_cdp_cmd('Page.addScriptToEvaluateOnNewDocument', {
+        'source': '''
+            Object.defineProperty(navigator, 'webdriver', {get: () => undefined})
+        '''
+    })
+    driver.execute_script("Object.defineProperty(navigator, 'webdriver', {get: () => undefined})")
+    try:
+        driver.get("https://www.formula1.com/en/timing/f1-live-lite")
+        time.sleep(5)  # 等待頁面加載
+        try:
+        
+            iframe = WebDriverWait(driver, 15).until(
+                EC.presence_of_element_located((By.ID, "sp_message_iframe_1149950"))
+            )
+            driver.switch_to.frame(iframe)
+            
+            # 等待並點擊同意按鈕
+            accept_button = WebDriverWait(driver, 15).until(
+                EC.element_to_be_clickable((By.XPATH, '//button[contains(translate(., "ABCDEFGHIJKLMNOPQRSTUVWXYZ", "abcdefghijklmnopqrstuvwxyz"), "accept all")]'))
+            )
+            accept_button.click()
+            print("成功點擊 Accept All 按鈕")
+            
+            # 切換回主文件
+            driver.switch_to.default_content()
+        except Exception as e:
+            print(f"Cookie處理失敗: {str(e)}")
+
+            # 等待數據加載
+        WebDriverWait(driver, 20).until(
+                EC.presence_of_element_located((By.CSS_SELECTOR, ".w-full.grid"))
+        )
+        time.sleep(5)  # 等待數據加載
+
+        soup = BeautifulSoup(driver.page_source, 'html.parser')
         team_colors = {
             'Red Bull Racing': '#1E41FF',
             'Ferrari': '#E10600',
@@ -33,10 +76,7 @@ def get_timing():
         }
 
         # 等待數據加載完成
-        WebDriverWait(driver, 20).until(
-            EC.presence_of_element_located((By.CSS_SELECTOR, ".w-full.grid"))
-        )
-        
+
         # 解析數據
         rows = soup.select('tr[class="grid grid-cols-[50px_auto_70px_50px_60px] rounded-md tablet:grid-cols-[50px_auto_90px_70px_90px] auto-cols-auto relative text-xs font-normal text-center py-5 even:bg-grey-90"]')
         data = []

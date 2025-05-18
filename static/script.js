@@ -25,4 +25,4 @@
         // 初始載入
         updateData();
         // 每3秒更新一次
-        setInterval(updateData, 3000);
+        setInterval(updateData, 10000);
