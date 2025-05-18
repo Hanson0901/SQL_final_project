@@ -7,7 +7,10 @@
                     html += `
                     <tr class="text-center align-middle driver-row">
                         <td>${row.Position}</td>
-                        <td>${row.Driver}</td>
+                        <td>
+                            <span class="team-color-bar" style="background:${row.TeamColor};"></span>
+                            ${row.Driver}
+                        </td>
                         <td>${row.Team}</td>
                         <td>${row.Gap}</td>
                         <td>${row.Tyre}</td>

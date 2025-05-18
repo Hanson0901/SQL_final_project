@@ -22,7 +22,7 @@ html, body {
 }
 
 .table-dark th, .table-dark td {
-    background: var(--f1-dark) !important;
+    background: var(--f1-gray) !important;
     color: #fff !important;
     vertical-align: middle;
 }
@@ -41,4 +41,18 @@ html, body {
 .gap-leader {
     color: #00D2BE;
     font-weight: bold;
+}
+
+.team-color-bar {
+    display: inline-block;
+    width: 6px;
+    height: 22px;
+    border-radius: 2px;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+td, th {
+    vertical-align: middle !important;
+    text-align: left !important;
 }

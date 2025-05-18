@@ -18,6 +18,20 @@ def get_timing():
         driver.get("C:/Users/cbes1/Desktop/F1%20-%20The%20Official%20Home%20of%20Formula%201%C2%AE%20Racing.mhtml")
         soup = BeautifulSoup(driver.page_source, 'html.parser')
 
+        team_colors = {
+            'Red Bull Racing': '#1E41FF',
+            'Ferrari': '#E10600',
+            'Mercedes': '#6CD3BF',
+            'McLaren': '#FF8700',
+            'Aston Martin': '#229971',
+            'Alpine': '#2293D1',
+            'Williams': '#64C4FF',
+            'Haas F1 Team': '#B6BABD',
+            'Sauber': '#52E252',
+            'Racing Bulls': '#6692FF',
+            'RB': '#6692FF'  # 備用名稱
+        }
+
         # 等待數據加載完成
         WebDriverWait(driver, 20).until(
             EC.presence_of_element_located((By.CSS_SELECTOR, ".w-full.grid"))
@@ -48,10 +62,12 @@ def get_timing():
                     tyre = '未知'
             gap = row.select_one('span[class="inline-block bg-grey-80 rounded-2xl w-auto min-w-16 text-center py-1 px-2.5 mx-auto uppercase"]').text if row.select_one('span[class="inline-block bg-grey-80 rounded-2xl w-auto min-w-16 text-center py-1 px-2.5 mx-auto uppercase"]') else 'N/A'
             tyres_used = row.select_one('td:nth-of-type(5)').text if row.select_one('td:nth-of-type(5)') else 'N/A'
+            team_color = team_colors.get(driver_team, '#000000')  # 預設黑色
             data.append({
                     "Position": pos,
                     "Driver": driver_name,
                     "Team": driver_team,
+                    "TeamColor": team_color,
                     "Gap": gap,
                     "Tyre": tyre,
                     "Tyres_Used": tyres_used
