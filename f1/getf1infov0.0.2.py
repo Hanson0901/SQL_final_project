@@ -5,6 +5,7 @@ from bs4 import BeautifulSoup
 import pandas as pd
 import time
 from datetime import datetime
+import json
 
 
 
@@ -72,21 +73,30 @@ def f1_driver_scraper():
     # 獲取所有車手個人頁面連結
     soup = BeautifulSoup(driver.page_source, 'html.parser')
     driver_links = [base_url + a['href'] for a in soup.select('a[href^="/en/drivers/"]')]
-    
+    rank = []
+    pts = []
+    for rank_tag in soup.select('p[class*="f1-heading-black"]'):
+        rank.append(rank_tag.text if rank_tag else 'N/A')
+    for pts_tag in soup.select('p[class="f1-heading-wide font-formulaOneWide tracking-normal font-normal non-italic text-fs-18px leading-none normal-case"]'):
+        pts.append(pts_tag.text if pts_tag else 'N/A')
     # 爬取每個車手頁面
     all_data = []
+
     for link in driver_links:
         try:
             print(f"Processing: {link}")
             driver_data = get_driver_details(link)
-            all_data.append(driver_data)
+            all_data.append({'Rank': rank[driver_links.index(link)], **driver_data, 'Points': pts[driver_links.index(link)]})
         except Exception as e:
             print(f"Error processing {link}: {str(e)}")
     
     driver.quit()
-    return pd.DataFrame(all_data)
+    return all_data
 
 # 執行爬蟲並保存結果
 df = f1_driver_scraper()
-df.to_json('f1_drivers_full_data.json', index=False)
-print(df)
+data_frame = pd.DataFrame(df)
+with open('f1_drivers_full_data.json', 'w', encoding='utf-8') as f:
+    json.dump(df, f, ensure_ascii=False, indent=4)
+print(data_frame)
+
