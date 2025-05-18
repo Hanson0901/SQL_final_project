@@ -1,78 +1,37 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>MLB 每日賽程 - {{ date }}</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-  <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}"> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>F1 Live Timing</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
-  <div class="container">
-    <h1>MLB 每日賽程 - {{ date }}</h1>
-    <form method="POST">
-      <div class="date-picker">
-        <input type="number" name="year" placeholder="年份" min="2000" max="2100" required>
-        <input type="number" name="month" placeholder="月份" min="1" max="12" required>
-        <input type="number" name="day" placeholder="日期" min="1" max="31" required>
-        <button type="submit">查詢</button>
-      </div>
-    </form>
-      <div class="refresh-time">
-        
-      </div>
-    {% if games %}
-      <div class="scoreboards">
-        {% for game in games %}
-        <div class="scoreboard">
-          <div class="game-time">{{ game.time | truncate(4, True, '')  }}</div>
-          <div class="game-status">
-            <div class="teams">
-              <div>隊伍</div>
-              <div class="team-info">
-                <img  src ={{game.img[0]}} class="team-logo">
-                <div>
-                    <div class="team-name">{{ game.teams[0] }}</div>
-                </div>
-              </div>
-              <div class="team-info">
-                <img  src ={{game.img[1]}} class="team-logo">
-                <div>
-                    <div class="team-name">{{ game.teams[1] }}</div>
-                </div>
-              </div>
-            </div>
-            <div class = "rhe">
-              <div class="rhe-header">
-                <span>R</span>
-                <span>H</span>
-                <span>E</span>
-              </div>
-              <div class="rhe-row">
-                <span><b>{{ game.rhe.away.R }}</b></span>
-                <span>{{ game.rhe.away.H }}</span>
-                <span>{{ game.rhe.away.E }}</span>
-              </div>
-              <div class="rhe-row">
-                <span><b>{{ game.rhe.home.R }}</b></span>
-                <span>{{ game.rhe.home.H }}</span>
-                <span>{{ game.rhe.home.E }}</span>
-              </div>
-            </div>
-            <div class="bag">
-              
-              {{ game.bag|safe }}
-            </div>
-          </div>
+    <div class="container py-4">
+        <div class="f1-header mb-3 text-center">
+            LIVE TIMING - FORMULA 1
+            <span id="last-updated" class="ms-3"></span>
         </div>
-        {% endfor %}
-      </div>
-    {% else %}
-      <div class="no-games">當日無賽事或數據獲取失敗</div>
-    {% endif %}
-  </div>
-  <script>
-    window.pageDate = "{{ date }}";
-  </script>
-  <script src="{{ url_for('static', filename='script.js') }}"></script>
+        <div class="timing-table">
+            <table class="table table-dark table-hover mb-0">
+                <thead>
+                    <tr class="text-center align-middle">
+                        <th class="col-1">POS</th>
+                        <th class="col-3">DRIVER</th>
+                        <th class="col-3">TEAM</th>
+                        <th class="col-2">GAP</th>
+                        <th class="col-2">TYRE</th>
+                        <th class="col-2">TYRE USED</th>
+                    </tr>
+                </thead>
+                <tbody id="timing-data">
+                    <!-- 資料由 JS 動態插入 -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>

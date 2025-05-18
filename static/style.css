@@ -1,160 +1,44 @@
-/* static/style.css */
-body {
-    font-family: 'Segoe UI', Arial, sans-serif;
-    background: #f5f5f5;
-    margin: 0;
-    padding: 20px;
-  }
-  
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-  
-  h1 {
-    text-align: center;
-    color: #333;
-  }
-  
-  .date-picker {
-    display: flex;
-    gap: 10px;
-    justify-content: center;
-    margin: 20px 0;
-  }
-  
-  .date-picker input {
-    padding: 8px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    width: 100px;
-  }
-  
-  button {
-    padding: 8px 20px;
-    background: #2a1aff;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  button:hover {
-    background: #1a0dcc;
-  }
-  
-  .refresh-time {
-    text-align: center;
-    margin: 20px 0;
-  }
+:root {
+    --f1-red: #E10600;
+    --f1-dark: #000000;
+    --f1-gray: #38383F;
+}
+html, body {
+    background: var(--f1-dark) !important;
+    color: #fff !important;
+    font-family: 'Titillium Web', sans-serif;
+}
 
-  .scoreboards {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-    gap: 20px;
-  }
-  
-  .scoreboard {
-    background: white;
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  }
-  
-  .game-time {
-    color: #666;
+.f1-header {
+    background: var(--f1-red);
+    padding: 0.5rem;
     font-weight: bold;
-    margin-bottom: 15px;
-  }
-  
-  .teams {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-  }
-  .game-status{
-    display: flex;
-    flex-direction: row;
-  }
-  
-  .team-info {
-    display: flex;
-    align-items: left;
-    gap: 10px;
-  }
-  
-  .team-logo {
-    width: 24px; /* 設定圖片寬度 */
-    height: 24px; /* 設定圖片高度 */
-    object-fit: contain; /* 確保圖片不會變形 */
-    vertical-align: middle; /* 讓圖片與文字垂直對齊 */
-    margin-right: 5px; /* 與文字保持適當間距 */
-  }
-  
-  .team-name {
+}
+
+.timing-table {
+    background: var(--f1-gray);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.table-dark th, .table-dark td {
+    background: var(--f1-dark) !important;
+    color: #fff !important;
+    vertical-align: middle;
+}
+
+.driver-row:hover {
+    background: #2A2A32 !important;
+}
+
+.tyre-indicator {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.gap-leader {
+    color: #00D2BE;
     font-weight: bold;
-    color: #333;
-  }
-  
-  .team-record {
-    color: #666;
-    font-size: 0.9em;
-  }
-
-  .rhe {
-    display: flex;
-    margin-left: auto;
-    flex-direction: column;
-    grid-template-columns: 30px 30px 30px; /* 固定 R、H、E 的欄位寬度 */
-    text-align: right; /* 讓內容向右對齊 */
-    gap: 10px;
 }
-  .rhe-header {
-    display: flex;
-    flex-direction: row;
-    grid-template-columns: 30px 30px 30px; /* 固定 R、H、E 的欄位寬度 */
-    text-align: right; /* 讓內容向右對齊 */
-    gap: 15px; /* 欄位之間的間距 */
-}
-  .rhe-header span {
-    width: 15px; /* 固定欄位寬度 */
-    text-align: middle; /* 讓內容向右對齊 */
-  }
-
-.rhe-row {
-  display: flex;
-  flex-direction: row;
-  grid-template-columns: 30px 30px 30px; /* 固定 R、H、E 的欄位寬度 */
-  gap: 15px; /* 欄位之間的間距 */
-  margin-top: 5px; /* 每行之間的間距 */
-}
-  .rhe-row span {
-    width: 15px; /* 固定欄位寬度 */
-    text-align: middle; /* 讓內容向右對齊 */
-  }
-.bag{
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-.bag-space{
-  width: 0;             /* 線的長度，依需求調整 */
-  border-left: 2px solid #aaa;
-  margin: 0 20px;  
-}
-.bag-inner-space{
-  height: 20px;  
-}
-[class*="inningStatestyle__StyledInningWrapper-sc"] {
-  text-align: right;   /* 文字靠右 */
-  margin-left: auto; /* 自動左邊距，讓區塊浮動到右側 */
-  /* 如果你希望整個區塊浮動到右側，可以加上： */
-  /* float: right; */
-}
-  
-  .no-games {
-    text-align: center;
-    color: #666;
-    padding: 50px;
-  }
-  

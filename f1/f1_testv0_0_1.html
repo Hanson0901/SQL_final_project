@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <title>F1 Live Timing 即時數據版</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Bootstrap 5 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    /* 同之前樣式 */
+  </style>
+</head>
+<body>
+  <div class="container py-4">
+    <h1 class="mb-4">F1 Live Timing</h1>
+    <div id="session-info" class="mb-3"></div>
+    <div id="clock" class="mb-3"></div>
+    <table class="table table-dark table-striped">
+      <!-- 表格結構同之前 -->
+    </table>
+  </div>
+
+<script>
+// WebSocket連接設定
+const ws = new WebSocket('wss://livetiming.formula1.com/signalr');
+
+// Fast-F1 API設定
+const API_BASE = 'https://api.openf1.org/v1/';
+
+// 初始化資料結構
+let driversData = {};
+let sessionInfo = {};
+let sectorTimes = {};
+
+// 獲取車手基本資料
+async function fetchDriversInfo() {
+  const response = await fetch(API_BASE + 'drivers');
+  const data = await response.json();
+  data.forEach(driver => {
+    driversData[driver.driver_number] = {
+      name: `${driver.first_name} ${driver.last_name}`,
+      team: driver.team_name,
+      number: driver.driver_number,
+      country: driver.country_code
+    };
+  });
+}
+
+// 獲取賽事資訊
+async function fetchSessionInfo() {
+  const response = await fetch(API_BASE + 'sessions?session_key=latest');
+  const data = await response.json();
+  sessionInfo = data[0];
+  document.getElementById('session-info').innerHTML = `
+    ${sessionInfo.session_name} | ${sessionInfo.track_name}
+  `;
+}
+
+// 處理WebSocket訊息
+ws.onmessage = (event) => {
+  const data = JSON.parse(event.data);
+  
+  // 解析各類即時數據
+  if(data.Position) {
+    updatePositionData(data);
+  }
+  if(data.LapSectorTime) {
+    updateSectorTimes(data);
+  }
+  if(data.DRS) {
+    updateDRSStatus(data);
+  }
+};
+
+function updatePositionData(data) {
+  driversData[data.Driver] = driversData[data.Driver] || {};
+  Object.assign(driversData[data.Driver], {
+    position: data.Position,
+    gap: data.GapToLeader,
+    lap: data.LastLapTime,
+    tyre: data.Tyre,
+    laps: data.Laps
+  });
+}
+
+function updateSectorTimes(data) {
+  sectorTimes[data.Driver] = sectorTimes[data.Driver] || [];
+  sectorTimes[data.Driver][data.Sector-1] = data.SectorTime;
+}
+
+function updateDRSStatus(data) {
+  driversData[data.Driver].drs = data.Available;
+}
+
+// 渲染表格
+function renderTable() {
+  const sortedDrivers = Object.values(driversData).sort((a,b) => a.position - b.position);
+  let html = '';
+  
+  sortedDrivers.forEach((driver, index) => {
+    const sectors = sectorTimes[driver.number] || [];
+    
+    html += `<tr${index === 0 ? ' class="leader"' : ''}>
+      <td>${driver.position}</td>
+      <td class="bold">${driver.name}</td>
+      <td class="bold">${driver.team}</td>`;
+    
+    sectors.forEach((s, idx) => {
+      html += `<td>${s ? s.toFixed(3) : 'N/A'}</td>`;
+    });
+    
+    html += `
+      <td>${driver.lap || 'N/A'}</td>
+      <td>${index === 0 ? 'Leader' : `+${driver.gap.toFixed(3)}s`}</td>
+      <td>${driver.tyre || 'N/A'}</td>
+      <td class="${driver.drs ? 'drs-available' : 'drs-unavailable'}">
+        ${driver.drs ? '●' : '○'}
+      </td>
+    </tr>`;
+  });
+
+  document.getElementById('live-table').innerHTML = html;
+}
+
+// 定時更新
+setInterval(() => {
+  renderTable();
+  updateClock();
+}, 1000);
+
+// 初始化
+fetchDriversInfo();
+fetchSessionInfo();
+updateClock();
+</script>
+</body>
+</html>
