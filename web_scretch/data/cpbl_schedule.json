@@ -1,0 +1,7401 @@
+[
+    {
+      "date": "3/29(六)",
+      "game_no": "1",
+      "teams": "統一7-ELEVEn獅8:0中信兄弟",
+      "stadium": "大巨蛋",
+      "time": "2H50M"
+    },
+    {
+      "date": "3/30(日)",
+      "game_no": "2",
+      "teams": "味全龍VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "N/A"
+    },
+    {
+      "date": "3/30(日)",
+      "game_no": "3",
+      "teams": "富邦悍將3:8中信兄弟",
+      "stadium": "大巨蛋",
+      "time": "2H47M"
+    },
+    {
+      "date": "3/30(日)",
+      "game_no": "4",
+      "teams": "台鋼雄鷹3:6統一7-ELEVEn獅",
+      "stadium": "台南",
+      "time": "2H40M"
+    },
+    {
+      "date": "4/2(三)",
+      "game_no": "5",
+      "teams": "台鋼雄鷹0:1味全龍",
+      "stadium": "天母",
+      "time": "2H25M"
+    },
+    {
+      "date": "4/2(三)",
+      "game_no": "6",
+      "teams": "樂天桃猿3:5統一7-ELEVEn獅",
+      "stadium": "台南",
+      "time": "2H29M"
+    },
+    {
+      "date": "4/2(三)",
+      "game_no": "7",
+      "teams": "中信兄弟5:11富邦悍將",
+      "stadium": "新莊",
+      "time": "3H23M"
+    },
+    {
+      "date": "4/3(四)",
+      "game_no": "8",
+      "teams": "樂天桃猿2:5統一7-ELEVEn獅",
+      "stadium": "台南",
+      "time": "2H42M"
+    },
+    {
+      "date": "4/3(四)",
+      "game_no": "9",
+      "teams": "台鋼雄鷹1:3味全龍",
+      "stadium": "天母",
+      "time": "2H49M"
+    },
+    {
+      "date": "4/3(四)",
+      "game_no": "10",
+      "teams": "中信兄弟0:1富邦悍將",
+      "stadium": "新莊",
+      "time": "2H26M"
+    },
+    {
+      "date": "4/4(五)",
+      "game_no": "11",
+      "teams": "樂天桃猿3:4台鋼雄鷹",
+      "stadium": "澄清湖",
+      "time": "2H49M"
+    },
+    {
+      "date": "4/4(五)",
+      "game_no": "12",
+      "teams": "富邦悍將2:3味全龍",
+      "stadium": "天母",
+      "time": "3H0M"
+    },
+    {
+      "date": "4/4(五)",
+      "game_no": "13",
+      "teams": "統一7-ELEVEn獅0:2中信兄弟",
+      "stadium": "洲際",
+      "time": "2H23M"
+    },
+    {
+      "date": "4/5(六)",
+      "game_no": "14",
+      "teams": "樂天桃猿2:4台鋼雄鷹",
+      "stadium": "澄清湖",
+      "time": "2H27M"
+    },
+    {
+      "date": "4/5(六)",
+      "game_no": "15",
+      "teams": "富邦悍將3:11味全龍",
+      "stadium": "天母",
+      "time": "3H39M"
+    },
+    {
+      "date": "4/5(六)",
+      "game_no": "16",
+      "teams": "統一7-ELEVEn獅3:4中信兄弟",
+      "stadium": "洲際",
+      "time": "2H58M"
+    },
+    {
+      "date": "4/6(日)",
+      "game_no": "17",
+      "teams": "富邦悍將0:7味全龍",
+      "stadium": "天母",
+      "time": "2H47M"
+    },
+    {
+      "date": "4/6(日)",
+      "game_no": "18",
+      "teams": "樂天桃猿5:2台鋼雄鷹",
+      "stadium": "澄清湖",
+      "time": "2H39M"
+    },
+    {
+      "date": "4/6(日)",
+      "game_no": "19",
+      "teams": "統一7-ELEVEn獅6:7中信兄弟",
+      "stadium": "洲際",
+      "time": "2H46M"
+    },
+    {
+      "date": "4/8(二)",
+      "game_no": "20",
+      "teams": "富邦悍將3:6樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "2H48M"
+    },
+    {
+      "date": "4/8(二)",
+      "game_no": "21",
+      "teams": "統一7-ELEVEn獅3:4台鋼雄鷹",
+      "stadium": "澄清湖",
+      "time": "2H50M"
+    },
+    {
+      "date": "4/9(三)",
+      "game_no": "22",
+      "teams": "富邦悍將2:8樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "3H8M"
+    },
+    {
+      "date": "4/9(三)",
+      "game_no": "23",
+      "teams": "統一7-ELEVEn獅7:6台鋼雄鷹",
+      "stadium": "澄清湖",
+      "time": "3H28M"
+    },
+    {
+      "date": "4/9(三)",
+      "game_no": "24",
+      "teams": "味全龍1:2中信兄弟",
+      "stadium": "洲際",
+      "time": "2H47M"
+    },
+    {
+      "date": "4/10(四)",
+      "game_no": "25",
+      "teams": "味全龍1:4中信兄弟",
+      "stadium": "洲際",
+      "time": "2H35M"
+    },
+    {
+      "date": "4/11(五)",
+      "game_no": "26",
+      "teams": "中信兄弟15:4樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "3H18M"
+    },
+    {
+      "date": "4/11(五)",
+      "game_no": "27",
+      "teams": "台鋼雄鷹1:4富邦悍將",
+      "stadium": "新莊",
+      "time": "3H12M"
+    },
+    {
+      "date": "4/11(五)",
+      "game_no": "28",
+      "teams": "味全龍15:2統一7-ELEVEn獅",
+      "stadium": "大巨蛋",
+      "time": "2H58M"
+    },
+    {
+      "date": "4/12(六)",
+      "game_no": "29",
+      "teams": "味全龍1:5統一7-ELEVEn獅",
+      "stadium": "大巨蛋",
+      "time": "2H50M"
+    },
+    {
+      "date": "4/12(六)",
+      "game_no": "30",
+      "teams": "中信兄弟3:2樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "2H40M"
+    },
+    {
+      "date": "4/12(六)",
+      "game_no": "31",
+      "teams": "台鋼雄鷹3:6富邦悍將",
+      "stadium": "新莊",
+      "time": "2H31M"
+    },
+    {
+      "date": "4/13(日)",
+      "game_no": "32",
+      "teams": "中信兄弟2:4樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "3H12M"
+    },
+    {
+      "date": "4/13(日)",
+      "game_no": "33",
+      "teams": "味全龍1:0統一7-ELEVEn獅",
+      "stadium": "大巨蛋",
+      "time": "2H29M"
+    },
+    {
+      "date": "4/13(日)",
+      "game_no": "34",
+      "teams": "台鋼雄鷹4:2富邦悍將",
+      "stadium": "新莊",
+      "time": "3H17M"
+    },
+    {
+      "date": "4/15(二)",
+      "game_no": "35",
+      "teams": "台鋼雄鷹4:3中信兄弟",
+      "stadium": "洲際",
+      "time": "2H46M"
+    },
+    {
+      "date": "4/15(二)",
+      "game_no": "36",
+      "teams": "樂天桃猿1:0味全龍",
+      "stadium": "大巨蛋",
+      "time": "2H51M"
+    },
+    {
+      "date": "4/16(三)",
+      "game_no": "37",
+      "teams": "台鋼雄鷹0:3中信兄弟",
+      "stadium": "洲際",
+      "time": "2H31M"
+    },
+    {
+      "date": "4/16(三)",
+      "game_no": "38",
+      "teams": "樂天桃猿4:5味全龍",
+      "stadium": "大巨蛋",
+      "time": "2H50M"
+    },
+    {
+      "date": "4/16(三)",
+      "game_no": "39",
+      "teams": "富邦悍將3:7統一7-ELEVEn獅",
+      "stadium": "台南",
+      "time": "3H4M"
+    },
+    {
+      "date": "4/17(四)",
+      "game_no": "40",
+      "teams": "富邦悍將0:6統一7-ELEVEn獅",
+      "stadium": "台南",
+      "time": "2H33M"
+    },
+    {
+      "date": "4/18(五)",
+      "game_no": "41",
+      "teams": "富邦悍將0:3中信兄弟",
+      "stadium": "大巨蛋",
+      "time": "2H24M"
+    },
+    {
+      "date": "4/18(五)",
+      "game_no": "42",
+      "teams": "味全龍3:7台鋼雄鷹",
+      "stadium": "澄清湖",
+      "time": "3H16M"
+    },
+    {
+      "date": "4/18(五)",
+      "game_no": "43",
+      "teams": "統一7-ELEVEn獅4:2樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "2H54M"
+    },
+    {
+      "date": "4/19(六)",
+      "game_no": "44",
+      "teams": "味全龍1:3台鋼雄鷹",
+      "stadium": "澄清湖",
+      "time": "2H26M"
+    },
+    {
+      "date": "4/19(六)",
+      "game_no": "45",
+      "teams": "富邦悍將2:7中信兄弟",
+      "stadium": "大巨蛋",
+      "time": "2H38M"
+    },
+    {
+      "date": "4/19(六)",
+      "game_no": "46",
+      "teams": "統一7-ELEVEn獅3:0樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "2H12M"
+    },
+    {
+      "date": "4/20(日)",
+      "game_no": "47",
+      "teams": "統一7-ELEVEn獅VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "N/A"
+    },
+    {
+      "date": "4/20(日)",
+      "game_no": "48",
+      "teams": "富邦悍將1:0中信兄弟",
+      "stadium": "大巨蛋",
+      "time": "2H49M"
+    },
+    {
+      "date": "4/20(日)",
+      "game_no": "49",
+      "teams": "味全龍2:1台鋼雄鷹",
+      "stadium": "澄清湖",
+      "time": "3H2M"
+    },
+    {
+      "date": "4/22(二)",
+      "game_no": "50",
+      "teams": "味全龍2:5富邦悍將",
+      "stadium": "新莊",
+      "time": "2H59M"
+    },
+    {
+      "date": "4/22(二)",
+      "game_no": "51",
+      "teams": "中信兄弟6:3統一7-ELEVEn獅",
+      "stadium": "台南",
+      "time": "2H43M"
+    },
+    {
+      "date": "4/23(三)",
+      "game_no": "52",
+      "teams": "味全龍6:1富邦悍將",
+      "stadium": "新莊",
+      "time": "3H24M"
+    },
+    {
+      "date": "4/23(三)",
+      "game_no": "53",
+      "teams": "中信兄弟2:3統一7-ELEVEn獅",
+      "stadium": "台南",
+      "time": "3H5M"
+    },
+    {
+      "date": "4/23(三)",
+      "game_no": "54",
+      "teams": "台鋼雄鷹0:6樂天桃猿",
+      "stadium": "大巨蛋",
+      "time": "2H28M"
+    },
+    {
+      "date": "4/24(四)",
+      "game_no": "55",
+      "teams": "台鋼雄鷹4:1樂天桃猿",
+      "stadium": "大巨蛋",
+      "time": "3H7M"
+    },
+    {
+      "date": "4/25(五)",
+      "game_no": "56",
+      "teams": "樂天桃猿VS.富邦悍將",
+      "stadium": "新莊",
+      "time": "N/A"
+    },
+    {
+      "date": "4/25(五)",
+      "game_no": "57",
+      "teams": "中信兄弟0:8味全龍",
+      "stadium": "大巨蛋",
+      "time": "2H56M"
+    },
+    {
+      "date": "4/25(五)",
+      "game_no": "58",
+      "teams": "台鋼雄鷹1:4統一7-ELEVEn獅",
+      "stadium": "台南",
+      "time": "2H24M"
+    },
+    {
+      "date": "4/26(六)",
+      "game_no": "59",
+      "teams": "台鋼雄鷹6:2統一7-ELEVEn獅",
+      "stadium": "台南",
+      "time": "2H49M"
+    },
+    {
+      "date": "4/26(六)",
+      "game_no": "60",
+      "teams": "樂天桃猿7:6富邦悍將",
+      "stadium": "新莊",
+      "time": "3H49M"
+    },
+    {
+      "date": "4/26(六)",
+      "game_no": "61",
+      "teams": "中信兄弟4:1味全龍",
+      "stadium": "大巨蛋",
+      "time": "3H10M"
+    },
+    {
+      "date": "4/27(日)",
+      "game_no": "62",
+      "teams": "中信兄弟1:2味全龍",
+      "stadium": "大巨蛋",
+      "time": "2H43M"
+    },
+    {
+      "date": "4/27(日)",
+      "game_no": "63",
+      "teams": "台鋼雄鷹1:2統一7-ELEVEn獅",
+      "stadium": "台南",
+      "time": "2H32M"
+    },
+    {
+      "date": "4/27(日)",
+      "game_no": "64",
+      "teams": "樂天桃猿3:2富邦悍將",
+      "stadium": "新莊",
+      "time": "3H16M"
+    },
+    {
+      "date": "4/29(二)",
+      "game_no": "65",
+      "teams": "富邦悍將4:7台鋼雄鷹",
+      "stadium": "澄清湖",
+      "time": "2H58M"
+    },
+    {
+      "date": "4/29(二)",
+      "game_no": "66",
+      "teams": "樂天桃猿4:3中信兄弟",
+      "stadium": "洲際",
+      "time": "3H4M"
+    },
+    {
+      "date": "4/30(三)",
+      "game_no": "67",
+      "teams": "富邦悍將7:0台鋼雄鷹",
+      "stadium": "澄清湖",
+      "time": "3H12M"
+    },
+    {
+      "date": "4/30(三)",
+      "game_no": "68",
+      "teams": "樂天桃猿5:4中信兄弟",
+      "stadium": "洲際",
+      "time": "3H4M"
+    },
+    {
+      "date": "4/30(三)",
+      "game_no": "69",
+      "teams": "統一7-ELEVEn獅1:7味全龍",
+      "stadium": "天母",
+      "time": "2H33M"
+    },
+    {
+      "date": "5/1(四)",
+      "game_no": "70",
+      "teams": "統一7-ELEVEn獅8:5味全龍",
+      "stadium": "天母",
+      "time": "3H0M"
+    },
+    {
+      "date": "5/2(五)",
+      "game_no": "71",
+      "teams": "中信兄弟3:4台鋼雄鷹",
+      "stadium": "嘉義市",
+      "time": "2H25M"
+    },
+    {
+      "date": "5/2(五)",
+      "game_no": "72",
+      "teams": "統一7-ELEVEn獅4:2富邦悍將",
+      "stadium": "新莊",
+      "time": "2H59M"
+    },
+    {
+      "date": "5/2(五)",
+      "game_no": "73",
+      "teams": "味全龍5:3樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "3H19M"
+    },
+    {
+      "date": "5/3(六)",
+      "game_no": "74",
+      "teams": "中信兄弟1:2台鋼雄鷹",
+      "stadium": "澄清湖",
+      "time": "2H23M"
+    },
+    {
+      "date": "5/3(六)",
+      "game_no": "75",
+      "teams": "統一7-ELEVEn獅7:2富邦悍將",
+      "stadium": "新莊",
+      "time": "2H55M"
+    },
+    {
+      "date": "5/3(六)",
+      "game_no": "76",
+      "teams": "味全龍2:3樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "2H59M"
+    },
+    {
+      "date": "5/4(日)",
+      "game_no": "77",
+      "teams": "中信兄弟9:6台鋼雄鷹",
+      "stadium": "澄清湖",
+      "time": "3H0M"
+    },
+    {
+      "date": "5/4(日)",
+      "game_no": "78",
+      "teams": "統一7-ELEVEn獅13:2富邦悍將",
+      "stadium": "新莊",
+      "time": "3H14M"
+    },
+    {
+      "date": "5/4(日)",
+      "game_no": "79",
+      "teams": "味全龍5:3樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "3H1M"
+    },
+    {
+      "date": "5/6(二)",
+      "game_no": "80",
+      "teams": "味全龍2:6台鋼雄鷹",
+      "stadium": "澄清湖",
+      "time": "2H57M"
+    },
+    {
+      "date": "5/6(二)",
+      "game_no": "81",
+      "teams": "樂天桃猿5:1富邦悍將",
+      "stadium": "新莊",
+      "time": "3H10M"
+    },
+    {
+      "date": "5/7(三)",
+      "game_no": "82",
+      "teams": "統一7-ELEVEn獅4:7中信兄弟",
+      "stadium": "洲際",
+      "time": "2H54M"
+    },
+    {
+      "date": "5/7(三)",
+      "game_no": "83",
+      "teams": "味全龍9:4台鋼雄鷹",
+      "stadium": "澄清湖",
+      "time": "3H0M"
+    },
+    {
+      "date": "5/7(三)",
+      "game_no": "84",
+      "teams": "樂天桃猿VS.富邦悍將",
+      "stadium": "新莊",
+      "time": "N/A"
+    },
+    {
+      "date": "5/9(五)",
+      "game_no": "85",
+      "teams": "台鋼雄鷹6:2中信兄弟",
+      "stadium": "洲際",
+      "time": "3H12M"
+    },
+    {
+      "date": "5/9(五)",
+      "game_no": "86",
+      "teams": "富邦悍將3:4統一7-ELEVEn獅",
+      "stadium": "花蓮",
+      "time": "3H34M"
+    },
+    {
+      "date": "5/9(五)",
+      "game_no": "87",
+      "teams": "樂天桃猿1:4味全龍",
+      "stadium": "天母",
+      "time": "2H32M"
+    },
+    {
+      "date": "5/10(六)",
+      "game_no": "88",
+      "teams": "富邦悍將2:15統一7-ELEVEn獅",
+      "stadium": "花蓮",
+      "time": "3H14M"
+    },
+    {
+      "date": "5/10(六)",
+      "game_no": "89",
+      "teams": "台鋼雄鷹VS.中信兄弟",
+      "stadium": "洲際",
+      "time": "N/A"
+    },
+    {
+      "date": "5/10(六)",
+      "game_no": "90",
+      "teams": "樂天桃猿0:1味全龍",
+      "stadium": "天母",
+      "time": "2H33M"
+    },
+    {
+      "date": "5/11(日)",
+      "game_no": "91",
+      "teams": "樂天桃猿VS.味全龍",
+      "stadium": "天母",
+      "time": "N/A"
+    },
+    {
+      "date": "5/11(日)",
+      "game_no": "92",
+      "teams": "富邦悍將VS.統一7-ELEVEn獅",
+      "stadium": "花蓮",
+      "time": "N/A"
+    },
+    {
+      "date": "5/11(日)",
+      "game_no": "93",
+      "teams": "台鋼雄鷹VS.中信兄弟",
+      "stadium": "洲際",
+      "time": "N/A"
+    },
+    {
+      "date": "5/13(二)",
+      "game_no": "94",
+      "teams": "台鋼雄鷹VS.富邦悍將",
+      "stadium": "新莊",
+      "time": "18:35"
+    },
+    {
+      "date": "5/13(二)",
+      "game_no": "95",
+      "teams": "中信兄弟VS.味全龍",
+      "stadium": "天母",
+      "time": "18:35"
+    },
+    {
+      "date": "5/14(三)",
+      "game_no": "96",
+      "teams": "台鋼雄鷹VS.富邦悍將",
+      "stadium": "新莊",
+      "time": "18:35"
+    },
+    {
+      "date": "5/14(三)",
+      "game_no": "97",
+      "teams": "中信兄弟VS.味全龍",
+      "stadium": "天母",
+      "time": "18:35"
+    },
+    {
+      "date": "5/14(三)",
+      "game_no": "98",
+      "teams": "統一7-ELEVEn獅VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "18:35"
+    },
+    {
+      "date": "5/15(四)",
+      "game_no": "99",
+      "teams": "統一7-ELEVEn獅VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "18:35"
+    },
+    {
+      "date": "5/16(五)",
+      "game_no": "100",
+      "teams": "味全龍VS.富邦悍將",
+      "stadium": "新莊",
+      "time": "18:35"
+    },
+    {
+      "date": "5/16(五)",
+      "game_no": "101",
+      "teams": "統一7-ELEVEn獅VS.台鋼雄鷹",
+      "stadium": "澄清湖",
+      "time": "18:35"
+    },
+    {
+      "date": "5/16(五)",
+      "game_no": "102",
+      "teams": "樂天桃猿VS.中信兄弟",
+      "stadium": "洲際",
+      "time": "18:35"
+    },
+    {
+      "date": "5/17(六)",
+      "game_no": "103",
+      "teams": "統一7-ELEVEn獅VS.台鋼雄鷹",
+      "stadium": "澄清湖",
+      "time": "16:05"
+    },
+    {
+      "date": "5/17(六)",
+      "game_no": "104",
+      "teams": "味全龍VS.富邦悍將",
+      "stadium": "新莊",
+      "time": "17:05"
+    },
+    {
+      "date": "5/17(六)",
+      "game_no": "105",
+      "teams": "樂天桃猿VS.中信兄弟",
+      "stadium": "洲際",
+      "time": "17:05"
+    },
+    {
+      "date": "5/18(日)",
+      "game_no": "106",
+      "teams": "統一7-ELEVEn獅VS.台鋼雄鷹",
+      "stadium": "澄清湖",
+      "time": "16:05"
+    },
+    {
+      "date": "5/18(日)",
+      "game_no": "107",
+      "teams": "味全龍VS.富邦悍將",
+      "stadium": "新莊",
+      "time": "17:05"
+    },
+    {
+      "date": "5/18(日)",
+      "game_no": "108",
+      "teams": "樂天桃猿VS.中信兄弟",
+      "stadium": "洲際",
+      "time": "17:05"
+    },
+    {
+      "date": "5/20(二)",
+      "game_no": "109",
+      "teams": "味全龍VS.統一7-ELEVEn獅",
+      "stadium": "台南",
+      "time": "18:35"
+    },
+    {
+      "date": "5/20(二)",
+      "game_no": "110",
+      "teams": "樂天桃猿VS.台鋼雄鷹",
+      "stadium": "嘉義市",
+      "time": "18:35"
+    },
+    {
+      "date": "5/21(三)",
+      "game_no": "111",
+      "teams": "味全龍VS.統一7-ELEVEn獅",
+      "stadium": "台南",
+      "time": "18:35"
+    },
+    {
+      "date": "5/21(三)",
+      "game_no": "112",
+      "teams": "樂天桃猿VS.台鋼雄鷹",
+      "stadium": "澄清湖",
+      "time": "18:35"
+    },
+    {
+      "date": "5/22(四)",
+      "game_no": "113",
+      "teams": "富邦悍將VS.中信兄弟",
+      "stadium": "洲際",
+      "time": "18:35"
+    },
+    {
+      "date": "5/23(五)",
+      "game_no": "114",
+      "teams": "中信兄弟VS.統一7-ELEVEn獅",
+      "stadium": "台南",
+      "time": "18:35"
+    },
+    {
+      "date": "5/23(五)",
+      "game_no": "115",
+      "teams": "台鋼雄鷹VS.味全龍",
+      "stadium": "大巨蛋",
+      "time": "18:35"
+    },
+    {
+      "date": "5/23(五)",
+      "game_no": "116",
+      "teams": "富邦悍將VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "18:35"
+    },
+    {
+      "date": "5/24(六)",
+      "game_no": "117",
+      "teams": "中信兄弟VS.統一7-ELEVEn獅",
+      "stadium": "台南",
+      "time": "16:05"
+    },
+    {
+      "date": "5/24(六)",
+      "game_no": "118",
+      "teams": "台鋼雄鷹VS.味全龍",
+      "stadium": "大巨蛋",
+      "time": "17:05"
+    },
+    {
+      "date": "5/24(六)",
+      "game_no": "119",
+      "teams": "富邦悍將VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "17:05"
+    },
+    {
+      "date": "5/25(日)",
+      "game_no": "120",
+      "teams": "台鋼雄鷹VS.味全龍",
+      "stadium": "大巨蛋",
+      "time": "15:05"
+    },
+    {
+      "date": "5/25(日)",
+      "game_no": "121",
+      "teams": "中信兄弟VS.統一7-ELEVEn獅",
+      "stadium": "台南",
+      "time": "16:05"
+    },
+    {
+      "date": "5/25(日)",
+      "game_no": "122",
+      "teams": "富邦悍將VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "17:05"
+    },
+    {
+      "date": "5/27(二)",
+      "game_no": "123",
+      "teams": "中信兄弟VS.台鋼雄鷹",
+      "stadium": "澄清湖",
+      "time": "18:35"
+    },
+    {
+      "date": "5/27(二)",
+      "game_no": "124",
+      "teams": "統一7-ELEVEn獅VS.富邦悍將",
+      "stadium": "新莊",
+      "time": "18:35"
+    },
+    {
+      "date": "5/28(三)",
+      "game_no": "125",
+      "teams": "中信兄弟VS.台鋼雄鷹",
+      "stadium": "澄清湖",
+      "time": "18:35"
+    },
+    {
+      "date": "5/28(三)",
+      "game_no": "126",
+      "teams": "統一7-ELEVEn獅VS.富邦悍將",
+      "stadium": "新莊",
+      "time": "18:35"
+    },
+    {
+      "date": "5/28(三)",
+      "game_no": "127",
+      "teams": "味全龍VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "18:35"
+    },
+    {
+      "date": "5/29(四)",
+      "game_no": "91",
+      "teams": "樂天桃猿VS.味全龍",
+      "stadium": "天母",
+      "time": "18:35"
+    },
+    {
+      "date": "5/30(五)",
+      "game_no": "128",
+      "teams": "富邦悍將VS.台鋼雄鷹",
+      "stadium": "澄清湖",
+      "time": "16:05"
+    },
+    {
+      "date": "5/30(五)",
+      "game_no": "129",
+      "teams": "樂天桃猿VS.統一7-ELEVEn獅",
+      "stadium": "台南",
+      "time": "16:05"
+    },
+    {
+      "date": "5/30(五)",
+      "game_no": "130",
+      "teams": "味全龍VS.中信兄弟",
+      "stadium": "洲際",
+      "time": "17:05"
+    },
+    {
+      "date": "5/31(六)",
+      "game_no": "131",
+      "teams": "富邦悍將VS.台鋼雄鷹",
+      "stadium": "澄清湖",
+      "time": "16:05"
+    },
+    {
+      "date": "5/31(六)",
+      "game_no": "132",
+      "teams": "樂天桃猿VS.統一7-ELEVEn獅",
+      "stadium": "台南",
+      "time": "16:05"
+    },
+    {
+      "date": "5/31(六)",
+      "game_no": "133",
+      "teams": "味全龍VS.中信兄弟",
+      "stadium": "洲際",
+      "time": "17:05"
+    },
+    {
+      "date": "6/1(日)",
+      "game_no": "134",
+      "teams": "富邦悍將VS.台鋼雄鷹",
+      "stadium": "澄清湖",
+      "time": "16:05"
+    },
+    {
+      "date": "6/1(日)",
+      "game_no": "135",
+      "teams": "樂天桃猿VS.統一7-ELEVEn獅",
+      "stadium": "台南",
+      "time": "16:05"
+    },
+    {
+      "date": "6/1(日)",
+      "game_no": "136",
+      "teams": "味全龍VS.中信兄弟",
+      "stadium": "洲際",
+      "time": "17:05"
+    },
+    {
+      "date": "6/3(二)",
+      "game_no": "137",
+      "teams": "富邦悍將VS.味全龍",
+      "stadium": "花蓮",
+      "time": "18:35"
+    },
+    {
+      "date": "6/3(二)",
+      "game_no": "138",
+      "teams": "中信兄弟VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "18:35"
+    },
+    {
+      "date": "6/4(三)",
+      "game_no": "139",
+      "teams": "富邦悍將VS.味全龍",
+      "stadium": "花蓮",
+      "time": "18:35"
+    },
+    {
+      "date": "6/4(三)",
+      "game_no": "140",
+      "teams": "中信兄弟VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "18:35"
+    },
+    {
+      "date": "6/4(三)",
+      "game_no": "141",
+      "teams": "台鋼雄鷹VS.統一7-ELEVEn獅",
+      "stadium": "嘉義市",
+      "time": "18:35"
+    },
+    {
+      "date": "6/6(五)",
+      "game_no": "142",
+      "teams": "統一7-ELEVEn獅VS.味全龍",
+      "stadium": "天母",
+      "time": "18:35"
+    },
+    {
+      "date": "6/6(五)",
+      "game_no": "143",
+      "teams": "中信兄弟VS.富邦悍將",
+      "stadium": "新莊",
+      "time": "18:35"
+    },
+    {
+      "date": "6/6(五)",
+      "game_no": "144",
+      "teams": "台鋼雄鷹VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "18:35"
+    },
+    {
+      "date": "6/7(六)",
+      "game_no": "145",
+      "teams": "統一7-ELEVEn獅VS.味全龍",
+      "stadium": "天母",
+      "time": "17:05"
+    },
+    {
+      "date": "6/7(六)",
+      "game_no": "146",
+      "teams": "中信兄弟VS.富邦悍將",
+      "stadium": "新莊",
+      "time": "17:05"
+    },
+    {
+      "date": "6/7(六)",
+      "game_no": "147",
+      "teams": "台鋼雄鷹VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "17:05"
+    },
+    {
+      "date": "6/8(日)",
+      "game_no": "148",
+      "teams": "統一7-ELEVEn獅VS.味全龍",
+      "stadium": "天母",
+      "time": "17:05"
+    },
+    {
+      "date": "6/8(日)",
+      "game_no": "149",
+      "teams": "中信兄弟VS.富邦悍將",
+      "stadium": "新莊",
+      "time": "17:05"
+    },
+    {
+      "date": "6/8(日)",
+      "game_no": "150",
+      "teams": "台鋼雄鷹VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "17:05"
+    },
+    {
+      "date": "6/10(二)",
+      "game_no": "151",
+      "teams": "台鋼雄鷹VS.中信兄弟",
+      "stadium": "洲際",
+      "time": "18:35"
+    },
+    {
+      "date": "6/10(二)",
+      "game_no": "152",
+      "teams": "味全龍VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "18:35"
+    },
+    {
+      "date": "6/10(二)",
+      "game_no": "153",
+      "teams": "富邦悍將VS.統一7-ELEVEn獅",
+      "stadium": "嘉義市",
+      "time": "18:35"
+    },
+    {
+      "date": "6/12(四)",
+      "game_no": "154",
+      "teams": "樂天桃猿VS.中信兄弟",
+      "stadium": "洲際",
+      "time": "18:35"
+    },
+    {
+      "date": "6/12(四)",
+      "game_no": "155",
+      "teams": "味全龍VS.富邦悍將",
+      "stadium": "大巨蛋",
+      "time": "18:35"
+    },
+    {
+      "date": "6/12(四)",
+      "game_no": "156",
+      "teams": "台鋼雄鷹VS.統一7-ELEVEn獅",
+      "stadium": "台南",
+      "time": "18:35"
+    },
+    {
+      "date": "6/13(五)",
+      "game_no": "157",
+      "teams": "樂天桃猿VS.中信兄弟",
+      "stadium": "洲際",
+      "time": "18:35"
+    },
+    {
+      "date": "6/13(五)",
+      "game_no": "158",
+      "teams": "味全龍VS.富邦悍將",
+      "stadium": "大巨蛋",
+      "time": "18:35"
+    },
+    {
+      "date": "6/13(五)",
+      "game_no": "159",
+      "teams": "台鋼雄鷹VS.統一7-ELEVEn獅",
+      "stadium": "台南",
+      "time": "18:35"
+    },
+    {
+      "date": "6/14(六)",
+      "game_no": "160",
+      "teams": "中信兄弟VS.統一7-ELEVEn獅",
+      "stadium": "台南",
+      "time": "16:05"
+    },
+    {
+      "date": "6/14(六)",
+      "game_no": "161",
+      "teams": "味全龍VS.台鋼雄鷹",
+      "stadium": "澄清湖",
+      "time": "17:05"
+    },
+    {
+      "date": "6/14(六)",
+      "game_no": "162",
+      "teams": "樂天桃猿VS.富邦悍將",
+      "stadium": "大巨蛋",
+      "time": "17:05"
+    },
+    {
+      "date": "6/15(日)",
+      "game_no": "163",
+      "teams": "味全龍VS.台鋼雄鷹",
+      "stadium": "澄清湖",
+      "time": "16:05"
+    },
+    {
+      "date": "6/15(日)",
+      "game_no": "164",
+      "teams": "樂天桃猿VS.富邦悍將",
+      "stadium": "大巨蛋",
+      "time": "16:05"
+    },
+    {
+      "date": "6/15(日)",
+      "game_no": "165",
+      "teams": "中信兄弟VS.統一7-ELEVEn獅",
+      "stadium": "台南",
+      "time": "16:05"
+    },
+    {
+      "date": "6/17(二)",
+      "game_no": "166",
+      "teams": "中信兄弟VS.台鋼雄鷹",
+      "stadium": "澄清湖",
+      "time": "18:35"
+    },
+    {
+      "date": "6/17(二)",
+      "game_no": "167",
+      "teams": "樂天桃猿VS.味全龍",
+      "stadium": "天母",
+      "time": "18:35"
+    },
+    {
+      "date": "6/17(二)",
+      "game_no": "168",
+      "teams": "統一7-ELEVEn獅VS.富邦悍將",
+      "stadium": "新莊",
+      "time": "18:35"
+    },
+    {
+      "date": "6/19(四)",
+      "game_no": "169",
+      "teams": "富邦悍將VS.台鋼雄鷹",
+      "stadium": "澄清湖",
+      "time": "18:35"
+    },
+    {
+      "date": "6/19(四)",
+      "game_no": "170",
+      "teams": "統一7-ELEVEn獅VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "18:35"
+    },
+    {
+      "date": "6/19(四)",
+      "game_no": "171",
+      "teams": "中信兄弟VS.味全龍",
+      "stadium": "天母",
+      "time": "18:35"
+    },
+    {
+      "date": "6/20(五)",
+      "game_no": "172",
+      "teams": "富邦悍將VS.台鋼雄鷹",
+      "stadium": "澄清湖",
+      "time": "18:35"
+    },
+    {
+      "date": "6/20(五)",
+      "game_no": "173",
+      "teams": "統一7-ELEVEn獅VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "18:35"
+    },
+    {
+      "date": "6/20(五)",
+      "game_no": "174",
+      "teams": "中信兄弟VS.味全龍",
+      "stadium": "天母",
+      "time": "18:35"
+    },
+    {
+      "date": "6/21(六)",
+      "game_no": "175",
+      "teams": "富邦悍將VS.中信兄弟",
+      "stadium": "洲際",
+      "time": "17:05"
+    },
+    {
+      "date": "6/21(六)",
+      "game_no": "176",
+      "teams": "台鋼雄鷹VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "17:05"
+    },
+    {
+      "date": "6/21(六)",
+      "game_no": "177",
+      "teams": "統一7-ELEVEn獅VS.味全龍",
+      "stadium": "天母",
+      "time": "17:05"
+    },
+    {
+      "date": "6/22(日)",
+      "game_no": "178",
+      "teams": "富邦悍將VS.中信兄弟",
+      "stadium": "洲際",
+      "time": "17:05"
+    },
+    {
+      "date": "6/22(日)",
+      "game_no": "179",
+      "teams": "台鋼雄鷹VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "17:05"
+    },
+    {
+      "date": "6/22(日)",
+      "game_no": "180",
+      "teams": "統一7-ELEVEn獅VS.味全龍",
+      "stadium": "天母",
+      "time": "17:05"
+    },
+    {
+      "date": "6/28(六)",
+      "game_no": "2",
+      "teams": "味全龍VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "17:05"
+    },
+    {
+      "date": "6/29(日)",
+      "game_no": "47",
+      "teams": "統一7-ELEVEn獅1:0樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "17:05"
+    },
+    {
+      "date": "7/4(五)",
+      "game_no": "181",
+      "teams": "富邦悍將VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "18:35"
+    },
+    {
+      "date": "7/4(五)",
+      "game_no": "182",
+      "teams": "中信兄弟VS.台鋼雄鷹",
+      "stadium": "澄清湖",
+      "time": "18:35"
+    },
+    {
+      "date": "7/4(五)",
+      "game_no": "183",
+      "teams": "統一7-ELEVEn獅VS.味全龍",
+      "stadium": "天母",
+      "time": "18:35"
+    },
+    {
+      "date": "7/5(六)",
+      "game_no": "184",
+      "teams": "中信兄弟VS.台鋼雄鷹",
+      "stadium": "澄清湖",
+      "time": "16:05"
+    },
+    {
+      "date": "7/5(六)",
+      "game_no": "185",
+      "teams": "富邦悍將VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "17:05"
+    },
+    {
+      "date": "7/5(六)",
+      "game_no": "186",
+      "teams": "統一7-ELEVEn獅VS.味全龍",
+      "stadium": "天母",
+      "time": "17:05"
+    },
+    {
+      "date": "7/6(日)",
+      "game_no": "187",
+      "teams": "中信兄弟VS.台鋼雄鷹",
+      "stadium": "澄清湖",
+      "time": "16:05"
+    },
+    {
+      "date": "7/6(日)",
+      "game_no": "188",
+      "teams": "富邦悍將VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "17:05"
+    },
+    {
+      "date": "7/6(日)",
+      "game_no": "189",
+      "teams": "統一7-ELEVEn獅VS.味全龍",
+      "stadium": "天母",
+      "time": "17:05"
+    },
+    {
+      "date": "7/8(二)",
+      "game_no": "190",
+      "teams": "統一7-ELEVEn獅VS.中信兄弟",
+      "stadium": "洲際",
+      "time": "18:35"
+    },
+    {
+      "date": "7/8(二)",
+      "game_no": "191",
+      "teams": "味全龍VS.富邦悍將",
+      "stadium": "新莊",
+      "time": "18:35"
+    },
+    {
+      "date": "7/9(三)",
+      "game_no": "192",
+      "teams": "統一7-ELEVEn獅VS.中信兄弟",
+      "stadium": "洲際",
+      "time": "18:35"
+    },
+    {
+      "date": "7/9(三)",
+      "game_no": "193",
+      "teams": "味全龍VS.富邦悍將",
+      "stadium": "新莊",
+      "time": "18:35"
+    },
+    {
+      "date": "7/9(三)",
+      "game_no": "194",
+      "teams": "樂天桃猿VS.台鋼雄鷹",
+      "stadium": "嘉義市",
+      "time": "18:35"
+    },
+    {
+      "date": "7/10(四)",
+      "game_no": "195",
+      "teams": "樂天桃猿VS.台鋼雄鷹",
+      "stadium": "澄清湖",
+      "time": "18:35"
+    },
+    {
+      "date": "7/11(五)",
+      "game_no": "196",
+      "teams": "味全龍VS.中信兄弟",
+      "stadium": "洲際",
+      "time": "18:35"
+    },
+    {
+      "date": "7/11(五)",
+      "game_no": "197",
+      "teams": "樂天桃猿VS.統一7-ELEVEn獅",
+      "stadium": "台南",
+      "time": "18:35"
+    },
+    {
+      "date": "7/11(五)",
+      "game_no": "198",
+      "teams": "台鋼雄鷹VS.富邦悍將",
+      "stadium": "新莊",
+      "time": "18:35"
+    },
+    {
+      "date": "7/12(六)",
+      "game_no": "199",
+      "teams": "樂天桃猿VS.統一7-ELEVEn獅",
+      "stadium": "台南",
+      "time": "16:05"
+    },
+    {
+      "date": "7/12(六)",
+      "game_no": "200",
+      "teams": "味全龍VS.中信兄弟",
+      "stadium": "洲際",
+      "time": "17:05"
+    },
+    {
+      "date": "7/12(六)",
+      "game_no": "201",
+      "teams": "台鋼雄鷹VS.富邦悍將",
+      "stadium": "新莊",
+      "time": "17:05"
+    },
+    {
+      "date": "7/13(日)",
+      "game_no": "202",
+      "teams": "樂天桃猿VS.統一7-ELEVEn獅",
+      "stadium": "台南",
+      "time": "16:05"
+    },
+    {
+      "date": "7/13(日)",
+      "game_no": "203",
+      "teams": "味全龍VS.中信兄弟",
+      "stadium": "洲際",
+      "time": "17:05"
+    },
+    {
+      "date": "7/13(日)",
+      "game_no": "204",
+      "teams": "台鋼雄鷹VS.富邦悍將",
+      "stadium": "新莊",
+      "time": "17:05"
+    },
+    {
+      "date": "7/15(二)",
+      "game_no": "205",
+      "teams": "台鋼雄鷹VS.味全龍",
+      "stadium": "斗六",
+      "time": "18:35"
+    },
+    {
+      "date": "7/15(二)",
+      "game_no": "206",
+      "teams": "中信兄弟VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "18:35"
+    },
+    {
+      "date": "7/16(三)",
+      "game_no": "207",
+      "teams": "台鋼雄鷹VS.味全龍",
+      "stadium": "斗六",
+      "time": "18:35"
+    },
+    {
+      "date": "7/16(三)",
+      "game_no": "208",
+      "teams": "中信兄弟VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "18:35"
+    },
+    {
+      "date": "7/16(三)",
+      "game_no": "209",
+      "teams": "富邦悍將VS.統一7-ELEVEn獅",
+      "stadium": "台南",
+      "time": "18:35"
+    },
+    {
+      "date": "7/17(四)",
+      "game_no": "210",
+      "teams": "富邦悍將VS.統一7-ELEVEn獅",
+      "stadium": "台南",
+      "time": "18:35"
+    },
+    {
+      "date": "7/22(二)",
+      "game_no": "211",
+      "teams": "樂天桃猿VS.味全龍",
+      "stadium": "大巨蛋",
+      "time": "18:35"
+    },
+    {
+      "date": "7/22(二)",
+      "game_no": "212",
+      "teams": "統一7-ELEVEn獅VS.台鋼雄鷹",
+      "stadium": "嘉義市",
+      "time": "18:35"
+    },
+    {
+      "date": "7/23(三)",
+      "game_no": "213",
+      "teams": "樂天桃猿VS.味全龍",
+      "stadium": "大巨蛋",
+      "time": "18:35"
+    },
+    {
+      "date": "7/23(三)",
+      "game_no": "214",
+      "teams": "統一7-ELEVEn獅VS.台鋼雄鷹",
+      "stadium": "澄清湖",
+      "time": "18:35"
+    },
+    {
+      "date": "7/23(三)",
+      "game_no": "215",
+      "teams": "中信兄弟VS.富邦悍將",
+      "stadium": "新莊",
+      "time": "18:35"
+    },
+    {
+      "date": "7/24(四)",
+      "game_no": "216",
+      "teams": "中信兄弟VS.富邦悍將",
+      "stadium": "新莊",
+      "time": "18:35"
+    },
+    {
+      "date": "7/25(五)",
+      "game_no": "217",
+      "teams": "富邦悍將VS.味全龍",
+      "stadium": "天母",
+      "time": "18:35"
+    },
+    {
+      "date": "7/25(五)",
+      "game_no": "218",
+      "teams": "台鋼雄鷹VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "18:35"
+    },
+    {
+      "date": "7/25(五)",
+      "game_no": "219",
+      "teams": "中信兄弟VS.統一7-ELEVEn獅",
+      "stadium": "大巨蛋",
+      "time": "18:35"
+    },
+    {
+      "date": "7/26(六)",
+      "game_no": "220",
+      "teams": "中信兄弟VS.統一7-ELEVEn獅",
+      "stadium": "大巨蛋",
+      "time": "16:05"
+    },
+    {
+      "date": "7/26(六)",
+      "game_no": "221",
+      "teams": "富邦悍將VS.味全龍",
+      "stadium": "天母",
+      "time": "17:05"
+    },
+    {
+      "date": "7/26(六)",
+      "game_no": "222",
+      "teams": "台鋼雄鷹VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "17:05"
+    },
+    {
+      "date": "7/27(日)",
+      "game_no": "223",
+      "teams": "中信兄弟VS.統一7-ELEVEn獅",
+      "stadium": "大巨蛋",
+      "time": "16:05"
+    },
+    {
+      "date": "7/27(日)",
+      "game_no": "224",
+      "teams": "富邦悍將VS.味全龍",
+      "stadium": "天母",
+      "time": "17:05"
+    },
+    {
+      "date": "7/27(日)",
+      "game_no": "225",
+      "teams": "台鋼雄鷹VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "17:05"
+    },
+    {
+      "date": "7/29(二)",
+      "game_no": "226",
+      "teams": "台鋼雄鷹VS.中信兄弟",
+      "stadium": "洲際",
+      "time": "18:35"
+    },
+    {
+      "date": "7/29(二)",
+      "game_no": "227",
+      "teams": "樂天桃猿VS.富邦悍將",
+      "stadium": "大巨蛋",
+      "time": "18:35"
+    },
+    {
+      "date": "7/30(三)",
+      "game_no": "228",
+      "teams": "台鋼雄鷹VS.中信兄弟",
+      "stadium": "洲際",
+      "time": "18:35"
+    },
+    {
+      "date": "7/30(三)",
+      "game_no": "229",
+      "teams": "樂天桃猿VS.富邦悍將",
+      "stadium": "大巨蛋",
+      "time": "18:35"
+    },
+    {
+      "date": "7/30(三)",
+      "game_no": "230",
+      "teams": "味全龍VS.統一7-ELEVEn獅",
+      "stadium": "台南",
+      "time": "18:35"
+    },
+    {
+      "date": "7/31(四)",
+      "game_no": "231",
+      "teams": "味全龍VS.統一7-ELEVEn獅",
+      "stadium": "台南",
+      "time": "18:35"
+    },
+    {
+      "date": "8/1(五)",
+      "game_no": "232",
+      "teams": "樂天桃猿VS.中信兄弟",
+      "stadium": "大巨蛋",
+      "time": "18:35"
+    },
+    {
+      "date": "8/1(五)",
+      "game_no": "233",
+      "teams": "味全龍VS.台鋼雄鷹",
+      "stadium": "澄清湖",
+      "time": "18:35"
+    },
+    {
+      "date": "8/1(五)",
+      "game_no": "234",
+      "teams": "統一7-ELEVEn獅VS.富邦悍將",
+      "stadium": "新莊",
+      "time": "18:35"
+    },
+    {
+      "date": "8/2(六)",
+      "game_no": "235",
+      "teams": "味全龍VS.台鋼雄鷹",
+      "stadium": "澄清湖",
+      "time": "16:05"
+    },
+    {
+      "date": "8/2(六)",
+      "game_no": "236",
+      "teams": "樂天桃猿VS.中信兄弟",
+      "stadium": "大巨蛋",
+      "time": "17:05"
+    },
+    {
+      "date": "8/2(六)",
+      "game_no": "237",
+      "teams": "統一7-ELEVEn獅VS.富邦悍將",
+      "stadium": "新莊",
+      "time": "17:05"
+    },
+    {
+      "date": "8/3(日)",
+      "game_no": "238",
+      "teams": "樂天桃猿VS.中信兄弟",
+      "stadium": "大巨蛋",
+      "time": "15:05"
+    },
+    {
+      "date": "8/3(日)",
+      "game_no": "239",
+      "teams": "味全龍VS.台鋼雄鷹",
+      "stadium": "澄清湖",
+      "time": "16:05"
+    },
+    {
+      "date": "8/3(日)",
+      "game_no": "240",
+      "teams": "統一7-ELEVEn獅VS.富邦悍將",
+      "stadium": "新莊",
+      "time": "17:05"
+    },
+    {
+      "date": "8/5(二)",
+      "game_no": "241",
+      "teams": "統一7-ELEVEn獅VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "18:35"
+    },
+    {
+      "date": "8/5(二)",
+      "game_no": "242",
+      "teams": "中信兄弟VS.味全龍",
+      "stadium": "天母",
+      "time": "18:35"
+    },
+    {
+      "date": "8/5(二)",
+      "game_no": "243",
+      "teams": "富邦悍將VS.台鋼雄鷹",
+      "stadium": "台東",
+      "time": "18:35"
+    },
+    {
+      "date": "8/6(三)",
+      "game_no": "244",
+      "teams": "統一7-ELEVEn獅VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "18:35"
+    },
+    {
+      "date": "8/6(三)",
+      "game_no": "245",
+      "teams": "中信兄弟VS.味全龍",
+      "stadium": "天母",
+      "time": "18:35"
+    },
+    {
+      "date": "8/6(三)",
+      "game_no": "246",
+      "teams": "富邦悍將VS.台鋼雄鷹",
+      "stadium": "台東",
+      "time": "18:35"
+    },
+    {
+      "date": "8/8(五)",
+      "game_no": "247",
+      "teams": "味全龍VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "18:35"
+    },
+    {
+      "date": "8/8(五)",
+      "game_no": "248",
+      "teams": "台鋼雄鷹VS.統一7-ELEVEn獅",
+      "stadium": "台南",
+      "time": "18:35"
+    },
+    {
+      "date": "8/8(五)",
+      "game_no": "249",
+      "teams": "富邦悍將VS.中信兄弟",
+      "stadium": "洲際",
+      "time": "18:35"
+    },
+    {
+      "date": "8/9(六)",
+      "game_no": "250",
+      "teams": "台鋼雄鷹VS.統一7-ELEVEn獅",
+      "stadium": "台南",
+      "time": "16:05"
+    },
+    {
+      "date": "8/9(六)",
+      "game_no": "251",
+      "teams": "味全龍VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "17:05"
+    },
+    {
+      "date": "8/9(六)",
+      "game_no": "252",
+      "teams": "富邦悍將VS.中信兄弟",
+      "stadium": "洲際",
+      "time": "17:05"
+    },
+    {
+      "date": "8/10(日)",
+      "game_no": "253",
+      "teams": "台鋼雄鷹VS.統一7-ELEVEn獅",
+      "stadium": "台南",
+      "time": "16:05"
+    },
+    {
+      "date": "8/10(日)",
+      "game_no": "254",
+      "teams": "味全龍VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "17:05"
+    },
+    {
+      "date": "8/10(日)",
+      "game_no": "255",
+      "teams": "富邦悍將VS.中信兄弟",
+      "stadium": "洲際",
+      "time": "17:05"
+    },
+    {
+      "date": "8/12(二)",
+      "game_no": "256",
+      "teams": "統一7-ELEVEn獅VS.富邦悍將",
+      "stadium": "新莊",
+      "time": "18:35"
+    },
+    {
+      "date": "8/12(二)",
+      "game_no": "257",
+      "teams": "台鋼雄鷹VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "18:35"
+    },
+    {
+      "date": "8/13(三)",
+      "game_no": "258",
+      "teams": "統一7-ELEVEn獅VS.富邦悍將",
+      "stadium": "新莊",
+      "time": "18:35"
+    },
+    {
+      "date": "8/13(三)",
+      "game_no": "259",
+      "teams": "台鋼雄鷹VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "18:35"
+    },
+    {
+      "date": "8/13(三)",
+      "game_no": "260",
+      "teams": "味全龍VS.中信兄弟",
+      "stadium": "洲際",
+      "time": "18:35"
+    },
+    {
+      "date": "8/14(四)",
+      "game_no": "261",
+      "teams": "味全龍VS.中信兄弟",
+      "stadium": "洲際",
+      "time": "18:35"
+    },
+    {
+      "date": "8/15(五)",
+      "game_no": "262",
+      "teams": "中信兄弟VS.富邦悍將",
+      "stadium": "新莊",
+      "time": "18:35"
+    },
+    {
+      "date": "8/15(五)",
+      "game_no": "263",
+      "teams": "統一7-ELEVEn獅VS.台鋼雄鷹",
+      "stadium": "澄清湖",
+      "time": "18:35"
+    },
+    {
+      "date": "8/15(五)",
+      "game_no": "264",
+      "teams": "樂天桃猿VS.味全龍",
+      "stadium": "天母",
+      "time": "18:35"
+    },
+    {
+      "date": "8/16(六)",
+      "game_no": "265",
+      "teams": "統一7-ELEVEn獅VS.台鋼雄鷹",
+      "stadium": "澄清湖",
+      "time": "16:05"
+    },
+    {
+      "date": "8/16(六)",
+      "game_no": "266",
+      "teams": "中信兄弟VS.富邦悍將",
+      "stadium": "新莊",
+      "time": "17:05"
+    },
+    {
+      "date": "8/16(六)",
+      "game_no": "267",
+      "teams": "樂天桃猿VS.味全龍",
+      "stadium": "天母",
+      "time": "17:05"
+    },
+    {
+      "date": "8/17(日)",
+      "game_no": "268",
+      "teams": "統一7-ELEVEn獅VS.台鋼雄鷹",
+      "stadium": "澄清湖",
+      "time": "16:05"
+    },
+    {
+      "date": "8/17(日)",
+      "game_no": "269",
+      "teams": "中信兄弟VS.富邦悍將",
+      "stadium": "新莊",
+      "time": "17:05"
+    },
+    {
+      "date": "8/17(日)",
+      "game_no": "270",
+      "teams": "樂天桃猿VS.味全龍",
+      "stadium": "天母",
+      "time": "17:05"
+    },
+    {
+      "date": "8/19(二)",
+      "game_no": "271",
+      "teams": "富邦悍將VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "18:35"
+    },
+    {
+      "date": "8/19(二)",
+      "game_no": "272",
+      "teams": "中信兄弟VS.統一7-ELEVEn獅",
+      "stadium": "台南",
+      "time": "18:35"
+    },
+    {
+      "date": "8/19(二)",
+      "game_no": "273",
+      "teams": "味全龍VS.台鋼雄鷹",
+      "stadium": "台東",
+      "time": "18:35"
+    },
+    {
+      "date": "8/20(三)",
+      "game_no": "274",
+      "teams": "富邦悍將VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "18:35"
+    },
+    {
+      "date": "8/20(三)",
+      "game_no": "275",
+      "teams": "中信兄弟VS.統一7-ELEVEn獅",
+      "stadium": "台南",
+      "time": "18:35"
+    },
+    {
+      "date": "8/20(三)",
+      "game_no": "276",
+      "teams": "味全龍VS.台鋼雄鷹",
+      "stadium": "台東",
+      "time": "18:35"
+    },
+    {
+      "date": "8/22(五)",
+      "game_no": "277",
+      "teams": "統一7-ELEVEn獅VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "18:35"
+    },
+    {
+      "date": "8/22(五)",
+      "game_no": "278",
+      "teams": "味全龍VS.富邦悍將",
+      "stadium": "新莊",
+      "time": "18:35"
+    },
+    {
+      "date": "8/22(五)",
+      "game_no": "279",
+      "teams": "台鋼雄鷹VS.中信兄弟",
+      "stadium": "大巨蛋",
+      "time": "18:35"
+    },
+    {
+      "date": "8/23(六)",
+      "game_no": "280",
+      "teams": "統一7-ELEVEn獅VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "17:05"
+    },
+    {
+      "date": "8/23(六)",
+      "game_no": "281",
+      "teams": "味全龍VS.富邦悍將",
+      "stadium": "新莊",
+      "time": "17:05"
+    },
+    {
+      "date": "8/23(六)",
+      "game_no": "282",
+      "teams": "台鋼雄鷹VS.中信兄弟",
+      "stadium": "大巨蛋",
+      "time": "17:05"
+    },
+    {
+      "date": "8/24(日)",
+      "game_no": "283",
+      "teams": "台鋼雄鷹VS.中信兄弟",
+      "stadium": "大巨蛋",
+      "time": "15:05"
+    },
+    {
+      "date": "8/24(日)",
+      "game_no": "284",
+      "teams": "統一7-ELEVEn獅VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "17:05"
+    },
+    {
+      "date": "8/24(日)",
+      "game_no": "285",
+      "teams": "味全龍VS.富邦悍將",
+      "stadium": "新莊",
+      "time": "17:05"
+    },
+    {
+      "date": "8/26(二)",
+      "game_no": "286",
+      "teams": "統一7-ELEVEn獅VS.味全龍",
+      "stadium": "天母",
+      "time": "18:35"
+    },
+    {
+      "date": "8/26(二)",
+      "game_no": "287",
+      "teams": "台鋼雄鷹VS.富邦悍將",
+      "stadium": "新莊",
+      "time": "18:35"
+    },
+    {
+      "date": "8/27(三)",
+      "game_no": "288",
+      "teams": "統一7-ELEVEn獅VS.味全龍",
+      "stadium": "天母",
+      "time": "18:35"
+    },
+    {
+      "date": "8/27(三)",
+      "game_no": "289",
+      "teams": "台鋼雄鷹VS.富邦悍將",
+      "stadium": "新莊",
+      "time": "18:35"
+    },
+    {
+      "date": "8/27(三)",
+      "game_no": "290",
+      "teams": "樂天桃猿VS.中信兄弟",
+      "stadium": "大巨蛋",
+      "time": "18:35"
+    },
+    {
+      "date": "8/28(四)",
+      "game_no": "291",
+      "teams": "樂天桃猿VS.中信兄弟",
+      "stadium": "大巨蛋",
+      "time": "18:35"
+    },
+    {
+      "date": "8/29(五)",
+      "game_no": "292",
+      "teams": "中信兄弟VS.味全龍",
+      "stadium": "大巨蛋",
+      "time": "18:35"
+    },
+    {
+      "date": "8/29(五)",
+      "game_no": "293",
+      "teams": "富邦悍將VS.統一7-ELEVEn獅",
+      "stadium": "台南",
+      "time": "18:35"
+    },
+    {
+      "date": "8/29(五)",
+      "game_no": "294",
+      "teams": "樂天桃猿VS.台鋼雄鷹",
+      "stadium": "澄清湖",
+      "time": "18:35"
+    },
+    {
+      "date": "8/30(六)",
+      "game_no": "295",
+      "teams": "樂天桃猿VS.台鋼雄鷹",
+      "stadium": "澄清湖",
+      "time": "16:05"
+    },
+    {
+      "date": "8/30(六)",
+      "game_no": "296",
+      "teams": "富邦悍將VS.統一7-ELEVEn獅",
+      "stadium": "台南",
+      "time": "16:05"
+    },
+    {
+      "date": "8/30(六)",
+      "game_no": "297",
+      "teams": "中信兄弟VS.味全龍",
+      "stadium": "大巨蛋",
+      "time": "17:05"
+    },
+    {
+      "date": "8/31(日)",
+      "game_no": "298",
+      "teams": "中信兄弟VS.味全龍",
+      "stadium": "大巨蛋",
+      "time": "15:05"
+    },
+    {
+      "date": "8/31(日)",
+      "game_no": "299",
+      "teams": "富邦悍將VS.統一7-ELEVEn獅",
+      "stadium": "台南",
+      "time": "16:05"
+    },
+    {
+      "date": "8/31(日)",
+      "game_no": "300",
+      "teams": "樂天桃猿VS.台鋼雄鷹",
+      "stadium": "澄清湖",
+      "time": "16:05"
+    },
+    {
+      "date": "9/2(二)",
+      "game_no": "301",
+      "teams": "富邦悍將VS.中信兄弟",
+      "stadium": "洲際",
+      "time": "18:35"
+    },
+    {
+      "date": "9/2(二)",
+      "game_no": "302",
+      "teams": "味全龍VS.樂天桃猿",
+      "stadium": "大巨蛋",
+      "time": "18:35"
+    },
+    {
+      "date": "9/3(三)",
+      "game_no": "303",
+      "teams": "富邦悍將VS.中信兄弟",
+      "stadium": "洲際",
+      "time": "18:35"
+    },
+    {
+      "date": "9/3(三)",
+      "game_no": "304",
+      "teams": "味全龍VS.樂天桃猿",
+      "stadium": "大巨蛋",
+      "time": "18:35"
+    },
+    {
+      "date": "9/3(三)",
+      "game_no": "305",
+      "teams": "台鋼雄鷹VS.統一7-ELEVEn獅",
+      "stadium": "台南",
+      "time": "18:35"
+    },
+    {
+      "date": "9/4(四)",
+      "game_no": "306",
+      "teams": "台鋼雄鷹VS.統一7-ELEVEn獅",
+      "stadium": "台南",
+      "time": "18:35"
+    },
+    {
+      "date": "9/5(五)",
+      "game_no": "307",
+      "teams": "統一7-ELEVEn獅VS.中信兄弟",
+      "stadium": "洲際",
+      "time": "18:35"
+    },
+    {
+      "date": "9/5(五)",
+      "game_no": "308",
+      "teams": "樂天桃猿VS.富邦悍將",
+      "stadium": "新莊",
+      "time": "18:35"
+    },
+    {
+      "date": "9/5(五)",
+      "game_no": "309",
+      "teams": "台鋼雄鷹VS.味全龍",
+      "stadium": "大巨蛋",
+      "time": "18:35"
+    },
+    {
+      "date": "9/6(六)",
+      "game_no": "310",
+      "teams": "統一7-ELEVEn獅VS.中信兄弟",
+      "stadium": "洲際",
+      "time": "17:05"
+    },
+    {
+      "date": "9/6(六)",
+      "game_no": "311",
+      "teams": "樂天桃猿VS.富邦悍將",
+      "stadium": "新莊",
+      "time": "17:05"
+    },
+    {
+      "date": "9/6(六)",
+      "game_no": "312",
+      "teams": "台鋼雄鷹VS.味全龍",
+      "stadium": "大巨蛋",
+      "time": "17:05"
+    },
+    {
+      "date": "9/7(日)",
+      "game_no": "313",
+      "teams": "台鋼雄鷹VS.味全龍",
+      "stadium": "大巨蛋",
+      "time": "15:05"
+    },
+    {
+      "date": "9/7(日)",
+      "game_no": "314",
+      "teams": "統一7-ELEVEn獅VS.中信兄弟",
+      "stadium": "洲際",
+      "time": "17:05"
+    },
+    {
+      "date": "9/7(日)",
+      "game_no": "315",
+      "teams": "樂天桃猿VS.富邦悍將",
+      "stadium": "新莊",
+      "time": "17:05"
+    },
+    {
+      "date": "9/9(二)",
+      "game_no": "316",
+      "teams": "中信兄弟VS.台鋼雄鷹",
+      "stadium": "澄清湖",
+      "time": "18:35"
+    },
+    {
+      "date": "9/9(二)",
+      "game_no": "317",
+      "teams": "樂天桃猿VS.統一7-ELEVEn獅",
+      "stadium": "嘉義市",
+      "time": "18:35"
+    },
+    {
+      "date": "9/10(三)",
+      "game_no": "318",
+      "teams": "中信兄弟VS.台鋼雄鷹",
+      "stadium": "澄清湖",
+      "time": "18:35"
+    },
+    {
+      "date": "9/10(三)",
+      "game_no": "319",
+      "teams": "樂天桃猿VS.統一7-ELEVEn獅",
+      "stadium": "嘉義市",
+      "time": "18:35"
+    },
+    {
+      "date": "9/10(三)",
+      "game_no": "320",
+      "teams": "富邦悍將VS.味全龍",
+      "stadium": "天母",
+      "time": "18:35"
+    },
+    {
+      "date": "9/11(四)",
+      "game_no": "321",
+      "teams": "富邦悍將VS.味全龍",
+      "stadium": "天母",
+      "time": "18:35"
+    },
+    {
+      "date": "9/12(五)",
+      "game_no": "322",
+      "teams": "富邦悍將VS.台鋼雄鷹",
+      "stadium": "澄清湖",
+      "time": "18:35"
+    },
+    {
+      "date": "9/12(五)",
+      "game_no": "323",
+      "teams": "味全龍VS.統一7-ELEVEn獅",
+      "stadium": "台南",
+      "time": "18:35"
+    },
+    {
+      "date": "9/12(五)",
+      "game_no": "324",
+      "teams": "中信兄弟VS.樂天桃猿",
+      "stadium": "大巨蛋",
+      "time": "18:35"
+    },
+    {
+      "date": "9/13(六)",
+      "game_no": "325",
+      "teams": "富邦悍將VS.台鋼雄鷹",
+      "stadium": "澄清湖",
+      "time": "16:05"
+    },
+    {
+      "date": "9/13(六)",
+      "game_no": "326",
+      "teams": "味全龍VS.統一7-ELEVEn獅",
+      "stadium": "台南",
+      "time": "16:05"
+    },
+    {
+      "date": "9/13(六)",
+      "game_no": "327",
+      "teams": "中信兄弟VS.樂天桃猿",
+      "stadium": "大巨蛋",
+      "time": "17:05"
+    },
+    {
+      "date": "9/14(日)",
+      "game_no": "328",
+      "teams": "中信兄弟VS.樂天桃猿",
+      "stadium": "大巨蛋",
+      "time": "14:05"
+    },
+    {
+      "date": "9/14(日)",
+      "game_no": "329",
+      "teams": "富邦悍將VS.台鋼雄鷹",
+      "stadium": "澄清湖",
+      "time": "16:05"
+    },
+    {
+      "date": "9/14(日)",
+      "game_no": "330",
+      "teams": "味全龍VS.統一7-ELEVEn獅",
+      "stadium": "台南",
+      "time": "16:05"
+    },
+    {
+      "date": "9/16(二)",
+      "game_no": "331",
+      "teams": "味全龍VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "18:35"
+    },
+    {
+      "date": "9/16(二)",
+      "game_no": "332",
+      "teams": "統一7-ELEVEn獅VS.富邦悍將",
+      "stadium": "新莊",
+      "time": "18:35"
+    },
+    {
+      "date": "9/16(二)",
+      "game_no": "333",
+      "teams": "中信兄弟VS.台鋼雄鷹",
+      "stadium": "澄清湖",
+      "time": "18:35"
+    },
+    {
+      "date": "9/18(四)",
+      "game_no": "334",
+      "teams": "台鋼雄鷹VS.味全龍",
+      "stadium": "天母",
+      "time": "18:35"
+    },
+    {
+      "date": "9/18(四)",
+      "game_no": "335",
+      "teams": "富邦悍將VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "18:35"
+    },
+    {
+      "date": "9/18(四)",
+      "game_no": "336",
+      "teams": "統一7-ELEVEn獅VS.中信兄弟",
+      "stadium": "洲際",
+      "time": "18:35"
+    },
+    {
+      "date": "9/19(五)",
+      "game_no": "337",
+      "teams": "台鋼雄鷹VS.味全龍",
+      "stadium": "天母",
+      "time": "18:35"
+    },
+    {
+      "date": "9/19(五)",
+      "game_no": "338",
+      "teams": "富邦悍將VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "18:35"
+    },
+    {
+      "date": "9/19(五)",
+      "game_no": "339",
+      "teams": "統一7-ELEVEn獅VS.中信兄弟",
+      "stadium": "洲際",
+      "time": "18:35"
+    },
+    {
+      "date": "9/20(六)",
+      "game_no": "340",
+      "teams": "樂天桃猿VS.統一7-ELEVEn獅",
+      "stadium": "台南",
+      "time": "16:05"
+    },
+    {
+      "date": "9/20(六)",
+      "game_no": "341",
+      "teams": "台鋼雄鷹VS.富邦悍將",
+      "stadium": "新莊",
+      "time": "17:05"
+    },
+    {
+      "date": "9/20(六)",
+      "game_no": "342",
+      "teams": "味全龍VS.中信兄弟",
+      "stadium": "洲際",
+      "time": "17:05"
+    },
+    {
+      "date": "9/21(日)",
+      "game_no": "343",
+      "teams": "樂天桃猿VS.統一7-ELEVEn獅",
+      "stadium": "台南",
+      "time": "16:05"
+    },
+    {
+      "date": "9/21(日)",
+      "game_no": "344",
+      "teams": "台鋼雄鷹VS.富邦悍將",
+      "stadium": "新莊",
+      "time": "17:05"
+    },
+    {
+      "date": "9/21(日)",
+      "game_no": "345",
+      "teams": "味全龍VS.中信兄弟",
+      "stadium": "洲際",
+      "time": "17:05"
+    },
+    {
+      "date": "9/23(二)",
+      "game_no": "346",
+      "teams": "樂天桃猿VS.味全龍",
+      "stadium": "天母",
+      "time": "18:35"
+    },
+    {
+      "date": "9/23(二)",
+      "game_no": "347",
+      "teams": "富邦悍將VS.統一7-ELEVEn獅",
+      "stadium": "台南",
+      "time": "18:35"
+    },
+    {
+      "date": "9/23(二)",
+      "game_no": "348",
+      "teams": "台鋼雄鷹VS.中信兄弟",
+      "stadium": "洲際",
+      "time": "18:35"
+    },
+    {
+      "date": "9/25(四)",
+      "game_no": "349",
+      "teams": "中信兄弟VS.富邦悍將",
+      "stadium": "新莊",
+      "time": "18:35"
+    },
+    {
+      "date": "9/25(四)",
+      "game_no": "350",
+      "teams": "味全龍VS.統一7-ELEVEn獅",
+      "stadium": "台南",
+      "time": "18:35"
+    },
+    {
+      "date": "9/25(四)",
+      "game_no": "351",
+      "teams": "樂天桃猿VS.台鋼雄鷹",
+      "stadium": "大巨蛋",
+      "time": "18:35"
+    },
+    {
+      "date": "9/26(五)",
+      "game_no": "352",
+      "teams": "中信兄弟VS.富邦悍將",
+      "stadium": "新莊",
+      "time": "18:35"
+    },
+    {
+      "date": "9/26(五)",
+      "game_no": "353",
+      "teams": "味全龍VS.統一7-ELEVEn獅",
+      "stadium": "台南",
+      "time": "18:35"
+    },
+    {
+      "date": "9/26(五)",
+      "game_no": "354",
+      "teams": "樂天桃猿VS.台鋼雄鷹",
+      "stadium": "大巨蛋",
+      "time": "18:35"
+    },
+    {
+      "date": "9/27(六)",
+      "game_no": "355",
+      "teams": "統一7-ELEVEn獅VS.台鋼雄鷹",
+      "stadium": "大巨蛋",
+      "time": "16:05"
+    },
+    {
+      "date": "9/27(六)",
+      "game_no": "356",
+      "teams": "中信兄弟VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "17:05"
+    },
+    {
+      "date": "9/27(六)",
+      "game_no": "357",
+      "teams": "富邦悍將VS.味全龍",
+      "stadium": "天母",
+      "time": "17:05"
+    },
+    {
+      "date": "9/28(日)",
+      "game_no": "358",
+      "teams": "統一7-ELEVEn獅VS.台鋼雄鷹",
+      "stadium": "大巨蛋",
+      "time": "15:05"
+    },
+    {
+      "date": "9/28(日)",
+      "game_no": "359",
+      "teams": "中信兄弟VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "17:05"
+    },
+    {
+      "date": "9/28(日)",
+      "game_no": "360",
+      "teams": "富邦悍將VS.味全龍",
+      "stadium": "天母",
+      "time": "17:05"
+    },
+    {
+      "date": "3/29(六)",
+      "game_no": "1",
+      "teams": "統一7-ELEVEn獅8:0中信兄弟",
+      "stadium": "大巨蛋",
+      "time": "N/A"
+    },
+    {
+      "date": "3/30(日)",
+      "game_no": "2",
+      "teams": "味全龍VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "N/A"
+    },
+    {
+      "date": "3/30(日)",
+      "game_no": "3",
+      "teams": "富邦悍將3:8中信兄弟",
+      "stadium": "大巨蛋",
+      "time": "N/A"
+    },
+    {
+      "date": "3/30(日)",
+      "game_no": "4",
+      "teams": "台鋼雄鷹3:6統一7-ELEVEn獅",
+      "stadium": "台南",
+      "time": "N/A"
+    },
+    {
+      "date": "4/2(三)",
+      "game_no": "5",
+      "teams": "台鋼雄鷹0:1味全龍",
+      "stadium": "天母",
+      "time": "N/A"
+    },
+    {
+      "date": "4/2(三)",
+      "game_no": "6",
+      "teams": "樂天桃猿3:5統一7-ELEVEn獅",
+      "stadium": "台南",
+      "time": "N/A"
+    },
+    {
+      "date": "4/2(三)",
+      "game_no": "7",
+      "teams": "中信兄弟5:11富邦悍將",
+      "stadium": "新莊",
+      "time": "N/A"
+    },
+    {
+      "date": "4/3(四)",
+      "game_no": "8",
+      "teams": "樂天桃猿2:5統一7-ELEVEn獅",
+      "stadium": "台南",
+      "time": "N/A"
+    },
+    {
+      "date": "4/3(四)",
+      "game_no": "9",
+      "teams": "台鋼雄鷹1:3味全龍",
+      "stadium": "天母",
+      "time": "N/A"
+    },
+    {
+      "date": "4/3(四)",
+      "game_no": "10",
+      "teams": "中信兄弟0:1富邦悍將",
+      "stadium": "新莊",
+      "time": "N/A"
+    },
+    {
+      "date": "4/4(五)",
+      "game_no": "11",
+      "teams": "樂天桃猿3:4台鋼雄鷹",
+      "stadium": "澄清湖",
+      "time": "N/A"
+    },
+    {
+      "date": "4/4(五)",
+      "game_no": "12",
+      "teams": "富邦悍將2:3味全龍",
+      "stadium": "天母",
+      "time": "N/A"
+    },
+    {
+      "date": "4/4(五)",
+      "game_no": "13",
+      "teams": "統一7-ELEVEn獅0:2中信兄弟",
+      "stadium": "洲際",
+      "time": "N/A"
+    },
+    {
+      "date": "4/5(六)",
+      "game_no": "14",
+      "teams": "樂天桃猿2:4台鋼雄鷹",
+      "stadium": "澄清湖",
+      "time": "N/A"
+    },
+    {
+      "date": "4/5(六)",
+      "game_no": "15",
+      "teams": "富邦悍將3:11味全龍",
+      "stadium": "天母",
+      "time": "N/A"
+    },
+    {
+      "date": "4/5(六)",
+      "game_no": "16",
+      "teams": "統一7-ELEVEn獅3:4中信兄弟",
+      "stadium": "洲際",
+      "time": "N/A"
+    },
+    {
+      "date": "4/6(日)",
+      "game_no": "17",
+      "teams": "富邦悍將0:7味全龍",
+      "stadium": "天母",
+      "time": "N/A"
+    },
+    {
+      "date": "4/6(日)",
+      "game_no": "18",
+      "teams": "樂天桃猿5:2台鋼雄鷹",
+      "stadium": "澄清湖",
+      "time": "N/A"
+    },
+    {
+      "date": "4/6(日)",
+      "game_no": "19",
+      "teams": "統一7-ELEVEn獅6:7中信兄弟",
+      "stadium": "洲際",
+      "time": "N/A"
+    },
+    {
+      "date": "4/8(二)",
+      "game_no": "20",
+      "teams": "富邦悍將3:6樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "N/A"
+    },
+    {
+      "date": "4/8(二)",
+      "game_no": "21",
+      "teams": "統一7-ELEVEn獅3:4台鋼雄鷹",
+      "stadium": "澄清湖",
+      "time": "N/A"
+    },
+    {
+      "date": "4/9(三)",
+      "game_no": "22",
+      "teams": "富邦悍將2:8樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "N/A"
+    },
+    {
+      "date": "4/9(三)",
+      "game_no": "23",
+      "teams": "統一7-ELEVEn獅7:6台鋼雄鷹",
+      "stadium": "澄清湖",
+      "time": "N/A"
+    },
+    {
+      "date": "4/9(三)",
+      "game_no": "24",
+      "teams": "味全龍1:2中信兄弟",
+      "stadium": "洲際",
+      "time": "N/A"
+    },
+    {
+      "date": "4/10(四)",
+      "game_no": "25",
+      "teams": "味全龍1:4中信兄弟",
+      "stadium": "洲際",
+      "time": "N/A"
+    },
+    {
+      "date": "4/11(五)",
+      "game_no": "26",
+      "teams": "中信兄弟15:4樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "N/A"
+    },
+    {
+      "date": "4/11(五)",
+      "game_no": "27",
+      "teams": "台鋼雄鷹1:4富邦悍將",
+      "stadium": "新莊",
+      "time": "N/A"
+    },
+    {
+      "date": "4/11(五)",
+      "game_no": "28",
+      "teams": "味全龍15:2統一7-ELEVEn獅",
+      "stadium": "大巨蛋",
+      "time": "N/A"
+    },
+    {
+      "date": "4/12(六)",
+      "game_no": "29",
+      "teams": "味全龍1:5統一7-ELEVEn獅",
+      "stadium": "大巨蛋",
+      "time": "N/A"
+    },
+    {
+      "date": "4/12(六)",
+      "game_no": "30",
+      "teams": "中信兄弟3:2樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "N/A"
+    },
+    {
+      "date": "4/12(六)",
+      "game_no": "31",
+      "teams": "台鋼雄鷹3:6富邦悍將",
+      "stadium": "新莊",
+      "time": "N/A"
+    },
+    {
+      "date": "4/13(日)",
+      "game_no": "32",
+      "teams": "中信兄弟2:4樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "N/A"
+    },
+    {
+      "date": "4/13(日)",
+      "game_no": "33",
+      "teams": "味全龍1:0統一7-ELEVEn獅",
+      "stadium": "大巨蛋",
+      "time": "N/A"
+    },
+    {
+      "date": "4/13(日)",
+      "game_no": "34",
+      "teams": "台鋼雄鷹4:2富邦悍將",
+      "stadium": "新莊",
+      "time": "N/A"
+    },
+    {
+      "date": "4/15(二)",
+      "game_no": "35",
+      "teams": "台鋼雄鷹4:3中信兄弟",
+      "stadium": "洲際",
+      "time": "N/A"
+    },
+    {
+      "date": "4/15(二)",
+      "game_no": "36",
+      "teams": "樂天桃猿1:0味全龍",
+      "stadium": "大巨蛋",
+      "time": "N/A"
+    },
+    {
+      "date": "4/16(三)",
+      "game_no": "37",
+      "teams": "台鋼雄鷹0:3中信兄弟",
+      "stadium": "洲際",
+      "time": "N/A"
+    },
+    {
+      "date": "4/16(三)",
+      "game_no": "38",
+      "teams": "樂天桃猿4:5味全龍",
+      "stadium": "大巨蛋",
+      "time": "N/A"
+    },
+    {
+      "date": "4/16(三)",
+      "game_no": "39",
+      "teams": "富邦悍將3:7統一7-ELEVEn獅",
+      "stadium": "台南",
+      "time": "N/A"
+    },
+    {
+      "date": "4/17(四)",
+      "game_no": "40",
+      "teams": "富邦悍將0:6統一7-ELEVEn獅",
+      "stadium": "台南",
+      "time": "N/A"
+    },
+    {
+      "date": "4/18(五)",
+      "game_no": "41",
+      "teams": "富邦悍將0:3中信兄弟",
+      "stadium": "大巨蛋",
+      "time": "N/A"
+    },
+    {
+      "date": "4/18(五)",
+      "game_no": "42",
+      "teams": "味全龍3:7台鋼雄鷹",
+      "stadium": "澄清湖",
+      "time": "N/A"
+    },
+    {
+      "date": "4/18(五)",
+      "game_no": "43",
+      "teams": "統一7-ELEVEn獅4:2樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "N/A"
+    },
+    {
+      "date": "4/19(六)",
+      "game_no": "44",
+      "teams": "味全龍1:3台鋼雄鷹",
+      "stadium": "澄清湖",
+      "time": "N/A"
+    },
+    {
+      "date": "4/19(六)",
+      "game_no": "45",
+      "teams": "富邦悍將2:7中信兄弟",
+      "stadium": "大巨蛋",
+      "time": "N/A"
+    },
+    {
+      "date": "4/19(六)",
+      "game_no": "46",
+      "teams": "統一7-ELEVEn獅3:0樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "N/A"
+    },
+    {
+      "date": "4/20(日)",
+      "game_no": "47",
+      "teams": "統一7-ELEVEn獅VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "N/A"
+    },
+    {
+      "date": "4/20(日)",
+      "game_no": "48",
+      "teams": "富邦悍將1:0中信兄弟",
+      "stadium": "大巨蛋",
+      "time": "N/A"
+    },
+    {
+      "date": "4/20(日)",
+      "game_no": "49",
+      "teams": "味全龍2:1台鋼雄鷹",
+      "stadium": "澄清湖",
+      "time": "N/A"
+    },
+    {
+      "date": "4/22(二)",
+      "game_no": "50",
+      "teams": "味全龍2:5富邦悍將",
+      "stadium": "新莊",
+      "time": "N/A"
+    },
+    {
+      "date": "4/22(二)",
+      "game_no": "51",
+      "teams": "中信兄弟6:3統一7-ELEVEn獅",
+      "stadium": "台南",
+      "time": "N/A"
+    },
+    {
+      "date": "4/23(三)",
+      "game_no": "52",
+      "teams": "味全龍6:1富邦悍將",
+      "stadium": "新莊",
+      "time": "N/A"
+    },
+    {
+      "date": "4/23(三)",
+      "game_no": "53",
+      "teams": "中信兄弟2:3統一7-ELEVEn獅",
+      "stadium": "台南",
+      "time": "N/A"
+    },
+    {
+      "date": "4/23(三)",
+      "game_no": "54",
+      "teams": "台鋼雄鷹0:6樂天桃猿",
+      "stadium": "大巨蛋",
+      "time": "N/A"
+    },
+    {
+      "date": "4/24(四)",
+      "game_no": "55",
+      "teams": "台鋼雄鷹4:1樂天桃猿",
+      "stadium": "大巨蛋",
+      "time": "N/A"
+    },
+    {
+      "date": "4/25(五)",
+      "game_no": "56",
+      "teams": "樂天桃猿VS.富邦悍將",
+      "stadium": "新莊",
+      "time": "N/A"
+    },
+    {
+      "date": "4/25(五)",
+      "game_no": "57",
+      "teams": "中信兄弟0:8味全龍",
+      "stadium": "大巨蛋",
+      "time": "N/A"
+    },
+    {
+      "date": "4/25(五)",
+      "game_no": "58",
+      "teams": "台鋼雄鷹1:4統一7-ELEVEn獅",
+      "stadium": "台南",
+      "time": "N/A"
+    },
+    {
+      "date": "4/26(六)",
+      "game_no": "59",
+      "teams": "台鋼雄鷹6:2統一7-ELEVEn獅",
+      "stadium": "台南",
+      "time": "N/A"
+    },
+    {
+      "date": "4/26(六)",
+      "game_no": "60",
+      "teams": "樂天桃猿7:6富邦悍將",
+      "stadium": "新莊",
+      "time": "N/A"
+    },
+    {
+      "date": "4/26(六)",
+      "game_no": "61",
+      "teams": "中信兄弟4:1味全龍",
+      "stadium": "大巨蛋",
+      "time": "N/A"
+    },
+    {
+      "date": "4/27(日)",
+      "game_no": "62",
+      "teams": "中信兄弟1:2味全龍",
+      "stadium": "大巨蛋",
+      "time": "N/A"
+    },
+    {
+      "date": "4/27(日)",
+      "game_no": "63",
+      "teams": "台鋼雄鷹1:2統一7-ELEVEn獅",
+      "stadium": "台南",
+      "time": "N/A"
+    },
+    {
+      "date": "4/27(日)",
+      "game_no": "64",
+      "teams": "樂天桃猿3:2富邦悍將",
+      "stadium": "新莊",
+      "time": "N/A"
+    },
+    {
+      "date": "4/29(二)",
+      "game_no": "65",
+      "teams": "富邦悍將4:7台鋼雄鷹",
+      "stadium": "澄清湖",
+      "time": "N/A"
+    },
+    {
+      "date": "4/29(二)",
+      "game_no": "66",
+      "teams": "樂天桃猿4:3中信兄弟",
+      "stadium": "洲際",
+      "time": "N/A"
+    },
+    {
+      "date": "4/30(三)",
+      "game_no": "67",
+      "teams": "富邦悍將7:0台鋼雄鷹",
+      "stadium": "澄清湖",
+      "time": "N/A"
+    },
+    {
+      "date": "4/30(三)",
+      "game_no": "68",
+      "teams": "樂天桃猿5:4中信兄弟",
+      "stadium": "洲際",
+      "time": "N/A"
+    },
+    {
+      "date": "4/30(三)",
+      "game_no": "69",
+      "teams": "統一7-ELEVEn獅1:7味全龍",
+      "stadium": "天母",
+      "time": "N/A"
+    },
+    {
+      "date": "6/1(日)",
+      "game_no": "134",
+      "teams": "富邦悍將VS.台鋼雄鷹",
+      "stadium": "澄清湖",
+      "time": "N/A"
+    },
+    {
+      "date": "6/1(日)",
+      "game_no": "135",
+      "teams": "樂天桃猿VS.統一7-ELEVEn獅",
+      "stadium": "台南",
+      "time": "N/A"
+    },
+    {
+      "date": "6/1(日)",
+      "game_no": "136",
+      "teams": "味全龍VS.中信兄弟",
+      "stadium": "洲際",
+      "time": "N/A"
+    },
+    {
+      "date": "6/3(二)",
+      "game_no": "137",
+      "teams": "富邦悍將VS.味全龍",
+      "stadium": "花蓮",
+      "time": "N/A"
+    },
+    {
+      "date": "6/3(二)",
+      "game_no": "138",
+      "teams": "中信兄弟VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "N/A"
+    },
+    {
+      "date": "6/4(三)",
+      "game_no": "139",
+      "teams": "富邦悍將VS.味全龍",
+      "stadium": "花蓮",
+      "time": "N/A"
+    },
+    {
+      "date": "6/4(三)",
+      "game_no": "140",
+      "teams": "中信兄弟VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "N/A"
+    },
+    {
+      "date": "6/4(三)",
+      "game_no": "141",
+      "teams": "台鋼雄鷹VS.統一7-ELEVEn獅",
+      "stadium": "嘉義市",
+      "time": "N/A"
+    },
+    {
+      "date": "6/6(五)",
+      "game_no": "142",
+      "teams": "統一7-ELEVEn獅VS.味全龍",
+      "stadium": "天母",
+      "time": "N/A"
+    },
+    {
+      "date": "6/6(五)",
+      "game_no": "143",
+      "teams": "中信兄弟VS.富邦悍將",
+      "stadium": "新莊",
+      "time": "N/A"
+    },
+    {
+      "date": "6/6(五)",
+      "game_no": "144",
+      "teams": "台鋼雄鷹VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "N/A"
+    },
+    {
+      "date": "6/7(六)",
+      "game_no": "145",
+      "teams": "統一7-ELEVEn獅VS.味全龍",
+      "stadium": "天母",
+      "time": "N/A"
+    },
+    {
+      "date": "6/7(六)",
+      "game_no": "146",
+      "teams": "中信兄弟VS.富邦悍將",
+      "stadium": "新莊",
+      "time": "N/A"
+    },
+    {
+      "date": "6/7(六)",
+      "game_no": "147",
+      "teams": "台鋼雄鷹VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "N/A"
+    },
+    {
+      "date": "6/8(日)",
+      "game_no": "148",
+      "teams": "統一7-ELEVEn獅VS.味全龍",
+      "stadium": "天母",
+      "time": "N/A"
+    },
+    {
+      "date": "6/8(日)",
+      "game_no": "149",
+      "teams": "中信兄弟VS.富邦悍將",
+      "stadium": "新莊",
+      "time": "N/A"
+    },
+    {
+      "date": "6/8(日)",
+      "game_no": "150",
+      "teams": "台鋼雄鷹VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "N/A"
+    },
+    {
+      "date": "6/10(二)",
+      "game_no": "151",
+      "teams": "台鋼雄鷹VS.中信兄弟",
+      "stadium": "洲際",
+      "time": "N/A"
+    },
+    {
+      "date": "6/10(二)",
+      "game_no": "152",
+      "teams": "味全龍VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "N/A"
+    },
+    {
+      "date": "6/10(二)",
+      "game_no": "153",
+      "teams": "富邦悍將VS.統一7-ELEVEn獅",
+      "stadium": "嘉義市",
+      "time": "N/A"
+    },
+    {
+      "date": "6/12(四)",
+      "game_no": "154",
+      "teams": "樂天桃猿VS.中信兄弟",
+      "stadium": "洲際",
+      "time": "N/A"
+    },
+    {
+      "date": "6/12(四)",
+      "game_no": "155",
+      "teams": "味全龍VS.富邦悍將",
+      "stadium": "大巨蛋",
+      "time": "N/A"
+    },
+    {
+      "date": "6/12(四)",
+      "game_no": "156",
+      "teams": "台鋼雄鷹VS.統一7-ELEVEn獅",
+      "stadium": "台南",
+      "time": "N/A"
+    },
+    {
+      "date": "6/13(五)",
+      "game_no": "157",
+      "teams": "樂天桃猿VS.中信兄弟",
+      "stadium": "洲際",
+      "time": "N/A"
+    },
+    {
+      "date": "6/13(五)",
+      "game_no": "158",
+      "teams": "味全龍VS.富邦悍將",
+      "stadium": "大巨蛋",
+      "time": "N/A"
+    },
+    {
+      "date": "6/13(五)",
+      "game_no": "159",
+      "teams": "台鋼雄鷹VS.統一7-ELEVEn獅",
+      "stadium": "台南",
+      "time": "N/A"
+    },
+    {
+      "date": "6/14(六)",
+      "game_no": "160",
+      "teams": "中信兄弟VS.統一7-ELEVEn獅",
+      "stadium": "台南",
+      "time": "N/A"
+    },
+    {
+      "date": "6/14(六)",
+      "game_no": "161",
+      "teams": "味全龍VS.台鋼雄鷹",
+      "stadium": "澄清湖",
+      "time": "N/A"
+    },
+    {
+      "date": "6/14(六)",
+      "game_no": "162",
+      "teams": "樂天桃猿VS.富邦悍將",
+      "stadium": "大巨蛋",
+      "time": "N/A"
+    },
+    {
+      "date": "6/15(日)",
+      "game_no": "163",
+      "teams": "味全龍VS.台鋼雄鷹",
+      "stadium": "澄清湖",
+      "time": "N/A"
+    },
+    {
+      "date": "6/15(日)",
+      "game_no": "164",
+      "teams": "樂天桃猿VS.富邦悍將",
+      "stadium": "大巨蛋",
+      "time": "N/A"
+    },
+    {
+      "date": "6/15(日)",
+      "game_no": "165",
+      "teams": "中信兄弟VS.統一7-ELEVEn獅",
+      "stadium": "台南",
+      "time": "N/A"
+    },
+    {
+      "date": "6/17(二)",
+      "game_no": "166",
+      "teams": "中信兄弟VS.台鋼雄鷹",
+      "stadium": "澄清湖",
+      "time": "N/A"
+    },
+    {
+      "date": "6/17(二)",
+      "game_no": "167",
+      "teams": "樂天桃猿VS.味全龍",
+      "stadium": "天母",
+      "time": "N/A"
+    },
+    {
+      "date": "6/17(二)",
+      "game_no": "168",
+      "teams": "統一7-ELEVEn獅VS.富邦悍將",
+      "stadium": "新莊",
+      "time": "N/A"
+    },
+    {
+      "date": "6/19(四)",
+      "game_no": "169",
+      "teams": "富邦悍將VS.台鋼雄鷹",
+      "stadium": "澄清湖",
+      "time": "N/A"
+    },
+    {
+      "date": "6/19(四)",
+      "game_no": "170",
+      "teams": "統一7-ELEVEn獅VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "N/A"
+    },
+    {
+      "date": "6/19(四)",
+      "game_no": "171",
+      "teams": "中信兄弟VS.味全龍",
+      "stadium": "天母",
+      "time": "N/A"
+    },
+    {
+      "date": "6/20(五)",
+      "game_no": "172",
+      "teams": "富邦悍將VS.台鋼雄鷹",
+      "stadium": "澄清湖",
+      "time": "N/A"
+    },
+    {
+      "date": "6/20(五)",
+      "game_no": "173",
+      "teams": "統一7-ELEVEn獅VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "N/A"
+    },
+    {
+      "date": "6/20(五)",
+      "game_no": "174",
+      "teams": "中信兄弟VS.味全龍",
+      "stadium": "天母",
+      "time": "N/A"
+    },
+    {
+      "date": "6/21(六)",
+      "game_no": "175",
+      "teams": "富邦悍將VS.中信兄弟",
+      "stadium": "洲際",
+      "time": "N/A"
+    },
+    {
+      "date": "6/21(六)",
+      "game_no": "176",
+      "teams": "台鋼雄鷹VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "N/A"
+    },
+    {
+      "date": "6/21(六)",
+      "game_no": "177",
+      "teams": "統一7-ELEVEn獅VS.味全龍",
+      "stadium": "天母",
+      "time": "N/A"
+    },
+    {
+      "date": "6/22(日)",
+      "game_no": "178",
+      "teams": "富邦悍將VS.中信兄弟",
+      "stadium": "洲際",
+      "time": "N/A"
+    },
+    {
+      "date": "6/22(日)",
+      "game_no": "179",
+      "teams": "台鋼雄鷹VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "N/A"
+    },
+    {
+      "date": "6/22(日)",
+      "game_no": "180",
+      "teams": "統一7-ELEVEn獅VS.味全龍",
+      "stadium": "天母",
+      "time": "N/A"
+    },
+    {
+      "date": "6/28(六)",
+      "game_no": "2",
+      "teams": "味全龍VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "N/A"
+    },
+    {
+      "date": "6/29(日)",
+      "game_no": "47",
+      "teams": "統一7-ELEVEn獅1:0樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "N/A"
+    },
+    {
+      "date": "6/1(日)",
+      "game_no": "134",
+      "teams": "富邦悍將VS.台鋼雄鷹",
+      "stadium": "澄清湖",
+      "time": "N/A"
+    },
+    {
+      "date": "6/1(日)",
+      "game_no": "135",
+      "teams": "樂天桃猿VS.統一7-ELEVEn獅",
+      "stadium": "台南",
+      "time": "N/A"
+    },
+    {
+      "date": "6/1(日)",
+      "game_no": "136",
+      "teams": "味全龍VS.中信兄弟",
+      "stadium": "洲際",
+      "time": "N/A"
+    },
+    {
+      "date": "6/3(二)",
+      "game_no": "137",
+      "teams": "富邦悍將VS.味全龍",
+      "stadium": "花蓮",
+      "time": "N/A"
+    },
+    {
+      "date": "6/3(二)",
+      "game_no": "138",
+      "teams": "中信兄弟VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "N/A"
+    },
+    {
+      "date": "6/4(三)",
+      "game_no": "139",
+      "teams": "富邦悍將VS.味全龍",
+      "stadium": "花蓮",
+      "time": "N/A"
+    },
+    {
+      "date": "6/4(三)",
+      "game_no": "140",
+      "teams": "中信兄弟VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "N/A"
+    },
+    {
+      "date": "6/4(三)",
+      "game_no": "141",
+      "teams": "台鋼雄鷹VS.統一7-ELEVEn獅",
+      "stadium": "嘉義市",
+      "time": "N/A"
+    },
+    {
+      "date": "6/6(五)",
+      "game_no": "142",
+      "teams": "統一7-ELEVEn獅VS.味全龍",
+      "stadium": "天母",
+      "time": "N/A"
+    },
+    {
+      "date": "6/6(五)",
+      "game_no": "143",
+      "teams": "中信兄弟VS.富邦悍將",
+      "stadium": "新莊",
+      "time": "N/A"
+    },
+    {
+      "date": "6/6(五)",
+      "game_no": "144",
+      "teams": "台鋼雄鷹VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "N/A"
+    },
+    {
+      "date": "6/7(六)",
+      "game_no": "145",
+      "teams": "統一7-ELEVEn獅VS.味全龍",
+      "stadium": "天母",
+      "time": "N/A"
+    },
+    {
+      "date": "6/7(六)",
+      "game_no": "146",
+      "teams": "中信兄弟VS.富邦悍將",
+      "stadium": "新莊",
+      "time": "N/A"
+    },
+    {
+      "date": "6/7(六)",
+      "game_no": "147",
+      "teams": "台鋼雄鷹VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "N/A"
+    },
+    {
+      "date": "6/8(日)",
+      "game_no": "148",
+      "teams": "統一7-ELEVEn獅VS.味全龍",
+      "stadium": "天母",
+      "time": "N/A"
+    },
+    {
+      "date": "6/8(日)",
+      "game_no": "149",
+      "teams": "中信兄弟VS.富邦悍將",
+      "stadium": "新莊",
+      "time": "N/A"
+    },
+    {
+      "date": "6/8(日)",
+      "game_no": "150",
+      "teams": "台鋼雄鷹VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "N/A"
+    },
+    {
+      "date": "6/10(二)",
+      "game_no": "151",
+      "teams": "台鋼雄鷹VS.中信兄弟",
+      "stadium": "洲際",
+      "time": "N/A"
+    },
+    {
+      "date": "6/10(二)",
+      "game_no": "152",
+      "teams": "味全龍VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "N/A"
+    },
+    {
+      "date": "6/10(二)",
+      "game_no": "153",
+      "teams": "富邦悍將VS.統一7-ELEVEn獅",
+      "stadium": "嘉義市",
+      "time": "N/A"
+    },
+    {
+      "date": "6/12(四)",
+      "game_no": "154",
+      "teams": "樂天桃猿VS.中信兄弟",
+      "stadium": "洲際",
+      "time": "N/A"
+    },
+    {
+      "date": "6/12(四)",
+      "game_no": "155",
+      "teams": "味全龍VS.富邦悍將",
+      "stadium": "大巨蛋",
+      "time": "N/A"
+    },
+    {
+      "date": "6/12(四)",
+      "game_no": "156",
+      "teams": "台鋼雄鷹VS.統一7-ELEVEn獅",
+      "stadium": "台南",
+      "time": "N/A"
+    },
+    {
+      "date": "6/13(五)",
+      "game_no": "157",
+      "teams": "樂天桃猿VS.中信兄弟",
+      "stadium": "洲際",
+      "time": "N/A"
+    },
+    {
+      "date": "6/13(五)",
+      "game_no": "158",
+      "teams": "味全龍VS.富邦悍將",
+      "stadium": "大巨蛋",
+      "time": "N/A"
+    },
+    {
+      "date": "6/13(五)",
+      "game_no": "159",
+      "teams": "台鋼雄鷹VS.統一7-ELEVEn獅",
+      "stadium": "台南",
+      "time": "N/A"
+    },
+    {
+      "date": "6/14(六)",
+      "game_no": "160",
+      "teams": "中信兄弟VS.統一7-ELEVEn獅",
+      "stadium": "台南",
+      "time": "N/A"
+    },
+    {
+      "date": "6/14(六)",
+      "game_no": "161",
+      "teams": "味全龍VS.台鋼雄鷹",
+      "stadium": "澄清湖",
+      "time": "N/A"
+    },
+    {
+      "date": "6/14(六)",
+      "game_no": "162",
+      "teams": "樂天桃猿VS.富邦悍將",
+      "stadium": "大巨蛋",
+      "time": "N/A"
+    },
+    {
+      "date": "6/15(日)",
+      "game_no": "163",
+      "teams": "味全龍VS.台鋼雄鷹",
+      "stadium": "澄清湖",
+      "time": "N/A"
+    },
+    {
+      "date": "6/15(日)",
+      "game_no": "164",
+      "teams": "樂天桃猿VS.富邦悍將",
+      "stadium": "大巨蛋",
+      "time": "N/A"
+    },
+    {
+      "date": "6/15(日)",
+      "game_no": "165",
+      "teams": "中信兄弟VS.統一7-ELEVEn獅",
+      "stadium": "台南",
+      "time": "N/A"
+    },
+    {
+      "date": "6/17(二)",
+      "game_no": "166",
+      "teams": "中信兄弟VS.台鋼雄鷹",
+      "stadium": "澄清湖",
+      "time": "N/A"
+    },
+    {
+      "date": "6/17(二)",
+      "game_no": "167",
+      "teams": "樂天桃猿VS.味全龍",
+      "stadium": "天母",
+      "time": "N/A"
+    },
+    {
+      "date": "6/17(二)",
+      "game_no": "168",
+      "teams": "統一7-ELEVEn獅VS.富邦悍將",
+      "stadium": "新莊",
+      "time": "N/A"
+    },
+    {
+      "date": "6/19(四)",
+      "game_no": "169",
+      "teams": "富邦悍將VS.台鋼雄鷹",
+      "stadium": "澄清湖",
+      "time": "N/A"
+    },
+    {
+      "date": "6/19(四)",
+      "game_no": "170",
+      "teams": "統一7-ELEVEn獅VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "N/A"
+    },
+    {
+      "date": "6/19(四)",
+      "game_no": "171",
+      "teams": "中信兄弟VS.味全龍",
+      "stadium": "天母",
+      "time": "N/A"
+    },
+    {
+      "date": "6/20(五)",
+      "game_no": "172",
+      "teams": "富邦悍將VS.台鋼雄鷹",
+      "stadium": "澄清湖",
+      "time": "N/A"
+    },
+    {
+      "date": "6/20(五)",
+      "game_no": "173",
+      "teams": "統一7-ELEVEn獅VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "N/A"
+    },
+    {
+      "date": "6/20(五)",
+      "game_no": "174",
+      "teams": "中信兄弟VS.味全龍",
+      "stadium": "天母",
+      "time": "N/A"
+    },
+    {
+      "date": "6/21(六)",
+      "game_no": "175",
+      "teams": "富邦悍將VS.中信兄弟",
+      "stadium": "洲際",
+      "time": "N/A"
+    },
+    {
+      "date": "6/21(六)",
+      "game_no": "176",
+      "teams": "台鋼雄鷹VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "N/A"
+    },
+    {
+      "date": "6/21(六)",
+      "game_no": "177",
+      "teams": "統一7-ELEVEn獅VS.味全龍",
+      "stadium": "天母",
+      "time": "N/A"
+    },
+    {
+      "date": "6/22(日)",
+      "game_no": "178",
+      "teams": "富邦悍將VS.中信兄弟",
+      "stadium": "洲際",
+      "time": "N/A"
+    },
+    {
+      "date": "6/22(日)",
+      "game_no": "179",
+      "teams": "台鋼雄鷹VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "N/A"
+    },
+    {
+      "date": "6/22(日)",
+      "game_no": "180",
+      "teams": "統一7-ELEVEn獅VS.味全龍",
+      "stadium": "天母",
+      "time": "N/A"
+    },
+    {
+      "date": "6/28(六)",
+      "game_no": "2",
+      "teams": "味全龍VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "N/A"
+    },
+    {
+      "date": "6/29(日)",
+      "game_no": "47",
+      "teams": "統一7-ELEVEn獅1:0樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "N/A"
+    },
+    {
+      "date": "7/4(五)",
+      "game_no": "181",
+      "teams": "富邦悍將VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "N/A"
+    },
+    {
+      "date": "7/4(五)",
+      "game_no": "182",
+      "teams": "中信兄弟VS.台鋼雄鷹",
+      "stadium": "澄清湖",
+      "time": "N/A"
+    },
+    {
+      "date": "7/4(五)",
+      "game_no": "183",
+      "teams": "統一7-ELEVEn獅VS.味全龍",
+      "stadium": "天母",
+      "time": "N/A"
+    },
+    {
+      "date": "7/5(六)",
+      "game_no": "184",
+      "teams": "中信兄弟VS.台鋼雄鷹",
+      "stadium": "澄清湖",
+      "time": "N/A"
+    },
+    {
+      "date": "7/5(六)",
+      "game_no": "185",
+      "teams": "富邦悍將VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "N/A"
+    },
+    {
+      "date": "7/5(六)",
+      "game_no": "186",
+      "teams": "統一7-ELEVEn獅VS.味全龍",
+      "stadium": "天母",
+      "time": "N/A"
+    },
+    {
+      "date": "7/6(日)",
+      "game_no": "187",
+      "teams": "中信兄弟VS.台鋼雄鷹",
+      "stadium": "澄清湖",
+      "time": "N/A"
+    },
+    {
+      "date": "7/6(日)",
+      "game_no": "188",
+      "teams": "富邦悍將VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "N/A"
+    },
+    {
+      "date": "7/6(日)",
+      "game_no": "189",
+      "teams": "統一7-ELEVEn獅VS.味全龍",
+      "stadium": "天母",
+      "time": "N/A"
+    },
+    {
+      "date": "7/8(二)",
+      "game_no": "190",
+      "teams": "統一7-ELEVEn獅VS.中信兄弟",
+      "stadium": "洲際",
+      "time": "N/A"
+    },
+    {
+      "date": "7/8(二)",
+      "game_no": "191",
+      "teams": "味全龍VS.富邦悍將",
+      "stadium": "新莊",
+      "time": "N/A"
+    },
+    {
+      "date": "7/9(三)",
+      "game_no": "192",
+      "teams": "統一7-ELEVEn獅VS.中信兄弟",
+      "stadium": "洲際",
+      "time": "N/A"
+    },
+    {
+      "date": "7/9(三)",
+      "game_no": "193",
+      "teams": "味全龍VS.富邦悍將",
+      "stadium": "新莊",
+      "time": "N/A"
+    },
+    {
+      "date": "7/9(三)",
+      "game_no": "194",
+      "teams": "樂天桃猿VS.台鋼雄鷹",
+      "stadium": "嘉義市",
+      "time": "N/A"
+    },
+    {
+      "date": "7/10(四)",
+      "game_no": "195",
+      "teams": "樂天桃猿VS.台鋼雄鷹",
+      "stadium": "澄清湖",
+      "time": "N/A"
+    },
+    {
+      "date": "7/11(五)",
+      "game_no": "196",
+      "teams": "味全龍VS.中信兄弟",
+      "stadium": "洲際",
+      "time": "N/A"
+    },
+    {
+      "date": "7/11(五)",
+      "game_no": "197",
+      "teams": "樂天桃猿VS.統一7-ELEVEn獅",
+      "stadium": "台南",
+      "time": "N/A"
+    },
+    {
+      "date": "7/11(五)",
+      "game_no": "198",
+      "teams": "台鋼雄鷹VS.富邦悍將",
+      "stadium": "新莊",
+      "time": "N/A"
+    },
+    {
+      "date": "7/12(六)",
+      "game_no": "199",
+      "teams": "樂天桃猿VS.統一7-ELEVEn獅",
+      "stadium": "台南",
+      "time": "N/A"
+    },
+    {
+      "date": "7/12(六)",
+      "game_no": "200",
+      "teams": "味全龍VS.中信兄弟",
+      "stadium": "洲際",
+      "time": "N/A"
+    },
+    {
+      "date": "7/12(六)",
+      "game_no": "201",
+      "teams": "台鋼雄鷹VS.富邦悍將",
+      "stadium": "新莊",
+      "time": "N/A"
+    },
+    {
+      "date": "7/13(日)",
+      "game_no": "202",
+      "teams": "樂天桃猿VS.統一7-ELEVEn獅",
+      "stadium": "台南",
+      "time": "N/A"
+    },
+    {
+      "date": "7/13(日)",
+      "game_no": "203",
+      "teams": "味全龍VS.中信兄弟",
+      "stadium": "洲際",
+      "time": "N/A"
+    },
+    {
+      "date": "7/13(日)",
+      "game_no": "204",
+      "teams": "台鋼雄鷹VS.富邦悍將",
+      "stadium": "新莊",
+      "time": "N/A"
+    },
+    {
+      "date": "7/15(二)",
+      "game_no": "205",
+      "teams": "台鋼雄鷹VS.味全龍",
+      "stadium": "斗六",
+      "time": "N/A"
+    },
+    {
+      "date": "7/15(二)",
+      "game_no": "206",
+      "teams": "中信兄弟VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "N/A"
+    },
+    {
+      "date": "7/16(三)",
+      "game_no": "207",
+      "teams": "台鋼雄鷹VS.味全龍",
+      "stadium": "斗六",
+      "time": "N/A"
+    },
+    {
+      "date": "7/16(三)",
+      "game_no": "208",
+      "teams": "中信兄弟VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "N/A"
+    },
+    {
+      "date": "7/16(三)",
+      "game_no": "209",
+      "teams": "富邦悍將VS.統一7-ELEVEn獅",
+      "stadium": "台南",
+      "time": "N/A"
+    },
+    {
+      "date": "7/17(四)",
+      "game_no": "210",
+      "teams": "富邦悍將VS.統一7-ELEVEn獅",
+      "stadium": "台南",
+      "time": "N/A"
+    },
+    {
+      "date": "7/22(二)",
+      "game_no": "211",
+      "teams": "樂天桃猿VS.味全龍",
+      "stadium": "大巨蛋",
+      "time": "N/A"
+    },
+    {
+      "date": "7/22(二)",
+      "game_no": "212",
+      "teams": "統一7-ELEVEn獅VS.台鋼雄鷹",
+      "stadium": "嘉義市",
+      "time": "N/A"
+    },
+    {
+      "date": "7/23(三)",
+      "game_no": "213",
+      "teams": "樂天桃猿VS.味全龍",
+      "stadium": "大巨蛋",
+      "time": "N/A"
+    },
+    {
+      "date": "7/23(三)",
+      "game_no": "214",
+      "teams": "統一7-ELEVEn獅VS.台鋼雄鷹",
+      "stadium": "澄清湖",
+      "time": "N/A"
+    },
+    {
+      "date": "7/23(三)",
+      "game_no": "215",
+      "teams": "中信兄弟VS.富邦悍將",
+      "stadium": "新莊",
+      "time": "N/A"
+    },
+    {
+      "date": "7/24(四)",
+      "game_no": "216",
+      "teams": "中信兄弟VS.富邦悍將",
+      "stadium": "新莊",
+      "time": "N/A"
+    },
+    {
+      "date": "7/25(五)",
+      "game_no": "217",
+      "teams": "富邦悍將VS.味全龍",
+      "stadium": "天母",
+      "time": "N/A"
+    },
+    {
+      "date": "7/25(五)",
+      "game_no": "218",
+      "teams": "台鋼雄鷹VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "N/A"
+    },
+    {
+      "date": "7/25(五)",
+      "game_no": "219",
+      "teams": "中信兄弟VS.統一7-ELEVEn獅",
+      "stadium": "大巨蛋",
+      "time": "N/A"
+    },
+    {
+      "date": "7/26(六)",
+      "game_no": "220",
+      "teams": "中信兄弟VS.統一7-ELEVEn獅",
+      "stadium": "大巨蛋",
+      "time": "N/A"
+    },
+    {
+      "date": "7/26(六)",
+      "game_no": "221",
+      "teams": "富邦悍將VS.味全龍",
+      "stadium": "天母",
+      "time": "N/A"
+    },
+    {
+      "date": "7/26(六)",
+      "game_no": "222",
+      "teams": "台鋼雄鷹VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "N/A"
+    },
+    {
+      "date": "7/27(日)",
+      "game_no": "223",
+      "teams": "中信兄弟VS.統一7-ELEVEn獅",
+      "stadium": "大巨蛋",
+      "time": "N/A"
+    },
+    {
+      "date": "7/27(日)",
+      "game_no": "224",
+      "teams": "富邦悍將VS.味全龍",
+      "stadium": "天母",
+      "time": "N/A"
+    },
+    {
+      "date": "7/27(日)",
+      "game_no": "225",
+      "teams": "台鋼雄鷹VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "N/A"
+    },
+    {
+      "date": "7/29(二)",
+      "game_no": "226",
+      "teams": "台鋼雄鷹VS.中信兄弟",
+      "stadium": "洲際",
+      "time": "N/A"
+    },
+    {
+      "date": "7/29(二)",
+      "game_no": "227",
+      "teams": "樂天桃猿VS.富邦悍將",
+      "stadium": "大巨蛋",
+      "time": "N/A"
+    },
+    {
+      "date": "7/30(三)",
+      "game_no": "228",
+      "teams": "台鋼雄鷹VS.中信兄弟",
+      "stadium": "洲際",
+      "time": "N/A"
+    },
+    {
+      "date": "7/30(三)",
+      "game_no": "229",
+      "teams": "樂天桃猿VS.富邦悍將",
+      "stadium": "大巨蛋",
+      "time": "N/A"
+    },
+    {
+      "date": "7/30(三)",
+      "game_no": "230",
+      "teams": "味全龍VS.統一7-ELEVEn獅",
+      "stadium": "台南",
+      "time": "N/A"
+    },
+    {
+      "date": "7/31(四)",
+      "game_no": "231",
+      "teams": "味全龍VS.統一7-ELEVEn獅",
+      "stadium": "台南",
+      "time": "N/A"
+    },
+    {
+      "date": "8/1(五)",
+      "game_no": "232",
+      "teams": "樂天桃猿VS.中信兄弟",
+      "stadium": "大巨蛋",
+      "time": "N/A"
+    },
+    {
+      "date": "8/1(五)",
+      "game_no": "233",
+      "teams": "味全龍VS.台鋼雄鷹",
+      "stadium": "澄清湖",
+      "time": "N/A"
+    },
+    {
+      "date": "8/1(五)",
+      "game_no": "234",
+      "teams": "統一7-ELEVEn獅VS.富邦悍將",
+      "stadium": "新莊",
+      "time": "N/A"
+    },
+    {
+      "date": "8/2(六)",
+      "game_no": "235",
+      "teams": "味全龍VS.台鋼雄鷹",
+      "stadium": "澄清湖",
+      "time": "N/A"
+    },
+    {
+      "date": "8/2(六)",
+      "game_no": "236",
+      "teams": "樂天桃猿VS.中信兄弟",
+      "stadium": "大巨蛋",
+      "time": "N/A"
+    },
+    {
+      "date": "8/2(六)",
+      "game_no": "237",
+      "teams": "統一7-ELEVEn獅VS.富邦悍將",
+      "stadium": "新莊",
+      "time": "N/A"
+    },
+    {
+      "date": "8/3(日)",
+      "game_no": "238",
+      "teams": "樂天桃猿VS.中信兄弟",
+      "stadium": "大巨蛋",
+      "time": "N/A"
+    },
+    {
+      "date": "8/3(日)",
+      "game_no": "239",
+      "teams": "味全龍VS.台鋼雄鷹",
+      "stadium": "澄清湖",
+      "time": "N/A"
+    },
+    {
+      "date": "8/3(日)",
+      "game_no": "240",
+      "teams": "統一7-ELEVEn獅VS.富邦悍將",
+      "stadium": "新莊",
+      "time": "N/A"
+    },
+    {
+      "date": "8/5(二)",
+      "game_no": "241",
+      "teams": "統一7-ELEVEn獅VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "N/A"
+    },
+    {
+      "date": "8/5(二)",
+      "game_no": "242",
+      "teams": "中信兄弟VS.味全龍",
+      "stadium": "天母",
+      "time": "N/A"
+    },
+    {
+      "date": "8/5(二)",
+      "game_no": "243",
+      "teams": "富邦悍將VS.台鋼雄鷹",
+      "stadium": "台東",
+      "time": "N/A"
+    },
+    {
+      "date": "8/6(三)",
+      "game_no": "244",
+      "teams": "統一7-ELEVEn獅VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "N/A"
+    },
+    {
+      "date": "8/6(三)",
+      "game_no": "245",
+      "teams": "中信兄弟VS.味全龍",
+      "stadium": "天母",
+      "time": "N/A"
+    },
+    {
+      "date": "8/6(三)",
+      "game_no": "246",
+      "teams": "富邦悍將VS.台鋼雄鷹",
+      "stadium": "台東",
+      "time": "N/A"
+    },
+    {
+      "date": "8/8(五)",
+      "game_no": "247",
+      "teams": "味全龍VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "N/A"
+    },
+    {
+      "date": "8/8(五)",
+      "game_no": "248",
+      "teams": "台鋼雄鷹VS.統一7-ELEVEn獅",
+      "stadium": "台南",
+      "time": "N/A"
+    },
+    {
+      "date": "8/8(五)",
+      "game_no": "249",
+      "teams": "富邦悍將VS.中信兄弟",
+      "stadium": "洲際",
+      "time": "N/A"
+    },
+    {
+      "date": "8/9(六)",
+      "game_no": "250",
+      "teams": "台鋼雄鷹VS.統一7-ELEVEn獅",
+      "stadium": "台南",
+      "time": "N/A"
+    },
+    {
+      "date": "8/9(六)",
+      "game_no": "251",
+      "teams": "味全龍VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "N/A"
+    },
+    {
+      "date": "8/9(六)",
+      "game_no": "252",
+      "teams": "富邦悍將VS.中信兄弟",
+      "stadium": "洲際",
+      "time": "N/A"
+    },
+    {
+      "date": "8/10(日)",
+      "game_no": "253",
+      "teams": "台鋼雄鷹VS.統一7-ELEVEn獅",
+      "stadium": "台南",
+      "time": "N/A"
+    },
+    {
+      "date": "8/10(日)",
+      "game_no": "254",
+      "teams": "味全龍VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "N/A"
+    },
+    {
+      "date": "8/10(日)",
+      "game_no": "255",
+      "teams": "富邦悍將VS.中信兄弟",
+      "stadium": "洲際",
+      "time": "N/A"
+    },
+    {
+      "date": "8/12(二)",
+      "game_no": "256",
+      "teams": "統一7-ELEVEn獅VS.富邦悍將",
+      "stadium": "新莊",
+      "time": "N/A"
+    },
+    {
+      "date": "8/12(二)",
+      "game_no": "257",
+      "teams": "台鋼雄鷹VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "N/A"
+    },
+    {
+      "date": "8/13(三)",
+      "game_no": "258",
+      "teams": "統一7-ELEVEn獅VS.富邦悍將",
+      "stadium": "新莊",
+      "time": "N/A"
+    },
+    {
+      "date": "8/13(三)",
+      "game_no": "259",
+      "teams": "台鋼雄鷹VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "N/A"
+    },
+    {
+      "date": "8/13(三)",
+      "game_no": "260",
+      "teams": "味全龍VS.中信兄弟",
+      "stadium": "洲際",
+      "time": "N/A"
+    },
+    {
+      "date": "8/14(四)",
+      "game_no": "261",
+      "teams": "味全龍VS.中信兄弟",
+      "stadium": "洲際",
+      "time": "N/A"
+    },
+    {
+      "date": "8/15(五)",
+      "game_no": "262",
+      "teams": "中信兄弟VS.富邦悍將",
+      "stadium": "新莊",
+      "time": "N/A"
+    },
+    {
+      "date": "8/15(五)",
+      "game_no": "263",
+      "teams": "統一7-ELEVEn獅VS.台鋼雄鷹",
+      "stadium": "澄清湖",
+      "time": "N/A"
+    },
+    {
+      "date": "8/15(五)",
+      "game_no": "264",
+      "teams": "樂天桃猿VS.味全龍",
+      "stadium": "天母",
+      "time": "N/A"
+    },
+    {
+      "date": "8/16(六)",
+      "game_no": "265",
+      "teams": "統一7-ELEVEn獅VS.台鋼雄鷹",
+      "stadium": "澄清湖",
+      "time": "N/A"
+    },
+    {
+      "date": "8/16(六)",
+      "game_no": "266",
+      "teams": "中信兄弟VS.富邦悍將",
+      "stadium": "新莊",
+      "time": "N/A"
+    },
+    {
+      "date": "8/16(六)",
+      "game_no": "267",
+      "teams": "樂天桃猿VS.味全龍",
+      "stadium": "天母",
+      "time": "N/A"
+    },
+    {
+      "date": "8/17(日)",
+      "game_no": "268",
+      "teams": "統一7-ELEVEn獅VS.台鋼雄鷹",
+      "stadium": "澄清湖",
+      "time": "N/A"
+    },
+    {
+      "date": "8/17(日)",
+      "game_no": "269",
+      "teams": "中信兄弟VS.富邦悍將",
+      "stadium": "新莊",
+      "time": "N/A"
+    },
+    {
+      "date": "8/17(日)",
+      "game_no": "270",
+      "teams": "樂天桃猿VS.味全龍",
+      "stadium": "天母",
+      "time": "N/A"
+    },
+    {
+      "date": "8/19(二)",
+      "game_no": "271",
+      "teams": "富邦悍將VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "N/A"
+    },
+    {
+      "date": "8/19(二)",
+      "game_no": "272",
+      "teams": "中信兄弟VS.統一7-ELEVEn獅",
+      "stadium": "台南",
+      "time": "N/A"
+    },
+    {
+      "date": "8/19(二)",
+      "game_no": "273",
+      "teams": "味全龍VS.台鋼雄鷹",
+      "stadium": "台東",
+      "time": "N/A"
+    },
+    {
+      "date": "8/20(三)",
+      "game_no": "274",
+      "teams": "富邦悍將VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "N/A"
+    },
+    {
+      "date": "8/20(三)",
+      "game_no": "275",
+      "teams": "中信兄弟VS.統一7-ELEVEn獅",
+      "stadium": "台南",
+      "time": "N/A"
+    },
+    {
+      "date": "8/20(三)",
+      "game_no": "276",
+      "teams": "味全龍VS.台鋼雄鷹",
+      "stadium": "台東",
+      "time": "N/A"
+    },
+    {
+      "date": "8/22(五)",
+      "game_no": "277",
+      "teams": "統一7-ELEVEn獅VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "N/A"
+    },
+    {
+      "date": "8/22(五)",
+      "game_no": "278",
+      "teams": "味全龍VS.富邦悍將",
+      "stadium": "新莊",
+      "time": "N/A"
+    },
+    {
+      "date": "8/22(五)",
+      "game_no": "279",
+      "teams": "台鋼雄鷹VS.中信兄弟",
+      "stadium": "大巨蛋",
+      "time": "N/A"
+    },
+    {
+      "date": "8/23(六)",
+      "game_no": "280",
+      "teams": "統一7-ELEVEn獅VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "N/A"
+    },
+    {
+      "date": "8/23(六)",
+      "game_no": "281",
+      "teams": "味全龍VS.富邦悍將",
+      "stadium": "新莊",
+      "time": "N/A"
+    },
+    {
+      "date": "8/23(六)",
+      "game_no": "282",
+      "teams": "台鋼雄鷹VS.中信兄弟",
+      "stadium": "大巨蛋",
+      "time": "N/A"
+    },
+    {
+      "date": "8/24(日)",
+      "game_no": "283",
+      "teams": "台鋼雄鷹VS.中信兄弟",
+      "stadium": "大巨蛋",
+      "time": "N/A"
+    },
+    {
+      "date": "8/24(日)",
+      "game_no": "284",
+      "teams": "統一7-ELEVEn獅VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "N/A"
+    },
+    {
+      "date": "8/24(日)",
+      "game_no": "285",
+      "teams": "味全龍VS.富邦悍將",
+      "stadium": "新莊",
+      "time": "N/A"
+    },
+    {
+      "date": "8/26(二)",
+      "game_no": "286",
+      "teams": "統一7-ELEVEn獅VS.味全龍",
+      "stadium": "天母",
+      "time": "N/A"
+    },
+    {
+      "date": "8/26(二)",
+      "game_no": "287",
+      "teams": "台鋼雄鷹VS.富邦悍將",
+      "stadium": "新莊",
+      "time": "N/A"
+    },
+    {
+      "date": "8/27(三)",
+      "game_no": "288",
+      "teams": "統一7-ELEVEn獅VS.味全龍",
+      "stadium": "天母",
+      "time": "N/A"
+    },
+    {
+      "date": "8/27(三)",
+      "game_no": "289",
+      "teams": "台鋼雄鷹VS.富邦悍將",
+      "stadium": "新莊",
+      "time": "N/A"
+    },
+    {
+      "date": "8/27(三)",
+      "game_no": "290",
+      "teams": "樂天桃猿VS.中信兄弟",
+      "stadium": "大巨蛋",
+      "time": "N/A"
+    },
+    {
+      "date": "8/28(四)",
+      "game_no": "291",
+      "teams": "樂天桃猿VS.中信兄弟",
+      "stadium": "大巨蛋",
+      "time": "N/A"
+    },
+    {
+      "date": "8/29(五)",
+      "game_no": "292",
+      "teams": "中信兄弟VS.味全龍",
+      "stadium": "大巨蛋",
+      "time": "N/A"
+    },
+    {
+      "date": "8/29(五)",
+      "game_no": "293",
+      "teams": "富邦悍將VS.統一7-ELEVEn獅",
+      "stadium": "台南",
+      "time": "N/A"
+    },
+    {
+      "date": "8/29(五)",
+      "game_no": "294",
+      "teams": "樂天桃猿VS.台鋼雄鷹",
+      "stadium": "澄清湖",
+      "time": "N/A"
+    },
+    {
+      "date": "8/30(六)",
+      "game_no": "295",
+      "teams": "樂天桃猿VS.台鋼雄鷹",
+      "stadium": "澄清湖",
+      "time": "N/A"
+    },
+    {
+      "date": "8/30(六)",
+      "game_no": "296",
+      "teams": "富邦悍將VS.統一7-ELEVEn獅",
+      "stadium": "台南",
+      "time": "N/A"
+    },
+    {
+      "date": "8/30(六)",
+      "game_no": "297",
+      "teams": "中信兄弟VS.味全龍",
+      "stadium": "大巨蛋",
+      "time": "N/A"
+    },
+    {
+      "date": "8/31(日)",
+      "game_no": "298",
+      "teams": "中信兄弟VS.味全龍",
+      "stadium": "大巨蛋",
+      "time": "N/A"
+    },
+    {
+      "date": "8/31(日)",
+      "game_no": "299",
+      "teams": "富邦悍將VS.統一7-ELEVEn獅",
+      "stadium": "台南",
+      "time": "N/A"
+    },
+    {
+      "date": "8/31(日)",
+      "game_no": "300",
+      "teams": "樂天桃猿VS.台鋼雄鷹",
+      "stadium": "澄清湖",
+      "time": "N/A"
+    },
+    {
+      "date": "9/2(二)",
+      "game_no": "301",
+      "teams": "富邦悍將VS.中信兄弟",
+      "stadium": "洲際",
+      "time": "N/A"
+    },
+    {
+      "date": "9/2(二)",
+      "game_no": "302",
+      "teams": "味全龍VS.樂天桃猿",
+      "stadium": "大巨蛋",
+      "time": "N/A"
+    },
+    {
+      "date": "9/3(三)",
+      "game_no": "303",
+      "teams": "富邦悍將VS.中信兄弟",
+      "stadium": "洲際",
+      "time": "N/A"
+    },
+    {
+      "date": "9/3(三)",
+      "game_no": "304",
+      "teams": "味全龍VS.樂天桃猿",
+      "stadium": "大巨蛋",
+      "time": "N/A"
+    },
+    {
+      "date": "9/3(三)",
+      "game_no": "305",
+      "teams": "台鋼雄鷹VS.統一7-ELEVEn獅",
+      "stadium": "台南",
+      "time": "N/A"
+    },
+    {
+      "date": "9/4(四)",
+      "game_no": "306",
+      "teams": "台鋼雄鷹VS.統一7-ELEVEn獅",
+      "stadium": "台南",
+      "time": "N/A"
+    },
+    {
+      "date": "9/5(五)",
+      "game_no": "307",
+      "teams": "統一7-ELEVEn獅VS.中信兄弟",
+      "stadium": "洲際",
+      "time": "N/A"
+    },
+    {
+      "date": "9/5(五)",
+      "game_no": "308",
+      "teams": "樂天桃猿VS.富邦悍將",
+      "stadium": "新莊",
+      "time": "N/A"
+    },
+    {
+      "date": "9/5(五)",
+      "game_no": "309",
+      "teams": "台鋼雄鷹VS.味全龍",
+      "stadium": "大巨蛋",
+      "time": "N/A"
+    },
+    {
+      "date": "9/6(六)",
+      "game_no": "310",
+      "teams": "統一7-ELEVEn獅VS.中信兄弟",
+      "stadium": "洲際",
+      "time": "N/A"
+    },
+    {
+      "date": "9/6(六)",
+      "game_no": "311",
+      "teams": "樂天桃猿VS.富邦悍將",
+      "stadium": "新莊",
+      "time": "N/A"
+    },
+    {
+      "date": "9/6(六)",
+      "game_no": "312",
+      "teams": "台鋼雄鷹VS.味全龍",
+      "stadium": "大巨蛋",
+      "time": "N/A"
+    },
+    {
+      "date": "9/7(日)",
+      "game_no": "313",
+      "teams": "台鋼雄鷹VS.味全龍",
+      "stadium": "大巨蛋",
+      "time": "N/A"
+    },
+    {
+      "date": "9/7(日)",
+      "game_no": "314",
+      "teams": "統一7-ELEVEn獅VS.中信兄弟",
+      "stadium": "洲際",
+      "time": "N/A"
+    },
+    {
+      "date": "9/7(日)",
+      "game_no": "315",
+      "teams": "樂天桃猿VS.富邦悍將",
+      "stadium": "新莊",
+      "time": "N/A"
+    },
+    {
+      "date": "9/9(二)",
+      "game_no": "316",
+      "teams": "中信兄弟VS.台鋼雄鷹",
+      "stadium": "澄清湖",
+      "time": "N/A"
+    },
+    {
+      "date": "9/9(二)",
+      "game_no": "317",
+      "teams": "樂天桃猿VS.統一7-ELEVEn獅",
+      "stadium": "嘉義市",
+      "time": "N/A"
+    },
+    {
+      "date": "9/10(三)",
+      "game_no": "318",
+      "teams": "中信兄弟VS.台鋼雄鷹",
+      "stadium": "澄清湖",
+      "time": "N/A"
+    },
+    {
+      "date": "9/10(三)",
+      "game_no": "319",
+      "teams": "樂天桃猿VS.統一7-ELEVEn獅",
+      "stadium": "嘉義市",
+      "time": "N/A"
+    },
+    {
+      "date": "9/10(三)",
+      "game_no": "320",
+      "teams": "富邦悍將VS.味全龍",
+      "stadium": "天母",
+      "time": "N/A"
+    },
+    {
+      "date": "9/11(四)",
+      "game_no": "321",
+      "teams": "富邦悍將VS.味全龍",
+      "stadium": "天母",
+      "time": "N/A"
+    },
+    {
+      "date": "9/12(五)",
+      "game_no": "322",
+      "teams": "富邦悍將VS.台鋼雄鷹",
+      "stadium": "澄清湖",
+      "time": "N/A"
+    },
+    {
+      "date": "9/12(五)",
+      "game_no": "323",
+      "teams": "味全龍VS.統一7-ELEVEn獅",
+      "stadium": "台南",
+      "time": "N/A"
+    },
+    {
+      "date": "9/12(五)",
+      "game_no": "324",
+      "teams": "中信兄弟VS.樂天桃猿",
+      "stadium": "大巨蛋",
+      "time": "N/A"
+    },
+    {
+      "date": "9/13(六)",
+      "game_no": "325",
+      "teams": "富邦悍將VS.台鋼雄鷹",
+      "stadium": "澄清湖",
+      "time": "N/A"
+    },
+    {
+      "date": "9/13(六)",
+      "game_no": "326",
+      "teams": "味全龍VS.統一7-ELEVEn獅",
+      "stadium": "台南",
+      "time": "N/A"
+    },
+    {
+      "date": "9/13(六)",
+      "game_no": "327",
+      "teams": "中信兄弟VS.樂天桃猿",
+      "stadium": "大巨蛋",
+      "time": "N/A"
+    },
+    {
+      "date": "9/14(日)",
+      "game_no": "328",
+      "teams": "中信兄弟VS.樂天桃猿",
+      "stadium": "大巨蛋",
+      "time": "N/A"
+    },
+    {
+      "date": "9/14(日)",
+      "game_no": "329",
+      "teams": "富邦悍將VS.台鋼雄鷹",
+      "stadium": "澄清湖",
+      "time": "N/A"
+    },
+    {
+      "date": "9/14(日)",
+      "game_no": "330",
+      "teams": "味全龍VS.統一7-ELEVEn獅",
+      "stadium": "台南",
+      "time": "N/A"
+    },
+    {
+      "date": "9/16(二)",
+      "game_no": "331",
+      "teams": "味全龍VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "N/A"
+    },
+    {
+      "date": "9/16(二)",
+      "game_no": "332",
+      "teams": "統一7-ELEVEn獅VS.富邦悍將",
+      "stadium": "新莊",
+      "time": "N/A"
+    },
+    {
+      "date": "9/16(二)",
+      "game_no": "333",
+      "teams": "中信兄弟VS.台鋼雄鷹",
+      "stadium": "澄清湖",
+      "time": "N/A"
+    },
+    {
+      "date": "9/18(四)",
+      "game_no": "334",
+      "teams": "台鋼雄鷹VS.味全龍",
+      "stadium": "天母",
+      "time": "N/A"
+    },
+    {
+      "date": "9/18(四)",
+      "game_no": "335",
+      "teams": "富邦悍將VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "N/A"
+    },
+    {
+      "date": "9/18(四)",
+      "game_no": "336",
+      "teams": "統一7-ELEVEn獅VS.中信兄弟",
+      "stadium": "洲際",
+      "time": "N/A"
+    },
+    {
+      "date": "9/19(五)",
+      "game_no": "337",
+      "teams": "台鋼雄鷹VS.味全龍",
+      "stadium": "天母",
+      "time": "N/A"
+    },
+    {
+      "date": "9/19(五)",
+      "game_no": "338",
+      "teams": "富邦悍將VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "N/A"
+    },
+    {
+      "date": "9/19(五)",
+      "game_no": "339",
+      "teams": "統一7-ELEVEn獅VS.中信兄弟",
+      "stadium": "洲際",
+      "time": "N/A"
+    },
+    {
+      "date": "9/20(六)",
+      "game_no": "340",
+      "teams": "樂天桃猿VS.統一7-ELEVEn獅",
+      "stadium": "台南",
+      "time": "N/A"
+    },
+    {
+      "date": "9/20(六)",
+      "game_no": "341",
+      "teams": "台鋼雄鷹VS.富邦悍將",
+      "stadium": "新莊",
+      "time": "N/A"
+    },
+    {
+      "date": "9/20(六)",
+      "game_no": "342",
+      "teams": "味全龍VS.中信兄弟",
+      "stadium": "洲際",
+      "time": "N/A"
+    },
+    {
+      "date": "9/21(日)",
+      "game_no": "343",
+      "teams": "樂天桃猿VS.統一7-ELEVEn獅",
+      "stadium": "台南",
+      "time": "N/A"
+    },
+    {
+      "date": "9/21(日)",
+      "game_no": "344",
+      "teams": "台鋼雄鷹VS.富邦悍將",
+      "stadium": "新莊",
+      "time": "N/A"
+    },
+    {
+      "date": "9/21(日)",
+      "game_no": "345",
+      "teams": "味全龍VS.中信兄弟",
+      "stadium": "洲際",
+      "time": "N/A"
+    },
+    {
+      "date": "9/23(二)",
+      "game_no": "346",
+      "teams": "樂天桃猿VS.味全龍",
+      "stadium": "天母",
+      "time": "N/A"
+    },
+    {
+      "date": "9/23(二)",
+      "game_no": "347",
+      "teams": "富邦悍將VS.統一7-ELEVEn獅",
+      "stadium": "台南",
+      "time": "N/A"
+    },
+    {
+      "date": "9/23(二)",
+      "game_no": "348",
+      "teams": "台鋼雄鷹VS.中信兄弟",
+      "stadium": "洲際",
+      "time": "N/A"
+    },
+    {
+      "date": "9/25(四)",
+      "game_no": "349",
+      "teams": "中信兄弟VS.富邦悍將",
+      "stadium": "新莊",
+      "time": "N/A"
+    },
+    {
+      "date": "9/25(四)",
+      "game_no": "350",
+      "teams": "味全龍VS.統一7-ELEVEn獅",
+      "stadium": "台南",
+      "time": "N/A"
+    },
+    {
+      "date": "9/25(四)",
+      "game_no": "351",
+      "teams": "樂天桃猿VS.台鋼雄鷹",
+      "stadium": "大巨蛋",
+      "time": "N/A"
+    },
+    {
+      "date": "9/26(五)",
+      "game_no": "352",
+      "teams": "中信兄弟VS.富邦悍將",
+      "stadium": "新莊",
+      "time": "N/A"
+    },
+    {
+      "date": "9/26(五)",
+      "game_no": "353",
+      "teams": "味全龍VS.統一7-ELEVEn獅",
+      "stadium": "台南",
+      "time": "N/A"
+    },
+    {
+      "date": "9/26(五)",
+      "game_no": "354",
+      "teams": "樂天桃猿VS.台鋼雄鷹",
+      "stadium": "大巨蛋",
+      "time": "N/A"
+    },
+    {
+      "date": "9/27(六)",
+      "game_no": "355",
+      "teams": "統一7-ELEVEn獅VS.台鋼雄鷹",
+      "stadium": "大巨蛋",
+      "time": "N/A"
+    },
+    {
+      "date": "9/27(六)",
+      "game_no": "356",
+      "teams": "中信兄弟VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "N/A"
+    },
+    {
+      "date": "9/27(六)",
+      "game_no": "357",
+      "teams": "富邦悍將VS.味全龍",
+      "stadium": "天母",
+      "time": "N/A"
+    },
+    {
+      "date": "9/28(日)",
+      "game_no": "358",
+      "teams": "統一7-ELEVEn獅VS.台鋼雄鷹",
+      "stadium": "大巨蛋",
+      "time": "N/A"
+    },
+    {
+      "date": "9/28(日)",
+      "game_no": "359",
+      "teams": "中信兄弟VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "N/A"
+    },
+    {
+      "date": "9/28(日)",
+      "game_no": "360",
+      "teams": "富邦悍將VS.味全龍",
+      "stadium": "天母",
+      "time": "N/A"
+    },
+    {
+      "date": "3/29(六)",
+      "game_no": "1",
+      "teams": "統一7-ELEVEn獅8:0中信兄弟",
+      "stadium": "大巨蛋",
+      "time": "2H50M"
+    },
+    {
+      "date": "3/30(日)",
+      "game_no": "2",
+      "teams": "味全龍VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "N/A"
+    },
+    {
+      "date": "3/30(日)",
+      "game_no": "3",
+      "teams": "富邦悍將3:8中信兄弟",
+      "stadium": "大巨蛋",
+      "time": "2H47M"
+    },
+    {
+      "date": "3/30(日)",
+      "game_no": "4",
+      "teams": "台鋼雄鷹3:6統一7-ELEVEn獅",
+      "stadium": "台南",
+      "time": "2H40M"
+    },
+    {
+      "date": "4/2(三)",
+      "game_no": "5",
+      "teams": "台鋼雄鷹0:1味全龍",
+      "stadium": "天母",
+      "time": "2H25M"
+    },
+    {
+      "date": "4/2(三)",
+      "game_no": "6",
+      "teams": "樂天桃猿3:5統一7-ELEVEn獅",
+      "stadium": "台南",
+      "time": "2H29M"
+    },
+    {
+      "date": "4/2(三)",
+      "game_no": "7",
+      "teams": "中信兄弟5:11富邦悍將",
+      "stadium": "新莊",
+      "time": "3H23M"
+    },
+    {
+      "date": "4/3(四)",
+      "game_no": "8",
+      "teams": "樂天桃猿2:5統一7-ELEVEn獅",
+      "stadium": "台南",
+      "time": "2H42M"
+    },
+    {
+      "date": "4/3(四)",
+      "game_no": "9",
+      "teams": "台鋼雄鷹1:3味全龍",
+      "stadium": "天母",
+      "time": "2H49M"
+    },
+    {
+      "date": "4/3(四)",
+      "game_no": "10",
+      "teams": "中信兄弟0:1富邦悍將",
+      "stadium": "新莊",
+      "time": "2H26M"
+    },
+    {
+      "date": "4/4(五)",
+      "game_no": "11",
+      "teams": "樂天桃猿3:4台鋼雄鷹",
+      "stadium": "澄清湖",
+      "time": "2H49M"
+    },
+    {
+      "date": "4/4(五)",
+      "game_no": "12",
+      "teams": "富邦悍將2:3味全龍",
+      "stadium": "天母",
+      "time": "3H0M"
+    },
+    {
+      "date": "4/4(五)",
+      "game_no": "13",
+      "teams": "統一7-ELEVEn獅0:2中信兄弟",
+      "stadium": "洲際",
+      "time": "2H23M"
+    },
+    {
+      "date": "4/5(六)",
+      "game_no": "14",
+      "teams": "樂天桃猿2:4台鋼雄鷹",
+      "stadium": "澄清湖",
+      "time": "2H27M"
+    },
+    {
+      "date": "4/5(六)",
+      "game_no": "15",
+      "teams": "富邦悍將3:11味全龍",
+      "stadium": "天母",
+      "time": "3H39M"
+    },
+    {
+      "date": "4/5(六)",
+      "game_no": "16",
+      "teams": "統一7-ELEVEn獅3:4中信兄弟",
+      "stadium": "洲際",
+      "time": "2H58M"
+    },
+    {
+      "date": "4/6(日)",
+      "game_no": "17",
+      "teams": "富邦悍將0:7味全龍",
+      "stadium": "天母",
+      "time": "2H47M"
+    },
+    {
+      "date": "4/6(日)",
+      "game_no": "18",
+      "teams": "樂天桃猿5:2台鋼雄鷹",
+      "stadium": "澄清湖",
+      "time": "2H39M"
+    },
+    {
+      "date": "4/6(日)",
+      "game_no": "19",
+      "teams": "統一7-ELEVEn獅6:7中信兄弟",
+      "stadium": "洲際",
+      "time": "2H46M"
+    },
+    {
+      "date": "4/8(二)",
+      "game_no": "20",
+      "teams": "富邦悍將3:6樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "2H48M"
+    },
+    {
+      "date": "4/8(二)",
+      "game_no": "21",
+      "teams": "統一7-ELEVEn獅3:4台鋼雄鷹",
+      "stadium": "澄清湖",
+      "time": "2H50M"
+    },
+    {
+      "date": "4/9(三)",
+      "game_no": "22",
+      "teams": "富邦悍將2:8樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "3H8M"
+    },
+    {
+      "date": "4/9(三)",
+      "game_no": "23",
+      "teams": "統一7-ELEVEn獅7:6台鋼雄鷹",
+      "stadium": "澄清湖",
+      "time": "3H28M"
+    },
+    {
+      "date": "4/9(三)",
+      "game_no": "24",
+      "teams": "味全龍1:2中信兄弟",
+      "stadium": "洲際",
+      "time": "2H47M"
+    },
+    {
+      "date": "4/10(四)",
+      "game_no": "25",
+      "teams": "味全龍1:4中信兄弟",
+      "stadium": "洲際",
+      "time": "2H35M"
+    },
+    {
+      "date": "4/11(五)",
+      "game_no": "26",
+      "teams": "中信兄弟15:4樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "3H18M"
+    },
+    {
+      "date": "4/11(五)",
+      "game_no": "27",
+      "teams": "台鋼雄鷹1:4富邦悍將",
+      "stadium": "新莊",
+      "time": "3H12M"
+    },
+    {
+      "date": "4/11(五)",
+      "game_no": "28",
+      "teams": "味全龍15:2統一7-ELEVEn獅",
+      "stadium": "大巨蛋",
+      "time": "2H58M"
+    },
+    {
+      "date": "4/12(六)",
+      "game_no": "29",
+      "teams": "味全龍1:5統一7-ELEVEn獅",
+      "stadium": "大巨蛋",
+      "time": "2H50M"
+    },
+    {
+      "date": "4/12(六)",
+      "game_no": "30",
+      "teams": "中信兄弟3:2樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "2H40M"
+    },
+    {
+      "date": "4/12(六)",
+      "game_no": "31",
+      "teams": "台鋼雄鷹3:6富邦悍將",
+      "stadium": "新莊",
+      "time": "2H31M"
+    },
+    {
+      "date": "4/13(日)",
+      "game_no": "32",
+      "teams": "中信兄弟2:4樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "3H12M"
+    },
+    {
+      "date": "4/13(日)",
+      "game_no": "33",
+      "teams": "味全龍1:0統一7-ELEVEn獅",
+      "stadium": "大巨蛋",
+      "time": "2H29M"
+    },
+    {
+      "date": "4/13(日)",
+      "game_no": "34",
+      "teams": "台鋼雄鷹4:2富邦悍將",
+      "stadium": "新莊",
+      "time": "3H17M"
+    },
+    {
+      "date": "4/15(二)",
+      "game_no": "35",
+      "teams": "台鋼雄鷹4:3中信兄弟",
+      "stadium": "洲際",
+      "time": "2H46M"
+    },
+    {
+      "date": "4/15(二)",
+      "game_no": "36",
+      "teams": "樂天桃猿1:0味全龍",
+      "stadium": "大巨蛋",
+      "time": "2H51M"
+    },
+    {
+      "date": "4/16(三)",
+      "game_no": "37",
+      "teams": "台鋼雄鷹0:3中信兄弟",
+      "stadium": "洲際",
+      "time": "2H31M"
+    },
+    {
+      "date": "4/16(三)",
+      "game_no": "38",
+      "teams": "樂天桃猿4:5味全龍",
+      "stadium": "大巨蛋",
+      "time": "2H50M"
+    },
+    {
+      "date": "4/16(三)",
+      "game_no": "39",
+      "teams": "富邦悍將3:7統一7-ELEVEn獅",
+      "stadium": "台南",
+      "time": "3H4M"
+    },
+    {
+      "date": "4/17(四)",
+      "game_no": "40",
+      "teams": "富邦悍將0:6統一7-ELEVEn獅",
+      "stadium": "台南",
+      "time": "2H33M"
+    },
+    {
+      "date": "4/18(五)",
+      "game_no": "41",
+      "teams": "富邦悍將0:3中信兄弟",
+      "stadium": "大巨蛋",
+      "time": "2H24M"
+    },
+    {
+      "date": "4/18(五)",
+      "game_no": "42",
+      "teams": "味全龍3:7台鋼雄鷹",
+      "stadium": "澄清湖",
+      "time": "3H16M"
+    },
+    {
+      "date": "4/18(五)",
+      "game_no": "43",
+      "teams": "統一7-ELEVEn獅4:2樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "2H54M"
+    },
+    {
+      "date": "4/19(六)",
+      "game_no": "44",
+      "teams": "味全龍1:3台鋼雄鷹",
+      "stadium": "澄清湖",
+      "time": "2H26M"
+    },
+    {
+      "date": "4/19(六)",
+      "game_no": "45",
+      "teams": "富邦悍將2:7中信兄弟",
+      "stadium": "大巨蛋",
+      "time": "2H38M"
+    },
+    {
+      "date": "4/19(六)",
+      "game_no": "46",
+      "teams": "統一7-ELEVEn獅3:0樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "2H12M"
+    },
+    {
+      "date": "4/20(日)",
+      "game_no": "47",
+      "teams": "統一7-ELEVEn獅VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "N/A"
+    },
+    {
+      "date": "4/20(日)",
+      "game_no": "48",
+      "teams": "富邦悍將1:0中信兄弟",
+      "stadium": "大巨蛋",
+      "time": "2H49M"
+    },
+    {
+      "date": "4/20(日)",
+      "game_no": "49",
+      "teams": "味全龍2:1台鋼雄鷹",
+      "stadium": "澄清湖",
+      "time": "3H2M"
+    },
+    {
+      "date": "4/22(二)",
+      "game_no": "50",
+      "teams": "味全龍2:5富邦悍將",
+      "stadium": "新莊",
+      "time": "2H59M"
+    },
+    {
+      "date": "4/22(二)",
+      "game_no": "51",
+      "teams": "中信兄弟6:3統一7-ELEVEn獅",
+      "stadium": "台南",
+      "time": "2H43M"
+    },
+    {
+      "date": "4/23(三)",
+      "game_no": "52",
+      "teams": "味全龍6:1富邦悍將",
+      "stadium": "新莊",
+      "time": "3H24M"
+    },
+    {
+      "date": "4/23(三)",
+      "game_no": "53",
+      "teams": "中信兄弟2:3統一7-ELEVEn獅",
+      "stadium": "台南",
+      "time": "3H5M"
+    },
+    {
+      "date": "4/23(三)",
+      "game_no": "54",
+      "teams": "台鋼雄鷹0:6樂天桃猿",
+      "stadium": "大巨蛋",
+      "time": "2H28M"
+    },
+    {
+      "date": "4/24(四)",
+      "game_no": "55",
+      "teams": "台鋼雄鷹4:1樂天桃猿",
+      "stadium": "大巨蛋",
+      "time": "3H7M"
+    },
+    {
+      "date": "4/25(五)",
+      "game_no": "56",
+      "teams": "樂天桃猿VS.富邦悍將",
+      "stadium": "新莊",
+      "time": "N/A"
+    },
+    {
+      "date": "4/25(五)",
+      "game_no": "57",
+      "teams": "中信兄弟0:8味全龍",
+      "stadium": "大巨蛋",
+      "time": "2H56M"
+    },
+    {
+      "date": "4/25(五)",
+      "game_no": "58",
+      "teams": "台鋼雄鷹1:4統一7-ELEVEn獅",
+      "stadium": "台南",
+      "time": "2H24M"
+    },
+    {
+      "date": "4/26(六)",
+      "game_no": "59",
+      "teams": "台鋼雄鷹6:2統一7-ELEVEn獅",
+      "stadium": "台南",
+      "time": "2H49M"
+    },
+    {
+      "date": "4/26(六)",
+      "game_no": "60",
+      "teams": "樂天桃猿7:6富邦悍將",
+      "stadium": "新莊",
+      "time": "3H49M"
+    },
+    {
+      "date": "4/26(六)",
+      "game_no": "61",
+      "teams": "中信兄弟4:1味全龍",
+      "stadium": "大巨蛋",
+      "time": "3H10M"
+    },
+    {
+      "date": "4/27(日)",
+      "game_no": "62",
+      "teams": "中信兄弟1:2味全龍",
+      "stadium": "大巨蛋",
+      "time": "2H43M"
+    },
+    {
+      "date": "4/27(日)",
+      "game_no": "63",
+      "teams": "台鋼雄鷹1:2統一7-ELEVEn獅",
+      "stadium": "台南",
+      "time": "2H32M"
+    },
+    {
+      "date": "4/27(日)",
+      "game_no": "64",
+      "teams": "樂天桃猿3:2富邦悍將",
+      "stadium": "新莊",
+      "time": "3H16M"
+    },
+    {
+      "date": "4/29(二)",
+      "game_no": "65",
+      "teams": "富邦悍將4:7台鋼雄鷹",
+      "stadium": "澄清湖",
+      "time": "2H58M"
+    },
+    {
+      "date": "4/29(二)",
+      "game_no": "66",
+      "teams": "樂天桃猿4:3中信兄弟",
+      "stadium": "洲際",
+      "time": "3H4M"
+    },
+    {
+      "date": "4/30(三)",
+      "game_no": "67",
+      "teams": "富邦悍將7:0台鋼雄鷹",
+      "stadium": "澄清湖",
+      "time": "3H12M"
+    },
+    {
+      "date": "4/30(三)",
+      "game_no": "68",
+      "teams": "樂天桃猿5:4中信兄弟",
+      "stadium": "洲際",
+      "time": "3H4M"
+    },
+    {
+      "date": "4/30(三)",
+      "game_no": "69",
+      "teams": "統一7-ELEVEn獅1:7味全龍",
+      "stadium": "天母",
+      "time": "2H33M"
+    },
+    {
+      "date": "6/1(日)",
+      "game_no": "134",
+      "teams": "富邦悍將VS.台鋼雄鷹",
+      "stadium": "澄清湖",
+      "time": "16:05"
+    },
+    {
+      "date": "6/1(日)",
+      "game_no": "135",
+      "teams": "樂天桃猿VS.統一7-ELEVEn獅",
+      "stadium": "台南",
+      "time": "16:05"
+    },
+    {
+      "date": "6/1(日)",
+      "game_no": "136",
+      "teams": "味全龍VS.中信兄弟",
+      "stadium": "洲際",
+      "time": "17:05"
+    },
+    {
+      "date": "6/3(二)",
+      "game_no": "137",
+      "teams": "富邦悍將VS.味全龍",
+      "stadium": "花蓮",
+      "time": "18:35"
+    },
+    {
+      "date": "6/3(二)",
+      "game_no": "138",
+      "teams": "中信兄弟VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "18:35"
+    },
+    {
+      "date": "6/4(三)",
+      "game_no": "139",
+      "teams": "富邦悍將VS.味全龍",
+      "stadium": "花蓮",
+      "time": "18:35"
+    },
+    {
+      "date": "6/4(三)",
+      "game_no": "140",
+      "teams": "中信兄弟VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "18:35"
+    },
+    {
+      "date": "6/4(三)",
+      "game_no": "141",
+      "teams": "台鋼雄鷹VS.統一7-ELEVEn獅",
+      "stadium": "嘉義市",
+      "time": "18:35"
+    },
+    {
+      "date": "6/6(五)",
+      "game_no": "142",
+      "teams": "統一7-ELEVEn獅VS.味全龍",
+      "stadium": "天母",
+      "time": "18:35"
+    },
+    {
+      "date": "6/6(五)",
+      "game_no": "143",
+      "teams": "中信兄弟VS.富邦悍將",
+      "stadium": "新莊",
+      "time": "18:35"
+    },
+    {
+      "date": "6/6(五)",
+      "game_no": "144",
+      "teams": "台鋼雄鷹VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "18:35"
+    },
+    {
+      "date": "6/7(六)",
+      "game_no": "145",
+      "teams": "統一7-ELEVEn獅VS.味全龍",
+      "stadium": "天母",
+      "time": "17:05"
+    },
+    {
+      "date": "6/7(六)",
+      "game_no": "146",
+      "teams": "中信兄弟VS.富邦悍將",
+      "stadium": "新莊",
+      "time": "17:05"
+    },
+    {
+      "date": "6/7(六)",
+      "game_no": "147",
+      "teams": "台鋼雄鷹VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "17:05"
+    },
+    {
+      "date": "6/8(日)",
+      "game_no": "148",
+      "teams": "統一7-ELEVEn獅VS.味全龍",
+      "stadium": "天母",
+      "time": "17:05"
+    },
+    {
+      "date": "6/8(日)",
+      "game_no": "149",
+      "teams": "中信兄弟VS.富邦悍將",
+      "stadium": "新莊",
+      "time": "17:05"
+    },
+    {
+      "date": "6/8(日)",
+      "game_no": "150",
+      "teams": "台鋼雄鷹VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "17:05"
+    },
+    {
+      "date": "6/10(二)",
+      "game_no": "151",
+      "teams": "台鋼雄鷹VS.中信兄弟",
+      "stadium": "洲際",
+      "time": "18:35"
+    },
+    {
+      "date": "6/10(二)",
+      "game_no": "152",
+      "teams": "味全龍VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "18:35"
+    },
+    {
+      "date": "6/10(二)",
+      "game_no": "153",
+      "teams": "富邦悍將VS.統一7-ELEVEn獅",
+      "stadium": "嘉義市",
+      "time": "18:35"
+    },
+    {
+      "date": "6/12(四)",
+      "game_no": "154",
+      "teams": "樂天桃猿VS.中信兄弟",
+      "stadium": "洲際",
+      "time": "18:35"
+    },
+    {
+      "date": "6/12(四)",
+      "game_no": "155",
+      "teams": "味全龍VS.富邦悍將",
+      "stadium": "大巨蛋",
+      "time": "18:35"
+    },
+    {
+      "date": "6/12(四)",
+      "game_no": "156",
+      "teams": "台鋼雄鷹VS.統一7-ELEVEn獅",
+      "stadium": "台南",
+      "time": "18:35"
+    },
+    {
+      "date": "6/13(五)",
+      "game_no": "157",
+      "teams": "樂天桃猿VS.中信兄弟",
+      "stadium": "洲際",
+      "time": "18:35"
+    },
+    {
+      "date": "6/13(五)",
+      "game_no": "158",
+      "teams": "味全龍VS.富邦悍將",
+      "stadium": "大巨蛋",
+      "time": "18:35"
+    },
+    {
+      "date": "6/13(五)",
+      "game_no": "159",
+      "teams": "台鋼雄鷹VS.統一7-ELEVEn獅",
+      "stadium": "台南",
+      "time": "18:35"
+    },
+    {
+      "date": "6/14(六)",
+      "game_no": "160",
+      "teams": "中信兄弟VS.統一7-ELEVEn獅",
+      "stadium": "台南",
+      "time": "16:05"
+    },
+    {
+      "date": "6/14(六)",
+      "game_no": "161",
+      "teams": "味全龍VS.台鋼雄鷹",
+      "stadium": "澄清湖",
+      "time": "17:05"
+    },
+    {
+      "date": "6/14(六)",
+      "game_no": "162",
+      "teams": "樂天桃猿VS.富邦悍將",
+      "stadium": "大巨蛋",
+      "time": "17:05"
+    },
+    {
+      "date": "6/15(日)",
+      "game_no": "163",
+      "teams": "味全龍VS.台鋼雄鷹",
+      "stadium": "澄清湖",
+      "time": "16:05"
+    },
+    {
+      "date": "6/15(日)",
+      "game_no": "164",
+      "teams": "樂天桃猿VS.富邦悍將",
+      "stadium": "大巨蛋",
+      "time": "16:05"
+    },
+    {
+      "date": "6/15(日)",
+      "game_no": "165",
+      "teams": "中信兄弟VS.統一7-ELEVEn獅",
+      "stadium": "台南",
+      "time": "16:05"
+    },
+    {
+      "date": "6/17(二)",
+      "game_no": "166",
+      "teams": "中信兄弟VS.台鋼雄鷹",
+      "stadium": "澄清湖",
+      "time": "18:35"
+    },
+    {
+      "date": "6/17(二)",
+      "game_no": "167",
+      "teams": "樂天桃猿VS.味全龍",
+      "stadium": "天母",
+      "time": "18:35"
+    },
+    {
+      "date": "6/17(二)",
+      "game_no": "168",
+      "teams": "統一7-ELEVEn獅VS.富邦悍將",
+      "stadium": "新莊",
+      "time": "18:35"
+    },
+    {
+      "date": "6/19(四)",
+      "game_no": "169",
+      "teams": "富邦悍將VS.台鋼雄鷹",
+      "stadium": "澄清湖",
+      "time": "18:35"
+    },
+    {
+      "date": "6/19(四)",
+      "game_no": "170",
+      "teams": "統一7-ELEVEn獅VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "18:35"
+    },
+    {
+      "date": "6/19(四)",
+      "game_no": "171",
+      "teams": "中信兄弟VS.味全龍",
+      "stadium": "天母",
+      "time": "18:35"
+    },
+    {
+      "date": "6/20(五)",
+      "game_no": "172",
+      "teams": "富邦悍將VS.台鋼雄鷹",
+      "stadium": "澄清湖",
+      "time": "18:35"
+    },
+    {
+      "date": "6/20(五)",
+      "game_no": "173",
+      "teams": "統一7-ELEVEn獅VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "18:35"
+    },
+    {
+      "date": "6/20(五)",
+      "game_no": "174",
+      "teams": "中信兄弟VS.味全龍",
+      "stadium": "天母",
+      "time": "18:35"
+    },
+    {
+      "date": "6/21(六)",
+      "game_no": "175",
+      "teams": "富邦悍將VS.中信兄弟",
+      "stadium": "洲際",
+      "time": "17:05"
+    },
+    {
+      "date": "6/21(六)",
+      "game_no": "176",
+      "teams": "台鋼雄鷹VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "17:05"
+    },
+    {
+      "date": "6/21(六)",
+      "game_no": "177",
+      "teams": "統一7-ELEVEn獅VS.味全龍",
+      "stadium": "天母",
+      "time": "17:05"
+    },
+    {
+      "date": "6/22(日)",
+      "game_no": "178",
+      "teams": "富邦悍將VS.中信兄弟",
+      "stadium": "洲際",
+      "time": "17:05"
+    },
+    {
+      "date": "6/22(日)",
+      "game_no": "179",
+      "teams": "台鋼雄鷹VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "17:05"
+    },
+    {
+      "date": "6/22(日)",
+      "game_no": "180",
+      "teams": "統一7-ELEVEn獅VS.味全龍",
+      "stadium": "天母",
+      "time": "17:05"
+    },
+    {
+      "date": "6/28(六)",
+      "game_no": "2",
+      "teams": "味全龍VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "17:05"
+    },
+    {
+      "date": "6/29(日)",
+      "game_no": "47",
+      "teams": "統一7-ELEVEn獅1:0樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "17:05"
+    },
+    {
+      "date": "6/1(日)",
+      "game_no": "134",
+      "teams": "富邦悍將VS.台鋼雄鷹",
+      "stadium": "澄清湖",
+      "time": "16:05"
+    },
+    {
+      "date": "6/1(日)",
+      "game_no": "135",
+      "teams": "樂天桃猿VS.統一7-ELEVEn獅",
+      "stadium": "台南",
+      "time": "16:05"
+    },
+    {
+      "date": "6/1(日)",
+      "game_no": "136",
+      "teams": "味全龍VS.中信兄弟",
+      "stadium": "洲際",
+      "time": "17:05"
+    },
+    {
+      "date": "6/3(二)",
+      "game_no": "137",
+      "teams": "富邦悍將VS.味全龍",
+      "stadium": "花蓮",
+      "time": "18:35"
+    },
+    {
+      "date": "6/3(二)",
+      "game_no": "138",
+      "teams": "中信兄弟VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "18:35"
+    },
+    {
+      "date": "6/4(三)",
+      "game_no": "139",
+      "teams": "富邦悍將VS.味全龍",
+      "stadium": "花蓮",
+      "time": "18:35"
+    },
+    {
+      "date": "6/4(三)",
+      "game_no": "140",
+      "teams": "中信兄弟VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "18:35"
+    },
+    {
+      "date": "6/4(三)",
+      "game_no": "141",
+      "teams": "台鋼雄鷹VS.統一7-ELEVEn獅",
+      "stadium": "嘉義市",
+      "time": "18:35"
+    },
+    {
+      "date": "6/6(五)",
+      "game_no": "142",
+      "teams": "統一7-ELEVEn獅VS.味全龍",
+      "stadium": "天母",
+      "time": "18:35"
+    },
+    {
+      "date": "6/6(五)",
+      "game_no": "143",
+      "teams": "中信兄弟VS.富邦悍將",
+      "stadium": "新莊",
+      "time": "18:35"
+    },
+    {
+      "date": "6/6(五)",
+      "game_no": "144",
+      "teams": "台鋼雄鷹VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "18:35"
+    },
+    {
+      "date": "6/7(六)",
+      "game_no": "145",
+      "teams": "統一7-ELEVEn獅VS.味全龍",
+      "stadium": "天母",
+      "time": "17:05"
+    },
+    {
+      "date": "6/7(六)",
+      "game_no": "146",
+      "teams": "中信兄弟VS.富邦悍將",
+      "stadium": "新莊",
+      "time": "17:05"
+    },
+    {
+      "date": "6/7(六)",
+      "game_no": "147",
+      "teams": "台鋼雄鷹VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "17:05"
+    },
+    {
+      "date": "6/8(日)",
+      "game_no": "148",
+      "teams": "統一7-ELEVEn獅VS.味全龍",
+      "stadium": "天母",
+      "time": "17:05"
+    },
+    {
+      "date": "6/8(日)",
+      "game_no": "149",
+      "teams": "中信兄弟VS.富邦悍將",
+      "stadium": "新莊",
+      "time": "17:05"
+    },
+    {
+      "date": "6/8(日)",
+      "game_no": "150",
+      "teams": "台鋼雄鷹VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "17:05"
+    },
+    {
+      "date": "6/10(二)",
+      "game_no": "151",
+      "teams": "台鋼雄鷹VS.中信兄弟",
+      "stadium": "洲際",
+      "time": "18:35"
+    },
+    {
+      "date": "6/10(二)",
+      "game_no": "152",
+      "teams": "味全龍VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "18:35"
+    },
+    {
+      "date": "6/10(二)",
+      "game_no": "153",
+      "teams": "富邦悍將VS.統一7-ELEVEn獅",
+      "stadium": "嘉義市",
+      "time": "18:35"
+    },
+    {
+      "date": "6/12(四)",
+      "game_no": "154",
+      "teams": "樂天桃猿VS.中信兄弟",
+      "stadium": "洲際",
+      "time": "18:35"
+    },
+    {
+      "date": "6/12(四)",
+      "game_no": "155",
+      "teams": "味全龍VS.富邦悍將",
+      "stadium": "大巨蛋",
+      "time": "18:35"
+    },
+    {
+      "date": "6/12(四)",
+      "game_no": "156",
+      "teams": "台鋼雄鷹VS.統一7-ELEVEn獅",
+      "stadium": "台南",
+      "time": "18:35"
+    },
+    {
+      "date": "6/13(五)",
+      "game_no": "157",
+      "teams": "樂天桃猿VS.中信兄弟",
+      "stadium": "洲際",
+      "time": "18:35"
+    },
+    {
+      "date": "6/13(五)",
+      "game_no": "158",
+      "teams": "味全龍VS.富邦悍將",
+      "stadium": "大巨蛋",
+      "time": "18:35"
+    },
+    {
+      "date": "6/13(五)",
+      "game_no": "159",
+      "teams": "台鋼雄鷹VS.統一7-ELEVEn獅",
+      "stadium": "台南",
+      "time": "18:35"
+    },
+    {
+      "date": "6/14(六)",
+      "game_no": "160",
+      "teams": "中信兄弟VS.統一7-ELEVEn獅",
+      "stadium": "台南",
+      "time": "16:05"
+    },
+    {
+      "date": "6/14(六)",
+      "game_no": "161",
+      "teams": "味全龍VS.台鋼雄鷹",
+      "stadium": "澄清湖",
+      "time": "17:05"
+    },
+    {
+      "date": "6/14(六)",
+      "game_no": "162",
+      "teams": "樂天桃猿VS.富邦悍將",
+      "stadium": "大巨蛋",
+      "time": "17:05"
+    },
+    {
+      "date": "6/15(日)",
+      "game_no": "163",
+      "teams": "味全龍VS.台鋼雄鷹",
+      "stadium": "澄清湖",
+      "time": "16:05"
+    },
+    {
+      "date": "6/15(日)",
+      "game_no": "164",
+      "teams": "樂天桃猿VS.富邦悍將",
+      "stadium": "大巨蛋",
+      "time": "16:05"
+    },
+    {
+      "date": "6/15(日)",
+      "game_no": "165",
+      "teams": "中信兄弟VS.統一7-ELEVEn獅",
+      "stadium": "台南",
+      "time": "16:05"
+    },
+    {
+      "date": "6/17(二)",
+      "game_no": "166",
+      "teams": "中信兄弟VS.台鋼雄鷹",
+      "stadium": "澄清湖",
+      "time": "18:35"
+    },
+    {
+      "date": "6/17(二)",
+      "game_no": "167",
+      "teams": "樂天桃猿VS.味全龍",
+      "stadium": "天母",
+      "time": "18:35"
+    },
+    {
+      "date": "6/17(二)",
+      "game_no": "168",
+      "teams": "統一7-ELEVEn獅VS.富邦悍將",
+      "stadium": "新莊",
+      "time": "18:35"
+    },
+    {
+      "date": "6/19(四)",
+      "game_no": "169",
+      "teams": "富邦悍將VS.台鋼雄鷹",
+      "stadium": "澄清湖",
+      "time": "18:35"
+    },
+    {
+      "date": "6/19(四)",
+      "game_no": "170",
+      "teams": "統一7-ELEVEn獅VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "18:35"
+    },
+    {
+      "date": "6/19(四)",
+      "game_no": "171",
+      "teams": "中信兄弟VS.味全龍",
+      "stadium": "天母",
+      "time": "18:35"
+    },
+    {
+      "date": "6/20(五)",
+      "game_no": "172",
+      "teams": "富邦悍將VS.台鋼雄鷹",
+      "stadium": "澄清湖",
+      "time": "18:35"
+    },
+    {
+      "date": "6/20(五)",
+      "game_no": "173",
+      "teams": "統一7-ELEVEn獅VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "18:35"
+    },
+    {
+      "date": "6/20(五)",
+      "game_no": "174",
+      "teams": "中信兄弟VS.味全龍",
+      "stadium": "天母",
+      "time": "18:35"
+    },
+    {
+      "date": "6/21(六)",
+      "game_no": "175",
+      "teams": "富邦悍將VS.中信兄弟",
+      "stadium": "洲際",
+      "time": "17:05"
+    },
+    {
+      "date": "6/21(六)",
+      "game_no": "176",
+      "teams": "台鋼雄鷹VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "17:05"
+    },
+    {
+      "date": "6/21(六)",
+      "game_no": "177",
+      "teams": "統一7-ELEVEn獅VS.味全龍",
+      "stadium": "天母",
+      "time": "17:05"
+    },
+    {
+      "date": "6/22(日)",
+      "game_no": "178",
+      "teams": "富邦悍將VS.中信兄弟",
+      "stadium": "洲際",
+      "time": "17:05"
+    },
+    {
+      "date": "6/22(日)",
+      "game_no": "179",
+      "teams": "台鋼雄鷹VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "17:05"
+    },
+    {
+      "date": "6/22(日)",
+      "game_no": "180",
+      "teams": "統一7-ELEVEn獅VS.味全龍",
+      "stadium": "天母",
+      "time": "17:05"
+    },
+    {
+      "date": "6/28(六)",
+      "game_no": "2",
+      "teams": "味全龍VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "17:05"
+    },
+    {
+      "date": "6/29(日)",
+      "game_no": "47",
+      "teams": "統一7-ELEVEn獅1:0樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "17:05"
+    },
+    {
+      "date": "7/4(五)",
+      "game_no": "181",
+      "teams": "富邦悍將VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "18:35"
+    },
+    {
+      "date": "7/4(五)",
+      "game_no": "182",
+      "teams": "中信兄弟VS.台鋼雄鷹",
+      "stadium": "澄清湖",
+      "time": "18:35"
+    },
+    {
+      "date": "7/4(五)",
+      "game_no": "183",
+      "teams": "統一7-ELEVEn獅VS.味全龍",
+      "stadium": "天母",
+      "time": "18:35"
+    },
+    {
+      "date": "7/5(六)",
+      "game_no": "184",
+      "teams": "中信兄弟VS.台鋼雄鷹",
+      "stadium": "澄清湖",
+      "time": "16:05"
+    },
+    {
+      "date": "7/5(六)",
+      "game_no": "185",
+      "teams": "富邦悍將VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "17:05"
+    },
+    {
+      "date": "7/5(六)",
+      "game_no": "186",
+      "teams": "統一7-ELEVEn獅VS.味全龍",
+      "stadium": "天母",
+      "time": "17:05"
+    },
+    {
+      "date": "7/6(日)",
+      "game_no": "187",
+      "teams": "中信兄弟VS.台鋼雄鷹",
+      "stadium": "澄清湖",
+      "time": "16:05"
+    },
+    {
+      "date": "7/6(日)",
+      "game_no": "188",
+      "teams": "富邦悍將VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "17:05"
+    },
+    {
+      "date": "7/6(日)",
+      "game_no": "189",
+      "teams": "統一7-ELEVEn獅VS.味全龍",
+      "stadium": "天母",
+      "time": "17:05"
+    },
+    {
+      "date": "7/8(二)",
+      "game_no": "190",
+      "teams": "統一7-ELEVEn獅VS.中信兄弟",
+      "stadium": "洲際",
+      "time": "18:35"
+    },
+    {
+      "date": "7/8(二)",
+      "game_no": "191",
+      "teams": "味全龍VS.富邦悍將",
+      "stadium": "新莊",
+      "time": "18:35"
+    },
+    {
+      "date": "7/9(三)",
+      "game_no": "192",
+      "teams": "統一7-ELEVEn獅VS.中信兄弟",
+      "stadium": "洲際",
+      "time": "18:35"
+    },
+    {
+      "date": "7/9(三)",
+      "game_no": "193",
+      "teams": "味全龍VS.富邦悍將",
+      "stadium": "新莊",
+      "time": "18:35"
+    },
+    {
+      "date": "7/9(三)",
+      "game_no": "194",
+      "teams": "樂天桃猿VS.台鋼雄鷹",
+      "stadium": "嘉義市",
+      "time": "18:35"
+    },
+    {
+      "date": "7/10(四)",
+      "game_no": "195",
+      "teams": "樂天桃猿VS.台鋼雄鷹",
+      "stadium": "澄清湖",
+      "time": "18:35"
+    },
+    {
+      "date": "7/11(五)",
+      "game_no": "196",
+      "teams": "味全龍VS.中信兄弟",
+      "stadium": "洲際",
+      "time": "18:35"
+    },
+    {
+      "date": "7/11(五)",
+      "game_no": "197",
+      "teams": "樂天桃猿VS.統一7-ELEVEn獅",
+      "stadium": "台南",
+      "time": "18:35"
+    },
+    {
+      "date": "7/11(五)",
+      "game_no": "198",
+      "teams": "台鋼雄鷹VS.富邦悍將",
+      "stadium": "新莊",
+      "time": "18:35"
+    },
+    {
+      "date": "7/12(六)",
+      "game_no": "199",
+      "teams": "樂天桃猿VS.統一7-ELEVEn獅",
+      "stadium": "台南",
+      "time": "16:05"
+    },
+    {
+      "date": "7/12(六)",
+      "game_no": "200",
+      "teams": "味全龍VS.中信兄弟",
+      "stadium": "洲際",
+      "time": "17:05"
+    },
+    {
+      "date": "7/12(六)",
+      "game_no": "201",
+      "teams": "台鋼雄鷹VS.富邦悍將",
+      "stadium": "新莊",
+      "time": "17:05"
+    },
+    {
+      "date": "7/13(日)",
+      "game_no": "202",
+      "teams": "樂天桃猿VS.統一7-ELEVEn獅",
+      "stadium": "台南",
+      "time": "16:05"
+    },
+    {
+      "date": "7/13(日)",
+      "game_no": "203",
+      "teams": "味全龍VS.中信兄弟",
+      "stadium": "洲際",
+      "time": "17:05"
+    },
+    {
+      "date": "7/13(日)",
+      "game_no": "204",
+      "teams": "台鋼雄鷹VS.富邦悍將",
+      "stadium": "新莊",
+      "time": "17:05"
+    },
+    {
+      "date": "7/15(二)",
+      "game_no": "205",
+      "teams": "台鋼雄鷹VS.味全龍",
+      "stadium": "斗六",
+      "time": "18:35"
+    },
+    {
+      "date": "7/15(二)",
+      "game_no": "206",
+      "teams": "中信兄弟VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "18:35"
+    },
+    {
+      "date": "7/16(三)",
+      "game_no": "207",
+      "teams": "台鋼雄鷹VS.味全龍",
+      "stadium": "斗六",
+      "time": "18:35"
+    },
+    {
+      "date": "7/16(三)",
+      "game_no": "208",
+      "teams": "中信兄弟VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "18:35"
+    },
+    {
+      "date": "7/16(三)",
+      "game_no": "209",
+      "teams": "富邦悍將VS.統一7-ELEVEn獅",
+      "stadium": "台南",
+      "time": "18:35"
+    },
+    {
+      "date": "7/17(四)",
+      "game_no": "210",
+      "teams": "富邦悍將VS.統一7-ELEVEn獅",
+      "stadium": "台南",
+      "time": "18:35"
+    },
+    {
+      "date": "7/22(二)",
+      "game_no": "211",
+      "teams": "樂天桃猿VS.味全龍",
+      "stadium": "大巨蛋",
+      "time": "18:35"
+    },
+    {
+      "date": "7/22(二)",
+      "game_no": "212",
+      "teams": "統一7-ELEVEn獅VS.台鋼雄鷹",
+      "stadium": "嘉義市",
+      "time": "18:35"
+    },
+    {
+      "date": "7/23(三)",
+      "game_no": "213",
+      "teams": "樂天桃猿VS.味全龍",
+      "stadium": "大巨蛋",
+      "time": "18:35"
+    },
+    {
+      "date": "7/23(三)",
+      "game_no": "214",
+      "teams": "統一7-ELEVEn獅VS.台鋼雄鷹",
+      "stadium": "澄清湖",
+      "time": "18:35"
+    },
+    {
+      "date": "7/23(三)",
+      "game_no": "215",
+      "teams": "中信兄弟VS.富邦悍將",
+      "stadium": "新莊",
+      "time": "18:35"
+    },
+    {
+      "date": "7/24(四)",
+      "game_no": "216",
+      "teams": "中信兄弟VS.富邦悍將",
+      "stadium": "新莊",
+      "time": "18:35"
+    },
+    {
+      "date": "7/25(五)",
+      "game_no": "217",
+      "teams": "富邦悍將VS.味全龍",
+      "stadium": "天母",
+      "time": "18:35"
+    },
+    {
+      "date": "7/25(五)",
+      "game_no": "218",
+      "teams": "台鋼雄鷹VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "18:35"
+    },
+    {
+      "date": "7/25(五)",
+      "game_no": "219",
+      "teams": "中信兄弟VS.統一7-ELEVEn獅",
+      "stadium": "大巨蛋",
+      "time": "18:35"
+    },
+    {
+      "date": "7/26(六)",
+      "game_no": "220",
+      "teams": "中信兄弟VS.統一7-ELEVEn獅",
+      "stadium": "大巨蛋",
+      "time": "16:05"
+    },
+    {
+      "date": "7/26(六)",
+      "game_no": "221",
+      "teams": "富邦悍將VS.味全龍",
+      "stadium": "天母",
+      "time": "17:05"
+    },
+    {
+      "date": "7/26(六)",
+      "game_no": "222",
+      "teams": "台鋼雄鷹VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "17:05"
+    },
+    {
+      "date": "7/27(日)",
+      "game_no": "223",
+      "teams": "中信兄弟VS.統一7-ELEVEn獅",
+      "stadium": "大巨蛋",
+      "time": "16:05"
+    },
+    {
+      "date": "7/27(日)",
+      "game_no": "224",
+      "teams": "富邦悍將VS.味全龍",
+      "stadium": "天母",
+      "time": "17:05"
+    },
+    {
+      "date": "7/27(日)",
+      "game_no": "225",
+      "teams": "台鋼雄鷹VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "17:05"
+    },
+    {
+      "date": "7/29(二)",
+      "game_no": "226",
+      "teams": "台鋼雄鷹VS.中信兄弟",
+      "stadium": "洲際",
+      "time": "18:35"
+    },
+    {
+      "date": "7/29(二)",
+      "game_no": "227",
+      "teams": "樂天桃猿VS.富邦悍將",
+      "stadium": "大巨蛋",
+      "time": "18:35"
+    },
+    {
+      "date": "7/30(三)",
+      "game_no": "228",
+      "teams": "台鋼雄鷹VS.中信兄弟",
+      "stadium": "洲際",
+      "time": "18:35"
+    },
+    {
+      "date": "7/30(三)",
+      "game_no": "229",
+      "teams": "樂天桃猿VS.富邦悍將",
+      "stadium": "大巨蛋",
+      "time": "18:35"
+    },
+    {
+      "date": "7/30(三)",
+      "game_no": "230",
+      "teams": "味全龍VS.統一7-ELEVEn獅",
+      "stadium": "台南",
+      "time": "18:35"
+    },
+    {
+      "date": "7/31(四)",
+      "game_no": "231",
+      "teams": "味全龍VS.統一7-ELEVEn獅",
+      "stadium": "台南",
+      "time": "18:35"
+    },
+    {
+      "date": "8/1(五)",
+      "game_no": "232",
+      "teams": "樂天桃猿VS.中信兄弟",
+      "stadium": "大巨蛋",
+      "time": "18:35"
+    },
+    {
+      "date": "8/1(五)",
+      "game_no": "233",
+      "teams": "味全龍VS.台鋼雄鷹",
+      "stadium": "澄清湖",
+      "time": "18:35"
+    },
+    {
+      "date": "8/1(五)",
+      "game_no": "234",
+      "teams": "統一7-ELEVEn獅VS.富邦悍將",
+      "stadium": "新莊",
+      "time": "18:35"
+    },
+    {
+      "date": "8/2(六)",
+      "game_no": "235",
+      "teams": "味全龍VS.台鋼雄鷹",
+      "stadium": "澄清湖",
+      "time": "16:05"
+    },
+    {
+      "date": "8/2(六)",
+      "game_no": "236",
+      "teams": "樂天桃猿VS.中信兄弟",
+      "stadium": "大巨蛋",
+      "time": "17:05"
+    },
+    {
+      "date": "8/2(六)",
+      "game_no": "237",
+      "teams": "統一7-ELEVEn獅VS.富邦悍將",
+      "stadium": "新莊",
+      "time": "17:05"
+    },
+    {
+      "date": "8/3(日)",
+      "game_no": "238",
+      "teams": "樂天桃猿VS.中信兄弟",
+      "stadium": "大巨蛋",
+      "time": "15:05"
+    },
+    {
+      "date": "8/3(日)",
+      "game_no": "239",
+      "teams": "味全龍VS.台鋼雄鷹",
+      "stadium": "澄清湖",
+      "time": "16:05"
+    },
+    {
+      "date": "8/3(日)",
+      "game_no": "240",
+      "teams": "統一7-ELEVEn獅VS.富邦悍將",
+      "stadium": "新莊",
+      "time": "17:05"
+    },
+    {
+      "date": "8/5(二)",
+      "game_no": "241",
+      "teams": "統一7-ELEVEn獅VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "18:35"
+    },
+    {
+      "date": "8/5(二)",
+      "game_no": "242",
+      "teams": "中信兄弟VS.味全龍",
+      "stadium": "天母",
+      "time": "18:35"
+    },
+    {
+      "date": "8/5(二)",
+      "game_no": "243",
+      "teams": "富邦悍將VS.台鋼雄鷹",
+      "stadium": "台東",
+      "time": "18:35"
+    },
+    {
+      "date": "8/6(三)",
+      "game_no": "244",
+      "teams": "統一7-ELEVEn獅VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "18:35"
+    },
+    {
+      "date": "8/6(三)",
+      "game_no": "245",
+      "teams": "中信兄弟VS.味全龍",
+      "stadium": "天母",
+      "time": "18:35"
+    },
+    {
+      "date": "8/6(三)",
+      "game_no": "246",
+      "teams": "富邦悍將VS.台鋼雄鷹",
+      "stadium": "台東",
+      "time": "18:35"
+    },
+    {
+      "date": "8/8(五)",
+      "game_no": "247",
+      "teams": "味全龍VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "18:35"
+    },
+    {
+      "date": "8/8(五)",
+      "game_no": "248",
+      "teams": "台鋼雄鷹VS.統一7-ELEVEn獅",
+      "stadium": "台南",
+      "time": "18:35"
+    },
+    {
+      "date": "8/8(五)",
+      "game_no": "249",
+      "teams": "富邦悍將VS.中信兄弟",
+      "stadium": "洲際",
+      "time": "18:35"
+    },
+    {
+      "date": "8/9(六)",
+      "game_no": "250",
+      "teams": "台鋼雄鷹VS.統一7-ELEVEn獅",
+      "stadium": "台南",
+      "time": "16:05"
+    },
+    {
+      "date": "8/9(六)",
+      "game_no": "251",
+      "teams": "味全龍VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "17:05"
+    },
+    {
+      "date": "8/9(六)",
+      "game_no": "252",
+      "teams": "富邦悍將VS.中信兄弟",
+      "stadium": "洲際",
+      "time": "17:05"
+    },
+    {
+      "date": "8/10(日)",
+      "game_no": "253",
+      "teams": "台鋼雄鷹VS.統一7-ELEVEn獅",
+      "stadium": "台南",
+      "time": "16:05"
+    },
+    {
+      "date": "8/10(日)",
+      "game_no": "254",
+      "teams": "味全龍VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "17:05"
+    },
+    {
+      "date": "8/10(日)",
+      "game_no": "255",
+      "teams": "富邦悍將VS.中信兄弟",
+      "stadium": "洲際",
+      "time": "17:05"
+    },
+    {
+      "date": "8/12(二)",
+      "game_no": "256",
+      "teams": "統一7-ELEVEn獅VS.富邦悍將",
+      "stadium": "新莊",
+      "time": "18:35"
+    },
+    {
+      "date": "8/12(二)",
+      "game_no": "257",
+      "teams": "台鋼雄鷹VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "18:35"
+    },
+    {
+      "date": "8/13(三)",
+      "game_no": "258",
+      "teams": "統一7-ELEVEn獅VS.富邦悍將",
+      "stadium": "新莊",
+      "time": "18:35"
+    },
+    {
+      "date": "8/13(三)",
+      "game_no": "259",
+      "teams": "台鋼雄鷹VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "18:35"
+    },
+    {
+      "date": "8/13(三)",
+      "game_no": "260",
+      "teams": "味全龍VS.中信兄弟",
+      "stadium": "洲際",
+      "time": "18:35"
+    },
+    {
+      "date": "8/14(四)",
+      "game_no": "261",
+      "teams": "味全龍VS.中信兄弟",
+      "stadium": "洲際",
+      "time": "18:35"
+    },
+    {
+      "date": "8/15(五)",
+      "game_no": "262",
+      "teams": "中信兄弟VS.富邦悍將",
+      "stadium": "新莊",
+      "time": "18:35"
+    },
+    {
+      "date": "8/15(五)",
+      "game_no": "263",
+      "teams": "統一7-ELEVEn獅VS.台鋼雄鷹",
+      "stadium": "澄清湖",
+      "time": "18:35"
+    },
+    {
+      "date": "8/15(五)",
+      "game_no": "264",
+      "teams": "樂天桃猿VS.味全龍",
+      "stadium": "天母",
+      "time": "18:35"
+    },
+    {
+      "date": "8/16(六)",
+      "game_no": "265",
+      "teams": "統一7-ELEVEn獅VS.台鋼雄鷹",
+      "stadium": "澄清湖",
+      "time": "16:05"
+    },
+    {
+      "date": "8/16(六)",
+      "game_no": "266",
+      "teams": "中信兄弟VS.富邦悍將",
+      "stadium": "新莊",
+      "time": "17:05"
+    },
+    {
+      "date": "8/16(六)",
+      "game_no": "267",
+      "teams": "樂天桃猿VS.味全龍",
+      "stadium": "天母",
+      "time": "17:05"
+    },
+    {
+      "date": "8/17(日)",
+      "game_no": "268",
+      "teams": "統一7-ELEVEn獅VS.台鋼雄鷹",
+      "stadium": "澄清湖",
+      "time": "16:05"
+    },
+    {
+      "date": "8/17(日)",
+      "game_no": "269",
+      "teams": "中信兄弟VS.富邦悍將",
+      "stadium": "新莊",
+      "time": "17:05"
+    },
+    {
+      "date": "8/17(日)",
+      "game_no": "270",
+      "teams": "樂天桃猿VS.味全龍",
+      "stadium": "天母",
+      "time": "17:05"
+    },
+    {
+      "date": "8/19(二)",
+      "game_no": "271",
+      "teams": "富邦悍將VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "18:35"
+    },
+    {
+      "date": "8/19(二)",
+      "game_no": "272",
+      "teams": "中信兄弟VS.統一7-ELEVEn獅",
+      "stadium": "台南",
+      "time": "18:35"
+    },
+    {
+      "date": "8/19(二)",
+      "game_no": "273",
+      "teams": "味全龍VS.台鋼雄鷹",
+      "stadium": "台東",
+      "time": "18:35"
+    },
+    {
+      "date": "8/20(三)",
+      "game_no": "274",
+      "teams": "富邦悍將VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "18:35"
+    },
+    {
+      "date": "8/20(三)",
+      "game_no": "275",
+      "teams": "中信兄弟VS.統一7-ELEVEn獅",
+      "stadium": "台南",
+      "time": "18:35"
+    },
+    {
+      "date": "8/20(三)",
+      "game_no": "276",
+      "teams": "味全龍VS.台鋼雄鷹",
+      "stadium": "台東",
+      "time": "18:35"
+    },
+    {
+      "date": "8/22(五)",
+      "game_no": "277",
+      "teams": "統一7-ELEVEn獅VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "18:35"
+    },
+    {
+      "date": "8/22(五)",
+      "game_no": "278",
+      "teams": "味全龍VS.富邦悍將",
+      "stadium": "新莊",
+      "time": "18:35"
+    },
+    {
+      "date": "8/22(五)",
+      "game_no": "279",
+      "teams": "台鋼雄鷹VS.中信兄弟",
+      "stadium": "大巨蛋",
+      "time": "18:35"
+    },
+    {
+      "date": "8/23(六)",
+      "game_no": "280",
+      "teams": "統一7-ELEVEn獅VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "17:05"
+    },
+    {
+      "date": "8/23(六)",
+      "game_no": "281",
+      "teams": "味全龍VS.富邦悍將",
+      "stadium": "新莊",
+      "time": "17:05"
+    },
+    {
+      "date": "8/23(六)",
+      "game_no": "282",
+      "teams": "台鋼雄鷹VS.中信兄弟",
+      "stadium": "大巨蛋",
+      "time": "17:05"
+    },
+    {
+      "date": "8/24(日)",
+      "game_no": "283",
+      "teams": "台鋼雄鷹VS.中信兄弟",
+      "stadium": "大巨蛋",
+      "time": "15:05"
+    },
+    {
+      "date": "8/24(日)",
+      "game_no": "284",
+      "teams": "統一7-ELEVEn獅VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "17:05"
+    },
+    {
+      "date": "8/24(日)",
+      "game_no": "285",
+      "teams": "味全龍VS.富邦悍將",
+      "stadium": "新莊",
+      "time": "17:05"
+    },
+    {
+      "date": "8/26(二)",
+      "game_no": "286",
+      "teams": "統一7-ELEVEn獅VS.味全龍",
+      "stadium": "天母",
+      "time": "18:35"
+    },
+    {
+      "date": "8/26(二)",
+      "game_no": "287",
+      "teams": "台鋼雄鷹VS.富邦悍將",
+      "stadium": "新莊",
+      "time": "18:35"
+    },
+    {
+      "date": "8/27(三)",
+      "game_no": "288",
+      "teams": "統一7-ELEVEn獅VS.味全龍",
+      "stadium": "天母",
+      "time": "18:35"
+    },
+    {
+      "date": "8/27(三)",
+      "game_no": "289",
+      "teams": "台鋼雄鷹VS.富邦悍將",
+      "stadium": "新莊",
+      "time": "18:35"
+    },
+    {
+      "date": "8/27(三)",
+      "game_no": "290",
+      "teams": "樂天桃猿VS.中信兄弟",
+      "stadium": "大巨蛋",
+      "time": "18:35"
+    },
+    {
+      "date": "8/28(四)",
+      "game_no": "291",
+      "teams": "樂天桃猿VS.中信兄弟",
+      "stadium": "大巨蛋",
+      "time": "18:35"
+    },
+    {
+      "date": "8/29(五)",
+      "game_no": "292",
+      "teams": "中信兄弟VS.味全龍",
+      "stadium": "大巨蛋",
+      "time": "18:35"
+    },
+    {
+      "date": "8/29(五)",
+      "game_no": "293",
+      "teams": "富邦悍將VS.統一7-ELEVEn獅",
+      "stadium": "台南",
+      "time": "18:35"
+    },
+    {
+      "date": "8/29(五)",
+      "game_no": "294",
+      "teams": "樂天桃猿VS.台鋼雄鷹",
+      "stadium": "澄清湖",
+      "time": "18:35"
+    },
+    {
+      "date": "8/30(六)",
+      "game_no": "295",
+      "teams": "樂天桃猿VS.台鋼雄鷹",
+      "stadium": "澄清湖",
+      "time": "16:05"
+    },
+    {
+      "date": "8/30(六)",
+      "game_no": "296",
+      "teams": "富邦悍將VS.統一7-ELEVEn獅",
+      "stadium": "台南",
+      "time": "16:05"
+    },
+    {
+      "date": "8/30(六)",
+      "game_no": "297",
+      "teams": "中信兄弟VS.味全龍",
+      "stadium": "大巨蛋",
+      "time": "17:05"
+    },
+    {
+      "date": "8/31(日)",
+      "game_no": "298",
+      "teams": "中信兄弟VS.味全龍",
+      "stadium": "大巨蛋",
+      "time": "15:05"
+    },
+    {
+      "date": "8/31(日)",
+      "game_no": "299",
+      "teams": "富邦悍將VS.統一7-ELEVEn獅",
+      "stadium": "台南",
+      "time": "16:05"
+    },
+    {
+      "date": "8/31(日)",
+      "game_no": "300",
+      "teams": "樂天桃猿VS.台鋼雄鷹",
+      "stadium": "澄清湖",
+      "time": "16:05"
+    },
+    {
+      "date": "9/2(二)",
+      "game_no": "301",
+      "teams": "富邦悍將VS.中信兄弟",
+      "stadium": "洲際",
+      "time": "18:35"
+    },
+    {
+      "date": "9/2(二)",
+      "game_no": "302",
+      "teams": "味全龍VS.樂天桃猿",
+      "stadium": "大巨蛋",
+      "time": "18:35"
+    },
+    {
+      "date": "9/3(三)",
+      "game_no": "303",
+      "teams": "富邦悍將VS.中信兄弟",
+      "stadium": "洲際",
+      "time": "18:35"
+    },
+    {
+      "date": "9/3(三)",
+      "game_no": "304",
+      "teams": "味全龍VS.樂天桃猿",
+      "stadium": "大巨蛋",
+      "time": "18:35"
+    },
+    {
+      "date": "9/3(三)",
+      "game_no": "305",
+      "teams": "台鋼雄鷹VS.統一7-ELEVEn獅",
+      "stadium": "台南",
+      "time": "18:35"
+    },
+    {
+      "date": "9/4(四)",
+      "game_no": "306",
+      "teams": "台鋼雄鷹VS.統一7-ELEVEn獅",
+      "stadium": "台南",
+      "time": "18:35"
+    },
+    {
+      "date": "9/5(五)",
+      "game_no": "307",
+      "teams": "統一7-ELEVEn獅VS.中信兄弟",
+      "stadium": "洲際",
+      "time": "18:35"
+    },
+    {
+      "date": "9/5(五)",
+      "game_no": "308",
+      "teams": "樂天桃猿VS.富邦悍將",
+      "stadium": "新莊",
+      "time": "18:35"
+    },
+    {
+      "date": "9/5(五)",
+      "game_no": "309",
+      "teams": "台鋼雄鷹VS.味全龍",
+      "stadium": "大巨蛋",
+      "time": "18:35"
+    },
+    {
+      "date": "9/6(六)",
+      "game_no": "310",
+      "teams": "統一7-ELEVEn獅VS.中信兄弟",
+      "stadium": "洲際",
+      "time": "17:05"
+    },
+    {
+      "date": "9/6(六)",
+      "game_no": "311",
+      "teams": "樂天桃猿VS.富邦悍將",
+      "stadium": "新莊",
+      "time": "17:05"
+    },
+    {
+      "date": "9/6(六)",
+      "game_no": "312",
+      "teams": "台鋼雄鷹VS.味全龍",
+      "stadium": "大巨蛋",
+      "time": "17:05"
+    },
+    {
+      "date": "9/7(日)",
+      "game_no": "313",
+      "teams": "台鋼雄鷹VS.味全龍",
+      "stadium": "大巨蛋",
+      "time": "15:05"
+    },
+    {
+      "date": "9/7(日)",
+      "game_no": "314",
+      "teams": "統一7-ELEVEn獅VS.中信兄弟",
+      "stadium": "洲際",
+      "time": "17:05"
+    },
+    {
+      "date": "9/7(日)",
+      "game_no": "315",
+      "teams": "樂天桃猿VS.富邦悍將",
+      "stadium": "新莊",
+      "time": "17:05"
+    },
+    {
+      "date": "9/9(二)",
+      "game_no": "316",
+      "teams": "中信兄弟VS.台鋼雄鷹",
+      "stadium": "澄清湖",
+      "time": "18:35"
+    },
+    {
+      "date": "9/9(二)",
+      "game_no": "317",
+      "teams": "樂天桃猿VS.統一7-ELEVEn獅",
+      "stadium": "嘉義市",
+      "time": "18:35"
+    },
+    {
+      "date": "9/10(三)",
+      "game_no": "318",
+      "teams": "中信兄弟VS.台鋼雄鷹",
+      "stadium": "澄清湖",
+      "time": "18:35"
+    },
+    {
+      "date": "9/10(三)",
+      "game_no": "319",
+      "teams": "樂天桃猿VS.統一7-ELEVEn獅",
+      "stadium": "嘉義市",
+      "time": "18:35"
+    },
+    {
+      "date": "9/10(三)",
+      "game_no": "320",
+      "teams": "富邦悍將VS.味全龍",
+      "stadium": "天母",
+      "time": "18:35"
+    },
+    {
+      "date": "9/11(四)",
+      "game_no": "321",
+      "teams": "富邦悍將VS.味全龍",
+      "stadium": "天母",
+      "time": "18:35"
+    },
+    {
+      "date": "9/12(五)",
+      "game_no": "322",
+      "teams": "富邦悍將VS.台鋼雄鷹",
+      "stadium": "澄清湖",
+      "time": "18:35"
+    },
+    {
+      "date": "9/12(五)",
+      "game_no": "323",
+      "teams": "味全龍VS.統一7-ELEVEn獅",
+      "stadium": "台南",
+      "time": "18:35"
+    },
+    {
+      "date": "9/12(五)",
+      "game_no": "324",
+      "teams": "中信兄弟VS.樂天桃猿",
+      "stadium": "大巨蛋",
+      "time": "18:35"
+    },
+    {
+      "date": "9/13(六)",
+      "game_no": "325",
+      "teams": "富邦悍將VS.台鋼雄鷹",
+      "stadium": "澄清湖",
+      "time": "16:05"
+    },
+    {
+      "date": "9/13(六)",
+      "game_no": "326",
+      "teams": "味全龍VS.統一7-ELEVEn獅",
+      "stadium": "台南",
+      "time": "16:05"
+    },
+    {
+      "date": "9/13(六)",
+      "game_no": "327",
+      "teams": "中信兄弟VS.樂天桃猿",
+      "stadium": "大巨蛋",
+      "time": "17:05"
+    },
+    {
+      "date": "9/14(日)",
+      "game_no": "328",
+      "teams": "中信兄弟VS.樂天桃猿",
+      "stadium": "大巨蛋",
+      "time": "14:05"
+    },
+    {
+      "date": "9/14(日)",
+      "game_no": "329",
+      "teams": "富邦悍將VS.台鋼雄鷹",
+      "stadium": "澄清湖",
+      "time": "16:05"
+    },
+    {
+      "date": "9/14(日)",
+      "game_no": "330",
+      "teams": "味全龍VS.統一7-ELEVEn獅",
+      "stadium": "台南",
+      "time": "16:05"
+    },
+    {
+      "date": "9/16(二)",
+      "game_no": "331",
+      "teams": "味全龍VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "18:35"
+    },
+    {
+      "date": "9/16(二)",
+      "game_no": "332",
+      "teams": "統一7-ELEVEn獅VS.富邦悍將",
+      "stadium": "新莊",
+      "time": "18:35"
+    },
+    {
+      "date": "9/16(二)",
+      "game_no": "333",
+      "teams": "中信兄弟VS.台鋼雄鷹",
+      "stadium": "澄清湖",
+      "time": "18:35"
+    },
+    {
+      "date": "9/18(四)",
+      "game_no": "334",
+      "teams": "台鋼雄鷹VS.味全龍",
+      "stadium": "天母",
+      "time": "18:35"
+    },
+    {
+      "date": "9/18(四)",
+      "game_no": "335",
+      "teams": "富邦悍將VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "18:35"
+    },
+    {
+      "date": "9/18(四)",
+      "game_no": "336",
+      "teams": "統一7-ELEVEn獅VS.中信兄弟",
+      "stadium": "洲際",
+      "time": "18:35"
+    },
+    {
+      "date": "9/19(五)",
+      "game_no": "337",
+      "teams": "台鋼雄鷹VS.味全龍",
+      "stadium": "天母",
+      "time": "18:35"
+    },
+    {
+      "date": "9/19(五)",
+      "game_no": "338",
+      "teams": "富邦悍將VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "18:35"
+    },
+    {
+      "date": "9/19(五)",
+      "game_no": "339",
+      "teams": "統一7-ELEVEn獅VS.中信兄弟",
+      "stadium": "洲際",
+      "time": "18:35"
+    },
+    {
+      "date": "9/20(六)",
+      "game_no": "340",
+      "teams": "樂天桃猿VS.統一7-ELEVEn獅",
+      "stadium": "台南",
+      "time": "16:05"
+    },
+    {
+      "date": "9/20(六)",
+      "game_no": "341",
+      "teams": "台鋼雄鷹VS.富邦悍將",
+      "stadium": "新莊",
+      "time": "17:05"
+    },
+    {
+      "date": "9/20(六)",
+      "game_no": "342",
+      "teams": "味全龍VS.中信兄弟",
+      "stadium": "洲際",
+      "time": "17:05"
+    },
+    {
+      "date": "9/21(日)",
+      "game_no": "343",
+      "teams": "樂天桃猿VS.統一7-ELEVEn獅",
+      "stadium": "台南",
+      "time": "16:05"
+    },
+    {
+      "date": "9/21(日)",
+      "game_no": "344",
+      "teams": "台鋼雄鷹VS.富邦悍將",
+      "stadium": "新莊",
+      "time": "17:05"
+    },
+    {
+      "date": "9/21(日)",
+      "game_no": "345",
+      "teams": "味全龍VS.中信兄弟",
+      "stadium": "洲際",
+      "time": "17:05"
+    },
+    {
+      "date": "9/23(二)",
+      "game_no": "346",
+      "teams": "樂天桃猿VS.味全龍",
+      "stadium": "天母",
+      "time": "18:35"
+    },
+    {
+      "date": "9/23(二)",
+      "game_no": "347",
+      "teams": "富邦悍將VS.統一7-ELEVEn獅",
+      "stadium": "台南",
+      "time": "18:35"
+    },
+    {
+      "date": "9/23(二)",
+      "game_no": "348",
+      "teams": "台鋼雄鷹VS.中信兄弟",
+      "stadium": "洲際",
+      "time": "18:35"
+    },
+    {
+      "date": "9/25(四)",
+      "game_no": "349",
+      "teams": "中信兄弟VS.富邦悍將",
+      "stadium": "新莊",
+      "time": "18:35"
+    },
+    {
+      "date": "9/25(四)",
+      "game_no": "350",
+      "teams": "味全龍VS.統一7-ELEVEn獅",
+      "stadium": "台南",
+      "time": "18:35"
+    },
+    {
+      "date": "9/25(四)",
+      "game_no": "351",
+      "teams": "樂天桃猿VS.台鋼雄鷹",
+      "stadium": "大巨蛋",
+      "time": "18:35"
+    },
+    {
+      "date": "9/26(五)",
+      "game_no": "352",
+      "teams": "中信兄弟VS.富邦悍將",
+      "stadium": "新莊",
+      "time": "18:35"
+    },
+    {
+      "date": "9/26(五)",
+      "game_no": "353",
+      "teams": "味全龍VS.統一7-ELEVEn獅",
+      "stadium": "台南",
+      "time": "18:35"
+    },
+    {
+      "date": "9/26(五)",
+      "game_no": "354",
+      "teams": "樂天桃猿VS.台鋼雄鷹",
+      "stadium": "大巨蛋",
+      "time": "18:35"
+    },
+    {
+      "date": "9/27(六)",
+      "game_no": "355",
+      "teams": "統一7-ELEVEn獅VS.台鋼雄鷹",
+      "stadium": "大巨蛋",
+      "time": "16:05"
+    },
+    {
+      "date": "9/27(六)",
+      "game_no": "356",
+      "teams": "中信兄弟VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "17:05"
+    },
+    {
+      "date": "9/27(六)",
+      "game_no": "357",
+      "teams": "富邦悍將VS.味全龍",
+      "stadium": "天母",
+      "time": "17:05"
+    },
+    {
+      "date": "9/28(日)",
+      "game_no": "358",
+      "teams": "統一7-ELEVEn獅VS.台鋼雄鷹",
+      "stadium": "大巨蛋",
+      "time": "15:05"
+    },
+    {
+      "date": "9/28(日)",
+      "game_no": "359",
+      "teams": "中信兄弟VS.樂天桃猿",
+      "stadium": "樂天桃園",
+      "time": "17:05"
+    },
+    {
+      "date": "9/28(日)",
+      "game_no": "360",
+      "teams": "富邦悍將VS.味全龍",
+      "stadium": "天母",
+      "time": "17:05"
+    }
+  ]
