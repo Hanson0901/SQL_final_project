@@ -43,6 +43,11 @@ body {
     background: #1a0dcc;
   }
   
+  .refresh-time {
+    text-align: center;
+    margin: 20px 0;
+  }
+
   .scoreboards {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
@@ -133,7 +138,9 @@ body {
     gap: 10px;
 }
 .bag-space{
-    width: 10px; /* 固定欄位寬度 */
+  width: 0;             /* 線的長度，依需求調整 */
+  border-left: 2px solid #aaa;
+  margin: 0 20px;  
 }
 .bag-inner-space{
   height: 20px;  

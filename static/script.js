@@ -1,4 +1,4 @@
-function formatLocalTime(utcTimeString, offsetHours = 0) {
+function formatLocalTime(utcTimeString, offsetHours = -12) {
     const date = new Date(utcTimeString);
     date.setHours(date.getHours() + offsetHours);
     return date.toISOString().slice(11, 16);
@@ -54,6 +54,20 @@ function formatLocalTime(utcTimeString, offsetHours = 0) {
 
     // 更新頁面內容的函數
     function updateGames(games) {
+    // 取得現在本地時間並格式化
+      const now = new Date();
+      const formatted = now.getFullYear() + '-' +
+        String(now.getMonth() + 1).padStart(2, '0') + '-' +
+        String(now.getDate()).padStart(2, '0') + ' ' +
+        String(now.getHours()).padStart(2, '0') + ':' +
+        String(now.getMinutes()).padStart(2, '0') + ':' +
+        String(now.getSeconds()).padStart(2, '0');
+
+      // 顯示到 refresh-time 區塊
+      const refreshDiv = document.querySelector('.refresh-time');
+      if (refreshDiv) {
+        refreshDiv.textContent = '最後更新時間：' + formatted;
+      }
       const container = document.querySelector('.scoreboards');
       if (!container) return;
 
@@ -93,6 +107,7 @@ function formatLocalTime(utcTimeString, offsetHours = 0) {
                 </div>
               </div>
               <div class="bag">
+                ${ game.bag|safe }
               </div>
             </div>
           </div>
