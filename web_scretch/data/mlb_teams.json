@@ -1,0 +1,82 @@
+[
+    {
+      "team_id": 1,
+      "team_name": "Baltimore Orioles Team Logo"
+    },
+    {
+      "team_id": 2,
+      "team_name": "Chicago Cubs"
+    },
+    {
+      "team_id": 3,
+      "team_name": "Chicago White Sox"
+    },
+    {
+      "team_id": 4,
+      "team_name": "Cincinnati Reds"
+    },
+    {
+      "team_id": 5,
+      "team_name": "Colorado Rockies"
+    },
+    {
+      "team_id": 6,
+      "team_name": "Detroit Tigers"
+    },
+    {
+      "team_id": 7,
+      "team_name": "Houston Astros"
+    },
+    {
+      "team_id": 8,
+      "team_name": "Kansas City Royals"
+    },
+    {
+      "team_id": 9,
+      "team_name": "Los Angeles Angels"
+    },
+    {
+      "team_id": 10,
+      "team_name": "Major League Baseball"
+    },
+    {
+      "team_id": 11,
+      "team_name": "Miami Marlins"
+    },
+    {
+      "team_id": 12,
+      "team_name": "New York Mets"
+    },
+    {
+      "team_id": 13,
+      "team_name": "New York Yankees"
+    },
+    {
+      "team_id": 14,
+      "team_name": "Philadelphia Phillies"
+    },
+    {
+      "team_id": 15,
+      "team_name": "Pittsburgh Pirates"
+    },
+    {
+      "team_id": 16,
+      "team_name": "Seattle Mariners"
+    },
+    {
+      "team_id": 17,
+      "team_name": "St. Louis Cardinals"
+    },
+    {
+      "team_id": 18,
+      "team_name": "Tampa Bay Rays"
+    },
+    {
+      "team_id": 19,
+      "team_name": "Toronto Blue Jays"
+    },
+    {
+      "team_id": 20,
+      "team_name": "Washington Nationals"
+    }
+  ]
