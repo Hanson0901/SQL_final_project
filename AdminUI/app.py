@@ -62,6 +62,84 @@ def register():
 def dashboard():
     return render_template("adminUI.html")
 
+DATA_PATH = "AdminUI/match_data.json"
+def load_match_data():
+    if not os.path.exists(DATA_PATH):
+        return []
+    with open(DATA_PATH, 'r', encoding='utf-8') as f:
+        return json.load(f)
+
+def save_match_data(data):
+    with open(DATA_PATH, 'w', encoding='utf-8') as f:
+        json.dump(data, f, indent=2, ensure_ascii=False)
+
+@app.route("/api/search")
+def search():
+    keyword = request.args.get("keyword", "").strip().lower()
+    if not keyword:
+        return jsonify(matches=[])
+    db = load_match_data()
+    results = [m for m in db if keyword in m["match"].lower()]
+    return jsonify(matches=results)
+
+@app.route("/api/add-many", methods=["POST"])
+def add_many():
+    data = request.json
+    new_matches = data.get("matches", [])
+
+    if not new_matches:
+        return jsonify(success=False, message="沒有資料可新增"), 400
+
+    db = load_match_data()
+    added = 0
+
+    for m in new_matches:
+        if not all(k in m for k in ("id", "match", "date", "time")):
+            continue
+        if any(existing["id"] == m["id"] for existing in db):
+            continue
+        db.append(m)
+        added += 1
+
+    save_match_data(db)
+    return jsonify(success=True, count=added)
+
+@app.route("/api/match/<int:id>")
+def get_match(id):
+    db = load_match_data()
+    match = next((m for m in db if m["id"] == id), None)
+    if match:
+        return jsonify(success=True, match=match)
+    
+    return jsonify(success=False, message="找不到比賽"), 404
+
+@app.route("/api/edit/<int:id>", methods=["POST"])
+def edit_match(id):
+    data = request.json
+    db = load_match_data()
+    match = next((m for m in db if m["id"] == id), None)
+    if not match:
+        return jsonify(success=False, message="找不到比賽"), 404
+
+    match.update({
+        "match": data.get("match", match["match"]),
+        "date": data.get("date", match["date"]),
+        "time": data.get("time", match["time"])
+    })
+
+    save_match_data(db)
+    return jsonify(success=True)
+
+@app.route("/api/delete/<int:id>", methods=["DELETE"])
+def delete_match(id):
+    db = load_match_data()
+    new_db = [m for m in db if m["id"] != id]
+    if len(new_db) == len(db):
+        return jsonify(success=False, message="找不到比賽"), 404
+
+    save_match_data(new_db)
+    return jsonify(success=True)
+
 @app.route('/announcements')
 def announcements():
     username = session.get('username')
