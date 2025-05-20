@@ -1,82 +1,212 @@
 [
-    {
-      "team_id": 1,
-      "team_name": "Baltimore Orioles Team Logo"
-    },
-    {
-      "team_id": 2,
-      "team_name": "Chicago Cubs"
-    },
-    {
-      "team_id": 3,
-      "team_name": "Chicago White Sox"
-    },
-    {
-      "team_id": 4,
-      "team_name": "Cincinnati Reds"
-    },
-    {
-      "team_id": 5,
-      "team_name": "Colorado Rockies"
-    },
-    {
-      "team_id": 6,
-      "team_name": "Detroit Tigers"
-    },
-    {
-      "team_id": 7,
-      "team_name": "Houston Astros"
-    },
-    {
-      "team_id": 8,
-      "team_name": "Kansas City Royals"
-    },
-    {
-      "team_id": 9,
-      "team_name": "Los Angeles Angels"
-    },
-    {
-      "team_id": 10,
-      "team_name": "Major League Baseball"
-    },
-    {
-      "team_id": 11,
-      "team_name": "Miami Marlins"
-    },
-    {
-      "team_id": 12,
-      "team_name": "New York Mets"
-    },
-    {
-      "team_id": 13,
-      "team_name": "New York Yankees"
-    },
-    {
-      "team_id": 14,
-      "team_name": "Philadelphia Phillies"
-    },
-    {
-      "team_id": 15,
-      "team_name": "Pittsburgh Pirates"
-    },
-    {
-      "team_id": 16,
-      "team_name": "Seattle Mariners"
-    },
-    {
-      "team_id": 17,
-      "team_name": "St. Louis Cardinals"
-    },
-    {
-      "team_id": 18,
-      "team_name": "Tampa Bay Rays"
-    },
-    {
-      "team_id": 19,
-      "team_name": "Toronto Blue Jays"
-    },
-    {
-      "team_id": 20,
-      "team_name": "Washington Nationals"
-    }
-  ]
+  {
+    "team_id": 1,
+    "team_name": "Arizona Diamondbacks",
+    "abbr": "ARI",
+    "city": "Phoenix",
+    "arena": "Chase Field"
+  },
+  {
+    "team_id": 2,
+    "team_name": "Atlanta Braves",
+    "abbr": "ATL",
+    "city": "Atlanta",
+    "arena": "Truist Park"
+  },
+  {
+    "team_id": 3,
+    "team_name": "Baltimore Orioles",
+    "abbr": "BAL",
+    "city": "Baltimore",
+    "arena": "Oriole Park at Camden Yards"
+  },
+  {
+    "team_id": 4,
+    "team_name": "Boston Red Sox",
+    "abbr": "BOS",
+    "city": "Boston",
+    "arena": "Fenway Park"
+  },
+  {
+    "team_id": 5,
+    "team_name": "Chicago White Sox",
+    "abbr": "CWS",
+    "city": "Chicago",
+    "arena": "Guaranteed Rate Field"
+  },
+  {
+    "team_id": 6,
+    "team_name": "Chicago Cubs",
+    "abbr": "CHC",
+    "city": "Chicago",
+    "arena": "Wrigley Field"
+  },
+  {
+    "team_id": 7,
+    "team_name": "Cincinnati Reds",
+    "abbr": "CIN",
+    "city": "Cincinnati",
+    "arena": "Great American Ball Park"
+  },
+  {
+    "team_id": 8,
+    "team_name": "Cleveland Guardians",
+    "abbr": "CLE",
+    "city": "Cleveland",
+    "arena": "Progressive Field"
+  },
+  {
+    "team_id": 9,
+    "team_name": "Colorado Rockies",
+    "abbr": "COL",
+    "city": "Denver",
+    "arena": "Coors Field"
+  },
+  {
+    "team_id": 10,
+    "team_name": "Detroit Tigers",
+    "abbr": "DET",
+    "city": "Detroit",
+    "arena": "Comerica Park"
+  },
+  {
+    "team_id": 11,
+    "team_name": "Houston Astros",
+    "abbr": "HOU",
+    "city": "Houston",
+    "arena": "Minute Maid Park"
+  },
+  {
+    "team_id": 12,
+    "team_name": "Kansas City Royals",
+    "abbr": "KC",
+    "city": "Kansas City",
+    "arena": "Kauffman Stadium"
+  },
+  {
+    "team_id": 13,
+    "team_name": "Los Angeles Angels",
+    "abbr": "LAA",
+    "city": "Anaheim",
+    "arena": "Angel Stadium"
+  },
+  {
+    "team_id": 14,
+    "team_name": "Los Angeles Dodgers",
+    "abbr": "LAD",
+    "city": "Los Angeles",
+    "arena": "Dodger Stadium"
+  },
+  {
+    "team_id": 15,
+    "team_name": "Miami Marlins",
+    "abbr": "MIA",
+    "city": "Miami",
+    "arena": "loanDepot park"
+  },
+  {
+    "team_id": 16,
+    "team_name": "Milwaukee Brewers",
+    "abbr": "MIL",
+    "city": "Milwaukee",
+    "arena": "American Family Field"
+  },
+  {
+    "team_id": 17,
+    "team_name": "Minnesota Twins",
+    "abbr": "MIN",
+    "city": "Minneapolis",
+    "arena": "Target Field"
+  },
+  {
+    "team_id": 18,
+    "team_name": "New York Yankees",
+    "abbr": "NYY",
+    "city": "New York",
+    "arena": "Yankee Stadium"
+  },
+  {
+    "team_id": 19,
+    "team_name": "New York Mets",
+    "abbr": "NYM",
+    "city": "New York",
+    "arena": "Citi Field"
+  },
+  {
+    "team_id": 20,
+    "team_name": "Oakland Athletics",
+    "abbr": "OAK",
+    "city": "Oakland",
+    "arena": "Oakland Coliseum"
+  },
+  {
+    "team_id": 21,
+    "team_name": "Philadelphia Phillies",
+    "abbr": "PHI",
+    "city": "Philadelphia",
+    "arena": "Citizens Bank Park"
+  },
+  {
+    "team_id": 22,
+    "team_name": "Pittsburgh Pirates",
+    "abbr": "PIT",
+    "city": "Pittsburgh",
+    "arena": "PNC Park"
+  },
+  {
+    "team_id": 23,
+    "team_name": "San Diego Padres",
+    "abbr": "SD",
+    "city": "San Diego",
+    "arena": "Petco Park"
+  },
+  {
+    "team_id": 24,
+    "team_name": "San Francisco Giants",
+    "abbr": "SF",
+    "city": "San Francisco",
+    "arena": "Oracle Park"
+  },
+  {
+    "team_id": 25,
+    "team_name": "Seattle Mariners",
+    "abbr": "SEA",
+    "city": "Seattle",
+    "arena": "T-Mobile Park"
+  },
+  {
+    "team_id": 26,
+    "team_name": "St. Louis Cardinals",
+    "abbr": "STL",
+    "city": "St. Louis",
+    "arena": "Busch Stadium"
+  },
+  {
+    "team_id": 27,
+    "team_name": "Tampa Bay Rays",
+    "abbr": "TB",
+    "city": "St. Petersburg",
+    "arena": "Tropicana Field"
+  },
+  {
+    "team_id": 28,
+    "team_name": "Texas Rangers",
+    "abbr": "TEX",
+    "city": "Arlington",
+    "arena": "Globe Life Field"
+  },
+  {
+    "team_id": 29,
+    "team_name": "Toronto Blue Jays",
+    "abbr": "TOR",
+    "city": "Toronto",
+    "arena": "Rogers Centre"
+  },
+  {
+    "team_id": 30,
+    "team_name": "Washington Nationals",
+    "abbr": "WSH",
+    "city": "Washington, D.C.",
+    "arena": "Nationals Park"
+  }
+]

@@ -1,26 +1,44 @@
 [
   {
     "team_id": 1,
-    "team_name": "中信兄弟"
+    "team_name": "中信兄弟",
+    "abbr": "BRO",
+    "city": "台中",
+    "arena": "洲際棒球場"
   },
   {
     "team_id": 2,
-    "team_name": "台鋼雄鷹"
+    "team_name": "台鋼雄鷹",
+    "abbr": "TSG",
+    "city": "高雄",
+    "arena": "澄清湖棒球場"
   },
   {
     "team_id": 3,
-    "team_name": "味全龍"
+    "team_name": "味全龍",
+    "abbr": "WDL",
+    "city": "台北/天母",
+    "arena": "天母棒球場"
   },
   {
     "team_id": 4,
-    "team_name": "富邦悍將"
+    "team_name": "富邦悍將",
+    "abbr": "FUB",
+    "city": "新莊",
+    "arena": "新莊棒球場"
   },
   {
     "team_id": 5,
-    "team_name": "樂天桃猿"
+    "team_name": "樂天桃猿",
+    "abbr": "RM",
+    "city": "桃園",
+    "arena": "桃園國際棒球場"
   },
   {
     "team_id": 6,
-    "team_name": "統一7-ELEVEn獅"
+    "team_name": "統一7-ELEVEn獅",
+    "abbr": "UL",
+    "city": "台南",
+    "arena": "台南棒球場"
   }
 ]
