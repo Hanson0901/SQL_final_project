@@ -560,13 +560,15 @@ if(page === 'login'){
         });
 
     function createFeedbackCard(uid, date, fb) {
+        const typemap = {1:"NBA", 2:"F1", 3:"MLB", 4:"CPBL", 5:"BWF"};
+
         const card = document.createElement('div');
         card.className = 'feedback-card';
         card.style.cursor = 'pointer';
 
         const title = document.createElement('div');
         title.className = 'feedback-title';
-        title.innerHTML = `<strong>使用者 ${uid}</strong> | 🏸 ${fb.type} | 🗓️ ${date} ${fb.time}`;
+        title.innerHTML = `<strong>使用者 ${uid}</strong> | 💪 ${typemap[fb.type]} | 🗓️ ${date} ${fb.time}`;
 
         const detail = document.createElement('div');
         detail.className = 'feedback-detail';
