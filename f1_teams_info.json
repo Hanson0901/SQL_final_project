@@ -1,0 +1,92 @@
+[
+    {
+        "Rank": 1,
+        "Full Team Name": "McLaren Formula 1 Team",
+        "Team Chief": "Andrea Stella",
+        "Chassis": "MCL39",
+        "Power Unit": "Mercedes",
+        "First Team Entry": "1966",
+        "Team Points": "279"
+    },
+    {
+        "Rank": 2,
+        "Full Team Name": "Mercedes-AMG PETRONAS Formula One Team",
+        "Team Chief": "Toto Wolff",
+        "Chassis": "W16",
+        "Power Unit": "Mercedes",
+        "First Team Entry": "1970",
+        "Team Points": "147"
+    },
+    {
+        "Rank": 3,
+        "Full Team Name": "Oracle Red Bull Racing",
+        "Team Chief": "Christian Horner",
+        "Chassis": "RB21",
+        "Power Unit": "Honda RBPT",
+        "First Team Entry": "1997",
+        "Team Points": "131"
+    },
+    {
+        "Rank": 4,
+        "Full Team Name": "Scuderia Ferrari HP",
+        "Team Chief": "Frédéric Vasseur",
+        "Chassis": "SF-25",
+        "Power Unit": "Ferrari",
+        "First Team Entry": "1950",
+        "Team Points": "114"
+    },
+    {
+        "Rank": 5,
+        "Full Team Name": "Atlassian Williams Racing",
+        "Team Chief": "James Vowles",
+        "Chassis": "FW47",
+        "Power Unit": "Mercedes",
+        "First Team Entry": "1978",
+        "Team Points": "51"
+    },
+    {
+        "Rank": 6,
+        "Full Team Name": "MoneyGram Haas F1 Team",
+        "Team Chief": "Ayao Komatsu",
+        "Chassis": "VF-25",
+        "Power Unit": "Ferrari",
+        "First Team Entry": "2016",
+        "Team Points": "20"
+    },
+    {
+        "Rank": 7,
+        "Full Team Name": "Aston Martin Aramco Formula One Team",
+        "Team Chief": "Andy Cowell",
+        "Chassis": "AMR25",
+        "Power Unit": "Mercedes",
+        "First Team Entry": "2018",
+        "Team Points": "14"
+    },
+    {
+        "Rank": 8,
+        "Full Team Name": "Visa Cash App Racing Bulls Formula One Team",
+        "Team Chief": "Laurent Mekies",
+        "Chassis": "VCARB 02",
+        "Power Unit": "Honda RBPT",
+        "First Team Entry": "1985",
+        "Team Points": "10"
+    },
+    {
+        "Rank": 9,
+        "Full Team Name": "BWT Alpine Formula One Team",
+        "Team Chief": "Flavio Briatore",
+        "Chassis": "A525",
+        "Power Unit": "Renault",
+        "First Team Entry": "1986",
+        "Team Points": "7"
+    },
+    {
+        "Rank": 10,
+        "Full Team Name": "Stake F1 Team Kick Sauber",
+        "Team Chief": "Jonathan Wheatley",
+        "Chassis": "C45",
+        "Power Unit": "Ferrari",
+        "First Team Entry": "1993",
+        "Team Points": "6"
+    }
+]
