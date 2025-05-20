@@ -563,6 +563,7 @@ if(page === 'login'){
         const typemap = {1:"NBA", 2:"F1", 3:"MLB", 4:"CPBL", 5:"BWF"};
 
         const card = document.createElement('div');
+        
         card.className = 'feedback-card';
         card.style.cursor = 'pointer';
 
