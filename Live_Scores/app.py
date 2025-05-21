@@ -134,8 +134,9 @@ def get_bwf_score():
 
     # 其他反檢測設定
     options.add_argument("--disable-blink-features=AutomationControlled")
-    options.add_experimental_option("excludeSwitches", ["enable-automation"])
-    options.add_experimental_option("useAutomationExtension", False)
+    # The following lines are only valid for Chrome, not Firefox, so they are removed:
+    # options.add_experimental_option("excludeSwitches", ["enable-automation"])
+    # options.add_experimental_option("useAutomationExtension", False)
 
     driver = webdriver.Firefox(options=options)
 
