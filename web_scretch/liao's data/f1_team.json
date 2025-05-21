@@ -1,0 +1,72 @@
+[
+  {
+    "team_id": 1,
+    "team_name": "Mercedes-AMG Petronas Formula One Team",
+    "abbr": "MER",
+    "city": "Brackley",
+    "arena": "Brackley Technical Centre"
+  },
+  {
+    "team_id": 2,
+    "team_name": "Oracle Red Bull Racing",
+    "abbr": "RBR",
+    "city": "Milton Keynes",
+    "arena": "Red Bull Technology Campus"
+  },
+  {
+    "team_id": 3,
+    "team_name": "Scuderia Ferrari",
+    "abbr": "FER",
+    "city": "Maranello",
+    "arena": "Gestione Sportiva"
+  },
+  {
+    "team_id": 4,
+    "team_name": "McLaren F1 Team",
+    "abbr": "MCL",
+    "city": "Woking",
+    "arena": "McLaren Technology Centre"
+  },
+  {
+    "team_id": 5,
+    "team_name": "Aston Martin Aramco F1 Team",
+    "abbr": "AST",
+    "city": "Silverstone",
+    "arena": "AMR Technology Campus"
+  },
+  {
+    "team_id": 6,
+    "team_name": "BWT Alpine F1 Team",
+    "abbr": "ALP",
+    "city": "Enstone",
+    "arena": "Alpine F1 Team Enstone Facility"
+  },
+  {
+    "team_id": 7,
+    "team_name": "Williams Racing",
+    "abbr": "WIL",
+    "city": "Grove",
+    "arena": "Williams HQ"
+  },
+  {
+    "team_id": 8,
+    "team_name": "Stake F1 Team Kick Sauber",
+    "abbr": "SAU",
+    "city": "Hinwil",
+    "arena": "Sauber Motorsport AG"
+  },
+  {
+    "team_id": 9,
+    "team_name": "Visa Cash App RB F1 Team",
+    "abbr": "RB",
+    "city": "Faenza",
+    "arena": "Scuderia AlphaTauri Factory"
+  },
+  {
+    "team_id": 10,
+    "team_name": "Haas F1 Team",
+    "abbr": "HAA",
+    "city": "Kannapolis",
+    "arena": "Haas F1 HQ"
+  }
+]
