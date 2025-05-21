@@ -1,6 +1,6 @@
 [
     {
-        "Rank": "1",
+        "Rank": 1,
         "Name": "Oscar Piastri",
         "Number": "81",
         "Team": "McLaren",
@@ -9,7 +9,7 @@
         "Points": "146"
     },
     {
-        "Rank": "2",
+        "Rank": 2,
         "Name": "Lando Norris",
         "Number": "4",
         "Team": "McLaren",
@@ -18,7 +18,7 @@
         "Points": "133"
     },
     {
-        "Rank": "3",
+        "Rank": 3,
         "Name": "Max Verstappen",
         "Number": "1",
         "Team": "Red Bull Racing",
@@ -27,7 +27,7 @@
         "Points": "124"
     },
     {
-        "Rank": "4",
+        "Rank": 4,
         "Name": "George Russell",
         "Number": "63",
         "Team": "Mercedes",
@@ -36,7 +36,7 @@
         "Points": "99"
     },
     {
-        "Rank": "5",
+        "Rank": 5,
         "Name": "Charles Leclerc",
         "Number": "16",
         "Team": "Ferrari",
@@ -45,7 +45,7 @@
         "Points": "61"
     },
     {
-        "Rank": "6",
+        "Rank": 6,
         "Name": "Lewis Hamilton",
         "Number": "44",
         "Team": "Ferrari",
@@ -54,7 +54,7 @@
         "Points": "53"
     },
     {
-        "Rank": "7",
+        "Rank": 7,
         "Name": "Kimi Antonelli",
         "Number": "12",
         "Team": "Mercedes",
@@ -63,7 +63,7 @@
         "Points": "48"
     },
     {
-        "Rank": "8",
+        "Rank": 8,
         "Name": "Alexander Albon",
         "Number": "23",
         "Team": "Williams",
@@ -72,7 +72,7 @@
         "Points": "40"
     },
     {
-        "Rank": "9",
+        "Rank": 9,
         "Name": "Esteban Ocon",
         "Number": "31",
         "Team": "Haas",
@@ -81,7 +81,7 @@
         "Points": "14"
     },
     {
-        "Rank": "10",
+        "Rank": 10,
         "Name": "Lance Stroll",
         "Number": "18",
         "Team": "Aston Martin",
@@ -90,7 +90,7 @@
         "Points": "14"
     },
     {
-        "Rank": "11",
+        "Rank": 11,
         "Name": "Carlos Sainz",
         "Number": "55",
         "Team": "Williams",
@@ -99,7 +99,7 @@
         "Points": "11"
     },
     {
-        "Rank": "12",
+        "Rank": 12,
         "Name": "Yuki Tsunoda",
         "Number": "22",
         "Team": "Red Bull Racing",
@@ -108,7 +108,7 @@
         "Points": "10"
     },
     {
-        "Rank": "13",
+        "Rank": 13,
         "Name": "Pierre Gasly",
         "Number": "10",
         "Team": "Alpine",
@@ -117,7 +117,7 @@
         "Points": "7"
     },
     {
-        "Rank": "14",
+        "Rank": 14,
         "Name": "Isack Hadjar",
         "Number": "6",
         "Team": "Racing Bulls",
@@ -126,7 +126,7 @@
         "Points": "7"
     },
     {
-        "Rank": "15",
+        "Rank": 15,
         "Name": "Nico Hulkenberg",
         "Number": "27",
         "Team": "Kick Sauber",
@@ -135,7 +135,7 @@
         "Points": "6"
     },
     {
-        "Rank": "16",
+        "Rank": 16,
         "Name": "Oliver Bearman",
         "Number": "87",
         "Team": "Haas",
@@ -144,7 +144,7 @@
         "Points": "6"
     },
     {
-        "Rank": "17",
+        "Rank": 17,
         "Name": "Fernando Alonso",
         "Number": "14",
         "Team": "Aston Martin",
@@ -153,7 +153,7 @@
         "Points": "0"
     },
     {
-        "Rank": "18",
+        "Rank": 18,
         "Name": "Liam Lawson",
         "Number": "30",
         "Team": "Racing Bulls",
@@ -162,7 +162,7 @@
         "Points": "0"
     },
     {
-        "Rank": "19",
+        "Rank": 19,
         "Name": "Jack Doohan",
         "Number": "7",
         "Team": "Alpine",
@@ -171,7 +171,7 @@
         "Points": "0"
     },
     {
-        "Rank": "20",
+        "Rank": 20,
         "Name": "Gabriel Bortoleto",
         "Number": "5",
         "Team": "Kick Sauber",
@@ -180,7 +180,7 @@
         "Points": "0"
     },
     {
-        "Rank": "21",
+        "Rank": 21,
         "Name": "Franco Colapinto",
         "Number": "43",
         "Team": "Alpine",

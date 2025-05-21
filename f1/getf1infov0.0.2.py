@@ -76,7 +76,7 @@ def f1_driver_scraper():
     rank = []
     pts = []
     for rank_tag in soup.select('p[class*="f1-heading-black"]'):
-        rank.append(rank_tag.text if rank_tag else 'N/A')
+        rank.append(int(rank_tag.text)) if rank_tag else 'N/A'
     for pts_tag in soup.select('p[class="f1-heading-wide font-formulaOneWide tracking-normal font-normal non-italic text-fs-18px leading-none normal-case"]'):
         pts.append(pts_tag.text if pts_tag else 'N/A')
     # 爬取每個車手頁面
