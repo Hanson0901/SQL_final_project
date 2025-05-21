@@ -7,7 +7,7 @@
         "Chassis": "MCL39",
         "Power Unit": "Mercedes",
         "First Team Entry": "1966",
-        "Team Points": "McLaren"
+        "Team Points": "279"
     },
     {
         "Rank": 2,
@@ -17,7 +17,7 @@
         "Chassis": "W16",
         "Power Unit": "Mercedes",
         "First Team Entry": "1970",
-        "Team Points": "Mercedes"
+        "Team Points": "147"
     },
     {
         "Rank": 3,
@@ -27,7 +27,7 @@
         "Chassis": "RB21",
         "Power Unit": "Honda RBPT",
         "First Team Entry": "1997",
-        "Team Points": "Red Bull Racing"
+        "Team Points": "131"
     },
     {
         "Rank": 4,
@@ -37,7 +37,7 @@
         "Chassis": "SF-25",
         "Power Unit": "Ferrari",
         "First Team Entry": "1950",
-        "Team Points": "Ferrari"
+        "Team Points": "114"
     },
     {
         "Rank": 5,
@@ -47,7 +47,7 @@
         "Chassis": "FW47",
         "Power Unit": "Mercedes",
         "First Team Entry": "1978",
-        "Team Points": "Williams"
+        "Team Points": "51"
     },
     {
         "Rank": 6,
@@ -57,7 +57,7 @@
         "Chassis": "VF-25",
         "Power Unit": "Ferrari",
         "First Team Entry": "2016",
-        "Team Points": "Haas"
+        "Team Points": "20"
     },
     {
         "Rank": 7,
@@ -67,7 +67,7 @@
         "Chassis": "AMR25",
         "Power Unit": "Mercedes",
         "First Team Entry": "2018",
-        "Team Points": "Aston Martin"
+        "Team Points": "14"
     },
     {
         "Rank": 8,
@@ -77,7 +77,7 @@
         "Chassis": "VCARB 02",
         "Power Unit": "Honda RBPT",
         "First Team Entry": "1985",
-        "Team Points": "Racing Bulls"
+        "Team Points": "10"
     },
     {
         "Rank": 9,
@@ -87,7 +87,7 @@
         "Chassis": "A525",
         "Power Unit": "Renault",
         "First Team Entry": "1986",
-        "Team Points": "Alpine"
+        "Team Points": "7"
     },
     {
         "Rank": 10,
@@ -97,6 +97,6 @@
         "Chassis": "C45",
         "Power Unit": "Ferrari",
         "First Team Entry": "1993",
-        "Team Points": "Kick Sauber"
+        "Team Points": "6"
     }
 ]
