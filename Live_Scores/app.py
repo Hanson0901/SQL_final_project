@@ -7,7 +7,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from flask import render_template
 from selenium.webdriver.firefox.options import Options
-from fake_useragent import UserAgent  # type: ignore
+from fake_useragent import UserAgent
 from selenium.webdriver.chrome.options import Options
 
 app = Flask(__name__)
