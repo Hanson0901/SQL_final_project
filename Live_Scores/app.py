@@ -10,6 +10,7 @@ from selenium.webdriver.firefox.options import Options
 from fake_useragent import UserAgent
 from selenium.webdriver.chrome.options import Options
 
+
 app = Flask(__name__)
 
 
@@ -20,8 +21,8 @@ def index():
 
 @app.route("/app/NBAscore", methods=["GET"])
 def get_NBAscore():
-    # url = "https://www.nba.com/games"
-    url = "http://127.0.0.1:5000/NBA_official"
+    url = "https://www.nba.com/games"
+    # url = "http://127.0.0.1:5000/NBA_official"
     options = webdriver.FirefoxOptions()
     options.add_argument("--headless")
     driver = webdriver.Firefox(options=options)
