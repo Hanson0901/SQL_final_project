@@ -5,8 +5,10 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-import undetected_Firefoxdriver as uc  # type: ignore
 from flask import render_template
+from selenium.webdriver.firefox.options import Options
+from fake_useragent import UserAgent  # type: ignore
+from selenium.webdriver.chrome.options import Options
 
 app = Flask(__name__)
 
@@ -124,12 +126,38 @@ def get_NBAscore():
 @app.route("/app/BWFscore", methods=["GET"])
 def get_bwf_score():
 
+    options = Options()
+
+    # 設置完整 User-Agent
+    user_agent = UserAgent().random
+    options.add_argument(f"user-agent={user_agent}")
+
+    # 其他反檢測設定
+    options.add_argument("--disable-blink-features=AutomationControlled")
+    options.add_experimental_option("excludeSwitches", ["enable-automation"])
+    options.add_experimental_option("useAutomationExtension", False)
+
+    driver = webdriver.Firefox(options=options)
+
+    # 執行 JavaScript 移除 webdriver 痕跡,
+    driver.execute_cdp_cmd(
+        "Page.addScriptToEvaluateOnNewDocument",
+        {
+            "source": """
+            Object.defineProperty(navigator, 'webdriver', {get: () => undefined})
+        """
+        },
+    )
+    driver.execute_script(
+        "Object.defineProperty(navigator, 'webdriver', {get: () => undefined})"
+    )
+
     url = "https://bwfbadminton.com/"
 
-    options = uc.FirefoxOptions()
-    # options.add_argument("--disable-blink-features=AutomationControlled")
+    # options = uc.FirefoxOptions()
+    # # options.add_argument("--disable-blink-features=AutomationControlled")
 
-    driver = uc.Firefox(options=options)
+    # driver = uc.Firefox(options=options)
 
     driver.get(url)
 
