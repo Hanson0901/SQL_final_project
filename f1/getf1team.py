@@ -63,10 +63,13 @@ pts= soup.select('.f1-inner-wrapper.flex.flex-col.gap-xs')
 p={}
 for pt in pts:
     p[pts.index(pt)] = pt.find('p', class_='f1-heading-wide font-formulaOneWide tracking-normal font-normal non-italic text-fs-18px leading-none normal-case')
-
+nk=soup.select('.f1-inner-wrapper.flex.flex-col.gap-xs')
+for nickname in nk:
+    p[nk.index(nickname)] = nickname.find('span', class_='f1-heading tracking-normal text-fs-20px tablet:text-fs-25px leading-tight normal-case font-bold non-italic f1-heading__body font-formulaOne')
 for url in team_links:
     team_info = {}
     team_info['Rank'] = team_links.index(url) + 1
+    team_info['Nickname'] = p[team_links.index(url)].text.strip()
     team_info.update(fetch_team_info(url))
     team_info['Team Points'] = p[team_links.index(url)].text.strip()
     #team_info['URL'] = url
