@@ -131,6 +131,8 @@ def get_bwf_score():
     # 設置完整 User-Agent
     user_agent = UserAgent().random
     options.add_argument(f"user-agent={user_agent}")
+    # 設置隱藏瀏覽器的選項
+    options.add_argument("--headless")
 
     # 其他反檢測設定
     options.add_argument("--disable-blink-features=AutomationControlled")
