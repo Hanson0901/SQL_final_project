@@ -1,4 +1,4 @@
-const API_URL = 'http://127.0.0.1:5000/wei/SQL_final_project/app/NBAscore';
+const API_URL = 'http://127.0.0.1/wei/SQL_final_project/Live_Scores/app/NBAscore';
 // fetchScore();
 function formatDateTime(date) {
   const year = date.getFullYear();

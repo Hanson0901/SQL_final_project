@@ -14,7 +14,7 @@ let lastMatchCount = 0;
 async function fetchAndRenderBWF() {
   const ul = document.getElementById('bwf-match-list');
   try {
-    const response = await fetch('http://127.0.0.1:5000/wei/SQL_final_project/app/BWFscore');
+    const response = await fetch('http://127.0.0.1/wei/SQL_final_project/Live_Scores/app/NBAscore');
     const data = await response.json();
 
     // 如果賽事數量不同，重建 li 結構
