@@ -143,14 +143,6 @@ def get_bwf_score():
     driver = webdriver.Firefox(options=options)
 
     # 執行 JavaScript 移除 webdriver 痕跡,
-    driver.execute_cdp_cmd(
-        "Page.addScriptToEvaluateOnNewDocument",
-        {
-            "source": """
-            Object.defineProperty(navigator, 'webdriver', {get: () => undefined})
-        """
-        },
-    )
     driver.execute_script(
         "Object.defineProperty(navigator, 'webdriver', {get: () => undefined})"
     )
