@@ -1,0 +1,289 @@
+[
+  {
+    "date": "5/1(四)",
+    "game_no": "101",
+    "teams": "Knicks vs Pistons",
+    "stadium": "Little Caesars Arena, Detroit, MI",
+    "time": "Final"
+  },
+  {
+    "date": "5/1(四)",
+    "game_no": "102",
+    "teams": "Nuggets vs Clippers",
+    "stadium": "Intuit Dome, Inglewood, CA",
+    "time": "Final"
+  },
+  {
+    "date": "5/2(五)",
+    "game_no": "103",
+    "teams": "Rockets vs Warriors",
+    "stadium": "Chase Center, San Francisco, CA",
+    "time": "Final"
+  },
+  {
+    "date": "5/3(六)",
+    "game_no": "104",
+    "teams": "Clippers vs Nuggets",
+    "stadium": "Ball Arena, Denver, CO",
+    "time": "Final"
+  },
+  {
+    "date": "5/4(日)",
+    "game_no": "105",
+    "teams": "Pacers vs Cavaliers",
+    "stadium": "Rocket Arena, Cleveland, OH",
+    "time": "Final"
+  },
+  {
+    "date": "5/4(日)",
+    "game_no": "106",
+    "teams": "Warriors vs Rockets",
+    "stadium": "Toyota Center, Houston, TX",
+    "time": "Final"
+  },
+  {
+    "date": "5/5(一)",
+    "game_no": "107",
+    "teams": "Knicks vs Celtics",
+    "stadium": "TD Garden, Boston, MA",
+    "time": "Final/OT"
+  },
+  {
+    "date": "5/5(一)",
+    "game_no": "108",
+    "teams": "Nuggets vs Thunder",
+    "stadium": "Paycom Center, Oklahoma City, OK",
+    "time": "Final"
+  },
+  {
+    "date": "5/6(二)",
+    "game_no": "109",
+    "teams": "Pacers vs Cavaliers",
+    "stadium": "Rocket Arena, Cleveland, OH",
+    "time": "Final"
+  },
+  {
+    "date": "5/6(二)",
+    "game_no": "110",
+    "teams": "Warriors vs Timberwolves",
+    "stadium": "Target Center, Minneapolis, MN",
+    "time": "Final"
+  },
+  {
+    "date": "5/7(三)",
+    "game_no": "111",
+    "teams": "Knicks vs Celtics",
+    "stadium": "TD Garden, Boston, MA",
+    "time": "Final"
+  },
+  {
+    "date": "5/7(三)",
+    "game_no": "112",
+    "teams": "Nuggets vs Thunder",
+    "stadium": "Paycom Center, Oklahoma City, OK",
+    "time": "Final"
+  },
+  {
+    "date": "5/8(四)",
+    "game_no": "113",
+    "teams": "Warriors vs Timberwolves",
+    "stadium": "Target Center, Minneapolis, MN",
+    "time": "Final"
+  },
+  {
+    "date": "5/9(五)",
+    "game_no": "114",
+    "teams": "Cavaliers vs Pacers",
+    "stadium": "Gainbridge Fieldhouse, Indianapolis, IN",
+    "time": "Final"
+  },
+  {
+    "date": "5/9(五)",
+    "game_no": "115",
+    "teams": "Thunder vs Nuggets",
+    "stadium": "Ball Arena, Denver, CO",
+    "time": "Final/OT"
+  },
+  {
+    "date": "5/10(六)",
+    "game_no": "116",
+    "teams": "Celtics vs Knicks",
+    "stadium": "Madison Square Garden, New York, NY",
+    "time": "Final"
+  },
+  {
+    "date": "5/10(六)",
+    "game_no": "117",
+    "teams": "Timberwolves vs Warriors",
+    "stadium": "Chase Center, San Francisco, CA",
+    "time": "Final"
+  },
+  {
+    "date": "5/11(日)",
+    "game_no": "118",
+    "teams": "Thunder vs Nuggets",
+    "stadium": "Ball Arena, Denver, CO",
+    "time": "Final"
+  },
+  {
+    "date": "5/11(日)",
+    "game_no": "119",
+    "teams": "Cavaliers vs Pacers",
+    "stadium": "Gainbridge Fieldhouse, Indianapolis, IN",
+    "time": "Final"
+  },
+  {
+    "date": "5/12(一)",
+    "game_no": "120",
+    "teams": "Celtics vs Knicks",
+    "stadium": "Madison Square Garden, New York, NY",
+    "time": "Final"
+  },
+  {
+    "date": "5/12(一)",
+    "game_no": "121",
+    "teams": "Timberwolves vs Warriors",
+    "stadium": "Chase Center, San Francisco, CA",
+    "time": "Final"
+  },
+  {
+    "date": "5/13(二)",
+    "game_no": "122",
+    "teams": "Pacers vs Cavaliers",
+    "stadium": "Rocket Arena, Cleveland, OH",
+    "time": "Final"
+  },
+  {
+    "date": "5/13(二)",
+    "game_no": "123",
+    "teams": "Nuggets vs Thunder",
+    "stadium": "Paycom Center, Oklahoma City, OK",
+    "time": "Final"
+  },
+  {
+    "date": "5/14(三)",
+    "game_no": "124",
+    "teams": "Knicks vs Celtics",
+    "stadium": "TD Garden, Boston, MA",
+    "time": "Final"
+  },
+  {
+    "date": "5/14(三)",
+    "game_no": "125",
+    "teams": "Warriors vs Timberwolves",
+    "stadium": "Target Center, Minneapolis, MN",
+    "time": "Final"
+  },
+  {
+    "date": "5/15(四)",
+    "game_no": "126",
+    "teams": "Thunder vs Nuggets",
+    "stadium": "Ball Arena, Denver, CO",
+    "time": "Final"
+  },
+  {
+    "date": "5/16(五)",
+    "game_no": "127",
+    "teams": "Celtics vs Knicks",
+    "stadium": "Madison Square Garden, New York, NY",
+    "time": "8:00 AM CT"
+  },
+  {
+    "date": "5/18(日)",
+    "game_no": "128",
+    "teams": "Nuggets vs Thunder",
+    "stadium": "Paycom Center, Oklahoma City, OK",
+    "time": "3:30 AM CT"
+  },
+  {
+    "date": "5/19(一)",
+    "game_no": "129",
+    "teams": "Knicks vs Celtics",
+    "stadium": "TD Garden, Boston, MA",
+    "time": "8:00 AM CT"
+  },
+  {
+    "date": "5/20(二)",
+    "game_no": "130",
+    "teams": "Timberwolves vs TBD",
+    "stadium": "",
+    "time": "8:30 AM CT"
+  },
+  {
+    "date": "5/21(三)",
+    "game_no": "131",
+    "teams": "Pacers vs TBD",
+    "stadium": "",
+    "time": "8:00 AM CT"
+  },
+  {
+    "date": "5/22(四)",
+    "game_no": "132",
+    "teams": "Timberwolves vs TBD",
+    "stadium": "",
+    "time": "8:30 AM CT"
+  },
+  {
+    "date": "5/23(五)",
+    "game_no": "133",
+    "teams": "Pacers vs TBD",
+    "stadium": "",
+    "time": "8:00 AM CT"
+  },
+  {
+    "date": "5/24(六)",
+    "game_no": "134",
+    "teams": "TBD vs Timberwolves",
+    "stadium": "Target Center, Minneapolis, MN",
+    "time": "8:30 AM CT"
+  },
+  {
+    "date": "5/25(日)",
+    "game_no": "135",
+    "teams": "TBD vs Pacers",
+    "stadium": "Gainbridge Fieldhouse, Indianapolis, IN",
+    "time": "8:00 AM CT"
+  },
+  {
+    "date": "5/26(一)",
+    "game_no": "136",
+    "teams": "TBD vs Timberwolves",
+    "stadium": "Target Center, Minneapolis, MN",
+    "time": "8:30 AM CT"
+  },
+  {
+    "date": "5/27(二)",
+    "game_no": "137",
+    "teams": "TBD vs Pacers",
+    "stadium": "Gainbridge Fieldhouse, Indianapolis, IN",
+    "time": "8:00 AM CT"
+  },
+  {
+    "date": "5/28(三)",
+    "game_no": "138",
+    "teams": "Timberwolves vs TBD",
+    "stadium": "",
+    "time": "8:30 AM CT"
+  },
+  {
+    "date": "5/29(四)",
+    "game_no": "139",
+    "teams": "Pacers vs TBD",
+    "stadium": "",
+    "time": "8:00 AM CT"
+  },
+  {
+    "date": "5/30(五)",
+    "game_no": "140",
+    "teams": "TBD vs Timberwolves",
+    "stadium": "Target Center, Minneapolis, MN",
+    "time": "8:30 AM CT"
+  },
+  {
+    "date": "5/31(六)",
+    "game_no": "141",
+    "teams": "TBD vs Pacers",
+    "stadium": "Gainbridge Fieldhouse, Indianapolis, IN",
+    "time": "8:00 AM CT"
+  }
+]

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <title>首頁選單</title>
+</head>
+
+<body>
+    <h2>請選擇頁面</h2>
+    <button onclick="window.open('{{ url_for('nba_official') }}', '_blank')">NBA 官方頁</button>
+    <button onclick="window.open('{{ url_for('bwf_official') }}', '_blank')">BWF 官方頁</button>
+    <br>
+    <button onclick="location.href='{{ url_for('nba_score') }}'">NBA Live Scores</button>
+    <button onclick="location.href='{{ url_for('bwf_score') }}'">BWF Live Scores</button>
+    <!-- ';' expected.不用鳥它 可以正常跑 -->
+</body>
+
+</html>

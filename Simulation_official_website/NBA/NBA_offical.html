@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <title>NBA GAMES & SCORES</title>
+    <link rel="stylesheet" href="/Simulation_official_website/NBA/NBA_offical.css">
+    <script src="/Simulation_official_website/NBA/NBA_offical.js"></script>
+</head>
+
+<body>
+    <div class="navbar">
+        <img src="/Simulation_official_website/NBA/img/logo-nba.svg" alt="NBA" class="nba-logo">
+        <a href="#" class="active">Games</a>
+        <a href="#">Schedule</a>
+        <a href="#">Watch</a>
+        <a href="#">Playoffs</a>
+        <a href="#">News</a>
+        <a href="#">Draft</a>
+        <a href="#">Stats</a>
+        <a href="#">Standings</a>
+        <a href="#">Teams</a>
+        <a href="#">Players</a>
+        <a href="#">NBA Play</a>
+        <a href="#">Fantasy</a>
+        <a href="#">NBA Bet</a>
+        <div class="right">
+            <span class="leaguepass">League Pass</span>
+            <a href="#">Store</a>
+            <a href="#">Tickets</a>
+            <a href="#">Sign In</a>
+        </div>
+    </div>
+    <div class="sub-navbar">
+        <span class="sub-item active">Home</span>
+        <span class="sub-item">Tickets</span>
+    </div>
+    <div class="container">
+        <h2>NBA GAMES &amp; SCORES</h2>
+        <div class="date-bar">
+            <span>May 2025</span>
+            <span class="calendar">📅</span>
+            <span class="arrow">&lt;</span>
+            <div class="days">
+                <div>Sun 11</div>
+                <div>Mon 12</div>
+                <div>Tue 13</div>
+                <div class="selected">Wed 14</div>
+                <div>Thu 15</div>
+                <div>Fri 16</div>
+                <div>Sat 17</div>
+            </div>
+            <span class="arrow">&gt;</span>
+            <div class="toggle">
+                HIDE SCORES
+                <input type="checkbox" style="margin-left:8px;">
+            </div>
+        </div>
+        <div class="main-content">
+            <div class="games-list">
+                <div class="scoreboard-container">
+                    <div class="scoreboard-header">
+                        East Conf. Semifinals • Game 5
+                    </div>
+                    <div class="scoreboard-main">
+                        <div class="team-block">
+
+                            <div class="team1-logo team-logo-block">
+                                <select class="svg-select" style="display:none;">
+                                    <script>
+                                        for (let i = 0; i <= 29; i++) {
+                                            document.write(`<option value="${i}">logo(${i}).svg</option>`);
+                                        }
+                                    </script>
+                                </select>
+                                <div class="svg-preview"></div>
+                                <div class="team1-name"></div>
+                                <div class="svg-modal">
+                                    <div class="modal-content">
+                                        <div class="logo-list">
+                                            <script>
+                                                for (let i = 0; i <= 29; i++) {
+                                                    //Simulation_official_website\img\logo(0).svg
+                                                    document.write(`<img src="/Simulation_official_website/NBA/img/logo(${i}).svg" data-n="${i}">`);
+                                                }
+                                            </script>
+                                        </div>
+                                        <div class="close-btn-area">
+                                            <button class="close-modal-btn">關閉</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                            <div class="team-info">
+                                <span id="home-team-rank" class="team-rank"></span>
+                                <span id="home-name" class="team-name"></span>
+                            </div>
+                        </div>
+                        <div class="score-block">
+                            <div class="score-col">
+                                <span class="score1">114</span>
+                                <div class="score-btns">
+                                    <button class="score1-plus">+</button>
+                                    <button class="score1-minus">-</button>
+                                </div>
+                            </div>
+                            <span class="score-divider">:</span>
+                            <div class="score-col">
+                                <span class="score2">105</span>
+                                <div class="score-btns">
+                                    <button class="score2-plus">+</button>
+                                    <button class="score2-minus">-</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="team-block">
+
+                            <div class="team2-logo team-logo-block">
+                                <select class="svg-select" style="display:none;">
+                                    <script>
+                                        for (let i = 0; i <= 29; i++) {
+                                            document.write(`<option value="${i}">logo(${i}).svg</option>`);
+                                        }
+                                    </script>
+                                </select>
+                                <div class="svg-preview"></div>
+                                <div class="team2-name"></div>
+                                <div class="svg-modal">
+                                    <div class="modal-content">
+                                        <div class="logo-list">
+                                            <script>
+                                                for (let i = 0; i <= 29; i++) {
+                                                    document.write(`<img src="/Simulation_official_website/NBA/img/logo(${i}).svg" data-n="${i}">`);
+                                                }
+                                            </script>
+                                        </div>
+                                        <div class="close-btn-area">
+                                            <button class="close-modal-btn">關閉</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="team-info">
+                                <span id="away-team-rank" class="team-rank"></span>
+                                <span id="away-name" class="team-name"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="scoreboard-footer">
+                        <span id="series"></span>
+                    </div>
+                </div>
+                <div class="scoreboard-update">
+                    <!-- <div id="last-update-time">上次更新時間：--</div> -->
+                </div>
+
+                <!-- Side Panel -->
+                <div class="side-panel">
+                    <div class="leaguepass-box">
+                        <img src="/Simulation_official_website/NBA/img/logo-nba.svg" class="lp-banner"
+                            alt="League Pass">
+                        <div class="lp-title">STREAM THE PLAYOFFS. DON'T MISS A THING.</div>
+                        <div class="lp-desc">
+                            League Pass Premium is your home for streaming the playoffs commercial-free. Sign up today
+                            to
+                            see every moment.
+                        </div>
+                        <button class="lp-btn">SIGN UP NOW</button>
+                    </div>
+                    <div class="headlines">
+                        <div class="headline-title">
+                            HEADLINES
+                            <span class="see-more">See more</span>
+                        </div>
+                        <ul>
+                            <li>2025 NBA playoffs: Schedule and results</li>
+                            <li>5 takeaways: OKC shows poise in Game 5</li>
+                            <li>Thunder storm to Game 5 win, 3-2 lead</li>
+                            <li>5 takeaways: Pacers return to East Finals</li>
+                            <li>Full Focus: Pacers finish Cavs in Game 5</li>
+                            <li>Tatum has surgery on ruptured Achilles</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+</body>
+
+</html>
