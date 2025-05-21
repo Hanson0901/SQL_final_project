@@ -5,7 +5,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-import undetected_chromedriver as uc  # type: ignore
+import undetected_Firefoxdriver as uc  # type: ignore
 from flask import render_template
 
 app = Flask(__name__)
@@ -20,9 +20,9 @@ def index():
 def get_NBAscore():
     # url = "https://www.nba.com/games"
     url = "http://127.0.0.1:5000/NBA_official"
-    options = webdriver.ChromeOptions()
+    options = webdriver.FirefoxOptions()
     options.add_argument("--headless")
-    driver = webdriver.Chrome(options=options)
+    driver = webdriver.Firefox(options=options)
     driver.get(url)
 
     response = requests.get(url)
@@ -126,10 +126,10 @@ def get_bwf_score():
 
     url = "https://bwfbadminton.com/"
 
-    options = uc.ChromeOptions()
+    options = uc.FirefoxOptions()
     # options.add_argument("--disable-blink-features=AutomationControlled")
 
-    driver = uc.Chrome(options=options)
+    driver = uc.Firefox(options=options)
 
     driver.get(url)
 
