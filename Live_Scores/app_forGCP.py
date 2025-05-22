@@ -149,8 +149,15 @@ def get_score():
 def update_score():
     data = request.json
     score = read_score()
-    score["score1"] = data.get("score1", score["score1"])
-    score["score2"] = data.get("score2", score["score2"])
+    # 只在有傳入時才更新
+    if "score1" in data:
+        score["score1"] = data["score1"]
+    if "score2" in data:
+        score["score2"] = data["score2"]
+    if "logo1" in data:
+        score["logo1"] = data["logo1"]
+    if "logo2" in data:
+        score["logo2"] = data["logo2"]
     write_score(score)
     return jsonify(score)
 
