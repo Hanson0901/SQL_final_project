@@ -107,6 +107,8 @@ document.addEventListener('DOMContentLoaded', function() {
             score2 += delta2;
             if (score1 < 0) score1 = 0;
             if (score2 < 0) score2 = 0;
+            const logo1 = parseInt(document.querySelector('.team1-logo .svg-select').value);
+            const logo2 = parseInt(document.querySelector('.team2-logo .svg-select').value);
             fetch('/update_score', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
