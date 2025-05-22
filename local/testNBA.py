@@ -6,9 +6,11 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
-url = "https://www.nba.com/games"
+# url = "https://www.nba.com/games"
+url = "http://cgusqlpj.ddns.net:5000/NBA_official"
+
 options = webdriver.ChromeOptions()
-options.add_argument("--headless")
+# options.add_argument("--headless")
 driver = webdriver.Chrome(options=options)
 driver.get(url)
 

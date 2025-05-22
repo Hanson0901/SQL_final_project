@@ -20,8 +20,13 @@ def index():
 
 @app.route("/app/NBAscore", methods=["GET"])
 def get_NBAscore():
-    url = "https://www.nba.com/games"
+
+    # url = "https://www.nba.com/games"
+
     # url = "http://127.0.0.1:5000/NBA_official"
+
+    url = "http://cgusqlpj.ddns.net:5000/NBA_official"
+
     options = webdriver.FirefoxOptions()
     options.add_argument("--headless")
     driver = webdriver.Firefox(options=options)
@@ -147,7 +152,9 @@ def get_bwf_score():
         "Object.defineProperty(navigator, 'webdriver', {get: () => undefined})"
     )
 
-    url = "https://bwfbadminton.com/"
+    # url = "https://bwfbadminton.com/"
+
+    url = "http://cgusqlpj.ddns.net:5000/BWF_official"
 
     # options = uc.FirefoxOptions()
     # # options.add_argument("--disable-blink-features=AutomationControlled")
