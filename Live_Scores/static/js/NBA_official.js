@@ -53,12 +53,11 @@ document.addEventListener('DOMContentLoaded', function() {
             document.querySelectorAll('.score2').forEach(el => el.textContent = data.score2);
             // 設定 logo 下拉選單與預覽
             document.querySelectorAll('.team1-logo .svg-select').forEach(sel => {
-                sel.value = data.logo1 ?? 0;
-                // 觸發預覽更新
+                sel.value = data.logo1 ?? 0; // 若 data.logo1 存在則用它，否則預設 0
                 sel.closest('.team-logo-block').updatePreview();
             });
             document.querySelectorAll('.team2-logo .svg-select').forEach(sel => {
-                sel.value = data.logo2 ?? 1;
+                sel.value = data.logo2 ?? 1; // 若 data.logo2 存在則用它，否則預設 1
                 sel.closest('.team-logo-block').updatePreview();
             });
         });
