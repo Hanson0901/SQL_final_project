@@ -89,11 +89,13 @@ document.addEventListener('DOMContentLoaded', function() {
         sel.addEventListener('change', function() {
             updateLogo();
         });
+        consolele.log(sel.value);
     });
     document.querySelectorAll('.team2-logo .svg-select').forEach(sel => {
         sel.addEventListener('change', function() {
             updateLogo();
         });
+        consolele.log(sel.value);
     });
 
     document.querySelectorAll('.score-block').forEach(function(card) {
