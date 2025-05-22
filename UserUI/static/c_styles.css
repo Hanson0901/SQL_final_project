@@ -236,6 +236,19 @@ button.match-box .disabled {
   margin-bottom: 5%;
 }
 
+.platform-card {
+    background-color: #f8f9fa;
+    border: 2px solid #c2d1ff;
+    padding: 1rem;
+    border-radius: 12px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.1);
+    max-width: 400px;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 1.05rem;
+}
+
+
 .card-content {
   flex-grow: 1;
 }

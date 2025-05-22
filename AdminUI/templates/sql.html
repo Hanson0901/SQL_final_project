@@ -26,19 +26,38 @@
         <table id="addTable">
           <thead>
             <tr>
-              <th>ID</th><th>對戰組合</th><th>日期</th><th>時間</th>
+              <th>運動類別</th><th>隊伍 1</th><th>隊伍 2</th><th>日期</th><th>時間</th><th>比分</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <div id = 'add-input'>
-                <td><input type="text" placeholder="ID"></td>
-                <td><input type="text" placeholder="對戰組合"></td>
-                <td><input type="text" placeholder="YYYY-MM-DD"></td>
-                <td><input type="text" placeholder="HH:MM"></td>
-              </div>
-            </tr>
-          </tbody>
+          <tr>
+            <td>
+            <select class="sport-type">
+              <option value="">請選擇</option>
+              <option value="1">NBA</option>
+              <option value="2">F1</option>
+              <option value="3">MLB</option>
+              <option value="4">CPBL</option>
+              <option value="5">BWF</option>
+            </select>
+          </td>
+          <td>
+            <select class="team-a">
+              <option value="">請先選類別</option>
+            </select>
+          </td>
+          <td>
+            <select class="team-b">
+              <option value="">請先選類別</option>
+            </select>
+          </td>
+          <td>
+            <input type="date" class="date-input">
+          </td>
+          <td><input type="text" placeholder="HH:MM" class="time-input"></td>
+          <td><input type="text" placeholder="比分" class="point-input"></td>
+        </tr>
+      </tbody>
         </table>
         
         

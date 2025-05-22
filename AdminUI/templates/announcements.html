@@ -9,7 +9,7 @@
     
   </style>
 </head>
-<body data-page="announcement" data-admin-id="{{ admin_id }}" data-username="{{ username }}">
+<body data-page="announcement" data-admin-id="{{ admin_id }}" data-username="{{ username }}" data-is-top = "{{ session.get('is_top' , False) }}">
   <div class="announcement-container">
     <h2>📢 發佈公告</h2>
     <p>輸入要發送的公告內容（如：賽事延後、系統維護通知等）。</p>

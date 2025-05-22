@@ -2,125 +2,380 @@ const page = document.body.dataset.page;
 
 if(page === "door"){
     
-}else if(page === "search"){
-    // 自動產生時間下拉選項（00:00～23:30）
-    function populateTimeOptions(selectId) {
-        const select = document.getElementById(selectId);
-        for (let h = 0; h < 24; h++) {
-        for (let m = 0; m < 60; m += 30) {
-            const hh = String(h).padStart(2, '0');
-            const mm = String(m).padStart(2, '0');
+}else if (page === "search"){
+    // ✅ 一載入就設定今天日期
+    const today = new Date().toISOString().slice(0, 10);
+    document.getElementById("date").value = today;
+
+    const querySelect = document.getElementById("query-type");
+    const sportTypeSelect = document.getElementById("sport-type");
+    const keywordSelect = document.getElementById("keyword");
+    const dateInput = document.getElementById("date");
+    const resultDiv = document.getElementById("searchResult");
+
+    // ✅ 頁面一載入就預設更新關鍵字選項
+    window.addEventListener("DOMContentLoaded", () => {
+        updateKeywordOptions();
+    });
+
+    querySelect.addEventListener("change", updateKeywordOptions);
+    sportTypeSelect.addEventListener("change", updateKeywordOptions);
+
+    // ✅ 載入關鍵字下拉選單
+    async function updateKeywordOptions() {
+        const type = querySelect.value;
+        const sport_type = sportTypeSelect.value;
+
+        if (!type || !sport_type) {
+            keywordSelect.innerHTML = `<option value="">請先選擇運動與查詢方式</option>`;
+            return;
+        }
+        console.log(sport_type);
+        console.log(type);
+        try {
+            const res = await fetch(`/api/get_options?sport_type=${sport_type}&query_type=${type}`);
+            const data = await res.json();
+
+            console.log("👉 關鍵字選項：", data);
+
+            keywordSelect.innerHTML = `<option value="">請選擇</option>`;
+            data.forEach(item => {
+                const opt = document.createElement("option");
+                opt.value = item.id;
+                opt.textContent = item.name;
+                keywordSelect.appendChild(opt);
+            });
+        } catch (err) {
+            console.error("❌ 載入選項失敗：", err);
+            keywordSelect.innerHTML = `<option value="">❌ 載入失敗</option>`;
+        }
+    }
+
+    // ✅ 查詢比賽
+    document.getElementById("SearchBtn").addEventListener("click", async () => {
+        const type = querySelect.value;
+        const sport = sportTypeSelect.value;
+        const keyword = keywordSelect.value;
+        const date = dateInput?.value;
+
+        let keywordText = keywordSelect.options[keywordSelect.selectedIndex]?.textContent || keyword;
+        let teamText = "";
+
+        // ✅ 查隊伍名稱
+        if (type === "team") {
+            try {
+                const res = await fetch(`/api/get_team_name?team_id=${keyword}`);
+                const data = await res.json();
+                if (data.team_name) keywordText = data.team_name;
+            } catch (err) {
+                console.warn("⚠️ 查詢隊伍名稱失敗", err);
+            }
+        }
+
+        // ✅ 查球員所屬隊伍
+        else if (type === "player") {
+            try {
+                const res = await fetch(`/api/get_team_name_by_player?sport=${sport}&player_id=${keyword}`);
+                const data = await res.json();
+                if (data.team_name) {
+                    teamText = data.team_name + " ";
+                }
+            } catch (err) {
+                console.warn("⚠️ 撈球員隊伍名失敗：", err);
+            }
+        }
+
+        const typemap = {
+            "team": "隊伍",
+            "player": "隊員"
+        };
+
+        const sportmap = {
+            1: "NBA",
+            2: "F1",
+            3: "MLB",
+            4: "CPBL",
+            5: "BWF"
+        };
+
+        if (!type || !sport || !keyword || !keywordText) {
+            alert("❗ 請選擇運動種類、查詢方式與關鍵字");
+            return;
+        }
+
+        const params = new URLSearchParams({
+            sport,
+            query_type: type,
+            keyword,
+            date
+        });
+
+        try {
+            const res = await fetch(`/api/search_matches?${params}`);
+            const data = await res.json();
+
+            resultDiv.innerHTML = "";
+
+            if (!data || !data.matches || data.matches.length === 0) {
+                resultDiv.innerHTML = "<p>❌ 查無比賽資料</p>";
+                return;
+            }
+
+            console.log("🏷️ 隊伍名：", teamText);
+
+            if(type === "team"){
+                resultDiv.innerHTML = `
+                    <p>🔎以「<strong>${sportmap[sport]}</strong> - <strong>${keywordText}</strong>」<br>查詢 ${date} 起的比賽</p>
+                    <p>✅找到 ${data.matches.length} 筆比賽：</p>
+                `;
+            }else if(type === "palyer"){
+                resultDiv.innerHTML = `
+                    <p>🔎以「<strong>${sportmap[sport]}</strong> - <strong>${teamText}</strong>的${typemap[type]} <strong>${keywordText}</strong>」<br>查詢 ${date} 起的比賽</p>
+                    <p>✅找到 ${data.matches.length} 筆比賽：</p>
+                `;
+            }
+
+            data.matches.forEach(m => {
+                const formattedDate = new Date(m.date).toISOString().slice(0, 10);
+                resultDiv.innerHTML += `
+                    <div>
+                        <strong>${m.team_a_name} vs ${m.team_b_name}</strong><br>
+                        📅 ${formattedDate} 🕒 ${m.time}<br>
+                        🎯 比分：${m.point ?? "尚未公布"}<br><br>
+                    </div>
+                `;
+            });
+        } catch (err) {
+            console.error("查詢錯誤：", err);
+            resultDiv.innerHTML = "<p>⚠️ 發生錯誤，請稍後再試</p>";
+        }
+    });
+
+}else if (page === "mix_search") {
+
+    window.addEventListener('DOMContentLoaded', () => {
+  const page = document.body.dataset.page;
+
+  if (page === "mix_search") {
+    const queryTypeInput = document.getElementById("query-type");
+    const sportTypeInput = document.getElementById("sport-type");
+    const keywordSelect = document.getElementById("keyword");
+    const searchBtn = document.getElementById("SearchBtn");
+    const resetBtn = document.getElementById("ResetBtn");
+    const resultArea = document.getElementById("mix-result-area");
+
+    // 初始狀態
+    sportTypeInput.disabled = true;
+    keywordSelect.disabled = true;
+    keywordSelect.innerHTML = `<option value="">請先選擇上方選項</option>`;
+
+    // 類型改變
+    queryTypeInput.addEventListener("change", () => {
+        const type = queryTypeInput.value;
+
+        // 🔄 重建運動種類選單（清空後重建）
+        sportTypeInput.innerHTML = `<option value="">請選擇</option>`;  // 預設值
+        const sportOptions = [
+            { value: "1", label: "NBA" },
+            { value: "2", label: "F1" },
+            { value: "3", label: "MLB" },
+            { value: "4", label: "CPBL" },
+            { value: "5", label: "BWF" }
+        ];
+
+        sportOptions.forEach(opt => {
+            // ❌ 如果是查隊伍 且是 BWF，就不顯示
+            if (type === "team" && opt.value === "5") return;
+
             const option = document.createElement("option");
-            option.value = `${hh}:${mm}`;
-            option.textContent = `${hh}:${mm}`;
-            select.appendChild(option);
-        }
-        }
-    }
+            option.value = opt.value;
+            option.textContent = opt.label;
+            sportTypeInput.appendChild(option);
+        });
 
-    populateTimeOptions('start-time');
-    populateTimeOptions('end-time');
+        // ✅ 若選擇球員、隊伍、賽事，都可以選運動種類
+        sportTypeInput.disabled = (type === "");
 
-    //查詢功能
-    function searchMatches() {
-        const sport = document.getElementById('sport');
-        const player = document.getElementById('player').value.trim();
-        const start = document.getElementById('start-time').value;
-        const end = document.getElementById('end-time').value;
+        // 🔄 清空 keyword 選單
+        keywordSelect.innerHTML = `<option value="">請先選擇上方選項</option>`;
+        keywordSelect.disabled = true;
 
-        if (start && end && start >= end) {
-        alert("❌ 結束時間必須晚於開始時間！");
+        fetchKeywordList(); // 🔁 重新載入關鍵字
+    });
+
+
+    // 運動種類改變時
+    sportTypeInput.addEventListener("change", fetchKeywordList);
+
+    function fetchKeywordList() {
+      const type = queryTypeInput.value;
+      const sportType = sportTypeInput.value;
+
+      if (!type || !sportType) {
+        keywordSelect.disabled = true;
+        keywordSelect.innerHTML = `<option value="">請先選擇上方選項</option>`;
         return;
-        }
-        
-        let result = `✅ 運動類型：${sport.options[sport.selectedIndex].text}\n`;
+      }
 
-        if (player) result += `👤 選手名稱：${player}\n`;
-        if (start && end) result += `🕒 時間區間：${start} ～ ${end}`;
+      fetch(`/api/get_keywords?type=${type}&sport_type=${sportType}`)
+        .then(res => res.json())
+        .then(data => {
+          if (!Array.isArray(data)) {
+            alert("⚠️ 後端回傳錯誤：" + (data.error || "未知錯誤"));
+            return;
+          }
 
-        if (!player && !start && !end) {
-        alert("請至少輸入選手名稱或選擇時間區間！");
+          keywordSelect.innerHTML = `<option value="">請選擇</option>`;
+          keywordSelect.disabled = false;
+
+          data.forEach(item => {
+            const option = document.createElement("option");
+            option.value = item.id;
+            option.textContent = item.name;
+            keywordSelect.appendChild(option);
+          });
+        });
+    }
+
+    // 查詢
+    searchBtn.addEventListener("click", () => {
+      const type = queryTypeInput.value;
+      const sportType = sportTypeInput.value;
+      const keyword = keywordSelect.value;
+    
+      if (!type || !keyword || ((type === "player" || type === "team") && !sportType)) {
+        alert("請完整選擇查詢類型與條件");
         return;
-        }
+      }
 
-        alert(result);
-    }
+      fetch(`/api/mix_search?type=${type}&keyword=${keyword}&sport_type=${sportType}`)
+        .then(res => res.json())
+        .then(data => {
+          if (!Array.isArray(data)) {
+            console.error("查詢失敗：", data);
+            alert("❌ 查詢失敗：" + (data.error || "請檢查參數"));
+            return;
+          }
 
-    //重設reset功能
-    function resetForm() {
-        document.getElementById('sport').selectedIndex = document.getElementById('sport')[0];
-        document.getElementById('player').value = "";
-        document.getElementById('date').value = "";
-        document.getElementById('start-time').selectedIndex = 0;
-        document.getElementById('end-time').selectedIndex = 0;
-    }
+          resultArea.innerHTML = '';
 
-    //按鈕事件綁定
-    document.getElementById('SearchBtn').addEventListener('click', searchMatches);
-    document.getElementById('ResetBtn').addEventListener('click', resetForm);
+          const sportTypeNum = parseInt(sportType);
 
-}else if(page === "mix_search"){
-    function searchComposite() {
-        const type = document.getElementById('query-type').value;
-        const keyword = document.getElementById('keyword').value.trim();
-        const typeText = document.getElementById('query-type').options[
-        document.getElementById('query-type').selectedIndex
-        ].text;
-    
-        if (!keyword) {
-        alert("請輸入關鍵字！");
-        return;
-        }
-    
-        // 模擬導向查詢結果（你可以改成 location.href = "..."）
-        alert(`🔎 查詢類型：${typeText}\n關鍵字：${keyword}\n即將導向對應資料頁面...`);
-        
-        const encodedKeyword = encodeURIComponent(keyword);
-        location.href = `/result?type=${type}&keyword=${encodedKeyword}`;
-    }
+          if (type === "player") {
+            data.forEach(player => {
+              const div = document.createElement('div');
+              div.className = "result-card";
 
-  
-    function resetForm() {
-        document.getElementById('query-type').selectedIndex = 0;
-        document.getElementById('keyword').value = "";
-    }
+              let html = `<strong>${player.name}</strong><br>`;
+              html += `年齡：${player.age || '無'}<br>`;
+              html += `國籍：${player.country || '未知'}<br>`;
 
-    //按鈕事件綁定
-    document.getElementById('SearchBtn').addEventListener('click', () =>{
-        searchComposite();
-        resetForm();
-    })
-    document.getElementById('ResetBtn').addEventListener('click', resetForm);
+              switch (sportTypeNum) {
+                case 1:
+                  html += `隊伍：${player.team_name}<br>
+                           背號：${player.jersey_number}<br>
+                           命中率：FG ${player.fg_pct}% / FT ${player.ft_pct}% / 3PT ${player.three_pt_pct}%<br>
+                           得分：${player.points}｜籃板：${player.rebounds}｜助攻：${player.assists}`;
+                  break;
+                case 2:
+                  html += `車隊：${player.team_name}<br>
+                           車號：${player.number}<br>
+                           排名：${player.ranking}｜積分：${player.pts}`;
+                  break;
+                case 3:
+                case 4:
+                  html += `隊伍：${player.team_name}<br>
+                           背號：${player.jersey_number}<br>
+                           守備位置：${player.position}<br>
+                           打擊習慣：${player.batting_hand}<br>
+                           打擊率：${player.batting_avg}`;
+                  break;
+                case 5:
+                  html += `慣用手：${player.hand}<br>
+                           世界排名：${player.world_rank}<br>
+                           巡迴排名：${player.world_tour_rank}<br>
+                           冠軍數：${player.world_rank_title}/${player.world_tour_rank_title}<br>
+                           積分頭銜：${player.point_title}｜積分：${player.point}`;
+                  break;
+                default:
+                  html += `（不支援顯示）`;
+              }
 
-}else if(page === "result"){
-    // 讀取 URL 查詢參數
-    const params = new URLSearchParams(window.location.search);
-    const type = params.get("type");
-    const keyword = params.get("keyword");
+              div.innerHTML = html;
+              resultArea.appendChild(div);
+            });
+          }else if (type === "team") {
+            data.forEach(team => {
+              const div = document.createElement("div");
+              div.className = "result-card";
 
-    // 類型轉換（可做本地對照資料庫）
-    const typeMap = {
-      player: "球員名稱",
-      team: "球隊名稱",
-      event: "賽事名稱",
-      rule: "運動規則"
-    };
+              let html = `<strong>${team.team_name}</strong><br>`;
 
-    // 模擬查詢資料（可串 JSON、API）
-    const resultArea = document.getElementById("result-area");
-    if (type && keyword) {
-      resultArea.innerHTML = `
-        <h2>查詢類型：${typeMap[type] || type}</h2>
-        <p>關鍵字：<strong>${decodeURIComponent(keyword)}</strong></p>
-        <p>這裡會顯示與「${keyword}」相關的資訊。</p> 
-      `;
-    } else {
-      resultArea.innerHTML = `<p>❗ 找不到查詢參數，請回首頁重新查詢。</p>`;
-    }
-    
+              
+              switch (sportTypeNum) {
+                case 1:
+                  html += `縮寫：${team.abbr}<br>
+                           城市：${team.city1 || ''} ${team.city2 || ''}<br>
+                           主場：${team.arena}`;
+                  break;
+                case 2:
+                    html += `完整名稱：${team.full_name}<br>
+                            引擎供應商：${team.engine_supplier}<br>
+                            車型：${team.car_type}<br>
+                            隊長：${team.team_chief}<br>
+                            排名：${team.ranking}｜積分：${team.team_point}<br>
+                            成立年份：${team.entry_year}`;
+                    break;
+                case 3:
+                case 4:
+                  html += `城市：${team.location}<br>
+                           聯盟：${team.league}<br>
+                           主場：${team.stadium}<br>
+                           成立年份：${team.founded_year}<br>
+                           教練：${team.head_coach}`;
+                  break;
+                // case 5:
+                //   html += `🏸 國籍名稱（隊名）：${team.team_name}`;
+                //   break;
+                default:
+                  html += "（不支援的運動種類）";
+              }
+
+              div.innerHTML = html;
+              resultArea.appendChild(div);
+            });
+          }else if (type === "event") {
+                data.forEach(match => {
+                    const div = document.createElement("div");
+                    div.className = "result-card";
+
+                    let html = `<strong>【${match.team_a_name} vs ${match.team_b_name}】</strong><br>`;
+                    html += `時間：${match.date} ${match.time}<br>`;
+                    html += `比數：${match.point === null ? "尚未開始" : match.point}`;
+
+                    div.innerHTML = html;
+                    resultArea.appendChild(div);
+                });
+            }
+
+        });
+    });
+
+    // 重設按鈕
+    resetBtn.addEventListener("click", () => {
+        queryTypeInput.value = "";
+        sportTypeInput.value = "";
+        sportTypeInput.disabled = true;
+        keywordSelect.innerHTML = `<option value="">請先選擇上方選項</option>`;
+        keywordSelect.disabled = true;
+        resultArea.innerHTML = "";
+        });
+      }
+    });
+
 }else if(page === "recent_match"){
     //UID
-    let uid = "22222222222";
+    let uid = "10107670810";
 
     const calendarEl = document.getElementById("calendar");
     const currentMonthEl = document.getElementById("current-month");
@@ -135,6 +390,13 @@ if(page === "door"){
     let existingBookings = {};
     let deletedBookings = [];
     let pendingBookings = {};
+    const typeMap = {
+        1: "NBA",
+        2: "F1",
+        3: "MLB",
+        4: "CPBL",
+        5: "BWF"
+    };
 
     const weekdayNames = ["日", "一", "二", "三", "四", "五", "六"];
 
@@ -146,19 +408,74 @@ if(page === "door"){
         const res = await fetch(`/api/bookings/user/${uid}`);
         existingBookings = await res.json(); 
         displayBookedMatches();
+        
+        await loadTopPlatform(uid);
     }
 
+    async function loadTopPlatform(uid) {
+        const res = await fetch(`/api/platform/rank/${uid}`);
+        const platforms = await res.json();
+
+        const box = document.getElementById("recommend-platform");
+        if (!box) return;
+
+        box.innerHTML = ""; // 清空舊內容
+
+        if (platforms.length === 0) {
+            box.innerHTML = `<div class="platform-card">📺 您尚未預約任何比賽</div>`;
+            return;
+        }
+
+        const maxUsage = platforms[0].usage_count;
+        const topPlatforms = platforms.filter(p => p.usage_count === maxUsage);
+
+        // 建立卡片
+        const card = document.createElement("div");
+        card.className = "platform-card";
+
+        const title = document.createElement("h3");
+        title.textContent = "為您推薦平台";
+        title.style.marginBottom = "0.5rem";
+
+        const list = document.createElement("ul");
+        list.style.listStyle = "none";
+        list.style.paddingLeft = "0";
+
+        for (const p of topPlatforms) {
+            const li = document.createElement("li");
+            li.innerHTML = `🎖️ <strong>${p.platform_name}</strong>（預約次數 ${p.usage_count}）`;
+            list.appendChild(li);
+        }
+
+        card.appendChild(title);
+        card.appendChild(list);
+        box.appendChild(card);
+    }
+
+
     async function loadMatchData() {
+        
         try {
             const res = await fetch('/api/matches');
-            matchData = await res.json();
+            const rawList = await res.json();
+            matchData = {}; // 清空原本資料
+
+            for (let date in rawList) {
+                matchData[date] = rawList[date].map(match => ({
+                    name: match.name,
+                    time: match.time,
+                    platform: match.platform,
+                    type: match.type
+                }));
+            }
+
             renderCalendar(currentYear, currentMonth);
             await loadBookings();
         } catch (err) {
             console.error('❌ 無法載入比賽資料:', err);
         }
+        console.log("📦 matchData", matchData);
     }
-
     function isBooked(dateStr, matchName) {
         const data = existingBookings[dateStr] || [];
         return data.some(m => m.name === matchName);
@@ -195,13 +512,11 @@ if(page === "door"){
 
         const content = document.createElement("div");
         content.className = "card-content";
-        const bookedTime = match.booked_at ? new Date(match.booked_at).toLocaleString() : "未知時間";
-
+        console.log(typeMap[match.type]);
         content.innerHTML = `
-            🏟️ ${match.name}<br>
+            【${typeMap[match.type]}】  ${match.name}<br>
             📅 <strong>${date}</strong> - 🕒 ${match.time}<br>
             📺 平台：${match.platform}<br>
-            📆 預約時間：${bookedTime}<br>
         `;
 
         const cancelBtn = document.createElement("button");
@@ -262,19 +577,19 @@ if(page === "door"){
 
             const btn = document.createElement("button");
             btn.className = "match-card";
-            btn.textContent = `🏟️ ${matchObj.name} 🕒 ${matchObj.time}`;
+            btn.textContent = `【${typeMap[matchObj.type]}】 ${matchObj.name} 🕒 ${matchObj.time}`;
 
             if (diffMinutes < 30) {
                 btn.classList.add("disabled");
                 btn.addEventListener("click", () => {
-                alert(`⛔ 此比賽已過或即將開始，無法預約。\n🏟️ ${matchObj.name}\n📅 ${dateStr}\n🕒 ${matchObj.time}`);
+                alert(`⛔ 此比賽已過或即將開始，無法預約。\n ${matchObj.name}\n📅 ${dateStr}\n🕒 ${matchObj.time}`);
             });
             } else {
             btn.addEventListener("click", async () => {
                 console.log('selected');
                 if (!pendingBookings[dateStr]) pendingBookings[dateStr] = [];
                 const now = new Date();
-                pendingBookings[dateStr].push({ ...matchObj, booked_at: now.toISOString() });
+                pendingBookings[dateStr].push({ ...matchObj });
                 displayBookedMatches();
                 btn.remove();
 
@@ -434,6 +749,7 @@ if(page === "door"){
             deletedBookings = [];
             existingBookings = merged;
             displayBookedMatches();
+            await loadTopPlatform(uid);
         } else {
             alert("❌ 儲存失敗！");
         }

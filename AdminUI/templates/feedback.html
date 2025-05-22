@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='feedback.css') }}">
     <title>意見回饋</title>
 </head>
-<body data-page="feedback" data-admin-id="{{ admin_id }}" data-username="{{ username }}">
+<body data-page="feedback" data-admin-id="{{ admin_id }}" data-username="{{ username }}" data-is-top = "{{ session.get('is_top', False) }}">
     <div class="feedback-container">
     <h1>💬 意見回饋 FeedBack 功能</h1>
     <p class="description">
