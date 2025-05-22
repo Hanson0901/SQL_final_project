@@ -65,6 +65,19 @@ document.addEventListener('DOMContentLoaded', function() {
             document.querySelectorAll('.team1-logo .svg-select').forEach(sel => sel.value = data.logo1 ?? 0);
             document.querySelectorAll('.team2-logo .svg-select').forEach(sel => sel.value = data.logo2 ?? 1);
         });
+    function updateLogo() {
+            const logo1 = parseInt(document.querySelector('.team1-logo .svg-select').value);
+            const logo2 = parseInt(document.querySelector('.team2-logo .svg-select').value);
+            fetch('/update_score', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ logo1, logo2 })
+            })
+            .then(res => res.json())
+            .then(data => {
+                // 可選：同步更新預覽或其他 UI
+            });
+        }
     // 當 logo 選擇改變時，發送 AJAX 更新
     document.querySelectorAll('.team1-logo .svg-select').forEach(sel => {
         sel.addEventListener('change', function() {
@@ -108,19 +121,7 @@ document.addEventListener('DOMContentLoaded', function() {
             plus2.addEventListener('click', function() { updateScore(0, 1); });
             minus2.addEventListener('click', function() { updateScore(0, -1); });
         }
-        function updateLogo() {
-            const logo1 = parseInt(document.querySelector('.team1-logo .svg-select').value);
-            const logo2 = parseInt(document.querySelector('.team2-logo .svg-select').value);
-            fetch('/update_score', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ logo1, logo2 })
-            })
-            .then(res => res.json())
-            .then(data => {
-                // 可選：同步更新預覽或其他 UI
-            });
-        }
+        
     });
 
 });
