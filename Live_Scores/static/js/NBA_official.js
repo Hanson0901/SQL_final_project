@@ -89,13 +89,13 @@ document.addEventListener('DOMContentLoaded', function() {
         sel.addEventListener('change', function() {
             updateLogo();
         });
-        consolele.log(sel.value);
+        console.log(sel.value); // 如需除錯可取消註解
     });
     document.querySelectorAll('.team2-logo .svg-select').forEach(sel => {
         sel.addEventListener('change', function() {
             updateLogo();
         });
-        consolele.log(sel.value);
+        console.log(sel.value); // 如需除錯可取消註解
     });
 
     document.querySelectorAll('.score-block').forEach(function(card) {
