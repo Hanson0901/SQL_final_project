@@ -28,7 +28,7 @@ def get_NBAscore():
     url = "http://cgusqlpj.ddns.net:5000/NBA_official"
 
     options = webdriver.ChromeOptions()
-    options.add_argument("--headless")
+    # options.add_argument("--headless")
     driver = webdriver.Chrome(options=options)
     driver.get(url)
 
@@ -58,18 +58,26 @@ def get_NBAscore():
     )
 
     # BeautifulSoup 部分
-    wrapper = soup.find("div", class_="GameCardMatchup_wrapper__uUdW8")
+    # 使用 WebDriverWait 來等待隊伍 logo 區塊
+    wrapper_elem = wait.until(
+        EC.presence_of_element_located(
+            (By.CSS_SELECTOR, "div.GameCardMatchup_wrapper__uUdW8")
+        )
+    )
+    team_logo_divs = wrapper_elem.find_elements(By.CLASS_NAME, "TeamLogo_block__rSWmO")
+    img1 = team_logo_divs[0].find_element(By.TAG_NAME, "img")
+    img2 = team_logo_divs[1].find_element(By.TAG_NAME, "img")
+    img1 = {"src": img1.get_attribute("src")}
+    img2 = {"src": img2.get_attribute("src")}
 
-    if wrapper:
-        team_logo_divs = wrapper.find_all("div", class_="TeamLogo_block__rSWmO")
-    else:
-        print("找不到 GameCardMatchup_wrapper__uUdW8")
-    img1 = team_logo_divs[0].find("img")
-    img2 = team_logo_divs[1].find("img")
-
-    team_name = soup.find_all("span", class_="MatchupCardTeamName_teamName__9YaBA")
-    Team_name1 = team_name[0].text.strip()
-    Team_name2 = team_name[1].text.strip()
+    # 使用 WebDriverWait 來等待並獲取隊名元素
+    team_name_elements = wait.until(
+        EC.presence_of_all_elements_located(
+            (By.CSS_SELECTOR, "span.MatchupCardTeamName_teamName__9YaBA")
+        )
+    )
+    Team_name1 = team_name_elements[0].text.strip()
+    Team_name2 = team_name_elements[1].text.strip()
 
     # 使用預先等待的元素
     score1_elem = score_elements[0]
