@@ -97,8 +97,12 @@ document.addEventListener('DOMContentLoaded', function() {
         const plus2 = card.querySelector('.score2-plus');
         const minus2 = card.querySelector('.score2-minus');
         function updateScore(delta1, delta2) {
-            let score1 = parseInt(score1Span.textContent) + delta1;
-            let score2 = parseInt(score2Span.textContent) + delta2;
+            let score1 = parseInt(score1Span.textContent);
+            let score2 = parseInt(score2Span.textContent);
+            if (isNaN(score1)) score1 = 0;
+            if (isNaN(score2)) score2 = 0;
+            score1 += delta1;
+            score2 += delta2;
             if (score1 < 0) score1 = 0;
             if (score2 < 0) score2 = 0;
             fetch('/update_score', {
