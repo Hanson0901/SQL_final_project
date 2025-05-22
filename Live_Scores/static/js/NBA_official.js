@@ -56,6 +56,12 @@ document.addEventListener('DOMContentLoaded', function() {
             modal.style.display = 'none';
         });
     });
+    fetch('/get_score')
+        .then(res => res.json())
+        .then(data => {
+            document.querySelectorAll('.score1').forEach(el => el.textContent = data.score1);
+            document.querySelectorAll('.score2').forEach(el => el.textContent = data.score2);
+        });
     
     document.querySelectorAll('.score-block').forEach(function(card) {
         const score1Span = card.querySelector('.score1');
@@ -64,21 +70,30 @@ document.addEventListener('DOMContentLoaded', function() {
         const minus1 = card.querySelector('.score1-minus');
         const plus2 = card.querySelector('.score2-plus');
         const minus2 = card.querySelector('.score2-minus');
+        function updateScore(delta1, delta2) {
+            let score1 = parseInt(score1Span.textContent) + delta1;
+            let score2 = parseInt(score2Span.textContent) + delta2;
+            if (score1 < 0) score1 = 0;
+            if (score2 < 0) score2 = 0;
+            fetch('/update_score', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ score1, score2 })
+            })
+                .then(res => res.json())
+                .then(data => {
+                    score1Span.textContent = data.score1;
+                    score2Span.textContent = data.score2;
+                });
+        }
+
         if (score1Span && plus1 && minus1) {
-            plus1.addEventListener('click', function() {
-                score1Span.textContent = parseInt(score1Span.textContent) + 1;
-            });
-            minus1.addEventListener('click', function() {
-                score1Span.textContent = Math.max(0, parseInt(score1Span.textContent) - 1);
-            });
+            plus1.addEventListener('click', function() { updateScore(1, 0); });
+            minus1.addEventListener('click', function() { updateScore(-1, 0); });
         }
         if (score2Span && plus2 && minus2) {
-            plus2.addEventListener('click', function() {
-                score2Span.textContent = parseInt(score2Span.textContent) + 1;
-            });
-            minus2.addEventListener('click', function() {
-                score2Span.textContent = Math.max(0, parseInt(score2Span.textContent) - 1);
-            });
+            plus2.addEventListener('click', function() { updateScore(0, 1); });
+            minus2.addEventListener('click', function() { updateScore(0, -1); });
         }
     });
 

@@ -1,4 +1,4 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, request
 import requests
 from bs4 import BeautifulSoup
 from selenium import webdriver
@@ -8,9 +8,20 @@ from selenium.webdriver.support import expected_conditions as EC
 from flask import render_template
 from selenium.webdriver.firefox.options import Options
 from fake_useragent import UserAgent
-
+import json
 
 app = Flask(__name__)
+SCORE_FILE = "score.json"
+
+
+def read_score():
+    with open(SCORE_FILE, "r", encoding="utf-8") as f:
+        return json.load(f)
+
+
+def write_score(data):
+    with open(SCORE_FILE, "w", encoding="utf-8") as f:
+        json.dump(data, f)
 
 
 @app.route("/")
@@ -126,6 +137,22 @@ def get_NBAscore():
 
     driver.quit()
     return jsonify(data)
+
+
+@app.route("/get_score")
+def get_score():
+    score = read_score()
+    return jsonify(score)
+
+
+@app.route("/update_score", methods=["POST"])
+def update_score():
+    data = request.json
+    score = read_score()
+    score["score1"] = data.get("score1", score["score1"])
+    score["score2"] = data.get("score2", score["score2"])
+    write_score(score)
+    return jsonify(score)
 
 
 @app.route("/app/BWFscore", methods=["GET"])
