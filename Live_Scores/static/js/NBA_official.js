@@ -35,6 +35,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 select.value = e.target.dataset.n;
                 block.updatePreview();
                 modal.style.display = 'none';
+                updateLogo(); // 新增：確保 modal 點選 logo 也會觸發 updateLogo
             }
             if(e.target === modal){
                 modal.style.display = 'none';
@@ -63,8 +64,10 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
     function updateLogo() {
+        console.log('updateLogo called'); // 放在最前面，確認有無進入函式
         const logo1 = parseInt(document.querySelector('.team1-logo .svg-select').value);
         const logo2 = parseInt(document.querySelector('.team2-logo .svg-select').value);
+        console.log('logo1:', logo1, 'logo2:', logo2); // 印出目前選擇
         // 取得目前分數
         const score1 = parseInt(document.querySelector('.score1').textContent) || 0;
         const score2 = parseInt(document.querySelector('.score2').textContent) || 0;
@@ -90,12 +93,14 @@ document.addEventListener('DOMContentLoaded', function() {
     // 當 logo 選擇改變時，發送 AJAX 更新
     document.querySelectorAll('.team1-logo .svg-select').forEach(sel => {
         sel.addEventListener('change', function() {
+            console.log('team1 select changed'); // 新增：確認事件有無觸發
             updateLogo();
         });
         // console.log(sel.value); // 如需除錯可取消註解
     });
     document.querySelectorAll('.team2-logo .svg-select').forEach(sel => {
         sel.addEventListener('change', function() {
+            console.log('team2 select changed'); // 新增：確認事件有無觸發
             updateLogo();
         });
         // console.log(sel.value); // 如需除錯可取消註解
