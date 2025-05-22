@@ -63,13 +63,14 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
     function updateLogo() {
-        
-
         const logo1 = parseInt(document.querySelector('.team1-logo .svg-select').value);
         const logo2 = parseInt(document.querySelector('.team2-logo .svg-select').value);
         // 取得目前分數
         const score1 = parseInt(document.querySelector('.score1').textContent) || 0;
         const score2 = parseInt(document.querySelector('.score2').textContent) || 0;
+        console.log('updateLogo'); // 應放在這裡
+        // 取得目前選擇的 logo
+        console.log('logo1:', logo1, 'logo2:', logo2); // 一起印出
         fetch('/update_score', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -84,9 +85,6 @@ document.addEventListener('DOMContentLoaded', function() {
             document.querySelectorAll('.score1').forEach(el => el.textContent = data.score1);
             document.querySelectorAll('.score2').forEach(el => el.textContent = data.score2);
         });
-        console.log('updateLogo');
-        // 取得目前選擇的 logo
-        console.log('logo1:', logo1);
     }
 
     // 當 logo 選擇改變時，發送 AJAX 更新
