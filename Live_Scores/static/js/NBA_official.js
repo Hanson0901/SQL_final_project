@@ -133,26 +133,6 @@ document.addEventListener('DOMContentLoaded', function() {
             minus2.addEventListener('click', function() { updateScore(0, -1); });
         }
     });
-    function updateLogo() {
-    // 取得目前 logo 與分數
-    const logo1 = parseInt(document.querySelector('.team1-logo .svg-select').value);
-    const logo2 = parseInt(document.querySelector('.team2-logo .svg-select').value);
-    const score1 = parseInt(document.querySelector('.score1').textContent) || 0;
-    const score2 = parseInt(document.querySelector('.score2').textContent) || 0;
-    fetch('/update_score', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ logo1, logo2, score1, score2 })
-    })
-    .then(res => res.json())
-    .then(data => {
-        // 同步更新 logo 預覽與隊名
-        document.querySelectorAll('.team1-logo').forEach(block => block.updatePreview());
-        document.querySelectorAll('.team2-logo').forEach(block => block.updatePreview());
-        // 分數也同步
-        document.querySelectorAll('.score1').forEach(el => el.textContent = data.score1);
-        document.querySelectorAll('.score2').forEach(el => el.textContent = data.score2);
-    });
-}
+    
 
 });
