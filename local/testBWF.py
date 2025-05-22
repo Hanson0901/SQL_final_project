@@ -7,7 +7,9 @@ from bs4 import BeautifulSoup
 import time
 
 
-url = "https://bwfbadminton.com/"
+# url = "https://bwfbadminton.com/"
+
+url = "http://cgusqlpj.ddns.net:5000/NBA_official"
 
 options = uc.ChromeOptions()
 # options.add_argument("--disable-blink-features=AutomationControlled")

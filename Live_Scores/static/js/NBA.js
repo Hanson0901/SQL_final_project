@@ -74,4 +74,4 @@ async function fetchScore() {
 }
 
 fetchScore();
-setInterval(fetchScore, 5000);
+setInterval(fetchScore, 10000);

@@ -11,7 +11,7 @@ from fake_useragent import UserAgent
 import json
 
 app = Flask(__name__)
-SCORE_FILE = "score.json"
+SCORE_FILE = "nba_score.json"
 
 
 def read_score():
