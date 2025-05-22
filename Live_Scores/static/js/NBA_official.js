@@ -63,6 +63,8 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
     function updateLogo() {
+        
+
         const logo1 = parseInt(document.querySelector('.team1-logo .svg-select').value);
         const logo2 = parseInt(document.querySelector('.team2-logo .svg-select').value);
         // 取得目前分數
@@ -82,6 +84,9 @@ document.addEventListener('DOMContentLoaded', function() {
             document.querySelectorAll('.score1').forEach(el => el.textContent = data.score1);
             document.querySelectorAll('.score2').forEach(el => el.textContent = data.score2);
         });
+        console.log('updateLogo');
+        // 取得目前選擇的 logo
+        console.log('logo1:', logo1);
     }
 
     // 當 logo 選擇改變時，發送 AJAX 更新
@@ -89,13 +94,13 @@ document.addEventListener('DOMContentLoaded', function() {
         sel.addEventListener('change', function() {
             updateLogo();
         });
-        console.log(sel.value); // 如需除錯可取消註解
+        // console.log(sel.value); // 如需除錯可取消註解
     });
     document.querySelectorAll('.team2-logo .svg-select').forEach(sel => {
         sel.addEventListener('change', function() {
             updateLogo();
         });
-        console.log(sel.value); // 如需除錯可取消註解
+        // console.log(sel.value); // 如需除錯可取消註解
     });
 
     document.querySelectorAll('.score-block').forEach(function(card) {
