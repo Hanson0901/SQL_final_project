@@ -9,35 +9,23 @@ document.addEventListener('DOMContentLoaded', function() {
                             'Mavericks', 'Rockets', 'Grizzlies', 'Pelicans',
                             'Spurs'
                         ]
-        
-        // [' ','Brooklyn Nets', 'New York Knicks', 'Philadelphia 76ers', 'Toronto Raptors',
-        //     'Chicago Bulls', 'Cleveland Cavaliers', 'Detroit Pistons', 'Indiana Pacers',
-        //     'Milwaukee Bucks', 'Atlanta Hawks', 'Charlotte Hornets', 'Miami Heat',
-        //     'Orlando Magic', 'Washington Wizards', 'Denver Nuggets', 'Minnesota Timberwolves',
-        //     'Oklahoma City Thunder', 'Portland Trail Blazers', 'Utah Jazz', 'Golden State Warriors',
-        //     'Los Angeles Clippers', 'Los Angeles Lakers', 'Phoenix Suns', 'Sacramento Kings',
-        //     'Dallas Mavericks', 'Houston Rockets', 'Memphis Grizzlies', 'New Orleans Pelicans',
-        //     'San Antonio Spurs'
-        // ]
         const select = block.querySelector('.svg-select');
         const preview = block.querySelector('.svg-preview');
         const modal = block.querySelector('.svg-modal');
         const closeBtn = block.querySelector('.close-modal-btn');
-        function updatePreview() {
+        // 將 updatePreview 抽出，方便外部呼叫
+        block.updatePreview = function() {
             const n = select.value;
             const path = `/static/img/NBA/logo(${n}).svg`;
             preview.innerHTML = `<img src="${path}" alt="logo${n}" style="max-width:50px;max-height:50px;">`;
-            const teamName = name_list[n] || '';
-            preview.innerHTML = `
-                <img src="${path}" alt="logo${n}" style="max-width:50px;max-height:50px;">`;
             const teamNameDiv = block.querySelector('.team1-name') || block.querySelector('.team2-name');
             if (teamNameDiv) {
                 teamNameDiv.textContent = name_list[n] || '';
             }
-            }
+        }
         if(select && preview){
-            select.addEventListener('change', updatePreview);
-            updatePreview();
+            select.addEventListener('change', block.updatePreview);
+            block.updatePreview();
         }
         preview.addEventListener('click', function(){
             modal.style.display = 'flex';
@@ -45,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function() {
         modal.addEventListener('click', function(e){
             if(e.target.tagName === 'IMG' && e.target.dataset.n){
                 select.value = e.target.dataset.n;
-                updatePreview();
+                block.updatePreview();
                 modal.style.display = 'none';
             }
             if(e.target === modal){
@@ -56,28 +44,41 @@ document.addEventListener('DOMContentLoaded', function() {
             modal.style.display = 'none';
         });
     });
+
+    // fetch 分數與 logo，並更新畫面
     fetch('/get_score')
         .then(res => res.json())
         .then(data => {
             document.querySelectorAll('.score1').forEach(el => el.textContent = data.score1);
             document.querySelectorAll('.score2').forEach(el => el.textContent = data.score2);
-             // 設定 logo 下拉選單與預覽
-            document.querySelectorAll('.team1-logo .svg-select').forEach(sel => sel.value = data.logo1 ?? 0);
-            document.querySelectorAll('.team2-logo .svg-select').forEach(sel => sel.value = data.logo2 ?? 1);
-        });
-    function updateLogo() {
-            const logo1 = parseInt(document.querySelector('.team1-logo .svg-select').value);
-            const logo2 = parseInt(document.querySelector('.team2-logo .svg-select').value);
-            fetch('/update_score', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ logo1, logo2 })
-            })
-            .then(res => res.json())
-            .then(data => {
-                // 可選：同步更新預覽或其他 UI
+            // 設定 logo 下拉選單與預覽
+            document.querySelectorAll('.team1-logo .svg-select').forEach(sel => {
+                sel.value = data.logo1 ?? 0;
+                // 觸發預覽更新
+                sel.closest('.team-logo-block').updatePreview();
             });
-        }
+            document.querySelectorAll('.team2-logo .svg-select').forEach(sel => {
+                sel.value = data.logo2 ?? 1;
+                sel.closest('.team-logo-block').updatePreview();
+            });
+        });
+
+    function updateLogo() {
+        const logo1 = parseInt(document.querySelector('.team1-logo .svg-select').value);
+        const logo2 = parseInt(document.querySelector('.team2-logo .svg-select').value);
+        fetch('/update_score', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ logo1, logo2 })
+        })
+        .then(res => res.json())
+        .then(data => {
+            // 同步更新 logo 預覽與隊名
+            document.querySelectorAll('.team1-logo').forEach(block => block.updatePreview());
+            document.querySelectorAll('.team2-logo').forEach(block => block.updatePreview());
+        });
+    }
+
     // 當 logo 選擇改變時，發送 AJAX 更新
     document.querySelectorAll('.team1-logo .svg-select').forEach(sel => {
         sel.addEventListener('change', function() {
@@ -89,6 +90,7 @@ document.addEventListener('DOMContentLoaded', function() {
             updateLogo();
         });
     });
+
     document.querySelectorAll('.score-block').forEach(function(card) {
         const score1Span = card.querySelector('.score1');
         const score2Span = card.querySelector('.score2');
@@ -114,6 +116,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 .then(data => {
                     score1Span.textContent = data.score1;
                     score2Span.textContent = data.score2;
+                    // 分數更新後，也同步更新 logo 與隊名
+                    document.querySelectorAll('.team1-logo').forEach(block => block.updatePreview());
+                    document.querySelectorAll('.team2-logo').forEach(block => block.updatePreview());
                 });
         }
 
@@ -125,7 +130,6 @@ document.addEventListener('DOMContentLoaded', function() {
             plus2.addEventListener('click', function() { updateScore(0, 1); });
             minus2.addEventListener('click', function() { updateScore(0, -1); });
         }
-        
     });
 
 });
