@@ -110,7 +110,7 @@ document.addEventListener('DOMContentLoaded', function() {
             fetch('/update_score', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ score1, score2 })
+                body: JSON.stringify({ score1, score2 ,logo1, logo2 })
             })
                 .then(res => res.json())
                 .then(data => {
