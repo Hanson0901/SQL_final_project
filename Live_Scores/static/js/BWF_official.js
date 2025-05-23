@@ -66,12 +66,11 @@ document.addEventListener('DOMContentLoaded', function () {
             let label = flags[idx] ? flags[idx].src : "";
             preview.innerHTML = `<img src="/static/img/BWF/${label}" style="width:32px;height:32px;">`;
             if (select) select.value = idx;
-            // 觸發自動儲存
-            saveAllMatchData();
+            if (triggerSave) saveAllMatchData();
         }
 
         // 預設第一個
-        setLogoByIndex(0);
+        setLogoByIndex(0, false);
 
         preview.addEventListener('click', function () {
             modal.style.display = 'block';
