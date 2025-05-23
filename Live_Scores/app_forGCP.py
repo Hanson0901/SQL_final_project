@@ -359,7 +359,8 @@ def update_bwf_simple():
         data = request.get_json(force=True)
         if not isinstance(data, list):
             return jsonify({"error": "Invalid data format"}), 400
-        # 直接覆蓋
+        if not data:  # 空陣列不覆蓋
+            return jsonify({"error": "Empty data, not saved"}), 400
         write_bwf_score(data)
         return jsonify({"status": "ok"})
     except Exception as e:

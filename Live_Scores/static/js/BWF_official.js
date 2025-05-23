@@ -112,35 +112,40 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // 收集所有比賽的分數與國旗
     function collectAllMatchData() {
-        const cards = document.querySelectorAll('.match-card');
-        const data = [];
-        cards.forEach(card => {
-            // 國旗
-            let flag1 = "";
-            let flag2 = "";
-            let team1Select = card.querySelector('.team1-logo .svg-select');
-            let team2Select = card.querySelector('.team2-logo .svg-select');
-            if (team1Select) {
-                let idx = parseInt(team1Select.value, 10);
-                flag1 = flags[idx]?.src || "";
-            }
-            if (team2Select) {
-                let idx = parseInt(team2Select.value, 10);
-                flag2 = flags[idx]?.src || "";
-            }
-            // 分數
-            let score1Spans = card.querySelectorAll('.player-row .score div span[contenteditable="true"]');
-            let score1 = Array.from(score1Spans).map(span => parseInt(span.textContent.trim(), 10) || 0);
-            let playerRows = card.querySelectorAll('.player-row');
-            let score2 = [];
-            if (playerRows.length > 1) {
-                let score2Spans = playerRows[1].querySelectorAll('.score div span[contenteditable="true"]');
-                score2 = Array.from(score2Spans).map(span => parseInt(span.textContent.trim(), 10) || 0);
-            }
+    const cards = document.querySelectorAll('.match-card');
+    const data = [];
+    cards.forEach(card => {
+        // 國旗
+        let flag1 = "";
+        let flag2 = "";
+        let team1Select = card.querySelector('.team1-logo .svg-select');
+        let team2Select = card.querySelector('.team2-logo .svg-select');
+        if (team1Select) {
+            let idx = parseInt(team1Select.value, 10);
+            flag1 = flags[idx]?.src || "";
+        }
+        if (team2Select) {
+            let idx = parseInt(team2Select.value, 10);
+            flag2 = flags[idx]?.src || "";
+        }
+        // 分數
+        let score1Spans = card.querySelectorAll('.player-row .score div span[contenteditable="true"]');
+        let score1 = Array.from(score1Spans).map(span => parseInt(span.textContent.trim(), 10) || 0);
+        let playerRows = card.querySelectorAll('.player-row');
+        let score2 = [];
+        if (playerRows.length > 1) {
+            let score2Spans = playerRows[1].querySelectorAll('.score div span[contenteditable="true"]');
+            score2 = Array.from(score2Spans).map(span => parseInt(span.textContent.trim(), 10) || 0);
+        }
+        // 只收集有內容的卡片（有分數或有國旗）
+        const hasScore = score1.some(s => s > 0) || score2.some(s => s > 0);
+        const hasFlag = flag1 !== "" || flag2 !== "";
+        if (hasScore || hasFlag) {
             data.push({ flag1, flag2, score1, score2 });
-        });
-        return data;
-    }
+        }
+    });
+    return data;
+}
 
     // 儲存所有比賽資料到後端
     function saveAllMatchData() {
