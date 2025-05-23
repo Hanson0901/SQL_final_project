@@ -76,6 +76,7 @@ for li in match_cards_li:
         if flag_elements
         else "No flag info"
     )
+    print("flag:", flag)
     flag_1 = flag[0] if flag else "No flag info"
     flag_2 = flag[1] if len(flag) > 1 else "No flag info"
 
