@@ -359,19 +359,8 @@ def update_bwf_simple():
         data = request.get_json(force=True)
         if not isinstance(data, list):
             return jsonify({"error": "Invalid data format"}), 400
-
-        # 讀取原始資料
-        full_data = read_bwf_score()
-        # 只更新這四個欄位
-        for i, match in enumerate(data):
-            if i < len(full_data):
-                # 檢查型態
-                full_data[i]["flag1"] = match.get("flag1", "")
-                full_data[i]["flag2"] = match.get("flag2", "")
-                # 確保分數是 list
-                full_data[i]["score1"] = list(match.get("score1", []))
-                full_data[i]["score2"] = list(match.get("score2", []))
-        write_bwf_score(full_data)
+        # 直接覆蓋
+        write_bwf_score(data)
         return jsonify({"status": "ok"})
     except Exception as e:
         import traceback
