@@ -13,11 +13,11 @@ app = Flask(__name__)
 
 #連資料庫
 connection = pymysql.connect(
-    host='localhost',
+    host='cgusqlpj.ddns.net',
     port = 3306,
     user='uuriglass',
     password='laby800322',
-    database='test',
+    database='final_project',
     charset='utf8mb4',
     cursorclass=pymysql.cursors.DictCursor
 )
@@ -288,12 +288,21 @@ def api_mix_search():
                 if not table:
                     return jsonify({"error": "Unknown sport_type"}), 400
 
-                cursor.execute(f"""
-                    SELECT t.*, x.*
-                    FROM teams t
-                    LEFT JOIN {table} x ON t.team_id = x.team_id
-                    WHERE t.team_id = %s
-                """, (team_id,))
+                if sport_type in ["1", "3", "4"]:  # 1: NBA, 3: MLB, 4: CPBL 這些有 city_id
+                    cursor.execute(f"""
+                        SELECT t.*, x.*, c.city_name AS city_name, c.abbr AS abbr
+                        FROM teams t
+                        LEFT JOIN {table} x ON t.team_id = x.team_id
+                        LEFT JOIN city_info c ON x.city_id = c.city_id
+                        WHERE t.team_id = %s
+                    """, (team_id,))
+                else:
+                    cursor.execute(f"""
+                        SELECT t.*, x.*
+                        FROM teams t
+                        LEFT JOIN {table} x ON t.team_id = x.team_id
+                        WHERE t.team_id = %s
+                    """, (team_id,))
                 return jsonify(cursor.fetchall())
 
 

@@ -218,8 +218,8 @@ if(page === "door"){
       }
 
       fetch(`/api/get_keywords?type=${type}&sport_type=${sportType}`)
-        .then(res => res.json())
-        .then(data => {
+            .then(res => res.json())
+            .then(data => {
           if (!Array.isArray(data)) {
             alert("⚠️ 後端回傳錯誤：" + (data.error || "未知錯誤"));
             return;
@@ -234,8 +234,8 @@ if(page === "door"){
             option.textContent = item.name;
             keywordSelect.appendChild(option);
           });
-        });
-    }
+            });
+        }
 
     // 查詢
     searchBtn.addEventListener("click", () => {
@@ -288,7 +288,8 @@ if(page === "door"){
                            背號：${player.jersey_number}<br>
                            守備位置：${player.position}<br>
                            打擊習慣：${player.batting_hand}<br>
-                           打擊率：${player.batting_avg}`;
+                           打擊率：${(player.batting_avg * 100).toFixed(2)}%<br>
+                           防守率：${(player.era * 100).toFixed(2)}%<br>`;
                   break;
                 case 5:
                   html += `慣用手：${player.hand}<br>
@@ -315,7 +316,7 @@ if(page === "door"){
               switch (sportTypeNum) {
                 case 1:
                   html += `縮寫：${team.abbr}<br>
-                           城市：${team.city1 || ''} ${team.city2 || ''}<br>
+                           城市：${team.city_name}<br>
                            主場：${team.arena}`;
                   break;
                 case 2:
@@ -328,15 +329,13 @@ if(page === "door"){
                     break;
                 case 3:
                 case 4:
-                  html += `城市：${team.location}<br>
+                  html += `縮寫：${team.abbr}<br>
+                           城市：${team.city_name}<br>
                            聯盟：${team.league}<br>
                            主場：${team.stadium}<br>
                            成立年份：${team.founded_year}<br>
                            教練：${team.head_coach}`;
                   break;
-                // case 5:
-                //   html += `🏸 國籍名稱（隊名）：${team.team_name}`;
-                //   break;
                 default:
                   html += "（不支援的運動種類）";
               }
