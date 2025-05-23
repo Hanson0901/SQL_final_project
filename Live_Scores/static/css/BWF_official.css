@@ -252,6 +252,11 @@ html {
   box-shadow: 0 2px 8px rgba(21, 111, 245, 0.15);
   border-color: #156ff5;
 }
+.round-details-text {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* 垂直置中，可依需求調整 */
+}
 
 /* 新增：svg-preview 內 img 滿版顯示且維持比例 */
 .svg-preview img {
