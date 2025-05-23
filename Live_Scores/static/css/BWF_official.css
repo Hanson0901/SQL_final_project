@@ -256,6 +256,7 @@ html {
   display: flex;
   justify-content: space-between;
   align-items: center; /* 垂直置中，可依需求調整 */
+  width: 100%;
 }
 
 /* 新增：svg-preview 內 img 滿版顯示且維持比例 */
