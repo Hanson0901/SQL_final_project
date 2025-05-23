@@ -358,21 +358,28 @@ def update_bwf_simple():
     """
     前端傳來一個陣列，每個元素有 flag1、flag2、score1、score2
     """
-    data = request.json  # 應為 list
-    if not isinstance(data, list):
-        return jsonify({"error": "Invalid data format"}), 400
+    try:
+        data = request.get_json(force=True)
+        if not isinstance(data, list):
+            return jsonify({"error": "Invalid data format"}), 400
 
-    # 讀取原始資料
-    full_data = read_bwf_score()
-    # 只更新這四個欄位
-    for i, match in enumerate(data):
-        if i < len(full_data):
-            full_data[i]["flag1"] = match.get("flag1", "")
-            full_data[i]["flag2"] = match.get("flag2", "")
-            full_data[i]["score1"] = match.get("score1", [])
-            full_data[i]["score2"] = match.get("score2", [])
-    write_bwf_score(full_data)
-    return jsonify({"status": "ok"})
+        # 讀取原始資料
+        full_data = read_bwf_score()
+        # 只更新這四個欄位
+        for i, match in enumerate(data):
+            if i < len(full_data):
+                # 檢查型態
+                full_data[i]["flag1"] = match.get("flag1", "")
+                full_data[i]["flag2"] = match.get("flag2", "")
+                # 確保分數是 list
+                full_data[i]["score1"] = list(match.get("score1", []))
+                full_data[i]["score2"] = list(match.get("score2", []))
+        write_bwf_score(full_data)
+        return jsonify({"status": "ok"})
+    except Exception as e:
+        import traceback
+        print("update_bwf_simple error:", traceback.format_exc())
+        return jsonify({"error": str(e)}), 500
 
 @app.route("/NBAscore")
 def nba_score():
