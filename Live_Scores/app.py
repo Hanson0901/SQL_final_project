@@ -170,41 +170,42 @@ def get_bwf_score():
     # driver = uc.Chrome(options=options)
 
     driver.get(url)
+    if url!= "http://cgusqlpj.ddns.net:5000/BWF_official":
+        
+        # 取得所有下一場賽事的連結（div.menu-next-tmt-outer 裡的 href）
+        next_tmt_links = []
+        try:
+            next_tmt_divs = driver.find_elements(
+                By.CSS_SELECTOR, "div.menu-next-tmt-outer a"
+            )
+            for a in next_tmt_divs:
+                href = a.get_attribute("href")
+                if href:
+                    next_tmt_links.append(href)
+        except Exception as e:
+            print("Error finding next tournament links:", e)
 
-    # 取得所有下一場賽事的連結（div.menu-next-tmt-outer 裡的 href）
-    next_tmt_links = []
-    try:
-        next_tmt_divs = driver.find_elements(
-            By.CSS_SELECTOR, "div.menu-next-tmt-outer a"
-        )
-        for a in next_tmt_divs:
-            href = a.get_attribute("href")
-            if href:
-                next_tmt_links.append(href)
-    except Exception as e:
-        print("Error finding next tournament links:", e)
+        driver.get(href)
 
-    driver.get(href)
+        # 取得 div.tmt-live-link 裡的所有 a 標籤的 href
+        tmt_live_links = []
+        try:
+            tmt_live_divs = driver.find_elements(By.CSS_SELECTOR, "div.tmt-live-link a")
+            for a in tmt_live_divs:
+                href = a.get_attribute("href")
+                if href:
+                    tmt_live_links.append(href)
+        except Exception as e:
+            print("Error finding tmt-live-link anchors:", e)
 
-    # 取得 div.tmt-live-link 裡的所有 a 標籤的 href
-    tmt_live_links = []
-    try:
-        tmt_live_divs = driver.find_elements(By.CSS_SELECTOR, "div.tmt-live-link a")
-        for a in tmt_live_divs:
-            href = a.get_attribute("href")
-            if href:
-                tmt_live_links.append(href)
-    except Exception as e:
-        print("Error finding tmt-live-link anchors:", e)
+        driver.get(href)
 
-    driver.get(href)
-
-    # 等待關閉按鈕出現並點擊
-    try:
-        close_button = driver.find_element(By.CLASS_NAME, "close-button")
-        close_button.click()
-    except Exception as e:
-        print("Close button not found or not clickable:", e)
+        # 等待關閉按鈕出現並點擊
+        try:
+            close_button = driver.find_element(By.CLASS_NAME, "close-button")
+            close_button.click()
+        except Exception as e:
+            print("Close button not found or not clickable:", e)
 
     # 用 CSS_SELECTOR 並延長等待時間
     match_cards_ul = WebDriverWait(driver, 1).until(
