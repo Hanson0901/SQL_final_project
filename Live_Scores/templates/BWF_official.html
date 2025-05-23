@@ -128,13 +128,15 @@
                 <li class="match-card" data-index="1">
                     <div class="court-row">
                         <span class="round-court court">COURT 2</span>
-                        <div class="animated-line">
-                            <img src="{{ url_for('static', filename='img/BWF/bwf-animated-gif.gif') }}"
-                                alt="BWF Animated">
-                        </div>
+
 
                         <div class="time">
-                            <span timer><i class="far fa-fw fa-clock"></i> 0:45</span>
+                            <div class="animated-line" style="display: inline-block; vertical-align: middle;">
+                                <img src="{{ url_for('static', filename='img/BWF/bwf-animated-gif.gif') }}"
+                                    alt="BWF Animated">
+                            </div>
+                            <span timer style="display: inline-block; vertical-align: middle;"><i
+                                    class="far fa-fw fa-clock"></i> 0:45</span>
                         </div>
                     </div>
 
