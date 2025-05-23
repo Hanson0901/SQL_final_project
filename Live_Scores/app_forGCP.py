@@ -340,24 +340,17 @@ def get_bwf_score():
 
 @app.route("/get_bwf_simple", methods=["GET"])
 def get_bwf_simple():
-    # 讀取完整 BWF JSON
-    data = read_bwf_score()
-    # 只取需要的欄位
-    simple_data = []
-    for match in data:
-        simple_data.append({
-            "flag1": match.get("flag1", ""),
-            "flag2": match.get("flag2", ""),
-            "score1": match.get("score1", []),
-            "score2": match.get("score2", [])
-        })
-    return jsonify(simple_data)
+    try:
+        data = read_bwf_score()
+        if not isinstance(data, list):
+            data = []
+    except Exception as e:
+        print("get_bwf_simple error:", e)
+        data = []
+    return jsonify(data)
 
 @app.route("/update_bwf_simple", methods=["POST"])
 def update_bwf_simple():
-    """
-    前端傳來一個陣列，每個元素有 flag1、flag2、score1、score2
-    """
     try:
         data = request.get_json(force=True)
         if not isinstance(data, list):
