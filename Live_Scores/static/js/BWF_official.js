@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
-    // 定義 flags 陣列，改為 static 路徑
+    // 國旗選項
     const flags = [
         { src: "/static/img/BWF/Flag_of_Chinese_Taipei_for_Olympic_Games.svg.webp", n: 0 },
         { src: "/static/img/BWF/Flag_of_Denmark.svg.webp", n: 1 },
@@ -9,15 +9,50 @@ document.addEventListener('DOMContentLoaded', function () {
         { src: "/static/img/BWF/Flag_of_Japan.svg.webp", n: 5 }
     ];
 
+    // 取得比賽資料
+    fetch('/get_bwf_simple')
+        .then(res => res.json())
+        .then(data => {
+            // 假設每個比賽卡片有唯一 data-match-index
+            document.querySelectorAll('.match-card').forEach(function(card, idx) {
+                // 設定 flag1
+                let team1Logo = card.querySelector('.team1-logo .svg-preview');
+                if (team1Logo && data[idx] && data[idx].flag1) {
+                    team1Logo.innerHTML = `<img src="/static/img/BWF/${data[idx].flag1}" style="width:32px;height:32px;">`;
+                }
+                // 設定 flag2
+                let team2Logo = card.querySelector('.team2-logo .svg-preview');
+                if (team2Logo && data[idx] && data[idx].flag2) {
+                    team2Logo.innerHTML = `<img src="/static/img/BWF/${data[idx].flag2}" style="width:32px;height:32px;">`;
+                }
+                // 設定 score1
+                let score1Spans = card.querySelectorAll('.player-row .score div span[contenteditable="true"]');
+                if (score1Spans.length && data[idx] && data[idx].score1) {
+                    data[idx].score1.forEach((val, i) => {
+                        if (score1Spans[i]) score1Spans[i].textContent = val;
+                    });
+                }
+                // 設定 score2
+                let playerRows = card.querySelectorAll('.player-row');
+                if (playerRows.length > 1) {
+                    let score2Spans = playerRows[1].querySelectorAll('.score div span[contenteditable="true"]');
+                    if (score2Spans.length && data[idx] && data[idx].score2) {
+                        data[idx].score2.forEach((val, i) => {
+                            if (score2Spans[i]) score2Spans[i].textContent = val;
+                        });
+                    }
+                }
+            });
+        });
+
+    // 以下為國旗選擇功能（如你原本的）
     document.querySelectorAll('.team-logo-block').forEach(function (block) {
-        // 取得 svg-preview 與 svg-modal
         const preview = block.querySelector('.svg-preview');
         const modal = block.querySelector('.svg-modal');
         const closeBtn = block.querySelector('.close-modal-btn');
         const logoList = block.querySelector('.logo-list');
         const select = block.querySelector('.svg-select');
 
-        // 產生 logoList 內容
         if (logoList && logoList.children.length === 0) {
             flags.forEach(function (flag) {
                 const img = document.createElement('img');
@@ -27,27 +62,22 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         }
 
-        // 預設顯示第一個 logo
         function setLogoByIndex(idx) {
             let label = flags[idx] ? flags[idx].src.split('/').pop() : "";
             preview.innerHTML = `<img src="/static/img/BWF/${label}" style="width:32px;height:32px;">`;
             if (select) select.value = idx;
         }
 
-        // 預設顯示第0個
         setLogoByIndex(0);
 
-        // 點擊預覽開啟 modal
         preview.addEventListener('click', function () {
             modal.style.display = 'block';
         });
 
-        // 點擊關閉按鈕關閉 modal
         closeBtn.addEventListener('click', function () {
             modal.style.display = 'none';
         });
 
-        // 點擊 logo 選擇
         logoList.querySelectorAll('img').forEach(function (img) {
             img.addEventListener('click', function () {
                 const idx = parseInt(img.getAttribute('data-n'), 10);
@@ -56,7 +86,6 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         });
 
-        // select 下拉選單選擇
         if (select) {
             select.addEventListener('change', function () {
                 setLogoByIndex(parseInt(select.value, 10));

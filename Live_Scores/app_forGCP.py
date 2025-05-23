@@ -11,18 +11,25 @@ from fake_useragent import UserAgent
 import json
 
 app = Flask(__name__)
-SCORE_FILE = "nba_score.json"
-
+NBA_SCORE_FILE = "nba_score.json"
+BWF_SCORE_FILE = "bwf_score.json"
 
 def read_score():
-    with open(SCORE_FILE, "r", encoding="utf-8") as f:
+    with open(NBA_SCORE_FILE, "r", encoding="utf-8") as f:
         return json.load(f)
 
 
 def write_score(data):
-    with open(SCORE_FILE, "w", encoding="utf-8") as f:
+    with open(NBA_SCORE_FILE, "w", encoding="utf-8") as f:
         json.dump(data, f)
 
+def read_bwf_score():
+    with open(BWF_SCORE_FILE, "r", encoding="utf-8") as f:
+        return json.load(f)
+    
+def write_bwf_score(data):
+    with open(BWF_SCORE_FILE, "w", encoding="utf-8") as f:
+        json.dump(data, f)
 
 @app.route("/")
 def index():
@@ -164,6 +171,7 @@ def update_score():
 
 @app.route("/app/BWFscore", methods=["GET"])
 def get_bwf_score():
+
 
     options = Options()
 
@@ -330,6 +338,41 @@ def get_bwf_score():
     driver.quit()
     return jsonify(match_cards_array)
 
+@app.route("/get_bwf_simple", methods=["GET"])
+def get_bwf_simple():
+    # 讀取完整 BWF JSON
+    data = read_bwf_score()
+    # 只取需要的欄位
+    simple_data = []
+    for match in data:
+        simple_data.append({
+            "flag1": match.get("flag1", ""),
+            "flag2": match.get("flag2", ""),
+            "score1": match.get("score1", []),
+            "score2": match.get("score2", [])
+        })
+    return jsonify(simple_data)
+
+@app.route("/update_bwf_simple", methods=["POST"])
+def update_bwf_simple():
+    """
+    前端傳來一個陣列，每個元素有 flag1、flag2、score1、score2
+    """
+    data = request.json  # 應為 list
+    if not isinstance(data, list):
+        return jsonify({"error": "Invalid data format"}), 400
+
+    # 讀取原始資料
+    full_data = read_bwf_score()
+    # 只更新這四個欄位
+    for i, match in enumerate(data):
+        if i < len(full_data):
+            full_data[i]["flag1"] = match.get("flag1", "")
+            full_data[i]["flag2"] = match.get("flag2", "")
+            full_data[i]["score1"] = match.get("score1", [])
+            full_data[i]["score2"] = match.get("score2", [])
+    write_bwf_score(full_data)
+    return jsonify({"status": "ok"})
 
 @app.route("/NBAscore")
 def nba_score():
