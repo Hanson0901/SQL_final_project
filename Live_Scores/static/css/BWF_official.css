@@ -177,7 +177,7 @@ html {
 .player-row {
   display: flex;
   align-items: center;
-  margin-bottom: 3px;
+  margin-bottom: 10px;
 }
 
 .flag {
