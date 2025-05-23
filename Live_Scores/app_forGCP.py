@@ -14,18 +14,22 @@ app = Flask(__name__)
 NBA_SCORE_FILE = "nba_score.json"
 BWF_SCORE_FILE = "bwf_score.json"
 
-def read_score():
+def read_nba_score():
     with open(NBA_SCORE_FILE, "r", encoding="utf-8") as f:
         return json.load(f)
 
 
-def write_score(data):
+def write_nba_score(data):
     with open(NBA_SCORE_FILE, "w", encoding="utf-8") as f:
         json.dump(data, f)
 
 def read_bwf_score():
-    with open(BWF_SCORE_FILE, "r", encoding="utf-8") as f:
-        return json.load(f)
+    try:
+        with open(BWF_SCORE_FILE, "r", encoding="utf-8") as f:
+            return json.load(f)
+    except (FileNotFoundError, json.JSONDecodeError):
+        # 檔案不存在或內容錯誤時回傳空陣列
+        return []
     
 def write_bwf_score(data):
     with open(BWF_SCORE_FILE, "w", encoding="utf-8") as f:
@@ -148,14 +152,14 @@ def get_NBAscore():
 
 @app.route("/get_score")
 def get_score():
-    score = read_score()
+    score = read_nba_score()
     return jsonify(score)
 
 
 @app.route("/update_score", methods=["POST"])
 def update_score():
     data = request.json
-    score = read_score()
+    score = read_nba_score()
     # 只在有傳入時才更新
     if "score1" in data:
         score["score1"] = data["score1"]
@@ -165,7 +169,7 @@ def update_score():
         score["logo1"] = data["logo1"]
     if "logo2" in data:
         score["logo2"] = data["logo2"]
-    write_score(score)
+    write_nba_score(score)
     return jsonify(score)
 
 
