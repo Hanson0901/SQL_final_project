@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         }
 
-        function setLogoByIndex(idx) {
+        function setLogoByIndex(idx ,triggerSave = true) {
             let label = flags[idx] ? flags[idx].src : "";
             preview.innerHTML = `<img src="/static/img/BWF/${label}" style="width:32px;height:32px;">`;
             if (select) select.value = idx;
