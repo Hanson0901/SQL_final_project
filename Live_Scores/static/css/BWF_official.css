@@ -156,6 +156,12 @@ html {
   box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
 }
 
+.row {
+  display: flex;
+  justify-content: space-between; /* 左右分散 */
+  align-items: center; /* 垂直置中，可依需求調整 */
+  width: 100%; /* 父容器寬度，依需求調整 */
+}
 .court-row {
   display: flex;
   justify-content: space-between;

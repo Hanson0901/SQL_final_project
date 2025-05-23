@@ -148,4 +148,4 @@ function renderMatchHTML(match) {
 
 // 初始化
 fetchAndRenderBWF();
-setInterval(fetchAndRenderBWF, 20000);
+setInterval(fetchAndRenderBWF, 10000);
