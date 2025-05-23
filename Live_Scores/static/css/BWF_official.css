@@ -180,7 +180,7 @@ html {
   margin-bottom: 10px;
 }
 
-.flag {
+/* .flag {
   display: inline-block;
   width: 22px;
   height: 15px;
@@ -195,7 +195,7 @@ html {
 }
 .flag.sg {
   background-image: url("flag-sg.png");
-}
+} */
 
 .player {
   flex: 1;
