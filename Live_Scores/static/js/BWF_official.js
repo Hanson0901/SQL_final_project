@@ -149,11 +149,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // 儲存所有比賽資料到後端
     function saveAllMatchData() {
-        const data = collectAllMatchData();
-        fetch('/update_bwf_simple', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(data)
-        });
-    }
+    const data = collectAllMatchData();
+    if (!data.length) return; // 沒有資料就不送出
+    fetch('/update_bwf_simple', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+    });
+}
 });
