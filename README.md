@@ -1,0 +1,51 @@
+# Ref:rain Aimer
+Raining 夏の午後に 通り雨 傘の下  
+Kissing 濡れた頬に そっと口づけた  
+あの季節に まだ焦がれている  
+Miss you 窓の外に 遠ざかる景色たち  
+Breezing 虹が見えた すぐに消えそうで  
+雨 明日は降らなければいい  
+何も手につかずに 上の空の日々  
+Nothing but you're the part of me  
+まだ 足りなくて  
+まだ 消えなくて  
+重ねた手のひらから幼さが  
+What a good thing we lose?  
+What a bad thing we knew  
+そんなフレーズに濡れてく 雨の中  
+ただ 足りなくて  
+まだ 言えなくて  
+数えた日の夢からさよならが  
+What a good thing we lose?  
+What a bad thing we knew  
+触れられずにいれたら 笑えたかな？  
+Calling 白い息が 舞いあがる 空の下  
+Freezing 強い風に 少しかじかんだ手と  
+弱さをポケットの中に  
+どこを見渡しても 通り過ぎた日々  
+Nothing but you're the part of me  
+また 触れたくて  
+ただ 眩しくて  
+思わず目をそらした優しさに  
+I wanna sleep in your feel  
+I wanna see you in the deep  
+そんなフレーズを並べた詩を 今  
+あの帰り道 バスに揺られて  
+叶うはずもない様な夢を見た  
+I wanna sleep in your feel  
+I wanna see you in the deep  
+繰りかえす季節に 慣れないまま  
+もう少しくらい大人でいれたら  
+何て言えただろう？  
+まだ 足りなくて  
+まだ 消えなくて  
+重ねた手のひらから幼さが  
+What a good thing we lose?  
+What a bad thing we knew  
+そんなフレーズに濡れてく 雨の中  
+ただ 足りなくて  
+まだ 言えなくて  
+数えた日の夢からさよならが  
+What a good thing we lose?  
+What a bad thing we knew  
+触れられずにいれたら 笑えたかな？ 
