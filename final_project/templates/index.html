@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <title>入口大門</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #EFE4DD;
+      color: #6F6A69;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    h2 {
+      margin-top: 30px;
+      color: #6F6A69;
+    }
+
+    a button,
+    button {
+      background-color: #A8D4D1;
+      color: #fff;
+      border: none;
+      padding: 12px 24px;
+      margin-top: 10px;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+    }
+
+    a button:hover,
+    button:hover {
+      background-color: #7FB9B3;
+    }
+
+    input[type="password"] {
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #DAD4CE;
+      border-radius: 4px;
+      margin-top: 10px;
+      width: 220px;
+      background-color: #fff;
+      color: #6F6A69;
+    }
+  </style>
+</head>
+<body>
+  <h2>我是使用者</h2>
+  <a href="{{ url_for('foruser') }}"><button>進入使用者介面</button></a>
+
+  <h2>我是管理者</h2>
+  <input type="password" id="admin_key" placeholder="請輸入進入密碼">
+  <button onclick="enterAdmin()">進入管理者介面</button>
+
+  <script>
+    function enterAdmin() {
+      const key = document.getElementById("admin_key").value;
+
+      fetch("/admin_entry", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ admin_key: key })
+      })
+        .then(res => res.json())
+        .then(data => {
+          if (data.success) {
+            window.location.href = "/foradmin";
+          } else {
+            alert("❌ 密碼錯誤，請再試一次！");
+          }
+        });
+    }
+  </script>
+</body>
+</html>

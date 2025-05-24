@@ -88,10 +88,6 @@ input[type="text"] {
     gap: 1rem;
 }
 
-.right-btn {
-    display: flex;
-    justify-content: center;
-}
 
 .back_btn button {
     background-color: var(--color-1);
@@ -115,6 +111,13 @@ input[type="text"] {
 
 /* 🔥 加上手機響應式 */
 @media (max-width: 768px) {
+
+    .button-wrapper {
+        display: flex;              /* 重點！一定要有 */
+        justify-content: center;    /* 讓按鈕們置中 */
+        gap: 10px;                  /* 按鈕間距 */
+        margin-top: 0.5rem;
+    }
 
     input, select, textarea {
         font-size: 16px;
@@ -154,10 +157,21 @@ input[type="text"] {
         padding-right: 1rem;
     }
 
-    #removebtn{
-      margin-left: 12px;
-    }
+    .remove-btn {
+        width: 32px;
+        height: 32px;
+        background-color: #cfa78f;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
 
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        }
     .btns {
         flex-direction: column;
         align-items: stretch;
@@ -167,12 +181,13 @@ input[type="text"] {
     .sql-card button {
         margin: 0rem auto 0 auto;
         margin-top: 2%;
-        width: 100%;
+        width: 40%;
         font-size: 1rem;
+        /* margin-left: 10px; */
     }
 
     .btns button{
-        width: 100%;
+
         font-size: 1rem;
     }
 
