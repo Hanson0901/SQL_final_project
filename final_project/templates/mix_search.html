@@ -11,18 +11,9 @@
   <h1>📚 綜合查詢系統</h1>
 
   <div class="form-card">
-    <!-- 查詢選項 -->
-    <label for="query-type">1️⃣ 選擇查詢類型</label>
-    <select id="query-type">
-      <option value="">請選擇</option>
-      <option value="player">球員名稱</option>
-      <option value="team">球隊名稱</option>
-      <option value="event">賽事名稱</option>
-    </select>
-
     <!-- 運動種類 -->
      <div id = "sport-type-wrapper">
-      <label for="sport-type">🏅 運動種類（搜尋球員/球隊時必填）</label>
+      <label for="sport-type">運動種類</label>
       <select id="sport-type">
         <option value="">請選擇</option>
         <option value="1">NBA</option>
@@ -32,9 +23,18 @@
         <option value="5">BWF</option>
       </select>
      </div>
+
+     <!-- 查詢選項 -->
+    <label for="query-type">選擇查詢類型（請先選擇上方選項）</label>
+    <select id="query-type">
+      <option value="">請選擇</option>
+      <option value="player">球員名稱</option>
+      <option value="team">隊伍名稱</option>
+      <option value="event">賽事名稱</option>
+    </select>
     
     <!-- 關鍵字輸入 -->
-    <label for="keyword">🔤 關鍵字（請先選擇上方選項）</label>
+    <label for="keyword">關鍵字（請先選擇上方選項）</label>
     <select id="keyword" disabled>
       <option value="">請選擇</option>
     </select>

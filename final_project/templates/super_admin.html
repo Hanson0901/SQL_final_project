@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>最高權限管理</title>
+  <style>
+    body {
+      font-family: 'Microsoft JhengHei', sans-serif;
+      background-color: #fff0f0;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h2 {
+      text-align: center;
+      color: #d94e5c;
+    }
+
+    .panel {
+      background-color: #ffd9d9;
+      padding: 20px;
+      border-radius: 12px;
+      max-width: 960px;
+      margin: 0 auto;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      background-color: white;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    th, td {
+      padding: 12px;
+      border: 1px solid #f5b9b9;
+      text-align: center;
+    }
+
+    th {
+      background-color: #ffe0e0;
+      color: #333;
+    }
+
+    input[type="text"], input[type="password"] {
+      width: 90%;
+      padding: 6px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    button {
+      padding: 8px 12px;
+      margin: 2px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    button:hover {
+      opacity: 0.9;
+    }
+
+    button.update {
+      background-color: #84bcf9;
+      color: rgb(255, 255, 255);
+    }
+
+    button.delete {
+      background-color: #fd9593;
+      color: rgb(255, 255, 255);
+    }
+
+    button.upgrade {
+      background-color: #78de89;
+      color: rgb(255, 255, 255);
+    }
+
+    .back-button {
+      display: block;
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .back-button button {
+      background-color: #888;
+      color: white;
+      padding: 10px 20px;
+    }
+
+    .back-button button:hover {
+      background-color: #666;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>🔐 最高權限管理區</h2>
+  <div class="panel">
+    <p style="text-align: center;">用於管理所有管理員帳號。僅限最高權限管理員可見本頁。</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>帳號</th>
+          <th>密碼</th>
+          <th>權限等級</th>
+          <th>操作</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for admin in admins %}
+            <tr>
+                <td>{{ admin.admin_id }}</td>
+                <td><input type="text" value="{{ admin.user_name }}" data-id="{{ admin.admin_id }}" class="edit-username"></td>
+                <td><input type="text" value="{{ admin.password }}" data-id="{{ admin.admin_id }}" class="edit-password"></td>
+                <td>{{ admin.permission_level }}</td>
+                <td>
+                    <!-- 所有人都可以修改自己的帳號 -->
+                    <button class="update" onclick="updateAdmin({{ admin.admin_id }})">修改</button>
+
+                {% if admin.admin_id != session['admin_id'] %}
+                    <!-- 其他人可以被刪除 -->
+                    <button class="delete" onclick="deleteAdmin({{ admin.admin_id }})">刪除</button>
+
+                    {% if admin.permission_level == 1 %}
+                        <button class="upgrade" onclick="upgradeAdmin({{ admin.admin_id }})">升級權限</button>
+                    {% elif admin.permission_level == 2 %}
+                        <button class="downgrade" onclick="downgradeAdmin({{ admin.admin_id }})">降級權限</button>
+                    {% endif %}
+                {% endif %}
+                </td>
+            </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+  <div class="back-button">
+    <button onclick="location.href='/control_panel'">返回管理介面</button>
+  </div>
+
+  <script>
+    function updateAdmin(id) {
+      const username = document.querySelector(`.edit-username[data-id='${id}']`).value;
+      const password = document.querySelector(`.edit-password[data-id='${id}']`).value;
+
+      fetch(`/api/admins/${id}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ username, password })
+      }).then(res => res.json()).then(data => {
+        alert(data.message);
+        location.reload();
+      });
+    }
+
+    function deleteAdmin(id) {
+      if (!confirm("❗ 確定要刪除這位管理員嗎？")) return;
+      fetch(`/api/admins/${id}`, {
+        method: 'DELETE'
+      }).then(res => res.json()).then(data => {
+        alert(data.message);
+        location.reload();
+      });
+    }
+
+    function upgradeAdmin(id) {
+      fetch(`/api/admins/${id}/upgrade`, {
+        method: 'POST'
+      }).then(res => res.json()).then(data => {
+        alert(data.message);
+        location.reload();
+      });
+    }
+
+    function downgradeAdmin(id) {
+        if (!confirm("確定要將此管理員降為一般權限？")) return;
+
+        fetch(`/api/admins/${id}/downgrade`, {
+        method: 'POST'
+        }).then(res => res.json()).then(data => {
+        alert(data.message);
+        location.reload();
+        });
+    }
+  </script>
+
+</body>
+</html>

@@ -30,8 +30,16 @@
       <button id="feedbackBtn">查看意見回饋</button>
     </div>
 
+    {% if is_super %}
+    <div class="btn-block">
+      <h2>🔐 最高權限管理區</h2>
+      <p>僅限擁有最高權限的管理員可進入，用於管理其他管理員帳號。</p>
+      <button onclick="location.href='/admin/super'">進入最高權限管理</button>
+    </div>
+    {% endif %}
+
     <div class="corner-buttons">
-      <button id = 'back-btn' onclick="history.back()">返回上一頁</button>
+      <button id="back-btn" onclick="location.href='/foradmin'">回到登入介面</button>
     </div>
   </div>
 </body>

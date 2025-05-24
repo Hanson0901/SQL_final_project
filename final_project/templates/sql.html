@@ -14,10 +14,26 @@
   <div class="sql-container">
     <div class="sql-card">
         <h2>查詢比賽</h2>
-        <p>輸入條件查詢比賽</p>
-        <input type="text" id="searchInput" placeholder="輸入比賽關鍵字">
+        <p>選擇條件查詢比賽</p>
+
+        <label for="search-sport"><strong>運動類別</strong></label>
+        <select id="search-sport"></select>
+
+        <label for="search-date"><strong>日期</strong></label>
+        <input type="date" id="search-date">
+
+        <label for="search-team-a"><strong>隊伍 / 名稱</strong></label>
+        <select id="search-team-a"></select>
+
+        <div id="team-b-wrapper">
+          <label for="search-team-b"></label>
+          <select id="search-team-b"></select>
+        </div>
+
         <button id="SearchBtn">查詢</button>
-        <div id="searchResult" class="search-result" style="margin-top: 1rem;"></div>
+        <!-- 查詢結果區域 -->
+        <div id="searchResult" style="margin-top: 1rem;"></div>
+
     </div>
 
     <div class="sql-card">
@@ -26,7 +42,12 @@
         <table id="addTable">
           <thead>
             <tr>
-              <th>運動類別</th><th>隊伍 1</th><th>隊伍 2</th><th>日期</th><th>時間</th><th>比分</th>
+              <th>運動類別</th>
+              <th colspan="2" id="label-match">參賽隊伍 / 比賽名稱</th>
+              <th>日期</th>
+              <th>時間</th>
+              <th>比分(可留空)</th>
+              <th></th>
             </tr>
           </thead>
           <tbody>

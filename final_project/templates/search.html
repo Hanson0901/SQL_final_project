@@ -10,7 +10,7 @@
   <div class = "container">
     <h2>🔍 查詢比賽</h2>
 
-      <label for="sport-type">🥇 運動種類</label>
+      <label for="sport-type">運動種類</label>
       <select id="sport-type" required>
         <option value="">請選擇</option>
         <option value="1">NBA</option>
@@ -19,22 +19,26 @@
         <option value="4">CPBL</option>
         <option value="5">BWF</option>
       </select>
+      
+      
+      <div id="extra-fields">
+        <!-- 查詢方式 -->
+        <label for="query-type">查詢方式</label>
+        <select id="query-type" required>
+          <option value="">請選擇</option>
+          <option value="team">依隊伍</option>
+          <option value="player">依球員</option>
+        </select>
 
-      <!-- 查詢方式 -->
-      <label for="query-type">🔍 查詢方式</label>
-      <select id="query-type" required>
-        <option value="">請選擇</option>
-        <option value="team">依隊伍</option>
-        <option value="player">依球員</option>
+        <!-- 關鍵字 -->
+        <label for="keyword">關鍵字（隊伍 / 球員）</label>
+        <select id="keyword">
+          <option value="">請先選擇 運動 與 查詢方式 </option>
       </select>
+      </div>
+      
 
-      <!-- 關鍵字 -->
-      <label for="keyword">📃 關鍵字（隊伍 / 球員）</label>
-      <select id="keyword">
-        <option value="">請先選擇 運動 與 查詢方式 </option>
-      </select>
-
-      <label for="date">📅 日期</label> 
+      <label for="date">日期</label> 
       <br>
       <input type="date" id="date">
 
