@@ -1,0 +1,212 @@
+[
+  {
+    "team_id": 1,
+    "team_name": "Boston Celtics",
+    "abbr": "BOS",
+    "city": "Boston, Massachusetts",
+    "arena": "TD Garden"
+  },
+  {
+    "team_id": 2,
+    "team_name": "Brooklyn Nets",
+    "abbr": "BKN",
+    "city": "Brooklyn, New York",
+    "arena": "Barclays Center"
+  },
+  {
+    "team_id": 3,
+    "team_name": "New York Knicks",
+    "abbr": "NYK",
+    "city": "New York, New York",
+    "arena": "Madison Square Garden"
+  },
+  {
+    "team_id": 4,
+    "team_name": "Philadelphia 76ers",
+    "abbr": "PHI",
+    "city": "Philadelphia, Pennsylvania",
+    "arena": "Wells Fargo Center"
+  },
+  {
+    "team_id": 5,
+    "team_name": "Toronto Raptors",
+    "abbr": "TOR",
+    "city": "Toronto, Ontario",
+    "arena": "Scotiabank Arena"
+  },
+  {
+    "team_id": 6,
+    "team_name": "Chicago Bulls",
+    "abbr": "CHI",
+    "city": "Chicago, Illinois",
+    "arena": "United Center"
+  },
+  {
+    "team_id": 7,
+    "team_name": "Cleveland Cavaliers",
+    "abbr": "CLE",
+    "city": "Cleveland, Ohio",
+    "arena": "Rocket Arena"
+  },
+  {
+    "team_id": 8,
+    "team_name": "Detroit Pistons",
+    "abbr": "DET",
+    "city": "Detroit, Michigan",
+    "arena": "Little Caesars Arena"
+  },
+  {
+    "team_id": 9,
+    "team_name": "Indiana Pacers",
+    "abbr": "IND",
+    "city": "Indianapolis, Indiana",
+    "arena": "Gainbridge Fieldhouse"
+  },
+  {
+    "team_id": 10,
+    "team_name": "Milwaukee Bucks",
+    "abbr": "MIL",
+    "city": "Milwaukee, Wisconsin",
+    "arena": "Fiserv Forum"
+  },
+  {
+    "team_id": 11,
+    "team_name": "Atlanta Hawks",
+    "abbr": "ATL",
+    "city": "Atlanta, Georgia",
+    "arena": "State Farm Arena"
+  },
+  {
+    "team_id": 12,
+    "team_name": "Charlotte Hornets",
+    "abbr": "CHA",
+    "city": "Charlotte, North Carolina",
+    "arena": "Spectrum Center"
+  },
+  {
+    "team_id": 13,
+    "team_name": "Miami Heat",
+    "abbr": "MIA",
+    "city": "Miami, Florida",
+    "arena": "Kaseya Center"
+  },
+  {
+    "team_id": 14,
+    "team_name": "Orlando Magic",
+    "abbr": "ORL",
+    "city": "Orlando, Florida",
+    "arena": "Kia Center"
+  },
+  {
+    "team_id": 15,
+    "team_name": "Washington Wizards",
+    "abbr": "WAS",
+    "city": "Washington, D.C.",
+    "arena": "Capital One Arena"
+  },
+  {
+    "team_id": 16,
+    "team_name": "Denver Nuggets",
+    "abbr": "DEN",
+    "city": "Denver, Colorado",
+    "arena": "Ball Arena"
+  },
+  {
+    "team_id": 17,
+    "team_name": "Minnesota Timberwolves",
+    "abbr": "MIN",
+    "city": "Minneapolis, Minnesota",
+    "arena": "Target Center"
+  },
+  {
+    "team_id": 18,
+    "team_name": "Oklahoma City Thunder",
+    "abbr": "OKC",
+    "city": "Oklahoma City, Oklahoma",
+    "arena": "Paycom Center"
+  },
+  {
+    "team_id": 19,
+    "team_name": "Portland Trail Blazers",
+    "abbr": "POR",
+    "city": "Portland, Oregon",
+    "arena": "Moda Center"
+  },
+  {
+    "team_id": 20,
+    "team_name": "Utah Jazz",
+    "abbr": "UTA",
+    "city": "Salt Lake City, Utah",
+    "arena": "Delta Center"
+  },
+  {
+    "team_id": 21,
+    "team_name": "Golden State Warriors",
+    "abbr": "GSW",
+    "city": "San Francisco, California",
+    "arena": "Chase Center"
+  },
+  {
+    "team_id": 22,
+    "team_name": "Los Angeles Clippers",
+    "abbr": "LAC",
+    "city": "Inglewood, California",
+    "arena": "Intuit Dome"
+  },
+  {
+    "team_id": 23,
+    "team_name": "Los Angeles Lakers",
+    "abbr": "LAL",
+    "city": "Los Angeles, California",
+    "arena": "Crypto.com Arena"
+  },
+  {
+    "team_id": 24,
+    "team_name": "Phoenix Suns",
+    "abbr": "PHX",
+    "city": "Phoenix, Arizona",
+    "arena": "PHX Arena"
+  },
+  {
+    "team_id": 25,
+    "team_name": "Sacramento Kings",
+    "abbr": "SAC",
+    "city": "Sacramento, California",
+    "arena": "Golden 1 Center"
+  },
+  {
+    "team_id": 26,
+    "team_name": "Dallas Mavericks",
+    "abbr": "DAL",
+    "city": "Dallas, Texas",
+    "arena": "American Airlines Center"
+  },
+  {
+    "team_id": 27,
+    "team_name": "Houston Rockets",
+    "abbr": "HOU",
+    "city": "Houston, Texas",
+    "arena": "Toyota Center"
+  },
+  {
+    "team_id": 28,
+    "team_name": "Memphis Grizzlies",
+    "abbr": "MEM",
+    "city": "Memphis, Tennessee",
+    "arena": "FedExForum"
+  },
+  {
+    "team_id": 29,
+    "team_name": "New Orleans Pelicans",
+    "abbr": "NOP",
+    "city": "New Orleans, Louisiana",
+    "arena": "Smoothie King Center"
+  },
+  {
+    "team_id": 30,
+    "team_name": "San Antonio Spurs",
+    "abbr": "SAS",
+    "city": "San Antonio, Texas",
+    "arena": "Frost Bank Center"
+  }
+]

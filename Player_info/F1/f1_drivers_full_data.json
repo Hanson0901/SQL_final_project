@@ -1,0 +1,191 @@
+[
+    {
+        "Rank": 1,
+        "Name": "Oscar Piastri",
+        "Number": "81",
+        "Team": "McLaren",
+        "Country": "Australia",
+        "Age": 24,
+        "Points": "146"
+    },
+    {
+        "Rank": 2,
+        "Name": "Lando Norris",
+        "Number": "4",
+        "Team": "McLaren",
+        "Country": "United Kingdom",
+        "Age": 25,
+        "Points": "133"
+    },
+    {
+        "Rank": 3,
+        "Name": "Max Verstappen",
+        "Number": "1",
+        "Team": "Red Bull Racing",
+        "Country": "Netherlands",
+        "Age": 27,
+        "Points": "124"
+    },
+    {
+        "Rank": 4,
+        "Name": "George Russell",
+        "Number": "63",
+        "Team": "Mercedes",
+        "Country": "United Kingdom",
+        "Age": 27,
+        "Points": "99"
+    },
+    {
+        "Rank": 5,
+        "Name": "Charles Leclerc",
+        "Number": "16",
+        "Team": "Ferrari",
+        "Country": "Monaco",
+        "Age": 27,
+        "Points": "61"
+    },
+    {
+        "Rank": 6,
+        "Name": "Lewis Hamilton",
+        "Number": "44",
+        "Team": "Ferrari",
+        "Country": "United Kingdom",
+        "Age": 40,
+        "Points": "53"
+    },
+    {
+        "Rank": 7,
+        "Name": "Kimi Antonelli",
+        "Number": "12",
+        "Team": "Mercedes",
+        "Country": "Italy",
+        "Age": 18,
+        "Points": "48"
+    },
+    {
+        "Rank": 8,
+        "Name": "Alexander Albon",
+        "Number": "23",
+        "Team": "Williams",
+        "Country": "Thailand",
+        "Age": 29,
+        "Points": "40"
+    },
+    {
+        "Rank": 9,
+        "Name": "Esteban Ocon",
+        "Number": "31",
+        "Team": "Haas",
+        "Country": "France",
+        "Age": 28,
+        "Points": "14"
+    },
+    {
+        "Rank": 10,
+        "Name": "Lance Stroll",
+        "Number": "18",
+        "Team": "Aston Martin",
+        "Country": "Canada",
+        "Age": 26,
+        "Points": "14"
+    },
+    {
+        "Rank": 11,
+        "Name": "Carlos Sainz",
+        "Number": "55",
+        "Team": "Williams",
+        "Country": "Spain",
+        "Age": 30,
+        "Points": "11"
+    },
+    {
+        "Rank": 12,
+        "Name": "Yuki Tsunoda",
+        "Number": "22",
+        "Team": "Red Bull Racing",
+        "Country": "Japan",
+        "Age": 25,
+        "Points": "10"
+    },
+    {
+        "Rank": 13,
+        "Name": "Pierre Gasly",
+        "Number": "10",
+        "Team": "Alpine",
+        "Country": "France",
+        "Age": 29,
+        "Points": "7"
+    },
+    {
+        "Rank": 14,
+        "Name": "Isack Hadjar",
+        "Number": "6",
+        "Team": "Racing Bulls",
+        "Country": "France",
+        "Age": 20,
+        "Points": "7"
+    },
+    {
+        "Rank": 15,
+        "Name": "Nico Hulkenberg",
+        "Number": "27",
+        "Team": "Kick Sauber",
+        "Country": "Germany",
+        "Age": 37,
+        "Points": "6"
+    },
+    {
+        "Rank": 16,
+        "Name": "Oliver Bearman",
+        "Number": "87",
+        "Team": "Haas",
+        "Country": "United Kingdom",
+        "Age": 20,
+        "Points": "6"
+    },
+    {
+        "Rank": 17,
+        "Name": "Fernando Alonso",
+        "Number": "14",
+        "Team": "Aston Martin",
+        "Country": "Spain",
+        "Age": 43,
+        "Points": "0"
+    },
+    {
+        "Rank": 18,
+        "Name": "Liam Lawson",
+        "Number": "30",
+        "Team": "Racing Bulls",
+        "Country": "New Zealand",
+        "Age": 23,
+        "Points": "0"
+    },
+    {
+        "Rank": 19,
+        "Name": "Jack Doohan",
+        "Number": "7",
+        "Team": "Alpine",
+        "Country": "Australia",
+        "Age": 22,
+        "Points": "0"
+    },
+    {
+        "Rank": 20,
+        "Name": "Gabriel Bortoleto",
+        "Number": "5",
+        "Team": "Kick Sauber",
+        "Country": "Brazil",
+        "Age": 20,
+        "Points": "0"
+    },
+    {
+        "Rank": 21,
+        "Name": "Franco Colapinto",
+        "Number": "43",
+        "Team": "Alpine",
+        "Country": "Argentina",
+        "Age": 21,
+        "Points": "0"
+    }
+]

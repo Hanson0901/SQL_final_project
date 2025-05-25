@@ -2,8 +2,19 @@ import json
 import pymysql  # type: ignore
 import os
 import re
+from geopy.geocoders import Nominatim # type: ignore
 
-
+def city_to_country(city_name):
+    geolocator = Nominatim(user_agent="your_app_name")
+    location = geolocator.geocode(city_name, language="en")
+    if location:
+        # location.address 會是 "城市, 州/省, 國家"
+        country = location.address.split(',')[-1].strip()
+        return country
+    else:
+        return None
+def null_if_dash(val):
+                return None if val == "-" or val == "" else val
 # 這裡是sql設定區 要入資料改這裡~
 connection = pymysql.connect(
     host="cgusqlpj.ddns.net",
@@ -26,9 +37,7 @@ para = ", ".join(value_template)
 # CPLB 4
 # BWF 5
 write_list = [
-    2,
-    3,
-    4,
+1,2,5
 ]
 
 
@@ -66,28 +75,38 @@ if 1 in write_list:
             with connection.cursor() as cursor:
 
                 for item in data:
+                    city_name = item.get("nationality").split(",")[0].strip() if item.get("nationality") else None
+                    # print(f"city_name={city_name}")
+                    nationality=city_to_country(city_name)
+                    # print(f"nationality={nationality}")
+                     # 查 team_id
+                    cursor.execute(
+                        "SELECT id FROM nationality WHERE country_name = %s",
+                        (nationality,)
+                    )
+                    city_result = cursor.fetchone()
+                    city_id = city_result[0] if city_result else None
 
+                    if city_id is None:
+                        print(f"❌ 未找到國家 {nationality} 的 ID，將跳過此球員。")
+                        print(f"❌ 未找到國家 {city_name} 的 ID，將跳過此球員。")
+
+                    # print(f"city_id={city_id}")
                     sql = f"""
                         INSERT INTO {TABLE} 
-                        (player_id, sport_type, name, nationality, age)
+                        (player_id, sport_type, name, nationality_id, age)
                         VALUES ({para})
                     """
+
+                    
                     cursor.execute(
                         sql,
                         (
                             f"nba_{i}",
                             sport_type,
                             item.get("name"),
-                            item.get("nationality"),
-                            (
-                                int(item["age"])
-                                if str(item.get("age", "")).isdigit()
-                                else (
-                                    None
-                                    if item.get("age") in ("-", "", None)
-                                    else item.get("age")
-                                )
-                            ),
+                            city_id,
+                            item.get("age")
                         ),
                     )
                     i += 1
@@ -98,8 +117,52 @@ if 1 in write_list:
 
 # F1
 if 2 in write_list:
-    pass
+    FOLDER_PATH = r"Player_info\F1\f1_drivers_full_data.json"
+    sport_type = 2
+    with open(FOLDER_PATH, "r", encoding="utf-8") as f:
+        data = json.load(f)
 
+    try:
+        with connection.cursor() as cursor:
+
+            id = 0
+            for item in data:
+                nationality = item.get("Country")
+                nationality =   city_to_country(nationality)
+                print(f"nationality={nationality}")
+                cursor.execute(
+                    "SELECT id FROM nationality WHERE country_name = %s",
+                    (nationality,)
+                )
+                city_result = cursor.fetchone()
+                city_id = city_result[0] if city_result else None
+
+                if city_id is None:
+                    print(f"❌ 未找到國家 {nationality} 的 ID，將跳過此球員。")
+                    
+                
+
+                sql = f"""
+                    INSERT INTO {TABLE} 
+                    (player_id, sport_type, name, nationality_id, age)
+                    VALUES ({para})
+                """
+
+                cursor.execute(
+                    sql,
+                    (
+                        f"f1_{id}",
+                        sport_type,
+                        item.get("Name"),
+                        city_id,
+                        item.get("Age")
+                    ),
+                )
+                id += 1
+        connection.commit()
+        print(f"✅ {FOLDER_PATH} 已寫入 MySQL！")
+    except Exception as e:
+        print(f"❌ error occurs at {FOLDER_PATH}：", e)
 # MLB
 if 3 in write_list:
     pass
@@ -119,12 +182,21 @@ if 5 in write_list:
         with connection.cursor() as cursor:
             for item in data:
 
-                def null_if_dash(val):
-                    return None if val == "-" or val == "" else val
-
+                nationality = item.get("country")
+                # print(f"nationality={nationality}")
+                cursor.execute(
+                    "SELECT id FROM nationality WHERE country_name = %s",
+                    (nationality,)
+                )
+                city_result = cursor.fetchone()
+                city_id = city_result[0] if city_result else None
+                if city_id is None:
+                    print(f"❌ 未找到國家 {nationality} 的 ID，將跳過此球員。")
+                    print(f"city_id={city_id}")
+               
                 sql = f"""
                     INSERT INTO {TABLE} 
-                    (player_id, sport_type, name, nationality, age)
+                    (player_id, sport_type, name, nationality_id, age)
                     VALUES ({para})
                 """
                 cursor.execute(
@@ -133,16 +205,9 @@ if 5 in write_list:
                         f"bwf_{item['id']}",
                         sport_type,
                         f"{null_if_dash(item['name1'])} {null_if_dash(item['name2'])}".strip(),
-                        null_if_dash(item["country"]),
-                        (
-                            int(item["age"])
-                            if item["age"].isdigit()
-                            else (
-                                None
-                                if item["age"] == "-" or item["age"] == ""
-                                else item["age"]
-                            )
-                        ),
+                        city_id,
+                        int(item["age"]) if str(item.get("age", "")).isdigit() else None
+                        
                     ),
                 )
         connection.commit()

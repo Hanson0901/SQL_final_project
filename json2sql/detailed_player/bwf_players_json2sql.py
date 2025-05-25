@@ -2,7 +2,8 @@ import json
 import pymysql  # type: ignore
 import os
 import re
-
+def null_if_dash(val):
+    return None if val == "-" or val == "" else val
 
 # 這裡是sql設定區 要入資料改這裡~
 connection = pymysql.connect(
@@ -17,7 +18,7 @@ connection = pymysql.connect(
 
 TABLE = "bwf_players"
 
-value_template = ["%s"] * 9
+value_template = ["%s"] * 10
 para = ", ".join(value_template)
 
 FOLDER_PATH = "Player_info\BWF\player_info.json"
@@ -29,12 +30,19 @@ try:
     with connection.cursor() as cursor:
         for item in data:
 
-            def null_if_dash(val):
-                return None if val == "-" or val == "" else val
+            
+
+            team_name = item["country"]
+            cursor.execute(
+                    "SELECT team_id FROM bwf_team WHERE team_name = %s",
+                    (team_name,)
+                )
+            team_result = cursor.fetchone()
+            team_id = team_result[0] if team_result else None
 
             sql = f"""
                 INSERT INTO {TABLE} 
-                (player_id, age, hand, world_rank, world_tour_rank, world_rank_title, world_tour_rank_title, point_title,point)
+                (player_id, age, hand, world_rank, world_tour_rank, world_rank_title, world_tour_rank_title, point_title,point,team_id)
                 VALUES ({para})
             """
             cursor.execute(
@@ -73,6 +81,7 @@ try:
                             else item["point"]
                         )
                     ),
+                    team_id
                 ),
             )
     connection.commit()

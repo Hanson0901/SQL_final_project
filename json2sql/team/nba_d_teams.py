@@ -48,10 +48,11 @@ nba_teams = {
 }
 
 
-TABLE = "nba_players"
+nba_teams_TABLE = "nba_team"
+city_info_TABLE = "city_info"
+teams_TABLE = "teams"
 
-
-value_template = ["%s"] * 10
+value_template = ["%s"] * 2
 para = ", ".join(value_template)
 
 
@@ -65,28 +66,31 @@ def extract_number(name):
 
 
 # NBA球員資料夾路徑
-FOLDER_PATH = r"Player_info\NBA\json"
+file_path = r"Player_info\NBA\team_d.json"
 # 把所有的檔名的數字透過extract_number轉換後排序
-file_list = sorted(
-    [f for f in os.listdir(FOLDER_PATH) if f.endswith(".json")], key=extract_number
-)
-
-i=0
-for file_name in file_list:
-    file_path = os.path.join(FOLDER_PATH, file_name)
 
 
-    with open(file_path, "r", encoding="utf-8") as f:
-        data = json.load(f)
+with open(file_path, "r", encoding="utf-8") as f:
+    data = json.load(f)
 
-    # 擷取球隊中文名
-    team_chinese_name = file_name.split("_")[1]
-    # 取得英文隊名
-    team_english_name = nba_teams.get(team_chinese_name, "")
-   
+for team in data:
+    team_english_name = team.get("team_name", "")
+    city_full = team.get("city", "")
+    city_name = city_full.split(",")[0] if "," in city_full else city_full
+
+    sport_type = "1"
 
     try:
         with connection.cursor() as cursor:
+            # 查 city_id
+            cursor.execute(
+                "SELECT city_id FROM city_info WHERE city_name = %s",
+                (city_name,)
+            )
+            city_result = cursor.fetchone()
+            city_id = city_result[0] if city_result else None
+            if city_id is None:
+                print(f"❌ City '{city_name}' not found in city_info table.")
 
             # 查 team_id
             cursor.execute(
@@ -95,34 +99,25 @@ for file_name in file_list:
             )
             team_result = cursor.fetchone()
             team_id = team_result[0] if team_result else None
-            if team_id is None:
-                print(f"❌ team '{team_english_name}' not found in teams table.")
-            
-            for player in data:
-                # print(player)
-                sql = f"""
-                    INSERT INTO {TABLE} 
-                    (player_id, jersey_number, fg_pct, ft_pct, three_pt_pct, points, off_reb, rebounds, assists, team_id)
-                    VALUES ({para})
-                """
-                cursor.execute(
-                    sql,
-                    (
-                        f"nba_{i}",
-                        player.get("no"),
-                        player.get("fg_pct"),
-                        player.get("ft_pct"),
-                        player.get("three_pt_pct"),
-                        player.get("points"),
-                        player.get("off_reb"),
-                        player.get("rebounds"),
-                        player.get("assists"),
-                        team_id,
-                    ),
-                        )
-                i += 1
-               
+
+            # 寫入 nba_teams
+            sql = f"""
+                INSERT INTO {nba_teams_TABLE} 
+                (team_id, city_id, team_name, arena)
+                VALUES (%s, %s, %s, %s)
+            """
+            arena = team.get("arena", "")
+            cursor.execute(
+                sql,
+                (
+                    team_id,
+                    city_id,
+                    team_english_name,
+                    arena,
+                ),
+            )
+
         connection.commit()
-        print(f"✅ {file_name} 已寫入 MySQL！")
+        print(f"✅  已寫入 MySQL！")
     except Exception as e:
-        print(f"❌ error occurs at {file_name}：", e)
+        print(f"❌ error occurs at：", e)
