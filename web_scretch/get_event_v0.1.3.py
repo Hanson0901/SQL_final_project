@@ -9,34 +9,33 @@ import os
 # pip install selenium
 # pip install beautifulsoup4
 
-def select_sport_type():
-    
-    sport_map = {
-        '1': 'F1',
-        '2': 'MLB',
-        '3': 'NBA',
-        '4': 'BWF',
-        '5': '中華職棒'
+sport_map = {
+        '1': 'NBA',
+        '2': 'F1',
+        '3': 'MLB',
+        '4': '中華職棒',
+        '5': 'BWF'
     }
+def select_sport_type():
     
     while True:
         print("\n請選擇賽事類型：")
-        print("1) F1 一級方程式賽車")
-        print("2) MLB 美國職棒")
-        print("3) NBA 美國職籃")
-        print("4) BWF 羽球賽事")
-        print("5) 中華職棒")
-        
+        print("1) NBA 美國職籃")
+        print("2) F1 賽事")
+        print("3) MLB 美國職棒")
+        print("4) 中華職棒")
+        print("5) BWF 羽球賽事")
+
         choice = input("輸入數字 (1-5): ").strip()
-        
+
         if choice in sport_map:
-            return sport_map[choice]
+            return choice
         print("輸入錯誤，請輸入有效的數字選項！")
 
 type = select_sport_type()
 
 driver = webdriver.Chrome()
-url = f"https://eltaott.tv/channel/sports_program_detail#{type}"
+url = f"https://eltaott.tv/channel/sports_program_detail#{sport_map[type]}"
 driver.get(url)
 
 try:
@@ -54,7 +53,7 @@ try:
         'channel_101_icon.svg': '體育1台',
         'channel_105_icon.svg': '體育2台',
         'channel_110_icon.svg': '體育3台',
-        'channel_111_icon.svg': '體育4台',
+        'channel_115_icon.svg': '體育4台',
         'channel_540_icon.svg': '體育max1台',
         'channel_541_icon.svg': '體育max2台',
         'channel_542_icon.svg': '體育max3台',
@@ -93,12 +92,16 @@ try:
         date= Date.get('data-belong_date')
         if(date <str(datetime.date.today()) ):
             continue
-        events = Date.select(f'tr:has(td:nth-of-type(2):-soup-contains("{type}"))')
+        events = Date.select(f'tr:has(td:nth-of-type(2):-soup-contains("{sport_map[type]}"))')
     
         for event in events:
             time = event.select_one('td:nth-of-type(1)').get_text(strip=True)
             title = event.select_one('td:nth-of-type(2)').get_text(strip=True)
             game = event.select_one('td:nth-of-type(3)').get_text(strip=True)
+            if "(英文講評原音)" in game:
+                game = game.split("(英文講評原音")[0].strip()
+            if "LIVE" in game:
+                game=game.replace("LIVE", "").strip()
             channel = ''
             for span in event.select('td.channels span.channel'):
                 img = span.find('img')
@@ -107,16 +110,18 @@ try:
                     channel = CHANNEL_MAP[icon_name]
                     break
 
-            print(f"{date} | {time} | {title} | {game} | {channel}")
-            json_data = {
-                'date': date,
-                'time': time,
-                'title': title,
-                'game': game,
-                'channel': channel
-            }
-            json.dump(json_data, file, ensure_ascii=False, indent=4)
-            file.write(',\n')
+            
+            if "Kids" not in game and "車手遊行" not in game:
+                print(f"{date} | {time} | {title} | {game} | {channel}")
+                json_data = {
+                    'date': date,
+                    'game_type': type,
+                    'game': game,
+                    'time': time,
+                    'channel': channel
+                }
+                json.dump(json_data, file, ensure_ascii=False, indent=4)
+                file.write(',\n')
 
     # 刪除最後一個逗號
     file.seek(file.tell() - 3, 0)  # Move the cursor to the second last position
