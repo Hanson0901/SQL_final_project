@@ -34,20 +34,21 @@ def index():
 @app.route("/admin/super")
 def super_admin():
     admin_id = session.get("admin_id")
-
+    is_top = session.get("is_top", False)
+    
     with connection.cursor() as cursor:
         # 再次驗證是否為最高權限
         cursor.execute("SELECT permission_level FROM admins WHERE admin_id = %s", (admin_id,))
         result = cursor.fetchone()
 
         if not result or result["permission_level"] != 2:
-            return "❌ 權限不足", 403
+            return "權限不足", 403
 
         # 撈出所有管理員（不再篩選 permission_level）
         cursor.execute("SELECT * FROM admins")
         admins = cursor.fetchall()
 
-    return render_template("super_admin.html", admins=admins, session=session)
+    return render_template("super_admin.html", admins=admins, session=session, is_top=is_top)
 
 
 @app.route("/api/admins/<int:admin_id>", methods=["PUT"])
@@ -65,7 +66,7 @@ def update_admin(admin_id):
         """, (username, password, admin_id))
         connection.commit()
 
-    return jsonify(success=True, message="✅ 修改成功")
+    return jsonify(success=True, message="修改成功")
 
 @app.route("/api/admins/<int:admin_id>", methods=["DELETE"])
 def delete_admin(admin_id):
@@ -76,7 +77,7 @@ def delete_admin(admin_id):
         cursor.execute("DELETE FROM admins WHERE admin_id = %s", (admin_id,))
         connection.commit()
 
-    return jsonify(success=True, message="🗑️ 刪除成功")
+    return jsonify(success=True, message="刪除成功")
 
 @app.route("/api/admins/<int:admin_id>/upgrade", methods=["POST"])
 def upgrade_admin(admin_id):
@@ -89,7 +90,18 @@ def upgrade_admin(admin_id):
         """, (admin_id,))
         connection.commit()
 
-    return jsonify(success=True, message="🔼 已升級為最高權限")
+    return jsonify(success=True, message="已升級為最高權限")
+
+
+@app.route("/api/admins/<int:admin_id>/downgrade", methods=["POST"])
+def downgrade_admin(admin_id):
+    try:
+        with connection.cursor() as cursor:
+            cursor.execute("UPDATE admins SET permission_level = 1 WHERE admin_id = %s", (admin_id,))
+            connection.commit()
+        return jsonify(success=True, message="✅ 降級成功")
+    except Exception as e:
+        return jsonify(success=False, message=f"❌ 降級失敗：{str(e)}")
 
 
 @app.route("/foruser")
@@ -381,7 +393,7 @@ def api_mix_search():
                 if not table:
                     return jsonify({"error": "Unknown sport_type"}), 400
 
-                # ✅ 只撈出 xx_team 的資訊
+                # 只撈出 xx_team 的資訊
                 cursor.execute(f"""
                     SELECT *
                     FROM {table}
@@ -574,7 +586,7 @@ def get_matches():
         return jsonify(matches)
 
     except Exception as e:
-        print("❌ matches 查詢錯誤：", e)
+        print("matches 查詢錯誤：", e)
         return jsonify({"error": str(e)}), 500
 
 @app.route('/api/bookings/user/<uid>', methods=['GET'])
@@ -602,7 +614,7 @@ def get_user_bookings(uid):
         for row in rows:
             date = row["date"].strftime("%Y-%m-%d")
 
-            # ✅ 安全轉 time_str
+            # 安全轉 time_str
             raw_time = row["time"]
             if isinstance(raw_time, timedelta):
                 total_seconds = int(raw_time.total_seconds())
@@ -625,7 +637,7 @@ def get_user_bookings(uid):
         return jsonify(result)
 
     except Exception as e:
-        print("❌ bookings 查詢錯誤：", e)
+        print("bookings 查詢錯誤：", e)
         return jsonify({"error": str(e)}), 500
 
 @app.route('/api/bookings/user/<uid>', methods=['POST'])
@@ -702,6 +714,7 @@ def platform_rank(uid):
 #===============================比賽預約=====================================#
 
 
+#怕使用者進入的限制
 @app.route("/admin_entry", methods=["POST"])
 def admin_entry():
     data = request.get_json()
@@ -735,13 +748,13 @@ def login():
     username = data.get('username')
     password = data.get('password')
 
-    # ✅ 檢查欄位
+    # 檢查欄位
     if not username or not password:
         return jsonify(success=False, message="請輸入帳號與密碼"), 400
 
     try:
         with connection.cursor(pymysql.cursors.DictCursor) as cursor:
-            # ✅ 預防 SQL Injection，已使用 %s 是對的
+            # 預防 SQL Injection，已使用 %s 是對的
             cursor.execute(
                 "SELECT * FROM admins WHERE user_name = %s AND password = %s",
                 (username, password)
@@ -750,7 +763,7 @@ def login():
 
             if matched:
                 #判斷是不是最高管理員
-                is_top = any(u['username'] == username and u['password'] == password for u in top_admin)
+                is_top = (matched['permission_level'] == 2)
     
                 session['username'] = matched['user_name']
                 session['admin_id'] = matched['admin_id']
@@ -760,7 +773,7 @@ def login():
                 return jsonify(success=True,
                                 username=matched['user_name'],
                                 admin_id=matched['admin_id'],
-                                is_super =  session.get("permission_level") == 2,
+                                is_super = is_top,
                                 is_top=is_top
                               )
                 
@@ -889,7 +902,7 @@ def add_many():
         with connection.cursor() as cursor:
             for m in new_matches:
                 if m.get("type") == "2":
-                    # ✅ F1 處理：用 match_name 找 team_id
+                    # F1 處理：用 match_name 找 team_id
                     match_name = m.get("match_name")
                     if not match_name or not m.get("date") or not m.get("time"):
                         continue
@@ -901,7 +914,7 @@ def add_many():
                     if team:
                         team_a_id = team["team_id"]
                     else:
-                        # ✅ 若不存在就新增隊伍（F1場站）
+                        #  若不存在就新增隊伍（F1場站）
                         cursor.execute("INSERT INTO teams (team_name, sport_type) VALUES (%s, 2)", (match_name,))
                         team_a_id = cursor.lastrowid
 
@@ -921,7 +934,7 @@ def add_many():
                     added += 1
 
                 else:
-                    # 🏀⚾ 一般比賽處理
+                    #  一般比賽處理
                     if not all(k in m for k in ("team_a", "team_b", "date", "time")):
                         continue
 
@@ -978,14 +991,14 @@ def get_match_by_id(game_no):
             if not match:
                 return jsonify(success=False, message="查無此比賽")
 
-            # ✅ 轉換時間 (timedelta) 成 HH:MM
+            # 轉換時間 (timedelta) 成 HH:MM
             if isinstance(match["time"], timedelta):
                 total_seconds = int(match["time"].total_seconds())
                 hours = total_seconds // 3600
                 minutes = (total_seconds % 3600) // 60
                 match["time"] = f"{hours:02}:{minutes:02}"
 
-            # ✅ 轉換日期成 YYYY-MM-DD 字串
+            # 轉換日期成 YYYY-MM-DD 字串
             if isinstance(match["date"], (datetime, date)):
                 match["date"] = match["date"].strftime("%Y-%m-%d")
 
@@ -1005,7 +1018,7 @@ def get_teams():
             teams = cursor.fetchall()
         return jsonify(teams)
     except Exception as e:
-        print("❌ get_teams 失敗：", e)
+        print("get_teams 失敗：", e)
         return jsonify([], 500)
 
 
