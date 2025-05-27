@@ -13,7 +13,7 @@ def get_db_connection():
         cursorclass=pymysql.cursors.DictCursor
     )
 
-@app.route('/action', methods=['GET'])
+@app.route('/', methods=['GET'])
 def action():
     conn = get_db_connection()
     uid = request.args.get('uid')
