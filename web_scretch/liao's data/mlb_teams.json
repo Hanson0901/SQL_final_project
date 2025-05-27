@@ -2,211 +2,271 @@
   {
     "team_id": 1,
     "team_name": "Arizona Diamondbacks",
-    "abbr": "ARI",
-    "city": "Phoenix",
-    "arena": "Chase Field"
+    "location": "Phoenix",
+    "league": "mlb",
+    "stadium": "Chase Field",
+    "founded_year": 1998,
+    "head_coach": "Torey Lovullo"
   },
   {
     "team_id": 2,
     "team_name": "Atlanta Braves",
-    "abbr": "ATL",
-    "city": "Atlanta",
-    "arena": "Truist Park"
+    "location": "Atlanta",
+    "league": "mlb",
+    "stadium": "Truist Park",
+    "founded_year": 1871,
+    "head_coach": "Brian Snitker"
   },
   {
     "team_id": 3,
     "team_name": "Baltimore Orioles",
-    "abbr": "BAL",
-    "city": "Baltimore",
-    "arena": "Oriole Park at Camden Yards"
+    "location": "Baltimore",
+    "league": "mlb",
+    "stadium": "Oriole Park at Camden Yards",
+    "founded_year": 1901,
+    "head_coach": "Tony Mansolino"
   },
   {
     "team_id": 4,
     "team_name": "Boston Red Sox",
-    "abbr": "BOS",
-    "city": "Boston",
-    "arena": "Fenway Park"
+    "location": "Boston",
+    "league": "mlb",
+    "stadium": "Fenway Park",
+    "founded_year": 1901,
+    "head_coach": "Alex Cora"
   },
   {
     "team_id": 5,
     "team_name": "Chicago White Sox",
-    "abbr": "CWS",
-    "city": "Chicago",
-    "arena": "Guaranteed Rate Field"
+    "location": "Chicago",
+    "league": "mlb",
+    "stadium": "Guaranteed Rate Field",
+    "founded_year": 1901,
+    "head_coach": "Will Venable"
   },
   {
     "team_id": 6,
     "team_name": "Chicago Cubs",
-    "abbr": "CHC",
-    "city": "Chicago",
-    "arena": "Wrigley Field"
+    "location": "Chicago",
+    "league": "mlb",
+    "stadium": "Wrigley Field",
+    "founded_year": 1876,
+    "head_coach": "Craig Counsell"
   },
   {
     "team_id": 7,
     "team_name": "Cincinnati Reds",
-    "abbr": "CIN",
-    "city": "Cincinnati",
-    "arena": "Great American Ball Park"
+    "location": "Cincinnati",
+    "league": "mlb",
+    "stadium": "Great American Ball Park",
+    "founded_year": 1881,
+    "head_coach": "Terry Francona"
   },
   {
     "team_id": 8,
     "team_name": "Cleveland Guardians",
-    "abbr": "CLE",
-    "city": "Cleveland",
-    "arena": "Progressive Field"
+    "location": "Cleveland",
+    "league": "mlb",
+    "stadium": "Progressive Field",
+    "founded_year": 1901,
+    "head_coach": "Stephen Vogt"
   },
   {
     "team_id": 9,
     "team_name": "Colorado Rockies",
-    "abbr": "COL",
-    "city": "Denver",
-    "arena": "Coors Field"
+    "location": "Denver",
+    "league": "mlb",
+    "stadium": "Coors Field",
+    "founded_year": 1993,
+    "head_coach": "Bud Black"
   },
   {
     "team_id": 10,
     "team_name": "Detroit Tigers",
-    "abbr": "DET",
-    "city": "Detroit",
-    "arena": "Comerica Park"
+    "location": "Detroit",
+    "league": "mlb",
+    "stadium": "Comerica Park",
+    "founded_year": 1901,
+    "head_coach": "A.J. Hinch"
   },
   {
     "team_id": 11,
     "team_name": "Houston Astros",
-    "abbr": "HOU",
-    "city": "Houston",
-    "arena": "Minute Maid Park"
+    "location": "Houston",
+    "league": "mlb",
+    "stadium": "Minute Maid Park",
+    "founded_year": 1962,
+    "head_coach": "Joe Espada"
   },
   {
     "team_id": 12,
     "team_name": "Kansas City Royals",
-    "abbr": "KC",
-    "city": "Kansas City",
-    "arena": "Kauffman Stadium"
+    "location": "Kansas City",
+    "league": "mlb",
+    "stadium": "Kauffman Stadium",
+    "founded_year": 1969,
+    "head_coach": "Matt Quatraro"
   },
   {
     "team_id": 13,
     "team_name": "Los Angeles Angels",
-    "abbr": "LAA",
-    "city": "Anaheim",
-    "arena": "Angel Stadium"
+    "location": "Anaheim",
+    "league": "mlb",
+    "stadium": "Angel Stadium",
+    "founded_year": 1961,
+    "head_coach": "Ron Washington"
   },
   {
     "team_id": 14,
     "team_name": "Los Angeles Dodgers",
-    "abbr": "LAD",
-    "city": "Los Angeles",
-    "arena": "Dodger Stadium"
+    "location": "Los Angeles",
+    "league": "mlb",
+    "stadium": "Dodger Stadium",
+    "founded_year": 1883,
+    "head_coach": "Dave Roberts"
   },
   {
     "team_id": 15,
     "team_name": "Miami Marlins",
-    "abbr": "MIA",
-    "city": "Miami",
-    "arena": "loanDepot park"
+    "location": "Miami",
+    "league": "mlb",
+    "stadium": "loanDepot park",
+    "founded_year": 1993,
+    "head_coach": "Skip Schumaker"
   },
   {
     "team_id": 16,
     "team_name": "Milwaukee Brewers",
-    "abbr": "MIL",
-    "city": "Milwaukee",
-    "arena": "American Family Field"
+    "location": "Milwaukee",
+    "league": "mlb",
+    "stadium": "American Family Field",
+    "founded_year": 1969,
+    "head_coach": "Pat Murphy"
   },
   {
     "team_id": 17,
     "team_name": "Minnesota Twins",
-    "abbr": "MIN",
-    "city": "Minneapolis",
-    "arena": "Target Field"
+    "location": "Minneapolis",
+    "league": "mlb",
+    "stadium": "Target Field",
+    "founded_year": 1901,
+    "head_coach": "Rocco Baldelli"
   },
   {
     "team_id": 18,
     "team_name": "New York Yankees",
-    "abbr": "NYY",
-    "city": "New York",
-    "arena": "Yankee Stadium"
+    "location": "New York",
+    "league": "mlb",
+    "stadium": "Yankee Stadium",
+    "founded_year": 1901,
+    "head_coach": "Aaron Boone"
   },
   {
     "team_id": 19,
     "team_name": "New York Mets",
-    "abbr": "NYM",
-    "city": "New York",
-    "arena": "Citi Field"
+    "location": "New York",
+    "league": "mlb",
+    "stadium": "Citi Field",
+    "founded_year": 1962,
+    "head_coach": "Carlos Mendoza"
   },
   {
     "team_id": 20,
     "team_name": "Oakland Athletics",
-    "abbr": "OAK",
-    "city": "Oakland",
-    "arena": "Oakland Coliseum"
+    "location": "Oakland",
+    "league": "mlb",
+    "stadium": "Oakland Coliseum",
+    "founded_year": 1901,
+    "head_coach": "Mark Kotsay"
   },
   {
     "team_id": 21,
     "team_name": "Philadelphia Phillies",
-    "abbr": "PHI",
-    "city": "Philadelphia",
-    "arena": "Citizens Bank Park"
+    "location": "Philadelphia",
+    "league": "mlb",
+    "stadium": "Citizens Bank Park",
+    "founded_year": 1883,
+    "head_coach": "Rob Thomson"
   },
   {
     "team_id": 22,
     "team_name": "Pittsburgh Pirates",
-    "abbr": "PIT",
-    "city": "Pittsburgh",
-    "arena": "PNC Park"
+    "location": "Pittsburgh",
+    "league": "mlb",
+    "stadium": "PNC Park",
+    "founded_year": 1882,
+    "head_coach": "Derek Shelton"
   },
   {
     "team_id": 23,
     "team_name": "San Diego Padres",
-    "abbr": "SD",
-    "city": "San Diego",
-    "arena": "Petco Park"
+    "location": "San Diego",
+    "league": "mlb",
+    "stadium": "Petco Park",
+    "founded_year": 1969,
+    "head_coach": "Mike Shildt"
   },
   {
     "team_id": 24,
     "team_name": "San Francisco Giants",
-    "abbr": "SF",
-    "city": "San Francisco",
-    "arena": "Oracle Park"
+    "location": "San Francisco",
+    "league": "mlb",
+    "stadium": "Oracle Park",
+    "founded_year": 1883,
+    "head_coach": "Bob Melvin"
   },
   {
     "team_id": 25,
     "team_name": "Seattle Mariners",
-    "abbr": "SEA",
-    "city": "Seattle",
-    "arena": "T-Mobile Park"
+    "location": "Seattle",
+    "league": "mlb",
+    "stadium": "T-Mobile Park",
+    "founded_year": 1977,
+    "head_coach": "Scott Servais"
   },
   {
     "team_id": 26,
     "team_name": "St. Louis Cardinals",
-    "abbr": "STL",
-    "city": "St. Louis",
-    "arena": "Busch Stadium"
+    "location": "St. Louis",
+    "league": "mlb",
+    "stadium": "Busch Stadium",
+    "founded_year": 1882,
+    "head_coach": "Oliver Marmol"
   },
   {
     "team_id": 27,
     "team_name": "Tampa Bay Rays",
-    "abbr": "TB",
-    "city": "St. Petersburg",
-    "arena": "Tropicana Field"
+    "location": "St. Petersburg",
+    "league": "mlb",
+    "stadium": "Tropicana Field",
+    "founded_year": 1998,
+    "head_coach": "Kevin Cash"
   },
   {
     "team_id": 28,
     "team_name": "Texas Rangers",
-    "abbr": "TEX",
-    "city": "Arlington",
-    "arena": "Globe Life Field"
+    "location": "Arlington",
+    "league": "mlb",
+    "stadium": "Globe Life Field",
+    "founded_year": 1961,
+    "head_coach": "Bruce Bochy"
   },
   {
     "team_id": 29,
     "team_name": "Toronto Blue Jays",
-    "abbr": "TOR",
-    "city": "Toronto",
-    "arena": "Rogers Centre"
+    "location": "Toronto",
+    "league": "mlb",
+    "stadium": "Rogers Centre",
+    "founded_year": 1977,
+    "head_coach": "John Schneider"
   },
   {
     "team_id": 30,
     "team_name": "Washington Nationals",
-    "abbr": "WSH",
-    "city": "Washington, D.C.",
-    "arena": "Nationals Park"
+    "location": "Washington, D.C.",
+    "league": "mlb",
+    "stadium": "Nationals Park",
+    "founded_year": 1969,
+    "head_coach": "Dave Martinez"
   }
 ]

@@ -1,44 +1,56 @@
 [
   {
     "team_id": 1,
-    "team_name": "中信兄弟",
-    "abbr": "BRO",
-    "city": "台中",
-    "arena": "洲際棒球場"
+    "team_name": "Chinatrust Brothers",
+    "location": "Taichung",
+    "league": "CPBL",
+    "stadium": "Intercontinental Baseball Stadium",
+    "founded_year": 2014,
+    "head_coach": "Keiichi Hirano"
   },
   {
     "team_id": 2,
-    "team_name": "台鋼雄鷹",
-    "abbr": "TSG",
-    "city": "高雄",
-    "arena": "澄清湖棒球場"
+    "team_name": "TSG Hawks",
+    "location": "Kaohsiung",
+    "league": "CPBL",
+    "stadium": "Chengcing Lake Baseball Stadium",
+    "founded_year": 2022,
+    "head_coach": "Hong I-chung"
   },
   {
     "team_id": 3,
-    "team_name": "味全龍",
-    "abbr": "WDL",
-    "city": "台北/天母",
-    "arena": "天母棒球場"
+    "team_name": "Wei Chuan Dragons",
+    "location": "Taipei/Tianmu",
+    "league": "CPBL",
+    "stadium": "Tianmu Baseball Stadium",
+    "founded_year": 1978,
+    "head_coach": "Yeh Chun-chang"
   },
   {
     "team_id": 4,
-    "team_name": "富邦悍將",
-    "abbr": "FUB",
-    "city": "新莊",
-    "arena": "新莊棒球場"
+    "team_name": "Fubon Guardians",
+    "location": "Xinzhuang",
+    "league": "CPBL",
+    "stadium": "Xinzhuang Baseball Stadium",
+    "founded_year": 2017,
+    "head_coach": "Chen Chin-feng"
   },
   {
     "team_id": 5,
-    "team_name": "樂天桃猿",
-    "abbr": "RM",
-    "city": "桃園",
-    "arena": "桃園國際棒球場"
+    "team_name": "Rakuten Monkeys",
+    "location": "Taoyuan",
+    "league": "CPBL",
+    "stadium": "Taoyuan International Baseball Stadium",
+    "founded_year": 2004,
+    "head_coach": "Kenji Kokubo"
   },
   {
     "team_id": 6,
-    "team_name": "統一7-ELEVEn獅",
-    "abbr": "UL",
-    "city": "台南",
-    "arena": "台南棒球場"
+    "team_name": "Uni-President 7-ELEVEn Lions",
+    "location": "Tainan",
+    "league": "CPBL",
+    "stadium": "Tainan Baseball Stadium",
+    "founded_year": 1990,
+    "head_coach": "Lin Yueh-ping"
   }
 ]
