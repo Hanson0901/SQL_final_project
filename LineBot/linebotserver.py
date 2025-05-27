@@ -11,6 +11,7 @@ from linebot.models import (
     ButtonsTemplate,
     MessageAction,
     CarouselTemplate,  # Add this import
+    CarouselColumn,    # Add this import
 )
 import pymysql
 import re
@@ -62,35 +63,30 @@ def handle_message(event):
         print(f"Received message: {Message}")
         if Message == "Feed Back":
             reply = TemplateSendMessage(
-                alt_text='選擇種類',
-                template=CarouselTemplate(
-                    title='選擇種類',
-                    text='請點選下方按鈕輸入選擇',
-                    actions=[
-                        MessageAction(
-                            label='NBA',
-                            text='NBA'
-                        )
-                        ,
-                        MessageAction(
-                            label='F1',
-                            text='F1'
-                        ),
-                        MessageAction(
-                            label='MLB',
-                            text='MLB'
-                        ),
-                        MessageAction(
-                            label='CPBL',
-                            text='CPBL'
-                        ),
-                        MessageAction(
-                            label='BWF',
-                            text='BWF'
-                        )
-                    ]
+            alt_text='選擇種類',
+            template=CarouselTemplate(
+            columns=[
+                CarouselColumn(
+                title='選擇種類1',
+                text='請選擇一個賽事',
+                actions=[
+                    MessageAction(label='NBA', text='NBA'),
+                    MessageAction(label='F1', text='F1'),
+                    MessageAction(label='MLB', text='MLB')
+                ]
+                ),
+                CarouselColumn(
+                title='選擇種類2',
+                text='請選擇一個賽事',
+                actions=[
+                    MessageAction(label='CPBL', text='CPBL'),
+                    MessageAction(label='BWF', text='BWF')
+                ]
                 )
+            ]
             )
+        )
+
             line_bot_api.reply_message(
             event.reply_token,
             [reply]
