@@ -1,4 +1,4 @@
-const API_URL = 'http://127.0.0.1:5000/app/NBAscore';
+const API_URL = 'http://cgusqlpj.ddns.net:5000/app/NBAscore';
 // fetchScore();
 function formatDateTime(date) {
   const year = date.getFullYear();
