@@ -86,7 +86,7 @@ def handle_message(event):
                     messages=[msg]
                 )
             )
-        elif previous_message == "Feed Back" and Message in ["NBA", "F1", "MLB", "CPBL", "BWF"]:
+        elif Message in ["NBA", "F1", "MLB", "CPBL", "BWF"]:
             with ApiClient(configuration) as api_client:
                 messaging_api = MessagingApi(api_client)
                 reply = TextMessage(text=f"您選擇的賽事種類是：{Message}\n請輸入您的回報內容")
