@@ -61,7 +61,6 @@ def handle_message(event):
     
     if event.message and hasattr(event.message, "text"):
         Message = event.message.text
-        previous_message = Message  # 更新上一條訊息
         print(f"Received message: {Message}")
         if Message == "Feed Back":
             with ApiClient(configuration) as api_client:
