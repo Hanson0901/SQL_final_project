@@ -60,8 +60,10 @@ def handle_message(event):
     print(f"User ID: {user_id}")
     
     if event.message and hasattr(event.message, "text"):
+        global previous_message 
         Message = event.message.text
         print(f"Received message: {Message}")
+        
         if Message == "Feed Back":
             with ApiClient(configuration) as api_client:
                 messaging_api = MessagingApi(api_client)
