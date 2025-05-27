@@ -30,7 +30,7 @@ def get_NBAscore():
     # url = "http://localhost:5001/NBA_official"
 
     options = webdriver.FirefoxOptions()
-    # options.add_argument("--headless")
+    options.add_argument("--headless")
     driver = webdriver.Firefox(options=options)
     driver.get(url)
 
