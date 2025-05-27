@@ -13,7 +13,9 @@ from linebot.v3.messaging import (
     CarouselTemplate,
     CarouselColumn,
     MessageAction,
-    TextMessage
+    TextMessage,
+    QuickReply,
+    QuickReplyItem
 )
 from linebot.v3.webhooks import MessageEvent, TextMessageContent
 
@@ -64,37 +66,25 @@ def handle_message(event):
             with ApiClient(configuration) as api_client:
                 messaging_api = MessagingApi(api_client)
 
-                carousel = TemplateMessage(
-                    alt_text="選擇種類",
-                    template=CarouselTemplate(
-                        columns=[
-                            CarouselColumn(
-                                title="選擇種類",
-                                text="請選擇賽事",
-                                actions=[
-                                    MessageAction(label="NBA", text="NBA"),
-                                    MessageAction(label="F1", text="F1"),
-                                    MessageAction(label="MLB", text="MLB"),
-                                ]
-                            ),
-                            CarouselColumn(
-                                title="選擇種類",
-                                text="請選擇賽事",
-                                actions=[
-                                    MessageAction(label="CPBL", text="CPBL"),
-                                    MessageAction(label="BWF", text="BWF"),
-                                    MessageAction(label="NBA", text="NBA")  # 補足三個
-                                ]
-                            )
-                        ]
-                    )
+                quick_reply = QuickReply(
+                items=[
+                    QuickReplyItem(action=MessageAction(label="NBA", text="NBA")),
+                    QuickReplyItem(action=MessageAction(label="F1", text="F1")),
+                    QuickReplyItem(action=MessageAction(label="MLB", text="MLB")),
+                    QuickReplyItem(action=MessageAction(label="CPBL", text="CPBL")),
+                    QuickReplyItem(action=MessageAction(label="BWF", text="BWF")),
+                ]
+            )
+            msg = TextMessage(
+                text="請選擇賽事種類：",
+                quick_reply=quick_reply
+            )
+            messaging_api.reply_message(
+                ReplyMessageRequest(
+                    reply_token=event.reply_token,
+                    messages=[msg]
                 )
-                messaging_api.reply_message(
-                    ReplyMessageRequest(
-                        reply_token=event.reply_token,
-                        messages=[carousel]
-                    )
-                )
+            )
 
             
     elif Message == "及時比分":
