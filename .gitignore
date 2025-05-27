@@ -1,0 +1,11 @@
+../__pycache__/
+../*.py[cod]
+../*.sqlite3
+../.env
+../.venv
+../env/
+../venv/
+../__init__.py
+../__main__.py
+../app/
+../tests/
