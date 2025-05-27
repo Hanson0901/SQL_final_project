@@ -55,7 +55,7 @@ handler = WebhookHandler(
 sql_connect("localhost", 3306, "william", "Chang0928", "final_project")
 
 
-@app.route("/callback", methods=["POST"])
+@app.route("/", methods=["POST"])
 def callback():
     signature = request.headers["X-Line-Signature"]
     body = request.get_data(as_text=True)
