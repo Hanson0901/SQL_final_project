@@ -29,9 +29,9 @@ def get_NBAscore():
 
     # url = "http://localhost:5001/NBA_official"
 
-    options = webdriver.ChromeOptions()
+    options = webdriver.FirefoxOptions()
     # options.add_argument("--headless")
-    driver = webdriver.Chrome(options=options)
+    driver = webdriver.Firefox(options=options)
     driver.get(url)
 
     response = requests.get(url)
@@ -155,7 +155,7 @@ def get_bwf_score():
     # options.add_experimental_option("excludeSwitches", ["enable-automation"])
     # options.add_experimental_option("useAutomationExtension", False)
 
-    driver = webdriver.Chrome(options=options)
+    driver = webdriver.Firefox(options=options)
 
     # 執行 JavaScript 移除 webdriver 痕跡,
     driver.execute_script(
