@@ -37,7 +37,7 @@ line_bot_api = LineBotApi(
 handler = WebhookHandler(
     "11882e6d285791298ae7897a1445ac3c"
 )  # 初始化 Webhook 處理器並設定 Channel Secret
-sql_connect("localhost", 3306, "william", "Chang0928", "final_project")
+sql_connect("localhost", 3306, "hanson940901", "Hanson940901", "final_project")
 
 
 @app.route("/", methods=["POST"])
@@ -57,9 +57,15 @@ def handle_message(event):
     print(f"User ID: {user_id}")
     
     if event.message and hasattr(event.message, "text"):
-        username = event.message.text
-        print(f"Received message: {username}")
-        
+        Message = event.message.text
+        print(f"Received message: {Message}")
+        if Message == "Feed Back":
+            reply = TextSendMessage(text="請輸入您的意見回饋")
+        elif Message == "及時比分":
+            reply = TextSendMessage(text="正在查詢最新比分...")
+        else:
+            reply = TextSendMessage(text=f"收到訊息：{Message}")
+
         # 先檢查使用者是否已存在
         try:
             check_sql = "SELECT user_id FROM users WHERE user_id = %s"
@@ -71,7 +77,7 @@ def handle_message(event):
                     INSERT INTO users (user_id, user_name) 
                     VALUES (%s, %s)
                 """
-                cursor.execute(insert_sql, (user_id, username))
+                cursor.execute(insert_sql, (user_id, Message))
                 db.commit()
                 print("新使用者已儲存")
                 
