@@ -82,8 +82,7 @@ def handle_message(event):
                                 text="請選擇賽事",
                                 actions=[
                                     MessageAction(label="CPBL", text="CPBL"),
-                                    MessageAction(label="BWF", text="BWF"),
-                                    MessageAction(label="NBA", text="NBA")  # 補足三個
+                                    MessageAction(label="BWF", text="BWF")
                                 ]
                             )
                         ]
