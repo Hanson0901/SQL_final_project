@@ -1,20 +1,21 @@
 from flask import Flask, request, abort
-from linebot import LineBotApi, WebhookHandler
-from linebot.exceptions import InvalidSignatureError
 from flask.logging import create_logger
-from linebot.models import (
-    MessageEvent,
-    TextSendMessage,
-    PostbackEvent,
-    URIAction,
-    TemplateSendMessage,
-    ButtonsTemplate,
-    MessageAction,
-    CarouselTemplate,  # Add this import
-    CarouselColumn,    # Add this import
-)
 import pymysql
 import re
+from linebot.v3 import WebhookHandler
+from linebot.v3.exceptions import InvalidSignatureError
+from linebot.v3.messaging import (
+    Configuration,
+    ApiClient,
+    MessagingApi,
+    ReplyMessageRequest,
+    TemplateMessage,
+    CarouselTemplate,
+    CarouselColumn,
+    MessageAction,
+    TextMessage
+)
+from linebot.v3.webhooks import MessageEvent, TextMessageContent
 
 
 def sql_connect(host, port, user, passwd, database):
@@ -33,12 +34,10 @@ def sql_connect(host, port, user, passwd, database):
 
 app = Flask(__name__)  # 初始化 Flask 應用程式
 LOG = create_logger(app)  # 設定日誌紀錄器
-line_bot_api = LineBotApi(
-    "H+2kmGOeBxAqGHImKJpKJPLAtgAUqNa9TTAgY4wesr9kJbs14FJwNDaUFYL90z9Yh/MlJpQXU3A0nPdoDaVvyqZkQeV4fjfAb9Ez5YfOaOGP64bECzjzxeOHMUK/lTvCS009Elcpi6caa5hCeTPfIwdB04t89/1O/w1cDnyilFU="
-)  # 初始化 LINE Bot API，帶入對應的 Channel Access Token
-handler = WebhookHandler(
-    "11882e6d285791298ae7897a1445ac3c"
-)  # 初始化 Webhook 處理器並設定 Channel Secret
+CHANNEL_ACCESS_TOKEN = "H+2kmGOeBxAqGHImKJpKJPLAtgAUqNa9TTAgY4wesr9kJbs14FJwNDaUFYL90z9Yh/MlJpQXU3A0nPdoDaVvyqZkQeV4fjfAb9Ez5YfOaOGP64bECzjzxeOHMUK/lTvCS009Elcpi6caa5hCeTPfIwdB04t89/1O/w1cDnyilFU="
+CHANNEL_SECRET = "11882e6d285791298ae7897a1445ac3c"
+configuration = Configuration(access_token=CHANNEL_ACCESS_TOKEN)
+handler = WebhookHandler(CHANNEL_SECRET)
 sql_connect("localhost", 3306, "hanson0901", "Hanson940901", "final_project")
 
 
@@ -53,7 +52,7 @@ def callback():
     return "OK"
 
 previous_message = ""  # 儲存上一條訊息
-@handler.add(MessageEvent)
+@handler.add(MessageEvent, message=TextMessageContent)
 def handle_message(event):
     user_id = event.source.user_id
     print(f"User ID: {user_id}")
@@ -62,48 +61,62 @@ def handle_message(event):
         Message = event.message.text
         print(f"Received message: {Message}")
         if Message == "Feed Back":
-            reply = TemplateSendMessage(
-            alt_text='選擇種類',
-            template=CarouselTemplate(
-            columns=[
-                CarouselColumn(
-                title='選擇種類1',
-                text='請選擇一個賽事',
-                actions=[
-                    MessageAction(label='NBA', text='NBA'),
-                    MessageAction(label='F1', text='F1'),
-                    MessageAction(label='MLB', text='MLB')
-                ]
-                ),
-                CarouselColumn(
-                title='選擇種類2',
-                text='請選擇一個賽事',
-                actions=[
-                    MessageAction(label='CPBL', text='CPBL'),
-                    MessageAction(label='BWF', text='BWF')
-                ]
-                )
-            ]
-            )
-        )
+            with ApiClient(configuration) as api_client:
+                messaging_api = MessagingApi(api_client)
 
-            line_bot_api.reply_message(
-            event.reply_token,
-            [reply]
+                carousel = TemplateMessage(
+                    alt_text="選擇種類",
+                    template=CarouselTemplate(
+                        columns=[
+                            CarouselColumn(
+                                title="選擇種類",
+                                text="請選擇賽事",
+                                actions=[
+                                    MessageAction(label="NBA", text="NBA"),
+                                    MessageAction(label="F1", text="F1"),
+                                    MessageAction(label="MLB", text="MLB"),
+                                ]
+                            ),
+                            CarouselColumn(
+                                title="選擇種類",
+                                text="請選擇賽事",
+                                actions=[
+                                    MessageAction(label="CPBL", text="CPBL"),
+                                    MessageAction(label="BWF", text="BWF"),
+                                    MessageAction(label="NBA", text="NBA")  # 補足三個
+                                ]
+                            )
+                        ]
+                    )
+                )
+                messaging_api.reply_message(
+                    ReplyMessageRequest(
+                        reply_token=event.reply_token,
+                        messages=[carousel]
+                    )
+                )
+
+            
+    elif Message == "及時比分":
+        with ApiClient(configuration) as api_client:
+            messaging_api = MessagingApi(api_client)
+            reply = TextMessage(text="正在查詢最新比分...")
+            messaging_api.reply_message(
+                ReplyMessageRequest(
+                    reply_token=event.reply_token,
+                    messages=[reply]
+                )
             )
-        elif Message == "及時比分":
-            reply = TextSendMessage(text="正在查詢最新比分...")
-            line_bot_api.reply_message(
-                event.reply_token,
-                [reply]
+    else:
+        with ApiClient(configuration) as api_client:
+            messaging_api = MessagingApi(api_client)
+            reply = TextMessage(text=f"收到訊息：{Message}")
+            messaging_api.reply_message(
+                ReplyMessageRequest(
+                    reply_token=event.reply_token,
+                    messages=[reply]
+                )
             )
-        else:
-            reply = TextSendMessage(text=f"收到訊息：{Message}")
-            line_bot_api.reply_message(
-                event.reply_token,
-                [reply]
-            )
-        previous_message = Message  # 儲存當前訊息為上一條訊息
         # 先檢查使用者是否已存在
         try:
             check_sql = "SELECT user_id FROM users WHERE user_id = %s"
@@ -120,10 +133,15 @@ def handle_message(event):
                 print("新使用者已儲存")
                 
                 # 傳送歡迎訊息
-                line_bot_api.reply_message(
-                    event.reply_token,
-                    TextSendMessage(text="歡迎新朋友！資料已儲存")
-                )
+                with ApiClient(configuration) as api_client:
+                    messaging_api = MessagingApi(api_client)
+                    welcome_message = TextMessage(text="歡迎新朋友！資料已儲存")
+                    messaging_api.reply_message(
+                        ReplyMessageRequest(
+                            reply_token=event.reply_token,
+                            messages=[welcome_message]
+                        )
+                    )
             else:
                 print("使用者已存在，不重複儲存")
                 
