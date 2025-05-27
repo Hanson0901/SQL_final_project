@@ -55,20 +55,38 @@ def callback():
 def handle_message(event):
     user_id = event.source.user_id
     print(f"User ID: {user_id}")
-    # 回覆收到的訊息並將訊息內容存成 username
+    
     if event.message and hasattr(event.message, "text"):
         username = event.message.text
         print(f"Received message: {username}")
-    # 將 user_id 和 username 寫入資料庫
-    try:
-        insert_sql = (
-            f"INSERT INTO users (user_id, user_name) VALUES ('{user_id}', '{username}')"
-        )
-        cursor.execute(insert_sql)
-        db.commit()  # 提交到資料庫
-        print("User saved successfully")
-    except Exception as e:
-        print(f"Error saving user: {e}")
+        
+        # 先檢查使用者是否已存在
+        try:
+            check_sql = "SELECT user_id FROM users WHERE user_id = %s"
+            cursor.execute(check_sql, (user_id,))
+            result = cursor.fetchone()
+            
+            if not result:  # 如果資料庫沒有該使用者
+                insert_sql = """
+                    INSERT INTO users (user_id, user_name) 
+                    VALUES (%s, %s)
+                """
+                cursor.execute(insert_sql, (user_id, username))
+                db.commit()
+                print("新使用者已儲存")
+                
+                # 傳送歡迎訊息
+                line_bot_api.reply_message(
+                    event.reply_token,
+                    TextSendMessage(text="歡迎新朋友！資料已儲存")
+                )
+            else:
+                print("使用者已存在，不重複儲存")
+                
+        except Exception as e:
+            print(f"資料庫操作錯誤: {e}")
+            db.rollback()  # 回滾交易
+
 
 
 # weichang.ddns.net
