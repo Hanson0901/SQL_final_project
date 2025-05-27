@@ -69,11 +69,11 @@ def handle_message(event):
 
                 quick_reply = QuickReply(
                 items=[
-                    QuickReplyItem(action=MessageAction(label="NBA", text="NBA")),
-                    QuickReplyItem(action=MessageAction(label="F1", text="F1")),
-                    QuickReplyItem(action=MessageAction(label="MLB", text="MLB")),
-                    QuickReplyItem(action=MessageAction(label="CPBL", text="CPBL")),
-                    QuickReplyItem(action=MessageAction(label="BWF", text="BWF")),
+                    QuickReplyItem(action=MessageAction(label="NBA", text="NBA ")),
+                    QuickReplyItem(action=MessageAction(label="F1", text="F1 ")),
+                    QuickReplyItem(action=MessageAction(label="MLB", text="MLB ")),
+                    QuickReplyItem(action=MessageAction(label="CPBL", text="CPBL ")),
+                    QuickReplyItem(action=MessageAction(label="BWF", text="BWF ")),
                 ]
             )
             msg = TextMessage(
@@ -86,7 +86,7 @@ def handle_message(event):
                     messages=[msg]
                 )
             )
-        elif Message in ["NBA", "F1", "MLB", "CPBL", "BWF"]:
+        elif Message in ["NBA ", "F1 ", "MLB ", "CPBL ", "BWF "]:
             with ApiClient(configuration) as api_client:
                 messaging_api = MessagingApi(api_client)
                 reply = TextMessage(text=f"您選擇的賽事種類是：{Message}\n請輸入您的回報內容")
