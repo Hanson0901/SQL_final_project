@@ -60,7 +60,36 @@ def handle_message(event):
         Message = event.message.text
         print(f"Received message: {Message}")
         if Message == "Feed Back":
-            reply = TextSendMessage(text="請選擇您的回饋種類:\n1. NBA\n2. F1\n3. BWF\n4. MLB\n5. CPBL")
+            reply = TemplateSendMessage(
+                alt_text='選擇種類',
+                template=ButtonsTemplate(
+                    title='選擇種類',
+                    text='請點選下方按鈕輸入選擇',
+                    actions=[
+                        MessageAction(
+                            label='NBA',
+                            text='NBA'
+                        )
+                        ,
+                        MessageAction(
+                            label='F1',
+                            text='F1'
+                        ),
+                        MessageAction(
+                            label='MLB',
+                            text='MLB'
+                        ),
+                        MessageAction(
+                            label='CPBL',
+                            text='CPBL'
+                        ),
+                        MessageAction(
+                            label='BWF',
+                            text='BWF'
+                        )
+                    ]
+                )
+            )
             line_bot_api.reply_message(
             event.reply_token,
             [reply]
