@@ -31,7 +31,7 @@ with open(r"Player_info\BWF\player_info.json", "r") as f:
     data = json.load(f)
 
     # 合併 name1 和 name2 為 full_name
-    for player in data[0:3]:
+    for player in data:
         next_page = True
         not_find = True
         find_name1 = player["name1"]
@@ -51,9 +51,9 @@ with open(r"Player_info\BWF\player_info.json", "r") as f:
             # 取得所有 class="popular-player-pair-wrap" 的元素
             soup = BeautifulSoup(driver.page_source, "html.parser")
             player_divs = soup.find_all("div", class_="popular-player-pair-wrap")
-            print(
-                f"Found {len(player_divs)} players with class 'popular-player-pair-wrap'"
-            )
+            # print(
+            #     f"Found {len(player_divs)} players with class 'popular-player-pair-wrap'"
+            # )
             # ...existing code...
             for div in player_divs:
                 name1_span = div.find("span", class_="name-1")
@@ -68,7 +68,7 @@ with open(r"Player_info\BWF\player_info.json", "r") as f:
                 )
 
                 if flag_alt == country:
-                    print(f"Flag alt: {flag_alt}, Country: {country}")
+                    # print(f"Flag alt: {flag_alt}, Country: {country}")
                     name1_text = name1_span.text.strip() if name1_span else ""
                     name2_text = name2_span.text.strip() if name2_span else ""
                     if name1_text == find_name1 and name2_text == find_name2:
@@ -76,34 +76,35 @@ with open(r"Player_info\BWF\player_info.json", "r") as f:
                         if a_tag:
                             link = a_tag["href"]
                             print(
-                                f"找到對應的 player: {find_name1} {find_name2}\nlink: {link}"
+                                f"找到對應的 player: {find_name1} {find_name2}\nlink: {link}\n"
                             )
                             all_link.append(link)
                             not_find = False
                         break
 
             # 取得目前頁碼
-            page_nav = driver.find_element(
-                By.CSS_SELECTOR, "div.table-pagination nav.pagination"
-            )
-            page_stats = page_nav.find_element(By.CLASS_NAME, "page-stats")
-            page_text = page_stats.text.strip()  # 例如 "Page 10 of 10"
-            current_page, total_page = map(
-                int, page_text.replace("Page", "").replace("of", "").split()
-            )
-            print(f"目前頁碼：{current_page} / {total_page}")
+            if not_find:
+                page_nav = driver.find_element(
+                    By.CSS_SELECTOR, "div.table-pagination nav.pagination"
+                )
+                page_stats = page_nav.find_element(By.CLASS_NAME, "page-stats")
+                page_text = page_stats.text.strip()  # 例如 "Page 10 of 10"
+                current_page, total_page = map(
+                    int, page_text.replace("Page", "").replace("of", "").split()
+                )
+                print(f"目前頁碼：{current_page} / {total_page}")
 
-            # 如果已經到最後一頁就 break
-            if current_page == total_page:
-                print("已到最後一頁，結束搜尋。")
-                next_page = False
+                # 如果已經到最後一頁就 break
+                if current_page == total_page:
+                    print("已到最後一頁，結束搜尋。")
+                    next_page = False
 
-            # 點擊右箭頭按鈕
-            next_btn = page_nav.find_elements(By.CLASS_NAME, "button")[
-                2
-            ]  # 第三個是右箭頭
-            next_btn.click()
-            time.sleep(2)  # 等待頁面載入
+                # 點擊右箭頭按鈕
+                next_btn = page_nav.find_elements(By.CLASS_NAME, "button")[
+                    2
+                ]  # 第三個是右箭頭
+                next_btn.click()
+                time.sleep(2)  # 等待頁面載入
 
 print("所有找到的 player links:")
 for link in all_link:
