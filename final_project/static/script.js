@@ -142,9 +142,15 @@ if(page === 'foradmin'){
 
 }else if (page === 'sql') {
   
+  let allTeams = [];  // 全域隊伍資料
+  
   window.addEventListener('DOMContentLoaded', async () => {
     const tbody = document.querySelector('#addTable tbody');
     tbody.innerHTML = '';
+
+    await fetchAllTeams();
+
+
     await populateSportOptions();
     bindSearchEvents();
     addRow(false); // 第一筆不要 X
@@ -153,12 +159,15 @@ if(page === 'foradmin'){
   async function fetchAllTeams() {
     try {
       const res = await fetch('/api/teams');
-      return await res.json();
+      allTeams = await res.json(); // 存入全域
+      return allTeams;
     } catch (e) {
       console.error('❌ 無法載入隊伍資料：', e);
+      allTeams = [];
       return [];
     }
   }
+
 
   async function populateSportOptions() {
     const sportSelect = document.getElementById("search-sport");
@@ -228,6 +237,14 @@ if(page === 'foradmin'){
 
   function bindSearchEvents() {
     const btn = document.getElementById("SearchBtn");
+
+    const sport_name = {
+      1 : "NBA",
+      2 : "F1",
+      3 : "MLB",
+      4 : "CPBL",
+      5 : "BWF"
+    }
     btn.addEventListener("click", async () => {
       const sport = document.getElementById("search-sport").value;
       const date = document.getElementById("search-date").value;
@@ -266,8 +283,8 @@ if(page === 'foradmin'){
 
         result.innerHTML += `
           <div class="match-card" id="card_${m.game_no}" style="margin-bottom: 1rem;">
-            <strong>${matchTitle}</strong><br>
-            📅 ${formattedDate} 🕒 ${m.time}<br>
+            <strong>【${sport_name[m.type]}】 ${matchTitle}</strong><br>
+            日期時間 : ${formattedDate} ${m.time}<br>
             比分：${m.point || '尚未公布'}<br>
             <div class="button-wrapper" style="margin-top: 0.5rem;">
               <button onclick="toggleEditForm(${m.game_no}, \`${matchTitle}\`, \`${formattedDate}\`, \`${m.time}\`)">修改</button>
@@ -300,6 +317,23 @@ if(page === 'foradmin'){
     });
   }
 
+
+
+  function checkDuplicatePlayers(tr) {
+    const selects = tr.querySelectorAll('.bwf-players select.player-id');
+    const selectedValues = [];
+
+    selects.forEach(sel => {
+      const val = sel.value;
+      if (val && selectedValues.includes(val)) {
+        alert("❌ 不能選擇重複的選手！");
+        sel.value = "";  // 清空該欄位
+      } else if (val) {
+        selectedValues.push(val);
+      }
+    });
+  }
+
   async function addRow(showRemove = true) {
     const tbody = document.querySelector('#addTable tbody');
     const tr = document.createElement('tr');
@@ -321,6 +355,19 @@ if(page === 'foradmin'){
           <select class="team-b"><option value="">請先選類別</option></select>
         </div>
         <input type="text" class="match-name" placeholder="請輸入比賽名稱" style="display: none; width: 100%;" />
+        <div class="bwf-players" style="display: none; margin-top: 0.5em;">
+          <div style="margin-bottom: 0.5em;">
+            <label>隊伍 A：</label><br/>
+            <select class="player-id team-a-player-select"><option value="">選手1</option></select><br/>
+            <select class="player-id team-a-player-select"><option value="">選手3 (可選)</option></select>
+          </div>
+          <div>
+            <label>隊伍 B：</label><br/>
+            <select class="player-id team-b-player-select"><option value="">選手2</option></select><br/>
+            <select class="player-id team-b-player-select"><option value="">選手4 (可選)</option></select>
+          </div>
+        </div>
+
       </td>
       <td data-label="日期"><input type="date" class="date-input" /></td>
       <td data-label="時間">
@@ -337,7 +384,10 @@ if(page === 'foradmin'){
     const sportSelect = tr.querySelector('.sport-type');
     const teamASelect = tr.querySelector('.team-a');
     const teamBSelect = tr.querySelector('.team-b');
-    const allTeams = await fetchAllTeams();
+    const matchNameInput = tr.querySelector('.match-name');
+    const teamSelects = tr.querySelector('.team-selects');
+    const bwfPlayers = tr.querySelector('.bwf-players');
+
 
     function updateTeamOptions(sportType) {
       const filtered = allTeams.filter(t => t.sport_type == sportType);
@@ -352,32 +402,48 @@ if(page === 'foradmin'){
 
     sportSelect.addEventListener('change', () => {
       const selected = sportSelect.value;
-      const teamSelects = tr.querySelector('.team-selects');
-      const matchNameInput = tr.querySelector('.match-name');
 
       if (selected === "2") {
         teamSelects.style.display = "none";
         matchNameInput.style.display = "block";
+        bwfPlayers.style.display = "none";
+      } else if (selected === "5") {
+        teamSelects.style.display = "flex";
+        matchNameInput.style.display = "none";
+        bwfPlayers.style.display = "block";
+        updateTeamOptions(selected);
       } else {
         teamSelects.style.display = "flex";
         matchNameInput.style.display = "none";
+        bwfPlayers.style.display = "none";
         updateTeamOptions(selected);
       }
     });
 
     teamASelect.addEventListener('change', () => {
-      if (teamASelect.value && teamASelect.value === teamBSelect.value) {
+      if(sportSelect.value !== "5"){
+        if (teamASelect.value && teamASelect.value === teamBSelect.value) {
         alert('❌ 兩隊不能相同！');
         teamASelect.value = '';
+        return;
+      }
+      }
+      if (sportSelect.value === "5") {
+        getBWF_Players(teamASelect.value, tr, 'A');
       }
     });
 
     teamBSelect.addEventListener('change', () => {
-      if (teamBSelect.value && teamASelect.value === teamBSelect.value) {
+      if (teamBSelect.value && teamBSelect.value === teamASelect.value) {
         alert('❌ 兩隊不能相同！');
         teamBSelect.value = '';
+        return;
+      }
+      if (sportSelect.value === "5") {
+        getBWF_Players(teamBSelect.value, tr, 'B');
       }
     });
+
 
     if (showRemove) {
       const removeBtn = tr.querySelector('.remove-btn');
@@ -385,6 +451,52 @@ if(page === 'foradmin'){
     }
   }
 
+  async function getBWF_Players(teamId, tr, teamLabel) {
+    if (!teamId) return;
+
+    try {
+      const res = await fetch(`/api/get_bwf_players?team_id=${teamId}`);
+      const players = await res.json();
+
+      // 只抓對應那一隊的選手選單
+      const selector = teamLabel === 'A'
+        ? '.bwf-players select.team-a-player-select'
+        : '.bwf-players select.team-b-player-select';
+
+      const playerSelects = tr.querySelectorAll(selector);
+
+      playerSelects.forEach(select => {
+        select.innerHTML = `<option value="">請選擇選手</option>`;
+        players.forEach(p => {
+          const opt = new Option(p.name, p.player_id);
+          select.appendChild(opt);
+        });
+
+        // ✅ 加入重複選手檢查
+        select.addEventListener('change', () => {
+          const allSelects = tr.querySelectorAll('.bwf-players select.player-id');
+          const selected = [];
+
+          allSelects.forEach(sel => {
+            const val = sel.value;
+            if (val) {
+              if (selected.includes(val)) {
+                alert('❌ 不能選擇重複的選手');
+                sel.value = '';
+              } else {
+                selected.push(val);
+              }
+            }
+          });
+        });
+      });
+    } catch (err) {
+      console.error('❌ 無法載入選手名單', err);
+    }
+  }
+
+  
+  
   async function submitAllMatches() {
     const rows = document.querySelectorAll('#addTable tbody tr');
     const matches = [];
@@ -400,10 +512,43 @@ if(page === 'foradmin'){
       const matchName = row.querySelector('.match-name')?.value.trim();
 
       if (sport === "2") {
+        // F1：使用 match_name
         if (matchName && date && time) {
           matches.push({ type: sport, match_name: matchName, date, time, point });
         }
-      } else {
+      } else if (sport === "5") {
+        // BWF：隊伍與選手
+        const teamAPlayers = Array.from(row.querySelectorAll('.team-a-player-select'))
+          .map(sel => sel.value.trim())
+          .filter(pid => pid !== "");
+
+        const teamBPlayers = Array.from(row.querySelectorAll('.team-b-player-select'))
+          .map(sel => sel.value.trim())
+          .filter(pid => pid !== "");
+
+        const selectedPlayers = [...teamAPlayers, ...teamBPlayers];
+
+        if (teamA && teamB && date && time && selectedPlayers.length >= 2 && selectedPlayers.length <= 4){
+          if (teamAPlayers.length !== teamBPlayers.length) {
+            alert(`❌ 隊伍 A 與 B 選手數量需一致（目前是 ${teamAPlayers.length} vs ${teamBPlayers.length}）`);
+            return;
+          }
+
+          const match = {
+            type: sport,
+            team_a: teamA,
+            team_b: teamB,
+            date,
+            time,
+            point,
+          };
+          selectedPlayers.forEach((pid, idx) => {
+            match[`player_${idx + 1}`] = pid;
+          });
+          matches.push(match);
+        }
+      }else {
+        // 其他運動（NBA/MLB/CPBL）
         if (teamA && teamB && date && time) {
           matches.push({ type: sport, team_a: teamA, team_b: teamB, date, time, point });
         }
@@ -419,12 +564,14 @@ if(page === 'foradmin'){
     const data = await res.json();
     const status = document.getElementById('addStatus');
     if (data.success) {
+      alert(`新增 ${data.count} 筆資料成功！`);
       status.innerText = `✅ 新增 ${data.count} 筆資料完成`;
       status.className = 'success';
       const tbody = document.querySelector('#addTable tbody');
       tbody.innerHTML = '';
       addRow(false);
     } else {
+      alert(`❌ ${data.message}`);
       status.innerText = `❌ ${data.message}`;
       status.className = 'error';
     }
@@ -434,7 +581,6 @@ if(page === 'foradmin'){
       status.className = '';
     }, 3000);
   }
-
 
   async function searchMatch() {
     const sport = document.getElementById("search-sport").value;
@@ -675,8 +821,6 @@ if(page === 'foradmin'){
       container.appendChild(saveBtn);
     }
   }
-
-
 
   async function confirmDelete(game_no) {
     const yes = confirm("確定要刪除這筆比賽嗎？");
@@ -1069,36 +1213,36 @@ if(page === 'foradmin'){
 
         const title = document.createElement('div');
         title.className = 'feedback-title';
-        title.innerHTML = `<strong>使用者 ${uid}</strong> | 💪 ${typemap[fb.f_type]} | 🗓️ ${date} ${fb.f_time}`;
+        title.innerHTML = `<strong>使用者 ${uid}</strong> | 賽事類型 : ${typemap[fb.f_type]} | 日期時間 : ${date} ${fb.f_time}`;
 
         const detail = document.createElement('div');
         detail.className = 'feedback-detail';
         detail.style.display = 'none';
 
         const p = document.createElement('p');
-        p.textContent = `✏️ ${fb.content}`;
+        p.textContent = `📃內容 : ${fb.content}`;
         detail.appendChild(p);
 
         const status = document.createElement('div');
-        status.innerHTML = `❓ 狀態：<span class="status-text">${fb.f_status}</span>`;
+        status.innerHTML = `狀態：<span class="status-text">${fb.f_status}</span>`;
         detail.appendChild(status);
 
         if (fb.admin_id != "") {
             const admin = document.createElement('div');
             const adminname = fb.admin_name === null || fb.admin_name === "null" ? "尚無管理員認領" : fb.admin_name;
-            admin.innerHTML = `👤 管理者：<span>${adminname}</span>`;
+            admin.innerHTML = `管理者：<span>${adminname}</span>`;
             detail.appendChild(admin);
         }
         if (fb.reply_date || fb.reply_time) {
             const replyTime = document.createElement('div');
-            replyTime.innerHTML = `📅 回覆時間：<span>${fb.reply_date} ${fb.reply_time}</span>`;
+            replyTime.innerHTML = `回覆時間：<span>${fb.reply_date} ${fb.reply_time}</span>`;
             detail.appendChild(replyTime);
         }
 
         // 顯示回覆內容（reply 或 reason）
         if ((fb.f_status === '已處理' || fb.f_status === '不採納')) {
             const reply = document.createElement('div');
-            reply.innerHTML = `💬 回覆內容：<span>${fb.reply || fb.reason || '（無內容）'}</span>`;
+            reply.innerHTML = `回覆內容：<span>${fb.reply || fb.reason || '（無內容）'}</span>`;
             detail.appendChild(reply);
         }
 
@@ -1453,8 +1597,8 @@ if(page === 'foradmin'){
               resultDiv.innerHTML += `
                 <div class="match-card" id="card_${m.game_no}" style="margin-bottom: 1rem;">
                   <strong>${matchTitle}</strong><br>
-                  📅 ${formattedDate} 🕒 ${m.time}<br>
-                  🎯 比分：${m.point ?? "尚未公布"}<br>
+                  日期時間 : ${formattedDate} ${m.time}<br>
+                  比分：${m.point ?? "尚未公布"}<br>
                 </div>  
               `;
           });
@@ -1499,6 +1643,15 @@ if(page === 'foradmin'){
         keywordSelect.disabled = true;
         searchBtn.disabled = true;
         keywordSelect.innerHTML = `<option value="">請選擇</option>`;
+        
+        const teamOption = [...queryTypeInput.options].find(opt => opt.value === "team");
+        if (sportType === "5" && teamOption) {
+          teamOption.disabled = true;
+          // 如果原本選的是隊伍就自動清空
+          if (queryTypeInput.value === "team") queryTypeInput.value = "";
+        } else if (teamOption) {
+          teamOption.disabled = false;
+        }
 
         if (sportType) {
           queryTypeInput.disabled = false;
@@ -1608,14 +1761,14 @@ if(page === 'foradmin'){
                             守備位置：${player.position}<br>
                             打擊習慣：${player.batting_hand}<br>`;
                     if (batting != 0) { html += `打擊率：${batting}%<br>`; }
-                    if (era != 0) { html += `防守率：${era}%<br>`; }
+                    if (era != 0) { html += `防守：${player.era}<br>`; }
 
                     break;
                   case 5:
                     html += `慣用手：${player.hand}<br>
-                            世界排名：${player.world_rank}<br>
-                            巡迴排名：${player.world_tour_rank}<br>
-                            🥇冠軍數：<br>世界 : ${player.world_rank_title} <br>巡迴 : ${player.world_tour_rank_title}<br>
+                            世界排名：${player.world_rank === "null" ? "/" : player.world_rank}<br>
+                            巡迴排名：${player.world_tour_rank === "null" ? "/" : player.world_tour_rank}<br>
+                            世界 : ${player.world_rank_title} <br>巡迴 : ${player.world_tour_rank_title}<br>
                             積分頭銜：${player.point_title}｜積分：${player.point}`;
                     break;
                   default:
@@ -1634,7 +1787,8 @@ if(page === 'foradmin'){
 
                 switch (sportTypeNum) {
                   case 1:
-                    html += `主場：${team.arena}`;
+                    html += `城市：${team.city_name}<br>
+                            主場：${team.arena}`;
                     break;
                   case 2:
                     html += `完整名稱：${team.full_name}<br>
@@ -1647,9 +1801,8 @@ if(page === 'foradmin'){
                   case 3:
                   case 4:
                     html += `聯盟：${team.league}<br>
-                            主場：${team.stadium}<br>
-                            成立年份：${team.founded_year}<br>
-                            教練：${team.head_coach}`;
+                            城市：${team.city_name}<br>
+                            主場：${team.stadium}`;                                            
                     break;
                   default:
                     html += "（不支援的運動種類）";
@@ -1664,7 +1817,7 @@ if(page === 'foradmin'){
                 div.className = "result-card";
                 const m_n = (sportType === "2") ? match.match_name : match.team_a_name + " vs " + match.team_b_name;
 
-                let html = `<strong>【${m_n}】</strong><br>`;
+                let html = `<strong>${m_n}</strong><br>`;
                 html += `時間：${match.date} ${match.time}<br>`;
                 html += `比數：${match.point === null ? "尚未開始" : match.point}`;
 
@@ -1710,7 +1863,7 @@ if(page === 'foradmin'){
 
 }else if(page === "recent_match"){
     //UID
-    let uid = "10107670810";
+    const uid = "{{ session.get('uid', '') }}";
 
     const calendarEl = document.getElementById("calendar");
     const currentMonthEl = document.getElementById("current-month");

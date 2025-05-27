@@ -118,8 +118,20 @@
         {% for admin in admins %}
             <tr>
                 <td>{{ admin.admin_id }}</td>
-                <td><input type="text" value="{{ admin.user_name }}" data-id="{{ admin.admin_id }}" class="edit-username"></td>
-                <td><input type="text" value="{{ admin.password }}" data-id="{{ admin.admin_id }}" class="edit-password"></td>
+                <td>
+                  {% if admin.admin_id == session['admin_id'] or admin.permission_level == 1 %}
+                    <input type="text" value="{{ admin.user_name }}" data-id="{{ admin.admin_id }}" class="edit-username">
+                  {% else %}
+                    {{ admin.user_name }}
+                  {% endif %}
+                </td>
+                <td>
+                  {% if admin.admin_id == session['admin_id'] or admin.permission_level == 1 %}
+                    <input type="text" value="{{ admin.password }}" data-id="{{ admin.admin_id }}" class="edit-password">
+                  {% else %}
+                    *****
+                  {% endif %}
+                </td>
                 <td>{{ admin.permission_level }}</td>
                 <td>
                     <!-- 所有人都可以修改自己的帳號 -->
@@ -147,50 +159,74 @@
   </div>
 
   <script>
-    function updateAdmin(id) {
-      const username = document.querySelector(`.edit-username[data-id='${id}']`).value;
-      const password = document.querySelector(`.edit-password[data-id='${id}']`).value;
+  function updateAdmin(id) {
+    const username = document.querySelector(`.edit-username[data-id='${id}']`).value;
+    const password = document.querySelector(`.edit-password[data-id='${id}']`).value;
 
-      fetch(`/api/admins/${id}`, {
-        method: 'PUT',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ username, password })
-      }).then(res => res.json()).then(data => {
-        alert(data.message);
-        location.reload();
-      });
+    fetch(`/api/admins/${id}`, {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ username, password })
+    }).then(res => res.json()).then(data => {
+      alert(data.message);
+    });
+  }
+
+  function deleteAdmin(id) {
+    if (!confirm("❗ 確定要刪除這位管理員嗎？")) return;
+
+    fetch(`/api/admins/${id}`, {
+      method: 'DELETE'
+    }).then(res => res.json()).then(data => {
+      alert(data.message);
+      // 移除該列
+      const row = document.querySelector(`button.delete[onclick*="${id}"]`).closest('tr');
+      if (row) row.remove();
+    });
+  }
+
+  function upgradeAdmin(id) {
+    fetch(`/api/admins/${id}/upgrade`, {
+      method: 'POST'
+    }).then(res => res.json()).then(data => {
+      alert(data.message);
+      updatePermissionRow(id, 2); // 升級後應為權限等級 2
+    });
+  }
+
+  function downgradeAdmin(id) {
+    if (!confirm("確定要將此管理員降為一般權限？")) return;
+
+    fetch(`/api/admins/${id}/downgrade`, {
+      method: 'POST'
+    }).then(res => res.json()).then(data => {
+      alert(data.message);
+      updatePermissionRow(id, 1); // 降級後應為權限等級 1
+    });
+  }
+
+  function updatePermissionRow(id, newLevel) {
+    const row = document.querySelector(`button.update[onclick*="${id}"]`).closest('tr');
+    if (!row) return;
+
+    // 更新權限欄
+    row.querySelectorAll('td')[3].textContent = newLevel;
+
+    // 重新渲染按鈕欄
+    const actionsCell = row.querySelectorAll('td')[4];
+    let html = `
+      <button class="update" onclick="updateAdmin(${id})">修改</button>
+      <button class="delete" onclick="deleteAdmin(${id})">刪除</button>
+    `;
+    if (newLevel === 1) {
+      html += `<button class="upgrade" onclick="upgradeAdmin(${id})">升級權限</button>`;
+    } else if (newLevel === 2) {
+      html += `<button class="downgrade" onclick="downgradeAdmin(${id})">降級權限</button>`;
     }
+    actionsCell.innerHTML = html;
+  }
+</script>
 
-    function deleteAdmin(id) {
-      if (!confirm("❗ 確定要刪除這位管理員嗎？")) return;
-      fetch(`/api/admins/${id}`, {
-        method: 'DELETE'
-      }).then(res => res.json()).then(data => {
-        alert(data.message);
-        location.reload();
-      });
-    }
-
-    function upgradeAdmin(id) {
-      fetch(`/api/admins/${id}/upgrade`, {
-        method: 'POST'
-      }).then(res => res.json()).then(data => {
-        alert(data.message);
-        location.reload();
-      });
-    }
-
-    function downgradeAdmin(id) {
-        if (!confirm("確定要將此管理員降為一般權限？")) return;
-
-        fetch(`/api/admins/${id}/downgrade`, {
-        method: 'POST'
-        }).then(res => res.json()).then(data => {
-        alert(data.message);
-        location.reload();
-        });
-    }
-  </script>
 
 </body>
 </html>

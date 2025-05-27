@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <title>📢 公告專區</title>
+  <style>
+    body {
+      font-family: "Microsoft JhengHei", sans-serif;
+      background-color: #fff4f4;
+      margin: 0;
+      padding: 40px 20px;
+    }
+
+    h2 {
+      color: #d94e5c;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .announcement {
+      background-color: #ffffff;
+      border-left: 6px solid #d94e5c;
+      padding: 20px;
+      margin: 0 auto 20px auto;
+      max-width: 800px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      border-radius: 10px;
+    }
+
+    .announcement p {
+      font-size: 1.1em;
+      margin: 10px 0 0 0;
+      color: #333;
+    }
+
+    .announcement time,
+    .announcement .admin {
+      display: inline-block;
+      color: #888;
+      font-size: 0.9em;
+      margin-right: 16px;
+    }
+
+    #now-time-box {
+      position: fixed;
+      top: 16px;
+      right: 20px;
+      background-color: #fff3f3;
+      padding: 8px 16px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      font-size: 0.95em;
+      color: #444;
+      z-index: 999;
+      border-left: 4px solid #d94e5c;
+    }
+  </style>
+</head>
+<body>
+
+<div id="now-time-box">
+  ⏰ 現在時間：<span id="current-time"></span>
+</div>
+
+<h2>📢 最新公告</h2>
+
+{% for a in announcements %}
+  <div class="announcement">
+    <time>時間 : {{ a.a_datetime }}</time>
+    <div class="admin">管理員 : {{ a.admin_name or "未知" }}</div>
+    <p>{{ a.content }}</p>
+  </div>
+{% endfor %}
+
+<script>
+  function updateTime() {
+    const now = new Date();
+    const yyyy = now.getFullYear();
+    const mm = String(now.getMonth() + 1).padStart(2, '0');
+    const dd = String(now.getDate()).padStart(2, '0');
+    const hh = String(now.getHours()).padStart(2, '0');
+    const min = String(now.getMinutes()).padStart(2, '0');
+    const ss = String(now.getSeconds()).padStart(2, '0');
+    const formatted = `${yyyy}-${mm}-${dd} ${hh}:${min}:${ss}`;
+    document.getElementById("current-time").textContent = formatted;
+  }
+
+  updateTime();
+  setInterval(updateTime, 1000);
+</script>
+
+</body>
+</html>

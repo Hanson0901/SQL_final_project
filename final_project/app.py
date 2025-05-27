@@ -7,15 +7,16 @@ app.secret_key = "yuuuuuuuriz"
 
 #連資料庫
 connection = pymysql.connect(
-    # host='cgusqlpj.ddns.net',
-    # port = 3306,
-    host="localhost",
+    host='cgusqlpj.ddns.net',
+    port = 3306,
+    # host="localhost",
     user='uuriglass',
     password='laby800322',
-    # database='final_project',
-    database="test",
+    database='final_project',
+    # database="test",
     charset='utf8mb4',
-    cursorclass=pymysql.cursors.DictCursor
+    cursorclass=pymysql.cursors.DictCursor,
+    autocommit=True
 )
 
 def fix_timedelta(row):
@@ -197,18 +198,57 @@ def search_matches():
                     print("找不到子表對應的 sport =", sport)
                     return jsonify([])
 
-                cursor.execute(f"SELECT team_id FROM {table} WHERE player_id = %s", (keyword,))
-                result = cursor.fetchone()
-                if not result:
-                    print(f"在 {table} 查無 player_id：", keyword)
-                    return jsonify([])
+                if sport == "5":
+                    player_id = keyword
 
-                team_id = result["team_id"]
-                sql += " AND (m.team_a = %s OR m.team_b = %s)"
-                params.extend([team_id, team_id])
+                    # 🔍 查詢該選手有打的比賽 game_no
+                    cursor.execute("""
+                        SELECT DISTINCT game_no 
+                        FROM bwf_match_info 
+                        WHERE player_1 = %s OR player_2 = %s OR player_3 = %s OR player_4 = %s
+                    """, (player_id, player_id, player_id, player_id))
+                    game_nos = [row['game_no'] for row in cursor.fetchall()]
 
-                cursor.execute("SELECT team_id, team_name FROM teams WHERE team_id = %s", (team_id,))
-                team_info = cursor.fetchone()
+                    if not game_nos:
+                        print(f"❌ BWF 查無 player_id={player_id} 的比賽")
+                        return jsonify([])
+
+                    # 撈出比賽
+                    format_strings = ','.join(['%s'] * len(game_nos))
+                    query_sql = f"""
+                        SELECT m.*, ta.team_name AS team_a_name, tb.team_name AS team_b_name
+                        FROM matches_schedule m
+                        LEFT JOIN teams ta ON m.team_a = ta.team_id
+                        LEFT JOIN teams tb ON m.team_b = tb.team_id
+                        WHERE m.type = %s AND m.game_no IN ({format_strings})
+                    """
+                    all_params = [sport] + game_nos
+                    cursor.execute(query_sql, all_params)
+                    rows = cursor.fetchall()
+
+                    for row in rows:
+                        row = fix_timedelta(row)
+
+                    return jsonify({
+                        "team": {"team_name": f"{player_id} 參與了 {len(game_nos)} 場比賽"},
+                        "matches": rows
+                    })
+
+                            
+                else:
+                    # 其他運動照原邏輯處理：找 team_id 再查 m.team_a / team_b
+                    cursor.execute(f"SELECT team_id FROM {table} WHERE player_id = %s", (keyword,))
+                    result = cursor.fetchone()
+                    if not result:
+                        print(f"在 {table} 查無 player_id：", keyword)
+                        return jsonify([])
+
+                    team_id = result["team_id"]
+                    sql += " AND (m.team_a = %s OR m.team_b = %s)"
+                    params.extend([team_id, team_id])
+
+                    cursor.execute("SELECT team_id, team_name FROM teams WHERE team_id = %s", (team_id,))
+                    team_info = cursor.fetchone()
 
             if sport != "2" and date:
                 sql += " AND m.date = %s"
@@ -306,12 +346,12 @@ def get_options():
         with connection.cursor() as cursor:
             if query_type == "team":
                 cursor.execute(
-                    "SELECT team_id AS id, team_name AS name FROM teams WHERE sport_type = %s",
+                    "SELECT team_id AS id, team_name AS name FROM teams WHERE sport_type = %s ORDER BY LEFT(name, 1) ASC",
                     (sport_type,)
                 )
             elif query_type == "player":
                 cursor.execute(
-                    "SELECT player_id AS id, name FROM players WHERE sport_type = %s",
+                    "SELECT player_id AS id, name FROM players WHERE sport_type = %s ORDER BY LEFT(name, 1) ASC",
                     (sport_type,)
                 )
             else:
@@ -342,71 +382,107 @@ def api_mix_search():
 
     try:
         with connection.cursor() as cursor:
+            
             if query_type == "player":
-                table = player_table_map.get(sport_type)
-                if not table:
+                subtable = player_table_map.get(sport_type)
+                if not subtable:
                     return jsonify({"error": "Unknown sport_type"}), 400
 
-                print(f"👉 SQL: 查詢 {table} 球員 ID")
+                print(f"👉 SQL: 查詢 {subtable} 球員 ID 與詳細資料")
 
-                if(sport_type != "5"):
-                    cursor.execute(f"""
-                        SELECT 
-                            p.name, 
-                            p.player_id, 
-                            p.age, 
-                            n.country_name AS country, 
-                            t.team_name,
-                            x.*
-                        FROM players p
-                        JOIN {table} x ON p.player_id = x.player_id
-                        LEFT JOIN nationality n ON p.nationality_id = n.id
-                        LEFT JOIN teams t ON x.team_id = t.team_id 
-                        WHERE x.player_id = %s
-                    """, (keyword,))
-                    return jsonify(cursor.fetchall())
-                else:
-                    cursor.execute(f"""
-                        SELECT p.name, p.player_id, p.age, n.country_name AS country, x.*
-                        FROM players p
-                        JOIN {table} x ON p.player_id = x.player_id
-                        LEFT JOIN nationality n ON p.nationality_id = n.id
-                        WHERE x.player_id = %s
-                    """, (keyword,))
-                    return jsonify(cursor.fetchall())
-            
+                try:
+                    with connection.cursor() as cursor:
+                        # 先從 players 與 xx_players 拿到全部資訊
+                        cursor.execute(f"""
+                            SELECT 
+                                p.name,
+                                p.age,
+                                p.player_id,
+                                n.country_name AS country,
+                                x.*
+                            FROM players p
+                            JOIN {subtable} x ON p.player_id = x.player_id
+                            LEFT JOIN nationality n ON p.nationality_id = n.id
+                            WHERE p.player_id = %s
+                        """, (keyword,))
+                        player_data = cursor.fetchone()
+
+                        if not player_data:
+                            return jsonify([])
+
+                        # 補上 team_name（所有 sport_type 通用）
+                        if player_data.get("team_id"):
+                            cursor.execute("""
+                                SELECT team_name FROM teams WHERE team_id = %s
+                            """, (player_data["team_id"],))
+                            team = cursor.fetchone()
+                            if team:
+                                player_data["team_name"] = team["team_name"]
+
+                        # 補上 league（僅 sport_type 3 / 4）
+                        if sport_type in ("3", "4") and player_data.get("team_id"):
+                            cursor.execute("""
+                                SELECT league FROM bs_team WHERE team_id = %s
+                            """, (player_data["team_id"],))
+                            league = cursor.fetchone()
+                            if league:
+                                player_data["league"] = league["league"]
+
+                        return jsonify([player_data])
+
+                except Exception as e:
+                    import traceback
+                    traceback.print_exc()
+                    return jsonify({"error": str(e)}), 500
+
+
             elif query_type == "team":
-                team_id = keyword  # keyword 傳的是 team_id
-                print(f"👉 SQL: 查詢 team_id = {team_id} 的隊伍")
+                if sport_type == "5":  # 羽毛球不查隊伍
+                    return
 
                 table = team_table_map.get(sport_type)
-
-                if not table and sport_type == "5":
-                    # BWF → 國籍當隊伍名稱顯示
-                    cursor.execute("""
-                        SELECT n.id AS team_id, n.country_name AS team_name
-                        FROM nationality n
-                        WHERE n.nationality_id = %s
-                    """, (team_id,))
-                    return jsonify(cursor.fetchall())
-
                 if not table:
                     return jsonify({"error": "Unknown sport_type"}), 400
 
-                # 只撈出 xx_team 的資訊
-                cursor.execute(f"""
-                    SELECT *
-                    FROM {table}
-                    WHERE team_id = %s
-                """, (team_id,))
+                # 分開查詢：隊名從 teams，其他資訊從對應子表
+                # 1. 先查隊名與 sport_type 確保精準
+                cursor.execute("""
+                    SELECT team_id, team_name
+                    FROM teams
+                    WHERE team_id = %s AND sport_type = %s
+                """, (keyword, sport_type))
+                team_basic = cursor.fetchone()
 
-                return jsonify(cursor.fetchall())
+                if not team_basic:
+                    return jsonify([])
+
+                # 2. 查其他子表資訊
+                if sport_type in ("1", "3", "4"):  # 有 city_id 的聯盟
+                    cursor.execute(f"""
+                        SELECT x.*, c.city_name
+                        FROM {table} x
+                        LEFT JOIN city_info c ON x.city_id = c.city_id
+                        WHERE x.team_id = %s
+                    """, (keyword,))
+                else:
+                    cursor.execute(f"""
+                        SELECT *
+                        FROM {table}
+                        WHERE team_id = %s
+                    """, (keyword,))
+
+                sub_info = cursor.fetchone() or {}
+
+                # 合併主表與子表結果
+                result = {**team_basic, **sub_info}
+                return jsonify([result])
+
 
 
             elif query_type == "event":
-                if sport_type == "2":  # F1 → 用 type，只抓 match_name
+                if sport_type == "2":  # F1 → 用 type，只抓 team_a
                     cursor.execute("""
-                        SELECT m.match_name, m.date, m.time, m.point, m.type
+                        SELECT m.team_a, m.date, m.time, m.point, m.type
                         FROM matches_schedule m
                         WHERE m.type = %s
                     """, (sport_type,))
@@ -448,23 +524,49 @@ def get_keywords():
 
     try:
         with connection.cursor() as cursor:
+
             if query_type == "player":
                 subtable = player_table_map.get(sport_type)
                 if not subtable:
                     return jsonify([])
 
-                cursor.execute(f"""
-                    SELECT p.player_id AS id, p.name
-                    FROM players p
-                    JOIN {subtable} x ON p.player_id = x.player_id
-                """)
-                return jsonify(cursor.fetchall())
+                if sport_type in ("3", "4"):  # MLB / CPBL 特別處理
+                    league = "MLB" if sport_type == "3" else "CPBL"
+                    
+                    # 先找出該聯盟所有 team_id
+                    cursor.execute("SELECT team_id FROM bs_team WHERE league = %s", (league,))
+                    team_ids = [row["team_id"] for row in cursor.fetchall()]
+
+                    if not team_ids:
+                        return jsonify([])
+
+                    format_strings = ','.join(['%s'] * len(team_ids))
+                    cursor.execute(f"""
+                        SELECT p.player_id AS id, p.name
+                        FROM players p
+                        JOIN baseball_players bp ON p.player_id = bp.player_id
+                        WHERE bp.team_id IN ({format_strings})
+                        ORDER BY LEFT(p.name, 1) ASC
+                    """, team_ids)
+
+                    return jsonify(cursor.fetchall())
+
+
+                else:
+                    # 其他運動照原本邏輯
+                    cursor.execute(f"""
+                        SELECT p.player_id AS id, p.name
+                        FROM players p
+                        JOIN {subtable} x ON p.player_id = x.player_id
+                        ORDER BY LEFT(p.name, 1) ASC
+                    """)
+                    return jsonify(cursor.fetchall())
 
             elif query_type == "team":
                 if sport_type == "5":
                     cursor.execute("""
-                        SELECT nid AS id, country_name AS name 
-                        FROM nationality
+                        SELECT n.id AS id, country_name AS name 
+                        FROM nationality n
                     """)
                     return jsonify(cursor.fetchall())
                 
@@ -478,20 +580,25 @@ def get_keywords():
                     return jsonify(cursor.fetchall())
                 
                 else:
-                    cursor.execute("""
+                    #濾掉比賽的關鍵字 保留原始隊伍
+                    del_f1_match = "Grand Prix"
+
+                    cursor.execute(f"""
                         SELECT team_id AS id, team_name AS name 
                         FROM teams 
-                        WHERE sport_type = %s AND team_name NOT LIKE '%%Grand Prix%%'
+                        WHERE sport_type = %s AND team_name NOT LIKE '%%{del_f1_match}%%'
                     """, (sport_type,))
                     return jsonify(cursor.fetchall())
 
 
             elif query_type == "event":
-                if sport_type == "2":  # F1 → 不用 game_no，只抓 match_name
+                if sport_type == "2":  # F1 → 不用 game_no，只抓 team_a_name
                     cursor.execute("""
-                        SELECT m.game_no, m.match_name AS match_name
+                        SELECT m.game_no, ta.team_name AS team_a_name
                         FROM matches_schedule m
+                        JOIN teams ta ON m.team_a = ta.team_id
                         WHERE m.type = %s
+                        ORDER BY LEFT(team_a_name, 1) ASC
                     """, (sport_type,))
 
                     rows = cursor.fetchall()
@@ -499,7 +606,7 @@ def get_keywords():
                     return jsonify([
                         {
                             "id": row["game_no"],
-                            "name": f'{row["match_name"]}'
+                            "name": f'{row["team_a_name"]}'
                         }for row in rows
                     ])
                 
@@ -510,6 +617,7 @@ def get_keywords():
                         JOIN teams ta ON m.team_a = ta.team_id
                         JOIN teams tb ON m.team_b = tb.team_id
                         WHERE m.type = %s
+                        ORDER BY LEFT(team_a_name, 1) ASC
                     """, (sport_type,))
 
                     rows = cursor.fetchall()
@@ -536,6 +644,11 @@ def get_keywords():
 #===============================比賽預約=====================================#
 @app.route("/recent_match")
 def recent_match():
+    uid = request.args.get("uid")
+
+    if uid:
+        session["uid"] = uid  # 存進 session
+
     return render_template("recent_match.html")
 
 @app.route('/api/matches')
@@ -726,15 +839,8 @@ def admin_entry():
     else:
         return jsonify(success=False)
     
-#最高ADMIN
-top_admin = [
-    {
-        "username" : "uuriglass",
-        "password" : "ssalgiruu"
-    }
-]
 
-is_top = False;
+is_top = False
 
 #==================================登入/註冊介面==============================#
 @app.route('/foradmin')
@@ -835,26 +941,57 @@ def sql():
 def search_match_advanced():
     sport = request.args.get("sport")
     date = request.args.get("date")
-    team_a = request.args.get("team_a")
-    team_b = request.args.get("team_b")
 
     try:
         with connection.cursor(pymysql.cursors.DictCursor) as cursor:
+            # F1 特別處理
+            if sport == "2":
+                conditions = ["m.type = 2"]
+                params = []
+
+                if date:
+                    conditions.append("m.date = %s")
+                    params.append(date)
+
+                where_clause = " AND ".join(conditions)
+
+                cursor.execute(f"""
+                    SELECT m.game_no, m.date, m.time, m.point, f.match_name
+                    FROM matches_schedule m
+                    JOIN f1_match_info f ON m.game_no = f.game_no
+                    WHERE {where_clause}
+                """, params)
+
+                matches = cursor.fetchall()
+
+                for m in matches:
+                    if isinstance(m["time"], timedelta):
+                        total_seconds = int(m["time"].total_seconds())
+                        hours = total_seconds // 3600
+                        minutes = (total_seconds % 3600) // 60
+                        m["time"] = f"{hours:02}:{minutes:02}"
+                    # 統一命名給前端使用（用 team_a_name 裝 match_name）
+                    m["team_a_name"] = m["match_name"]
+                    m["team_b_name"] = None
+                    m["type"] = 2
+
+                return jsonify(matches=matches)
+
+            # 其他運動照原邏輯
             conditions = []
             params = []
 
             if sport:
                 conditions.append("m.type = %s")
                 params.append(sport)
-
             if date:
                 conditions.append("m.date = %s")
                 params.append(date)
-
+            team_a = request.args.get("team_a")
+            team_b = request.args.get("team_b")
             if team_a:
                 conditions.append("m.team_a = %s")
                 params.append(team_a)
-
             if team_b:
                 conditions.append("m.team_b = %s")
                 params.append(team_b)
@@ -873,7 +1010,6 @@ def search_match_advanced():
 
             matches = cursor.fetchall()
 
-            # 轉換時間
             for m in matches:
                 if isinstance(m["time"], timedelta):
                     total_seconds = int(m["time"].total_seconds())
@@ -932,6 +1068,33 @@ def add_many():
                         VALUES (2, %s, NULL, %s, %s, %s)
                     """, (team_a_id, m["date"], m["time"], m.get("point")))
                     added += 1
+                
+                elif m.get("type") == "5":
+                    if not all(k in m for k in ("team_a", "team_b", "date", "time")):
+                        continue
+
+                    # 至少兩位選手，至多四位
+                    players = [m.get(f"player_{i}") for i in range(1, 5) if m.get(f"player_{i}")]
+                    if len(players) < 2 or len(players) > 4:
+                        continue
+
+                    # 插入主表
+                    cursor.execute("""
+                        INSERT INTO matches_schedule (type, team_a, team_b, date, time, point)
+                        VALUES (5, %s, %s, %s, %s, %s)
+                    """, (m["team_a"], m["team_b"], m["date"], m["time"], m.get("point")))
+                    game_no = cursor.lastrowid
+
+                    # 插入對應的 bwf_match_info
+                    placeholders = ["%s"] * 4
+                    values = players + [None] * (4 - len(players))  # 填滿到 4 人
+                    cursor.execute(f"""
+                        INSERT INTO bwf_match_info (game_no, player_1, player_2, player_3, player_4)
+                        VALUES (%s, {', '.join(placeholders)})
+                    """, [game_no] + values)
+
+                    added += 1
+
 
                 else:
                     #  一般比賽處理
@@ -979,48 +1142,93 @@ def add_many():
 def get_match_by_id(game_no):
     try:
         with connection.cursor(pymysql.cursors.DictCursor) as cursor:
-            cursor.execute("""
-                SELECT m.*, ta.team_name AS team_a_name, tb.team_name AS team_b_name
-                FROM matches_schedule m
-                LEFT JOIN teams ta ON m.team_a = ta.team_id
-                LEFT JOIN teams tb ON m.team_b = tb.team_id
-                WHERE m.game_no = %s
-            """, (game_no,))
-            match = cursor.fetchone()
+            # 先查 type 判斷是否為 F1
+            cursor.execute("SELECT type FROM matches_schedule WHERE game_no = %s", (game_no,))
+            result = cursor.fetchone()
 
-            if not match:
+            if not result:
                 return jsonify(success=False, message="查無此比賽")
 
-            # 轉換時間 (timedelta) 成 HH:MM
+            sport_type = result["type"]
+
+            if sport_type == 2:
+                # F1 特別處理：查 match_name
+                cursor.execute("""
+                    SELECT m.*, f.match_name
+                    FROM matches_schedule m
+                    JOIN f1_match_info f ON m.game_no = f.game_no
+                    WHERE m.game_no = %s
+                """, (game_no,))
+                match = cursor.fetchone()
+
+                if not match:
+                    return jsonify(success=False, message="查無此比賽")
+
+                # 放進 team_a_name 以兼容前端
+                match["team_a_name"] = match["match_name"]
+                match["team_b_name"] = None
+
+            else:
+                # 其他運動照原邏輯處理
+                cursor.execute("""
+                    SELECT m.*, ta.team_name AS team_a_name, tb.team_name AS team_b_name
+                    FROM matches_schedule m
+                    LEFT JOIN teams ta ON m.team_a = ta.team_id
+                    LEFT JOIN teams tb ON m.team_b = tb.team_id
+                    WHERE m.game_no = %s
+                """, (game_no,))
+                match = cursor.fetchone()
+
+                if not match:
+                    return jsonify(success=False, message="查無此比賽")
+
+            # 時間處理
             if isinstance(match["time"], timedelta):
                 total_seconds = int(match["time"].total_seconds())
                 hours = total_seconds // 3600
                 minutes = (total_seconds % 3600) // 60
                 match["time"] = f"{hours:02}:{minutes:02}"
 
-            # 轉換日期成 YYYY-MM-DD 字串
             if isinstance(match["date"], (datetime, date)):
                 match["date"] = match["date"].strftime("%Y-%m-%d")
 
             return jsonify(success=True, match=match)
+
     except Exception as e:
         return jsonify(success=False, message=str(e)), 500
+
 
 @app.route("/api/teams")
 def get_teams():
     try:
+        save_match_name = "Grand Prix"
         with connection.cursor(pymysql.cursors.DictCursor) as cursor:
             cursor.execute("""
                 SELECT team_id, team_name, sport_type 
                 FROM teams 
-                WHERE (sport_type != 2 OR team_name LIKE %s)
-            """, ("%Grand Prix%",))
+                WHERE sport_type != 2 OR (sport_type = 2 AND team_name LIKE %s)
+            """, (f"%{save_match_name}%",))
             teams = cursor.fetchall()
         return jsonify(teams)
     except Exception as e:
         print("get_teams 失敗：", e)
         return jsonify([], 500)
 
+
+@app.route("/api/get_bwf_players")
+def get_bwf_players():
+    team_id = request.args.get("team_id")
+    try:
+        with connection.cursor() as cursor:
+            cursor.execute("""
+                SELECT p.player_id, p.name
+                FROM players p
+                JOIN bwf_players bp ON p.player_id = bp.player_id
+                WHERE bp.team_id = %s
+            """, (team_id,))
+            return jsonify(cursor.fetchall())
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
 
 @app.route("/api/edit/<int:game_no>", methods=["POST"])
 def edit_match(game_no):
@@ -1060,7 +1268,6 @@ def edit_match(game_no):
         return jsonify(success=True)
     except Exception as e:
         return jsonify(success=False, message=str(e)), 500
-
 
 
 @app.route("/api/delete/<int:game_no>", methods=["DELETE"])
@@ -1301,6 +1508,25 @@ def update_feedback(uid, date):
         return jsonify(success=True, message="更新成功")
     except Exception as e:
         return jsonify(success=False, message=str(e)), 500
+    
+
+#===========================使用者公告區====================================#
+@app.route("/public_announcements")
+def public_announcements():
+    try:
+        with connection.cursor(pymysql.cursors.DictCursor) as cursor:
+            cursor.execute("""
+                SELECT a.*, u.user_name AS admin_name
+                FROM announcements a
+                LEFT JOIN admins u ON a.admin_id = u.admin_id
+                ORDER BY a.a_datetime DESC
+            """)
+            rows = cursor.fetchall()
+        return render_template("public_announcements.html", announcements=rows)
+    except Exception as e:
+        return f"查詢錯誤：{str(e)}", 500
+
+
 
 #=========================feedback========================================#
 

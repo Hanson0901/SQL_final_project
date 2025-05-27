@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>📢 公告與提醒管理</title>
+  <title>公告與提醒管理</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='ans.css') }}">
   <style>
     
@@ -11,9 +11,9 @@
 </head>
 <body data-page="announcement" data-admin-id="{{ admin_id }}" data-username="{{ username }}" data-is-top = "{{ session.get('is_top' , False) }}">
   <div class="announcement-container">
-    <h2>📢 發佈公告</h2>
+    <h2>發佈公告</h2>
     <p>輸入要發送的公告內容（如：賽事延後、系統維護通知等）。</p>
-    <p>🗓️ 發布日期：<span id="announceDate"></span></p>
+    <p>發布日期：<span id="announceDate"></span></p>
     <textarea id="announcementInput" placeholder="例如：因天候因素，5/22 台灣 vs 日本 延後至 5/24 舉行"></textarea>
     <br>
     <div class="center-btn">
@@ -22,7 +22,7 @@
     <div id="announceStatus"></div>
     
     <hr>
-    <h3 id="ShowAndHideBtn" style="cursor: pointer;">📜 顯示 / 隱藏 歷史公告</h3>
+    <h3 id="ShowAndHideBtn" style="cursor: pointer;">顯示 / 隱藏 歷史公告</h3>
     <div id="historyArea" style="display: none;"></div>
 
   </div>

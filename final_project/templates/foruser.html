@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>🏠 比賽大門</title>
-  <!-- <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}"> -->
   <style>
     body {
       font-family: "Microsoft JhengHei", sans-serif;
@@ -41,12 +40,13 @@
   </style>
 </head>
 <body data-page="door">
-  <h1>🎉 歡迎來到比賽查詢系統</h1>
+  <h1>歡迎來到比賽查詢系統</h1>
 
   <div class="nav-buttons">
-    <a href="{{ url_for('recent_match') }}">📅 比賽預約</a>
-    <a href="{{ url_for('match_search') }}">🔍 比賽搜尋</a>
-    <a href="{{ url_for('mix_search') }}">🧪 混合查詢</a>
+    <a href="{{ url_for('recent_match') }}">比賽預約</a>
+    <a href="{{ url_for('match_search') }}">比賽搜尋</a>
+    <a href="{{ url_for('mix_search') }}">混合查詢</a>
+    <a href="{{ url_for('public_announcements') }}">最新公告</a>
   </div>
 </body>
-</html>
+</html> 
