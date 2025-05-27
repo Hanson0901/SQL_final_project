@@ -50,7 +50,7 @@ def callback():
         abort(400)
     return "OK"
 
-
+previous_message = ""  # 儲存上一條訊息
 @handler.add(MessageEvent)
 def handle_message(event):
     user_id = event.source.user_id
@@ -60,17 +60,24 @@ def handle_message(event):
         Message = event.message.text
         print(f"Received message: {Message}")
         if Message == "Feed Back":
-            reply = TextSendMessage(text="請輸入您的意見回饋")
-        elif Message == "及時比分":
-            reply = TextSendMessage(text="正在查詢最新比分...")
-        else:
-            reply = TextSendMessage(text=f"收到訊息：{Message}")
-
-        line_bot_api.reply_message(
+            reply = TextSendMessage(text="請選擇您的回饋種類:\n1. NBA\n2. F1\n3. BWF\n4. MLB\n5. CPBL")
+            line_bot_api.reply_message(
             event.reply_token,
             [reply]
-        )
-
+            )
+        elif Message == "及時比分":
+            reply = TextSendMessage(text="正在查詢最新比分...")
+            line_bot_api.reply_message(
+                event.reply_token,
+                [reply]
+            )
+        else:
+            reply = TextSendMessage(text=f"收到訊息：{Message}")
+            line_bot_api.reply_message(
+                event.reply_token,
+                [reply]
+            )
+        previous_message = Message  # 儲存當前訊息為上一條訊息
         # 先檢查使用者是否已存在
         try:
             check_sql = "SELECT user_id FROM users WHERE user_id = %s"
