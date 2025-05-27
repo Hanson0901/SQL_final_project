@@ -29,19 +29,7 @@ def sql_connect(host, port, user, passwd, database):
         return False
 
 
-def select(sql):
-    cursor.execute(sql)  # 執行sql語句
-    result = cursor.fetchall()  # 取得查詢結果
-    result = list(result)
-    for i in range(len(result)):
-        result[i] = str(result[i])
-        result[i] = re.sub(r"[(),\"']", "", result[i])  # 移除結果中的特殊字元
-    return result
-
-
-def insert(sql):
-    cursor.execute(sql)  # 執行sql語句
-    db.commit()  # 提交交易，確認寫入資料庫
+    
 
 
 app = Flask(__name__)  # 初始化 Flask 應用程式
@@ -72,14 +60,12 @@ def handle_message(event):
     # 回覆收到的訊息並將訊息內容存成 username
     if event.message and hasattr(event.message, 'text'):
         username = event.message.text
-        line_bot_api.reply_message(
-            event.reply_token,
-            TextSendMessage(text=f"收到您的訊息: {username}")
-        )
+        print(f"Received message: {username}")
     # 將 user_id 和 username 寫入資料庫
     try:
         insert_sql = f"INSERT INTO users (user_id, user_name) VALUES ('{user_id}', '{username}')"
-        insert(insert_sql)
+        cursor.execute(insert_sql)
+        db.commit()  # 提交到資料庫
         print("User saved successfully")
     except Exception as e:
         print(f"Error saving user: {e}")
