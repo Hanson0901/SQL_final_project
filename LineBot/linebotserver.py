@@ -66,6 +66,11 @@ def handle_message(event):
         else:
             reply = TextSendMessage(text=f"收到訊息：{Message}")
 
+        line_bot_api.reply_message(
+            event.reply_token,
+            [reply]
+        )
+
         # 先檢查使用者是否已存在
         try:
             check_sql = "SELECT user_id FROM users WHERE user_id = %s"
