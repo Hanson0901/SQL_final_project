@@ -37,7 +37,7 @@ line_bot_api = LineBotApi(
 handler = WebhookHandler(
     "11882e6d285791298ae7897a1445ac3c"
 )  # 初始化 Webhook 處理器並設定 Channel Secret
-sql_connect("localhost", 3306, "hanson940901", "Hanson940901", "final_project")
+sql_connect("localhost", 3306, "hanson0901", "Hanson940901", "final_project")
 
 
 @app.route("/", methods=["POST"])
