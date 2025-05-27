@@ -14,7 +14,7 @@ let lastMatchCount = 0;
 async function fetchAndRenderBWF() {
   const ul = document.getElementById('bwf-match-list');
   try {
-    const response = await fetch('http://cgusqlpj.ddns.net:5000/app/BWFscore');
+    const response = await fetch('http://34.80.207.190:5000/app/BWFscore');
     const data = await response.json();
 
     // 如果賽事數量不同，重建 li 結構
