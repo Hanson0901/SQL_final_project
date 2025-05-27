@@ -61,6 +61,7 @@ def handle_message(event):
     
     if event.message and hasattr(event.message, "text"):
         Message = event.message.text
+        previous_message = Message  # 更新上一條訊息
         print(f"Received message: {Message}")
         if Message == "Feed Back":
             with ApiClient(configuration) as api_client:
@@ -117,7 +118,7 @@ def handle_message(event):
                         messages=[reply]
                     )
                 )
-        previous_message = Message  # 更新上一條訊息
+        
         # 先檢查使用者是否已存在
         try:
             check_sql = "SELECT user_id FROM users WHERE user_id = %s"
