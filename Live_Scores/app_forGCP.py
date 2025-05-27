@@ -14,6 +14,7 @@ app = Flask(__name__)
 NBA_SCORE_FILE = "nba_score.json"
 BWF_SCORE_FILE = "bwf_score.json"
 
+
 def read_nba_score():
     with open(NBA_SCORE_FILE, "r", encoding="utf-8") as f:
         return json.load(f)
@@ -23,6 +24,7 @@ def write_nba_score(data):
     with open(NBA_SCORE_FILE, "w", encoding="utf-8") as f:
         json.dump(data, f)
 
+
 def read_bwf_score():
     try:
         with open(BWF_SCORE_FILE, "r", encoding="utf-8") as f:
@@ -30,10 +32,12 @@ def read_bwf_score():
     except (FileNotFoundError, json.JSONDecodeError):
         # 檔案不存在或內容錯誤時回傳空陣列
         return []
-    
+
+
 def write_bwf_score(data):
     with open(BWF_SCORE_FILE, "w", encoding="utf-8") as f:
         json.dump(data, f)
+
 
 @app.route("/")
 def index():
@@ -47,7 +51,7 @@ def get_NBAscore():
 
     # url = "http://127.0.0.1:5000/NBA_official"
 
-    url = "http://cgusqlpj.ddns.net:5000/NBA_official"
+    url = "http://cgusqlpj.ddns.net:5001/NBA_official"
 
     options = webdriver.FirefoxOptions()
     options.add_argument("--headless")
@@ -176,7 +180,6 @@ def update_score():
 @app.route("/app/BWFscore", methods=["GET"])
 def get_bwf_score():
 
-
     options = Options()
 
     # 設置完整 User-Agent
@@ -200,7 +203,7 @@ def get_bwf_score():
 
     # url = "https://bwfbadminton.com/"
 
-    url = "http://cgusqlpj.ddns.net:5000/BWF_official"
+    url = "http://cgusqlpj.ddns.net:5001/BWF_official"
 
     # options = uc.FirefoxOptions()
     # # options.add_argument("--disable-blink-features=AutomationControlled")
@@ -342,6 +345,7 @@ def get_bwf_score():
     driver.quit()
     return jsonify(match_cards_array)
 
+
 @app.route("/get_bwf_simple", methods=["GET"])
 def get_bwf_simple():
     try:
@@ -352,6 +356,7 @@ def get_bwf_simple():
         print("get_bwf_simple error:", e)
         data = []
     return jsonify(data)
+
 
 @app.route("/update_bwf_simple", methods=["POST"])
 def update_bwf_simple():
@@ -365,8 +370,10 @@ def update_bwf_simple():
         return jsonify({"status": "ok"})
     except Exception as e:
         import traceback
+
         print("update_bwf_simple error:", traceback.format_exc())
         return jsonify({"error": str(e)}), 500
+
 
 @app.route("/NBAscore")
 def nba_score():
