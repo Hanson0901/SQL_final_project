@@ -25,7 +25,7 @@ def get_NBAscore():
 
     # url = "http://127.0.0.1:5000/NBA_official"
 
-    url = "http://cgusqlpj.ddns.net:5000/NBA_official"
+    url = "http://cgusqlpj.ddns.net:5001/NBA_official"
 
     options = webdriver.ChromeOptions()
     # options.add_argument("--headless")
@@ -162,7 +162,7 @@ def get_bwf_score():
 
     # url = "https://bwfbadminton.com/"
 
-    url = "http://cgusqlpj.ddns.net:5000/BWF_official"
+    url = "http://cgusqlpj.ddns.net:5001/BWF_official"
 
     # options = uc.ChromeOptions()
     # # options.add_argument("--disable-blink-features=AutomationControlled")
@@ -328,4 +328,4 @@ def nba_official():
 
 if __name__ == "__main__":
     # app.run(debug=True)
-    app.run(host="0.0.0.0", port=5001, debug=True)
+    app.run(host="0.0.0.0", port=5000, debug=True)
