@@ -10,6 +10,7 @@ from linebot.models import (
     TemplateSendMessage,
     ButtonsTemplate,
     MessageAction,
+    CarouselTemplate,  # Add this import
 )
 import pymysql
 import re
@@ -62,7 +63,7 @@ def handle_message(event):
         if Message == "Feed Back":
             reply = TemplateSendMessage(
                 alt_text='選擇種類',
-                template=ButtonsTemplate(
+                template=CarouselTemplate(
                     title='選擇種類',
                     text='請點選下方按鈕輸入選擇',
                     actions=[
