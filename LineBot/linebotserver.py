@@ -29,9 +29,6 @@ def sql_connect(host, port, user, passwd, database):
         return False
 
 
-    
-
-
 app = Flask(__name__)  # 初始化 Flask 應用程式
 LOG = create_logger(app)  # 設定日誌紀錄器
 line_bot_api = LineBotApi(
@@ -53,22 +50,26 @@ def callback():
         abort(400)
     return "OK"
 
+
 @handler.add(MessageEvent)
 def handle_message(event):
     user_id = event.source.user_id
     print(f"User ID: {user_id}")
     # 回覆收到的訊息並將訊息內容存成 username
-    if event.message and hasattr(event.message, 'text'):
+    if event.message and hasattr(event.message, "text"):
         username = event.message.text
         print(f"Received message: {username}")
     # 將 user_id 和 username 寫入資料庫
     try:
-        insert_sql = f"INSERT INTO users (user_id, user_name) VALUES ('{user_id}', '{username}')"
+        insert_sql = (
+            f"INSERT INTO users (user_id, user_name) VALUES ('{user_id}', '{username}')"
+        )
         cursor.execute(insert_sql)
         db.commit()  # 提交到資料庫
         print("User saved successfully")
     except Exception as e:
         print(f"Error saving user: {e}")
+
 
 # weichang.ddns.net
 # http://cgusqlpj.ddns.net/phpmyadmin

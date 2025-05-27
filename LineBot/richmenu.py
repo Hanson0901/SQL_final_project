@@ -1,49 +1,111 @@
-from linebot import LineBotApi
-from linebot.exceptions import LineBotApiError
-from linebot.models import (
-    RichMenu,
-    RichMenuArea,
+from flask import Flask, request, abort
+from linebot.v3 import WebhookHandler
+from linebot.v3.exceptions import InvalidSignatureError
+from linebot.v3.messaging import (
+    Configuration,
+    ApiClient,
+    MessagingApi,
+    MessagingApiBlob,
     RichMenuSize,
+    RichMenuRequest,
+    RichMenuArea,
     RichMenuBounds,
     MessageAction,
-    PostbackAction,
 )
+import requests
+import json
 
-line_bot_api = LineBotApi(
-    "H+2kmGOeBxAqGHImKJpKJPLAtgAUqNa9TTAgY4wesr9kJbs14FJwNDaUFYL90z9Yh/MlJpQXU3A0nPdoDaVvyqZkQeV4fjfAb9Ez5YfOaOGP64bECzjzxeOHMUK/lTvCS009Elcpi6caa5hCeTPfIwdB04t89/1O/w1cDnyilFU="
-)
+app = Flask(__name__)
 
-button1 = RichMenuArea(  # 設定 RichMenu 的一個按鈕區域，命名為 "Button 1"，並設定 PostbackAction 動作
-    bounds=RichMenuBounds(x=0, y=0, width=1250, height=1686),
-    action=PostbackAction(label="button 1", data="action=input"),
-)
 
-button2 = RichMenuArea(  # 設定 RichMenu 的第二個按鈕區域，命名為 "查詢個人資料"，並設定 MessageAction 動作
-    bounds=RichMenuBounds(x=1250, y=0, width=1250, height=1686),
-    action=MessageAction(label="查詢個人資料", text="查詢個人資料"),
-)
+CHANNEL_ACCESS_TOKEN = "H+2kmGOeBxAqGHImKJpKJPLAtgAUqNa9TTAgY4wesr9kJbs14FJwNDaUFYL90z9Yh/MlJpQXU3A0nPdoDaVvyqZkQeV4fjfAb9Ez5YfOaOGP64bECzjzxeOHMUK/lTvCS009Elcpi6caa5hCeTPfIwdB04t89/1O/w1cDnyilFU="
+configuration = Configuration(access_token=CHANNEL_ACCESS_TOKEN)
+handler = WebhookHandler("974e569266e988233dab6503bbdd1960")
 
-rich_menu = RichMenu(
-    size=RichMenuSize(width=2500, height=1686),  # 設定 RichMenu 大小
-    selected=True,
-    name="CGU",  # 設定 RichMenu 的名稱
-    chat_bar_text="CGU",  # 設定 RichMenu 在聊天視窗中的顯示文字
-    areas=[button1, button2],  # 設定 RichMenu 的點擊區域
-)
 
-try:
-    # 建立 Rich Menu
-    rich_menu_id = line_bot_api.create_rich_menu(rich_menu=rich_menu)
-    print(f"Rich Menu created. rich_menu_id: {rich_menu_id}")
+@app.route("/callback", methods=["POST"])
+def callback():
+    # get X-Line-Signature header value
+    signature = request.headers["X-Line-Signature"]
 
-    # 上傳 Rich Menu 圖片
-    with open("richmenu.png", "rb") as f:
-        line_bot_api.set_rich_menu_image(rich_menu_id, "image/png", f)
-        print("Rich Menu image uploaded.")
+    # get request body as text
+    body = request.get_data(as_text=True)
+    app.logger.info("Request body: " + body)
 
-    # 設定 Rich Menu 至 Channel
-    line_bot_api.set_default_rich_menu(rich_menu_id)
-    print("Rich Menu set as default.")
+    # handle webhook body
+    try:
+        handler.handle(body, signature)
+    except InvalidSignatureError:
+        app.logger.info(
+            "Invalid signature. Please check your channel access token/channel secret."
+        )
+        abort(400)
 
-except LineBotApiError as e:
-    print(f"Error creating Rich Menu: {e}")
+    return "OK"
+
+
+def create_rich_menu_2():
+    with ApiClient(configuration) as api_client:
+        line_bot_api = MessagingApi(api_client)
+        line_bot_blob_api = MessagingApiBlob(api_client)
+
+        # Create rich menu
+        headers = {
+            "Authorization": "Bearer " + CHANNEL_ACCESS_TOKEN,
+            "Content-Type": "application/json",
+        }
+        body = {
+            "size": {"width": 2500, "height": 1686},
+            "selected": True,
+            "name": "圖文選單 1",
+            "chatBarText": "賽事LINE BOT到",
+            "areas": [
+                {
+                    "bounds": {"x": 0, "y": 0, "width": 2500, "height": 843},
+                    "action": {
+                        "type": "uri",
+                        "uri": "http://35.221.155.196/foruser",
+                    },
+                },
+                {
+                    "bounds": {"x": 0, "y": 839, "width": 834, "height": 847},
+                    "action": {"type": "message", "text": "Feed Back"},
+                },
+                {
+                    "bounds": {"x": 835, "y": 838, "width": 835, "height": 848},
+                    "action": {
+                        "type": "uri",
+                        "uri": "http://35.221.155.196/public_announcements",
+                    },
+                },
+                {
+                    "bounds": {"x": 1664, "y": 843, "width": 836, "height": 843},
+                    "action": {"type": "message", "text": "及時比分"},
+                },
+            ],
+        }
+
+        response = requests.post(
+            "https://api.line.me/v2/bot/richmenu",
+            headers=headers,
+            data=json.dumps(body).encode("utf-8"),
+        )
+        response = response.json()
+        print(response)
+        rich_menu_id = response["richMenuId"]
+
+        # Upload rich menu image
+        with open(r"LineBot/richmenu.png", "rb") as image:
+            line_bot_blob_api.set_rich_menu_image(
+                rich_menu_id=rich_menu_id,
+                body=bytearray(image.read()),
+                _headers={"Content-Type": "image/jpeg"},
+            )
+
+        line_bot_api.set_default_rich_menu(rich_menu_id)
+
+
+create_rich_menu_2()
+
+if __name__ == "__main__":
+    app.run()
