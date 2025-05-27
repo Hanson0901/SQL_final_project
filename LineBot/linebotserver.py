@@ -87,26 +87,26 @@ def handle_message(event):
             )
 
             
-    elif Message == "及時比分":
-        with ApiClient(configuration) as api_client:
-            messaging_api = MessagingApi(api_client)
-            reply = TextMessage(text="正在查詢最新比分...")
-            messaging_api.reply_message(
-                ReplyMessageRequest(
-                    reply_token=event.reply_token,
-                    messages=[reply]
+        elif Message == "及時比分":
+            with ApiClient(configuration) as api_client:
+                messaging_api = MessagingApi(api_client)
+                reply = TextMessage(text="正在查詢最新比分...")
+                messaging_api.reply_message(
+                    ReplyMessageRequest(
+                        reply_token=event.reply_token,
+                        messages=[reply]
+                    )
                 )
-            )
-    else:
-        with ApiClient(configuration) as api_client:
-            messaging_api = MessagingApi(api_client)
-            reply = TextMessage(text=f"收到訊息：{Message}")
-            messaging_api.reply_message(
-                ReplyMessageRequest(
-                    reply_token=event.reply_token,
-                    messages=[reply]
+        else:
+            with ApiClient(configuration) as api_client:
+                messaging_api = MessagingApi(api_client)
+                reply = TextMessage(text=f"收到訊息：{Message}")
+                messaging_api.reply_message(
+                    ReplyMessageRequest(
+                        reply_token=event.reply_token,
+                        messages=[reply]
+                    )
                 )
-            )
         # 先檢查使用者是否已存在
         try:
             check_sql = "SELECT user_id FROM users WHERE user_id = %s"
