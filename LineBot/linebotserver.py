@@ -54,7 +54,7 @@ def callback():
     return "OK"
 
 previous_message = ""  # 儲存上一條訊息
-@handler.add(MessageEvent, message=TextMessageContent)
+'''@handler.add(MessageEvent, message=TextMessageContent)
 def handle_message(event):
     user_id = event.source.user_id
     print(f"User ID: {user_id}")
@@ -63,18 +63,18 @@ def handle_message(event):
         global previous_message 
         Message = event.message.text
         print(f"Received message: {Message}")
-        
+
         if Message == "Feed Back":
             with ApiClient(configuration) as api_client:
                 messaging_api = MessagingApi(api_client)
 
                 quick_reply = QuickReply(
                 items=[
-                    QuickReplyItem(action=MessageAction(label="NBA", text="NBA ")),
-                    QuickReplyItem(action=MessageAction(label="F1", text="F1 ")),
-                    QuickReplyItem(action=MessageAction(label="MLB", text="MLB ")),
-                    QuickReplyItem(action=MessageAction(label="CPBL", text="CPBL ")),
-                    QuickReplyItem(action=MessageAction(label="BWF", text="BWF ")),
+                    QuickReplyItem(action=MessageAction(label="NBA", text="NBA")),
+                    QuickReplyItem(action=MessageAction(label="F1", text="F1")),
+                    QuickReplyItem(action=MessageAction(label="MLB", text="MLB")),
+                    QuickReplyItem(action=MessageAction(label="CPBL", text="CPBL")),
+                    QuickReplyItem(action=MessageAction(label="BWF", text="BWF")),
                 ]
             )
             msg = TextMessage(
@@ -87,7 +87,7 @@ def handle_message(event):
                     messages=[msg]
                 )
             )
-        elif  previous_message=="Feed Back" and Message in ["NBA ", "F1 ", "MLB ", "CPBL ", "BWF "]:
+        elif  previous_message=="Feed Back" and Message in ["NBA", "F1", "MLB", "CPBL", "BWF"]:
             with ApiClient(configuration) as api_client:
                 messaging_api = MessagingApi(api_client)
                 reply = TextMessage(text=f"您選擇的賽事種類是：{Message}\n請輸入您的回報內容")
@@ -122,7 +122,7 @@ def handle_message(event):
                     messages=[msg]
                 )
             )
-        elif Message in ["NBA", "F1", "MLB", "CPBL", "BWF"]:
+        elif  previous_message=="及時比分" and Message in ["NBA", "F1", "MLB", "CPBL", "BWF"]:
             with ApiClient(configuration) as api_client:
                 messaging_api = MessagingApi(api_client)
                 reply = TextMessage(text=f"您選擇的賽事種類是：{Message}\n正在查詢即時比分...")
@@ -173,9 +173,93 @@ def handle_message(event):
         except Exception as e:
             print(f"資料庫操作錯誤: {e}")
             db.rollback()  # 回滾交易
+'''
 
+@handler.add(MessageEvent, message=TextMessageContent)
+def handle_message(event):
+    global previous_message  # 明確宣告使用全域變數
+    user_id = event.source.user_id
+    print(f"User ID: {user_id}")
+    
+    if event.message and hasattr(event.message, "text"):
+        Message = event.message.text.strip()  # 移除前後空白
+        print(f"Received message: {Message}")
+        
+        try:
+            # 訊息處理邏輯
+            if Message == "Feed Back":
+                # 處理回饋流程
+                previous_message = "Feed Back"
+                quick_reply = QuickReply(
+                    items=[
+                        QuickReplyItem(action=MessageAction(label="NBA", text="NBA")),
+                        QuickReplyItem(action=MessageAction(label="F1", text="F1")),
+                        QuickReplyItem(action=MessageAction(label="MLB", text="MLB")),
+                        QuickReplyItem(action=MessageAction(label="CPBL", text="CPBL")),
+                        QuickReplyItem(action=MessageAction(label="BWF", text="BWF")),
+                    ]
+                )
+                self_reply(event, "請選擇賽事種類：", quick_reply)
+                
+            elif previous_message == "Feed Back" and Message in ["NBA", "F1", "MLB", "CPBL", "BWF"]:
+                # 處理賽事選擇
+                previous_message = ""  # 重設狀態
+                self_reply(event, f"您選擇的賽事種類是：{Message}\n請輸入您的回報內容")
+                
+            elif Message == "及時比分":
+                # 處理比分查詢
+                quick_reply = QuickReply(
+                    items=[
+                        QuickReplyItem(action=MessageAction(label="NBA", text="NBA")),
+                        QuickReplyItem(action=MessageAction(label="F1", text="F1")),
+                        QuickReplyItem(action=MessageAction(label="MLB", text="MLB")),
+                        QuickReplyItem(action=MessageAction(label="CPBL", text="CPBL")),
+                        QuickReplyItem(action=MessageAction(label="BWF", text="BWF")),
+                    ]
+                )
+                self_reply(event, "請選擇賽事種類：", quick_reply)
+                
+            elif Message in ["NBA", "F1", "MLB", "CPBL", "BWF"]:
+                # 處理賽事比分顯示
+                self_reply(event, f"您選擇的賽事種類是：{Message}\n正在查詢即時比分...")
+                
+            else:
+                # 預設回應
+                self_reply(event, f"收到訊息：{Message}")
+                
+            # 用戶資料庫處理
+            handle_user_data(user_id, Message, event)
+            
+        except Exception as e:
+            print(f"處理訊息時發生錯誤: {e}")
+            db.rollback()
 
-
+def self_reply(event, text, quick_reply=None):
+    with ApiClient(configuration) as api_client:
+        messaging_api = MessagingApi(api_client)
+        msg = TextMessage(text=text, quick_reply=quick_reply)
+        messaging_api.reply_message(
+            ReplyMessageRequest(
+                reply_token=event.reply_token,
+                messages=[msg]
+            )
+        )
+def handle_user_data(user_id, message, event):
+    try:
+        check_sql = "SELECT user_id FROM users WHERE user_id = %s"
+        cursor.execute(check_sql, (user_id,))
+        result = cursor.fetchone()
+        
+        if not result:
+            insert_sql = "INSERT INTO users (user_id, user_name) VALUES (%s, %s)"
+            cursor.execute(insert_sql, (user_id, message))
+            db.commit()
+            print("新使用者已儲存")
+            self_reply(event, "歡迎新朋友！資料已儲存")
+            
+    except Exception as e:
+        print(f"資料庫操作錯誤: {e}")
+        db.rollback()
 # weichang.ddns.net
 # http://cgusqlpj.ddns.net/phpmyadmin
 if __name__ == "__main__":
