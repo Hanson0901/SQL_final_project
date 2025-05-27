@@ -95,7 +95,7 @@ def create_rich_menu_2():
         rich_menu_id = response["richMenuId"]
 
         # Upload rich menu image
-        with open(r"LineBot/richmenu.png", "rb") as image:
+        with open(r"LineBot\richmenu.jpg", "rb") as image:
             line_bot_blob_api.set_rich_menu_image(
                 rich_menu_id=rich_menu_id,
                 body=bytearray(image.read()),
