@@ -76,6 +76,13 @@ def handle_message(event):
             event.reply_token,
             TextSendMessage(text=f"收到您的訊息: {username}")
         )
+    # 將 user_id 和 username 寫入資料庫
+    try:
+        insert_sql = f"INSERT INTO users (user_id, user_name) VALUES ('{user_id}', '{username}')"
+        insert(insert_sql)
+        print("User saved successfully")
+    except Exception as e:
+        print(f"Error saving user: {e}")
 
 # weichang.ddns.net
 # http://cgusqlpj.ddns.net/phpmyadmin
