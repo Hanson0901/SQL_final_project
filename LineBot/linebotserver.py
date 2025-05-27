@@ -196,7 +196,7 @@ def handle_message(event):
                         QuickReplyItem(action=MessageAction(label="F1", text="F1")),
                         QuickReplyItem(action=MessageAction(label="MLB", text="MLB")),
                         QuickReplyItem(action=MessageAction(label="CPBL", text="CPBL")),
-                        QuickReplyItem(action=MessageAction(label="BWF", text="BWF")),
+                        QuickReplyItem(action=MessageAction(label="BWF", text="BWF"))
                     ]
                 )
                 self_reply(event, "請選擇賽事種類：", quick_reply)
@@ -214,7 +214,7 @@ def handle_message(event):
                         QuickReplyItem(action=MessageAction(label="F1", text="F1")),
                         QuickReplyItem(action=MessageAction(label="MLB", text="MLB")),
                         QuickReplyItem(action=MessageAction(label="CPBL", text="CPBL")),
-                        QuickReplyItem(action=MessageAction(label="BWF", text="BWF")),
+                        QuickReplyItem(action=MessageAction(label="BWF", text="BWF"))
                     ]
                 )
                 self_reply(event, "請選擇賽事種類：", quick_reply)
@@ -260,6 +260,7 @@ def handle_user_data(user_id, message, event):
     except Exception as e:
         print(f"資料庫操作錯誤: {e}")
         db.rollback()
+
 # weichang.ddns.net
 # http://cgusqlpj.ddns.net/phpmyadmin
 if __name__ == "__main__":
