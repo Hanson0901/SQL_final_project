@@ -15,9 +15,13 @@ from linebot.v3.messaging import (
     MessageAction,
     TextMessage,
     QuickReply,
-    QuickReplyItem
+    QuickReplyItem,
+    FlexMessage,
+    FlexContainer
 )
-from linebot.v3.webhooks import MessageEvent, TextMessageContent
+from linebot.v3.webhooks import MessageEvent, TextMessageContent, PostbackEvent
+
+import json
 
 
 def sql_connect(host, port, user, passwd, database):
@@ -201,6 +205,10 @@ def handle_message(event):
                     ]
                 )
                 self_reply(event, "請選擇賽事種類：", quick_reply)
+            elif Message == '我是屁眼':
+                   with ApiClient(configuration) as api_client:
+                        line_bot_api = MessagingApi(api_client)
+                        send_admin_flex(line_bot_api, event.reply_token, rating=0)
                 
             elif previous_message == "Feed Back" and Message in ["NBA", "F1", "MLB", "CPBL", "BWF"]:
                 # 處理賽事選擇
@@ -261,6 +269,147 @@ def handle_user_data(user_id, message_text, event):
     except Exception as e:
         print(f"資料庫操作錯誤: {e}")
         db.rollback()
+
+@handler.add(PostbackEvent)
+def handle_postback(event):
+    data = event.postback.data
+    print(f"📩 收到 postback：{data}")
+
+    with ApiClient(configuration) as api_client:
+        line_bot_api = MessagingApi(api_client)
+
+        if data.startswith("rating="):
+            score = int(data.split("=")[1])
+            send_admin_flex(line_bot_api, event.reply_token, rating=score)
+
+
+def send_admin_flex(line_bot_api, reply_token, rating):
+    # ⭐ 使用 Unicode 星星表情作為 Text 元件，避免 ... 問題
+    star_row = []
+    for i in range(1, 6):
+        star_row.append({
+            "type": "text",
+            "text": "⭐" if i <= rating else "☆",
+            "size": "xl",
+            "align": "center",
+            "action": {
+                "type": "postback",
+                "data": f"rating={i}"
+            },
+            "flex": 1
+        })
+
+    admin_flex = {
+        "type": "bubble",
+        "hero": {
+            "type": "image",
+            "url": "https://i.postimg.cc/fLSSMrpQ/Manager.png",
+            "size": "full",
+            "aspectRatio": "20:13",
+            "aspectMode": "cover"
+        },
+        "body": {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+                {
+                    "type": "text",
+                    "text": "我是管理者",
+                    "weight": "bold",
+                    "size": "xxl",
+                    "margin": "none"
+                },
+                {
+                    "type": "box",
+                    "layout": "horizontal",
+                    "spacing": "sm",
+                    "margin": "md",
+                    "contents": star_row
+                },
+                {
+                    "type": "text",
+                    "text": f"目前評分：{rating}.0",
+                    "margin": "md",
+                    "size": "sm",
+                    "color": "#666666"
+                },
+                {
+                    "type": "box",
+                    "layout": "vertical",
+                    "margin": "lg",
+                    "spacing": "sm",
+                    "contents": [
+                        {
+                            "type": "box",
+                            "layout": "baseline",
+                            "spacing": "sm",
+                            "contents": [
+                                {
+                                    "type": "text",
+                                    "text": "營業時間",
+                                    "color": "#aaaaaa",
+                                    "size": "sm",
+                                    "flex": 3
+                                },
+                                {
+                                    "type": "text",
+                                    "text": "10:00 - 23:00",
+                                    "wrap": True,
+                                    "color": "#666666",
+                                    "size": "sm",
+                                    "flex": 8
+                                }
+                            ]
+                        },
+                        {
+                            "type": "text",
+                            "text": "是否要進入管理者介面？",
+                            "margin": "md",
+                            "size": "sm",
+                            "color": "#444444"
+                        }
+                    ]
+                }
+            ]
+        },
+        "footer": {
+            "type": "box",
+            "layout": "horizontal",
+            "spacing": "sm",
+            "contents": [
+                {
+                    "type": "button",
+                    "style": "primary",
+                    "height": "sm",
+                    "action": {
+                        "type": "uri",
+                        "label": "進入",
+                        "uri": "https://cgusqlpj.ddns.net:2222/"
+                    },
+                    "flex": 2
+                },
+                {
+                    "type": "button",
+                    "style": "secondary",
+                    "height": "sm",
+                    "action": {
+                        "type": "message",
+                        "label": "不要",
+                        "text": "取消進入管理者"
+                    },
+                    "flex": 2
+                }
+            ],
+            "flex": 0
+        }
+    }
+
+    line_bot_api.reply_message(
+        ReplyMessageRequest(
+            reply_token=reply_token,
+            messages=[FlexMessage(alt_text="管理者模式與評分功能", contents=FlexContainer.from_json(json.dumps(admin_flex)))]
+        )
+    )
 
 # weichang.ddns.net
 # http://cgusqlpj.ddns.net/phpmyadmin
