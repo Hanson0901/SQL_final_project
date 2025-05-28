@@ -228,7 +228,7 @@ def handle_message(event):
                 try:
                     today = datetime.now().strftime("%Y-%m-%d")
                     insert_sql = """
-                        INSERT INTO feedback (user_id, f_type, content, send_date,f_time)
+                        INSERT INTO feedbacks (user_id, f_type, content, send_date,f_time)
                         VALUES (%s, %s, %s, %s, %s)
                     """
                     cursor.execute(insert_sql, (user_id, int(sport[Message]), Message, today, datetime.now().strftime("%H:%M")))
