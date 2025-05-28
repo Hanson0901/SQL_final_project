@@ -238,7 +238,7 @@ def handle_message(event):
                     cursor.execute(insert_sql, (user_id, sport[Type], Message, today, datetime.now().strftime("%H:%M"), "未處理"))
                     db.commit()
                     print("回報內容已儲存")
-                    self_reply(event, "感謝您的回報！")
+                    #self_reply(event, "感謝您的回報！")
                 except Exception as e:
                     print(f"資料庫操作錯誤: {e}")
                     db.rollback()
