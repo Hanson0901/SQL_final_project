@@ -184,7 +184,8 @@ def handle_message(event):
     if event.message and hasattr(event.message, "text"):
         Message = event.message.text.strip()  # 移除前後空白
         print(f"Received message: {Message}")
-        
+        # 用戶資料庫處理
+        handle_user_data(user_id, Message, event)
         try:
             # 訊息處理邏輯
             if Message == "Feed Back":
@@ -227,8 +228,7 @@ def handle_message(event):
                 # 預設回應
                 self_reply(event, f"收到訊息：{Message}")
                 
-            # 用戶資料庫處理
-            handle_user_data(user_id, Message, event)
+
             
         except Exception as e:
             print(f"處理訊息時發生錯誤: {e}")
