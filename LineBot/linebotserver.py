@@ -242,15 +242,9 @@ def handle_message(event):
                 except Exception as e:
                     print(f"資料庫操作錯誤: {e}")
                     db.rollback()
-                with ApiClient(configuration) as api_client:
-                    messaging_api = MessagingApi(api_client)
-                    reply = TextMessage(text=f"感謝您的回報：{Message}\n我們會儘快處理您的意見！")
-                    messaging_api.reply_message(
-                        ReplyMessageRequest(
-                            reply_token=event.reply_token,
-                            messages=[reply]
-                        )
-                    )
+                reply = TextMessage(text=f"感謝您的回報：{Message}\n我們會儘快處理您的意見！")
+                self_reply(event, reply.text)
+
 
             elif Message == "及時比分":
                 # 處理比分查詢
