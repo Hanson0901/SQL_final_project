@@ -4,8 +4,8 @@ import time
 while True:
     print("🔄 啟動 app.py")
     process = subprocess.Popen([
-        "python",
-        "SQL_final_project/final_project/app.py"
+        "pythonˇ3.10",
+        "app.py"
     ])
 
     try:
