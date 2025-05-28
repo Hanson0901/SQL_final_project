@@ -65,6 +65,7 @@ def callback():
     return "OK"
 
 previous_message = ""  # 儲存上一條訊息
+Type=""
 '''@handler.add(MessageEvent, message=TextMessageContent)
 def handle_message(event):
     user_id = event.source.user_id
@@ -189,6 +190,7 @@ def handle_message(event):
 @handler.add(MessageEvent, message=TextMessageContent)
 def handle_message(event):
     global previous_message  # 明確宣告使用全域變數
+    global Type
     user_id = event.source.user_id
     print(f"User ID: {user_id}")
     
@@ -221,17 +223,19 @@ def handle_message(event):
                 # 處理賽事選擇
                 previous_message = "Feed Backing"  # 重設狀態
                 self_reply(event, f"您選擇的賽事種類是：{Message}\n請輸入您的回報內容(限一個文字框):")
+                Type=sport[Message]
             
             elif previous_message == "Feed Backing":
                 # 處理回報內容
                 previous_message = ""
                 try:
                     today = datetime.now().strftime("%Y-%m-%d")
+                    print("f_type:", sport.get(Type))
                     insert_sql = """
                         INSERT INTO feedbacks (user_id, f_type, content, send_date,f_time,f_status)
                         VALUES (%s, %s, %s, %s, %s, %s)
                     """
-                    cursor.execute(insert_sql, (user_id, int(sport[Message]), Message, today, datetime.now().strftime("%H:%M"), "未處理"))
+                    cursor.execute(insert_sql, (user_id, int(Type), Message, today, datetime.now().strftime("%H:%M"), "未處理"))
                     db.commit()
                     print("回報內容已儲存")
                     self_reply(event, "感謝您的回報！")
