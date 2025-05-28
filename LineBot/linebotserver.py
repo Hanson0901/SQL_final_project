@@ -230,7 +230,7 @@ def handle_message(event):
                 previous_message = ""
                 try:
                     today = datetime.now().strftime("%Y-%m-%d")
-                    print("f_type:", sport.get(Type))
+                    print("f_type:", sport[Type])
                     insert_sql = """
                         INSERT INTO feedbacks (user_id, f_type, content, send_date,f_time,f_status)
                         VALUES (%s, %s, %s, %s, %s, %s)
