@@ -20,7 +20,7 @@ def create_rich_menu():
                 "bounds": {"x": 0, "y": 0, "width": 2500, "height": 843},
                 "action": {
                     "type": "uri",
-                    "uri": "http://35.221.155.196/foruser",
+                    "uri": "https://cgusqlpj.ddns.net:2222/foruser",
                 },
             },
             {
@@ -31,7 +31,7 @@ def create_rich_menu():
                 "bounds": {"x": 835, "y": 838, "width": 835, "height": 848},
                 "action": {
                     "type": "uri",
-                    "uri": "http://35.221.155.196/public_announcements",
+                    "uri": "https://cgusqlpj.ddns.net:2222/public_announcements",
                 },
             },
             {
@@ -51,7 +51,7 @@ def create_rich_menu():
     rich_menu_id = response["richMenuId"]
 
     # 上傳圖片
-    with open(r"LineBot\richmenu.jpg", "rb") as image:
+    with open(r"richmenu.jpg", "rb") as image:
         img_headers = {
             "Authorization": "Bearer " + CHANNEL_ACCESS_TOKEN,
             "Content-Type": "image/jpeg",
