@@ -2895,9 +2895,23 @@ try {
           }
         }
 
-        const total =
-            Object.values(existingBookings).reduce((sum, arr) => sum + arr.length, 0) +
-            Object.values(pendingBookings).reduce((sum, arr) => sum + arr.length, 0);
+        let uniqueBookingKeys = new Set();
+
+        // 把已預約的加入 Set
+        for (let date in existingBookings) {
+            for (let match of existingBookings[date]) {
+                uniqueBookingKeys.add(`${date}_${match.name}_${match.time}`);
+            }
+        }
+
+        // 把剛新增的也加入 Set（不會重複）
+        for (let date in pendingBookings) {
+            for (let match of pendingBookings[date]) {
+                uniqueBookingKeys.add(`${date}_${match.name}_${match.time}`);
+            }
+        }
+
+        const total = uniqueBookingKeys.size;
         document.getElementById("booking-count").textContent = `已預約 + 新增 ${total} 場比賽`;
     }
 
