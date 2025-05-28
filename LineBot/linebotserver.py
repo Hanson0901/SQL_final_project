@@ -223,7 +223,7 @@ def handle_message(event):
                 # 處理賽事選擇
                 previous_message = "Feed Backing"  # 重設狀態
                 self_reply(event, f"您選擇的賽事種類是：{Message}\n請輸入您的回報內容(限一個文字框):")
-                Type=sport[Message]
+                Type = Message
             
             elif previous_message == "Feed Backing":
                 # 處理回報內容
@@ -235,7 +235,7 @@ def handle_message(event):
                         INSERT INTO feedbacks (user_id, f_type, content, send_date,f_time,f_status)
                         VALUES (%s, %s, %s, %s, %s, %s)
                     """
-                    cursor.execute(insert_sql, (user_id, int(Type), Message, today, datetime.now().strftime("%H:%M"), "未處理"))
+                    cursor.execute(insert_sql, (user_id, sport[Type], Message, today, datetime.now().strftime("%H:%M"), "未處理"))
                     db.commit()
                     print("回報內容已儲存")
                     self_reply(event, "感謝您的回報！")
