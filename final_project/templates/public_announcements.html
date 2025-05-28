@@ -87,6 +87,13 @@
 
   updateTime();
   setInterval(updateTime, 1000);
+
+
+  //30秒刷新一次
+  
+  setInterval(function() {
+      location.reload();
+  }, 30000); // 30000 毫秒 = 30 秒
 </script>
 
 </body>

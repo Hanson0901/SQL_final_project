@@ -1,6 +1,8 @@
 from flask import Flask, render_template, request, jsonify, session, redirect, url_for
 import pymysql
 from datetime import datetime, date, time, timedelta
+from apscheduler.schedulers.background import BackgroundScheduler
+import os
 
 app = Flask(__name__)
 app.secret_key = "yuuuuuuuriz"
@@ -644,10 +646,10 @@ def get_keywords():
 #===============================比賽預約=====================================#
 @app.route("/recent_match")
 def recent_match():
-    uid = request.args.get("uid")
+    # uid = request.args.get("uid")
 
-    if uid:
-        session["uid"] = uid  # 存進 session
+    # if uid:
+    #     session["uid"] = uid  # 存進 session
 
     return render_template("recent_match.html")
 
@@ -674,33 +676,44 @@ def get_matches():
 
         matches = {}
         for row in rows:
-            # 安全解析時間
-            raw_time = row["time"]
-            if isinstance(raw_time, timedelta):
-                total_seconds = int(raw_time.total_seconds())
-                hours = total_seconds // 3600
-                minutes = (total_seconds % 3600) // 60
-                time_str = f"{hours:02d}:{minutes:02d}"
+            # 處理時間
+            match_time = row["time"]
+            if isinstance(match_time, timedelta):
+                # 若是 timedelta，就轉成 HH:MM 格式
+                t = (datetime.min + match_time).time()
+                time_str = t.strftime("%H:%M")
+            elif isinstance(match_time, time):
+                time_str = match_time.strftime("%H:%M")
             else:
-                time_str = str(raw_time)
+                time_str = str(match_time)
 
-            # 日期分類
-            date = row["date"].strftime("%Y-%m-%d")
-            if date not in matches:
-                matches[date] = []
+            # 處理日期
+            match_date = row["date"]
+            if isinstance(match_date, datetime):
+                date_str = match_date.date().isoformat()
+            elif isinstance(match_date, date):
+                date_str = match_date.isoformat()
+            else:
+                date_str = str(match_date)
 
-            matches[date].append({
+            # 塞入 dict
+            if date_str not in matches:
+                matches[date_str] = []
+
+            matches[date_str].append({
+                "game_no": row["game_no"],
                 "name": row["match_name"],
                 "time": time_str,
                 "platform": row["platform_name"],
-                "type": row["type"] 
+                "type": row["type"]
             })
 
         return jsonify(matches)
 
     except Exception as e:
-        print("matches 查詢錯誤：", e)
+        print("❌ matches 查詢錯誤：", e)
         return jsonify({"error": str(e)}), 500
+
 
 @app.route('/api/bookings/user/<uid>', methods=['GET'])
 def get_user_bookings(uid):
@@ -708,6 +721,7 @@ def get_user_bookings(uid):
         with connection.cursor() as cursor:
             cursor.execute("""
                 SELECT 
+                    r.game_no,
                     m.date,
                     CONCAT(ta.team_name, ' vs ', tb.team_name) AS match_name,
                     m.type,
@@ -741,6 +755,7 @@ def get_user_bookings(uid):
                 result[date] = []
 
             result[date].append({
+                "game_no": row["game_no"],
                 "name": row["match_name"],
                 "time": time_str,
                 "platform": row["platform_name"],
@@ -755,40 +770,35 @@ def get_user_bookings(uid):
 
 @app.route('/api/bookings/user/<uid>', methods=['POST'])
 def save_user_bookings(uid):
-    data = request.json 
+    data = request.json
 
     try:
         with connection.cursor() as cursor:
-            # 刪掉舊資料
+            # 刪掉舊的預約資料
             cursor.execute("DELETE FROM reminders WHERE user_id = %s", (uid,))
 
-            # 新增資料
-            for date, matches in data.items():
+            # 用 set 避免重複 game_no 插入
+            inserted_game_nos = set()
+            
+            for matches in data.values():  # data 是 dict，每天對應 list
                 for match in matches:
-                    # 依名稱、日期、時間找出對應的 game_no
-                    cursor.execute("""
-                        SELECT m.game_no
-                        FROM matches_schedule m
-                        JOIN teams ta ON m.team_a = ta.team_id
-                        JOIN teams tb ON m.team_b = tb.team_id
-                        WHERE m.date = %s
-                        AND m.time = %s
-                        AND CONCAT(ta.team_name, ' vs ', tb.team_name) = %s
-                    """, (date, match["time"] + ":00", match["name"]))
-                    result = cursor.fetchone()
-                    if result:
-                        game_no = result["game_no"]
+                    game_no = match.get("game_no")
+                    if game_no and game_no not in inserted_game_nos:
+                        print(f"Inserting: game_no = {game_no}")
                         cursor.execute("""
                             INSERT INTO reminders (user_id, game_no)
                             VALUES (%s, %s)
                         """, (uid, game_no))
+                        inserted_game_nos.add(game_no)
 
         connection.commit()
         return jsonify({"status": "saved"}), 200
 
     except Exception as e:
         connection.rollback()
+        print("❌ 預約儲存錯誤：", e)
         return jsonify({"error": str(e)}), 500
+
 
 @app.route('/api/bookings/user/<uid>', methods=['DELETE'])
 def delete_user_bookings(uid):
@@ -800,6 +810,23 @@ def delete_user_bookings(uid):
     except Exception as e:
         connection.rollback()
         return jsonify({"error": str(e)}), 500
+@app.route('/api/bookings/delete-one', methods=['POST'])
+def delete_single_booking():
+    data = request.get_json()
+    uid = data.get('uid')
+    game_no = data.get('game_no')
+
+    try:
+        with connection.cursor() as cursor:
+            cursor.execute("""
+                DELETE FROM reminders
+                WHERE user_id = %s AND game_no = %s
+            """, (uid, game_no))
+            connection.commit()
+        return jsonify({"success": True})
+    except Exception as e:
+        print("❌ 刪除預約失敗：", e)
+        return jsonify({"success": False, "error": str(e)}), 500
 
 @app.route('/api/platform/rank/<uid>')
 def platform_rank(uid):
@@ -822,6 +849,24 @@ def platform_rank(uid):
     except Exception as e:
         print("❌ 平台統計錯誤：", e)
         return jsonify({"error": str(e)}), 500
+
+def delete_expired_reminders():
+    print("⏰ 正在檢查過期提醒...")
+
+    with connection.cursor() as cursor:
+        cursor.execute("""
+            DELETE r
+            FROM reminders r
+            JOIN matches_schedule m ON r.game_no = m.game_no
+            WHERE 
+                m.date < CURDATE()
+                OR (m.date = CURDATE() AND m.time < CURTIME())
+        """)
+        connection.commit()
+        print(f"[{datetime.now()}] ⏰ 過期提醒已刪除")
+
+
+
 
 
 #===============================比賽預約=====================================#
@@ -970,14 +1015,24 @@ def search_match_advanced():
                         hours = total_seconds // 3600
                         minutes = (total_seconds % 3600) // 60
                         m["time"] = f"{hours:02}:{minutes:02}"
-                    # 統一命名給前端使用（用 team_a_name 裝 match_name）
+
                     m["team_a_name"] = m["match_name"]
                     m["team_b_name"] = None
                     m["type"] = 2
 
+                    # 撈平台資料
+                    cursor.execute("""
+                        SELECT p.name
+                        FROM match_platforms mp
+                        JOIN platforms p ON mp.platform_id = p.platform_id
+                        WHERE mp.game_no = %s
+                    """, (m["game_no"],))
+                    platform_rows = cursor.fetchall()
+                    m["platforms"] = [p["name"] for p in platform_rows] if platform_rows else []
+
                 return jsonify(matches=matches)
 
-            # 其他運動照原邏輯
+            # 其他運動
             conditions = []
             params = []
 
@@ -1017,6 +1072,16 @@ def search_match_advanced():
                     minutes = (total_seconds % 3600) // 60
                     m["time"] = f"{hours:02}:{minutes:02}"
 
+                # 撈平台資料
+                cursor.execute("""
+                    SELECT p.name
+                    FROM match_platforms mp
+                    JOIN platforms p ON mp.platform_id = p.platform_id
+                    WHERE mp.game_no = %s
+                """, (m["game_no"],))
+                platform_rows = cursor.fetchall()
+                m["platforms"] = [p["name"] for p in platform_rows] if platform_rows else []
+
             return jsonify(matches=matches)
 
     except Exception as e:
@@ -1030,78 +1095,66 @@ def add_many():
     new_matches = data.get("matches", [])
 
     if not new_matches:
-        return jsonify(success=False, message="沒有資料可新增"), 400
+        return jsonify(success=False, message="沒有資料可新增 或 有欄位未填入"), 400
 
     added = 0
 
     try:
         with connection.cursor() as cursor:
             for m in new_matches:
-                if m.get("type") == "2":
-                    # F1 處理：用 match_name 找 team_id
+                game_no = None  # 每場比賽的主鍵
+
+                if str(m.get("type")) == "2":
                     match_name = m.get("match_name")
-                    if not match_name or not m.get("date") or not m.get("time"):
+                    match_date = m.get("date")
+                    match_time = m.get("time")
+                    match_point = m.get("point")
+
+                    if not match_name or not match_date or not match_time:
                         continue
 
-                    # 查隊伍是否已存在
-                    cursor.execute("SELECT team_id FROM teams WHERE team_name = %s AND sport_type = 2", (match_name,))
-                    team = cursor.fetchone()
-
-                    if team:
-                        team_a_id = team["team_id"]
-                    else:
-                        #  若不存在就新增隊伍（F1場站）
-                        cursor.execute("INSERT INTO teams (team_name, sport_type) VALUES (%s, 2)", (match_name,))
-                        team_a_id = cursor.lastrowid
-
-                    # 檢查是否有重複
-                    cursor.execute("""
-                        SELECT COUNT(*) AS count FROM matches_schedule 
-                        WHERE team_a = %s AND date = %s AND time = %s
-                    """, (team_a_id, m["date"], m["time"]))
-                    if cursor.fetchone()["count"] > 0:
-                        continue
-
-                    # 寫入 F1 賽事（team_b 為 NULL）
                     cursor.execute("""
                         INSERT INTO matches_schedule (type, team_a, team_b, date, time, point)
-                        VALUES (2, %s, NULL, %s, %s, %s)
-                    """, (team_a_id, m["date"], m["time"], m.get("point")))
+                        VALUES (2, NULL, NULL, %s, %s, %s)
+                    """, (match_date, match_time, match_point))
+                    
+                    game_no = cursor.lastrowid
+
+                    cursor.execute("""
+                        INSERT INTO f1_match_info (game_no, match_name)
+                        VALUES (%s, %s)
+                    """, (game_no, match_name))
+
+                    print("✅ F1 新增完成：", match_name)
                     added += 1
-                
-                elif m.get("type") == "5":
+
+                elif str(m.get("type")) == "5":
                     if not all(k in m for k in ("team_a", "team_b", "date", "time")):
                         continue
 
-                    # 至少兩位選手，至多四位
                     players = [m.get(f"player_{i}") for i in range(1, 5) if m.get(f"player_{i}")]
                     if len(players) < 2 or len(players) > 4:
                         continue
 
-                    # 插入主表
                     cursor.execute("""
                         INSERT INTO matches_schedule (type, team_a, team_b, date, time, point)
                         VALUES (5, %s, %s, %s, %s, %s)
                     """, (m["team_a"], m["team_b"], m["date"], m["time"], m.get("point")))
                     game_no = cursor.lastrowid
 
-                    # 插入對應的 bwf_match_info
                     placeholders = ["%s"] * 4
-                    values = players + [None] * (4 - len(players))  # 填滿到 4 人
+                    values = players + [None] * (4 - len(players))
                     cursor.execute(f"""
-                        INSERT INTO bwf_match_info (game_no, player_1, player_2, player_3, player_4)
+                        INSERT INTO bwf_match_info (game_no, player_1, player_3, player_2, player_4)
                         VALUES (%s, {', '.join(placeholders)})
                     """, [game_no] + values)
 
                     added += 1
 
-
                 else:
-                    #  一般比賽處理
                     if not all(k in m for k in ("team_a", "team_b", "date", "time")):
                         continue
 
-                    # 取得隊伍名稱
                     cursor.execute("SELECT team_name FROM teams WHERE team_id = %s", (m["team_a"],))
                     team_a_name = cursor.fetchone()
                     cursor.execute("SELECT team_name FROM teams WHERE team_id = %s", (m["team_b"],))
@@ -1110,14 +1163,12 @@ def add_many():
                     if not team_a_name or not team_b_name:
                         continue
 
-                    # 查 type
                     cursor.execute("SELECT sport_type FROM teams WHERE team_id = %s", (m["team_a"],))
                     sport = cursor.fetchone()
                     if not sport:
                         continue
                     sport_type = sport["sport_type"]
 
-                    # 檢查是否重複
                     cursor.execute("""
                         SELECT COUNT(*) AS count FROM matches_schedule 
                         WHERE team_a = %s AND team_b = %s AND date = %s AND time = %s
@@ -1129,12 +1180,22 @@ def add_many():
                         INSERT INTO matches_schedule (type, team_a, team_b, date, time, point)
                         VALUES (%s, %s, %s, %s, %s, %s)
                     """, (sport_type, m["team_a"], m["team_b"], m["date"], m["time"], m.get("point")))
+                    game_no = cursor.lastrowid
                     added += 1
+
+                # ✅ 插入平台綁定
+                if game_no:
+                    for pid in m.get("platforms", []):
+                        cursor.execute("""
+                            INSERT INTO match_platforms (game_no, platform_id)
+                            VALUES (%s, %s)
+                        """, (game_no, pid))
 
         connection.commit()
         return jsonify(success=True, count=added)
 
     except Exception as e:
+        connection.rollback()
         return jsonify(success=False, message=str(e)), 500
 
 
@@ -1167,6 +1228,29 @@ def get_match_by_id(game_no):
                 # 放進 team_a_name 以兼容前端
                 match["team_a_name"] = match["match_name"]
                 match["team_b_name"] = None
+            elif sport_type == 5:
+                # 先查 match 本體
+                cursor.execute("""
+                    SELECT m.*, ta.team_name AS team_a_name, tb.team_name AS team_b_name
+                    FROM matches_schedule m
+                    LEFT JOIN teams ta ON m.team_a = ta.team_id
+                    LEFT JOIN teams tb ON m.team_b = tb.team_id
+                    WHERE m.game_no = %s
+                """, (game_no,))
+                match = cursor.fetchone()
+
+                if not match:
+                    return jsonify(success=False, message="查無此比賽")
+
+                # 再補上選手資料
+                cursor.execute("""
+                    SELECT player_1, player_2, player_3, player_4
+                    FROM bwf_match_info
+                    WHERE game_no = %s
+                """, (game_no,))
+                pinfo = cursor.fetchone()
+                if pinfo:
+                    match.update(pinfo)
 
             else:
                 # 其他運動照原邏輯處理
@@ -1197,22 +1281,40 @@ def get_match_by_id(game_no):
     except Exception as e:
         return jsonify(success=False, message=str(e)), 500
 
-
 @app.route("/api/teams")
 def get_teams():
     try:
-        save_match_name = "Grand Prix"
+        sport_type = request.args.get("sport")  # 可能是 "1"~"5" 或 None
+
         with connection.cursor(pymysql.cursors.DictCursor) as cursor:
-            cursor.execute("""
-                SELECT team_id, team_name, sport_type 
-                FROM teams 
-                WHERE sport_type != 2 OR (sport_type = 2 AND team_name LIKE %s)
-            """, (f"%{save_match_name}%",))
+            if sport_type == "2":
+                # ✅ F1 → 用比賽名稱作為隊伍
+                cursor.execute("""
+                    SELECT m.game_no AS team_id, f.match_name AS team_name, 2 AS sport_type
+                    FROM matches_schedule m
+                    JOIN f1_match_info f ON m.game_no = f.game_no
+                """)
+            elif sport_type:
+                # ✅ 有帶 sport → 查指定類別隊伍
+                cursor.execute("""
+                    SELECT team_id, team_name, sport_type
+                    FROM teams
+                    WHERE sport_type = %s
+                """, (sport_type,))
+            else:
+                # ✅ 沒帶參數 → 查全部隊伍
+                cursor.execute("""
+                    SELECT team_id, team_name, sport_type
+                    FROM teams
+                """)
+
             teams = cursor.fetchall()
         return jsonify(teams)
+
     except Exception as e:
         print("get_teams 失敗：", e)
         return jsonify([], 500)
+
 
 
 @app.route("/api/get_bwf_players")
@@ -1233,14 +1335,16 @@ def get_bwf_players():
 @app.route("/api/edit/<int:game_no>", methods=["POST"])
 def edit_match(game_no):
     data = request.get_json()
-    team_a = data.get("team_a")
+    match_name = data.get("match_name") 
+    team_a = data.get("team_a")          
     team_b = data.get("team_b")
     date = data.get("date")
     time = data.get("time")
     point = data.get("point")
+    platforms = data.get("platforms", [])  
 
     try:
-        with connection.cursor() as cursor:
+        with connection.cursor(pymysql.cursors.DictCursor) as cursor:
             # 查目前是什麼運動類型
             cursor.execute("SELECT type FROM matches_schedule WHERE game_no = %s", (game_no,))
             result = cursor.fetchone()
@@ -1250,23 +1354,61 @@ def edit_match(game_no):
             sport_type = result["type"]
 
             if sport_type == 2:
-                # F1：只更新 team_a、date、time、point，不動 team_b
+
+                print(match_name)
+                # F1：只更新日期、時間、比數、名稱（f1_match_info）
                 cursor.execute("""
                     UPDATE matches_schedule
-                    SET team_a = %s, date = %s, time = %s, point = %s
+                    SET date = %s, time = %s, point = %s
                     WHERE game_no = %s
-                """, (team_a, date, time, point, game_no))
+                """, (date, time, point, game_no))
+
+                cursor.execute("""
+                    UPDATE f1_match_info
+                    SET match_name = %s
+                    WHERE game_no = %s
+                """, (match_name, game_no))
+            elif sport_type == 5:
+                # BWF 更新時間 + 選手
+                def null_if_empty(val):
+                    return val if val not in ("", None) else None
+
+                player_1 = null_if_empty(data.get("player_1"))
+                player_2 = null_if_empty(data.get("player_2"))
+                player_3 = null_if_empty(data.get("player_3"))
+                player_4 = null_if_empty(data.get("player_4"))
+
+                cursor.execute("""
+                    UPDATE matches_schedule
+                    SET date = %s, time = %s, point = %s
+                    WHERE game_no = %s
+                """, (date, time, point, game_no))
+
+                print("📤 送進來的 BWF 選手：", player_1, player_2, player_3, player_4)
+
+                cursor.execute("""
+                    UPDATE bwf_match_info
+                    SET player_1 = %s, player_2 = %s, player_3 = %s, player_4 = %s
+                    WHERE game_no = %s
+                """, (player_1, player_2, player_3, player_4, game_no))
+
             else:
-                # 其他運動：更新 team_a、team_b、date、time、point
+                # 其他運動：更新隊伍、時間、比數
                 cursor.execute("""
                     UPDATE matches_schedule
                     SET team_a = %s, team_b = %s, date = %s, time = %s, point = %s
                     WHERE game_no = %s
                 """, (team_a, team_b, date, time, point, game_no))
-
+            
+            cursor.execute("DELETE FROM match_platforms WHERE game_no = %s", (game_no,))
+            for pid in platforms:
+                cursor.execute("INSERT INTO match_platforms (game_no, platform_id) VALUES (%s, %s)", (game_no, pid))
+                
         connection.commit()
         return jsonify(success=True)
+
     except Exception as e:
+        print("❌ 編輯錯誤：", e)
         return jsonify(success=False, message=str(e)), 500
 
 
@@ -1280,6 +1422,30 @@ def delete_match(game_no):
     except Exception as e:
         return jsonify(success=False, message=str(e)), 500
 
+
+@app.route("/api/platforms")
+def get_platforms():
+    try:
+        with connection.cursor() as cursor:
+            cursor.execute("SELECT * FROM platforms")
+            rows = cursor.fetchall()
+        return jsonify(rows)
+    except Exception as e:
+        return jsonify({"success": False, "message": str(e)})
+
+@app.route("/api/match/<int:game_no>/platforms")
+def get_match_platforms(game_no):
+    try:
+        with connection.cursor() as cursor:
+            cursor.execute("""
+                SELECT platform_id FROM match_platforms
+                WHERE game_no = %s
+            """, (game_no,))
+            rows = cursor.fetchall()
+            platform_ids = [row["platform_id"] for row in rows]
+        return jsonify(platform_ids)
+    except Exception as e:
+        return jsonify({"success": False, "message": str(e)})
 
 #=================================SQL=======================================#
 
@@ -1430,11 +1596,15 @@ def get_all_feedback():
         with connection.cursor(pymysql.cursors.DictCursor) as cursor:
             cursor.execute("""
                 SELECT 
-                    f.*, r.reply, r.reason, r.reply_date, r.reply_time,
+                    f.*, 
+                    r.reply, r.reason, r.reply_date, r.reply_time,
+                    u.user_name AS user_name,
                     COALESCE(a.user_name, CONCAT('ID:', f.admin_id)) AS admin_name
                 FROM feedbacks f
                 LEFT JOIN feedback_replies r
                     ON f.user_id = r.user_id AND f.send_date = r.send_date AND f.f_time = r.f_time
+                LEFT JOIN users u
+                    ON f.user_id = u.user_id
                 LEFT JOIN admins a
                     ON f.admin_id = a.admin_id
                 ORDER BY f.send_date DESC, f.f_time DESC
@@ -1531,4 +1701,11 @@ def public_announcements():
 #=========================feedback========================================#
 
 if __name__ == "__main__":
-    app.run(port = 5050, host='0.0.0.0', debug=True)
+    app.run(port = 5050, host='0.0.0.0')
+    if os.environ.get("WERKZEUG_RUN_MAIN") == "true":  #避免debug重複啟動
+        scheduler = BackgroundScheduler()
+        scheduler.add_job(delete_expired_reminders, 'interval', minutes=10)  
+        scheduler.start()
+    
+    
+

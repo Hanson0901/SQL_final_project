@@ -138,6 +138,16 @@ input[type="text"] {
   background-color: #c0392b;
 }
 
+
+.platform-checkboxes::-webkit-scrollbar {
+  width: 6px;
+}
+
+.platform-checkboxes::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 3px;
+}
+
 @media (max-width: 768px) {
   #addTable thead {
     display: none;
@@ -249,4 +259,6 @@ input[type="text"] {
     margin: 1rem 10px 0 10px;
     min-width: 100px;
   }
+
+  
 }
