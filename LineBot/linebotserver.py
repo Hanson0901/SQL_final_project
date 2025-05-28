@@ -22,7 +22,14 @@ from linebot.v3.messaging import (
 from linebot.v3.webhooks import MessageEvent, TextMessageContent, PostbackEvent
 
 import json
-
+from datetime import datetime
+sport={
+    "NBA":1,
+    "F1":2,
+    "MLB":3,
+    "CPBL":4,
+    "BWF":5
+}
 
 def sql_connect(host, port, user, passwd, database):
     global db, cursor
@@ -210,11 +217,37 @@ def handle_message(event):
                         line_bot_api = MessagingApi(api_client)
                         send_admin_flex(line_bot_api, event.reply_token, rating=0)
                 
-            elif previous_message == "Feed Back" and Message in ["NBA", "F1", "MLB", "CPBL", "BWF"]:
+            elif previous_message == "Feed Back" and Message in sport.keys():
                 # 處理賽事選擇
-                previous_message = ""  # 重設狀態
-                self_reply(event, f"您選擇的賽事種類是：{Message}\n請輸入您的回報內容")
-                
+                previous_message = "Feed Backing"  # 重設狀態
+                self_reply(event, f"您選擇的賽事種類是：{Message}\n請輸入您的回報內容(限一個文字框):")
+            
+            elif previous_message == "Feed Backing":
+                # 處理回報內容
+                previous_message = ""
+                try:
+                    today = datetime.now().strftime("%Y-%m-%d")
+                    insert_sql = """
+                        INSERT INTO feedback (user_id, f_type, content, send_date,f_time)
+                        VALUES (%s, %s, %s, %s, %s)
+                    """
+                    cursor.execute(insert_sql, (user_id, int(sport[Message]), Message, today, datetime.now().strftime("%H:%M")))
+                    db.commit()
+                    print("回報內容已儲存")
+                    self_reply(event, "感謝您的回報！")
+                except Exception as e:
+                    print(f"資料庫操作錯誤: {e}")
+                    db.rollback()
+                with ApiClient(configuration) as api_client:
+                    messaging_api = MessagingApi(api_client)
+                    reply = TextMessage(text=f"感謝您的回報：{Message}\n我們會儘快處理您的意見！")
+                    messaging_api.reply_message(
+                        ReplyMessageRequest(
+                            reply_token=event.reply_token,
+                            messages=[reply]
+                        )
+                    )
+
             elif Message == "及時比分":
                 # 處理比分查詢
                 quick_reply = QuickReply(
