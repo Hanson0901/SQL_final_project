@@ -229,9 +229,9 @@ def handle_message(event):
                     today = datetime.now().strftime("%Y-%m-%d")
                     insert_sql = """
                         INSERT INTO feedbacks (user_id, f_type, content, send_date,f_time,f_status)
-                        VALUES (%s, %s, %s, %s, %s,"未處理")
+                        VALUES (%s, %s, %s, %s, %s, %s)
                     """
-                    cursor.execute(insert_sql, (user_id, int(sport[Message]), Message, today, datetime.now().strftime("%H:%M")))
+                    cursor.execute(insert_sql, (user_id, int(sport[Message]), Message, today, datetime.now().strftime("%H:%M"), "未處理"))
                     db.commit()
                     print("回報內容已儲存")
                     self_reply(event, "感謝您的回報！")
