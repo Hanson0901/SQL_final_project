@@ -176,24 +176,6 @@ def handle_message(event):
 '''
 
 @handler.add(MessageEvent, message=TextMessageContent)
-def handle_user_data(event):
-    user_id = event.source.user_id
-    message = event.message.text.strip()
-    try:
-        check_sql = "SELECT user_id FROM users WHERE user_id = %s"
-        cursor.execute(check_sql, (user_id,))
-        result = cursor.fetchone()
-        
-        if not result:
-            insert_sql = "INSERT INTO users (user_id, user_name) VALUES (%s, %s)"
-            cursor.execute(insert_sql, (user_id, message))
-            db.commit()
-            print("新使用者已儲存")
-            self_reply(event, "歡迎新朋友！資料已儲存")
-            
-    except Exception as e:
-        print(f"資料庫操作錯誤: {e}")
-        db.rollback()
 def handle_message(event):
     global previous_message  # 明確宣告使用全域變數
     user_id = event.source.user_id
@@ -263,7 +245,24 @@ def self_reply(event, text, quick_reply=None):
             )
         )
 
-
+def handle_user_data(event):
+    user_id = event.source.user_id
+    message = event.message.text.strip()
+    try:
+        check_sql = "SELECT user_id FROM users WHERE user_id = %s"
+        cursor.execute(check_sql, (user_id,))
+        result = cursor.fetchone()
+        
+        if not result:
+            insert_sql = "INSERT INTO users (user_id, user_name) VALUES (%s, %s)"
+            cursor.execute(insert_sql, (user_id, message))
+            db.commit()
+            print("新使用者已儲存")
+            self_reply(event, "歡迎新朋友！資料已儲存")
+            
+    except Exception as e:
+        print(f"資料庫操作錯誤: {e}")
+        db.rollback()
 # weichang.ddns.net
 # http://cgusqlpj.ddns.net/phpmyadmin
 if __name__ == "__main__":
