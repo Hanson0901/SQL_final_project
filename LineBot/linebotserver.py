@@ -176,7 +176,9 @@ def handle_message(event):
 '''
 
 @handler.add(MessageEvent, message=TextMessageContent)
-def handle_user_data(user_id, message, event):
+def handle_user_data(event):
+    user_id = event.source.user_id
+    message = event.message.text.strip()
     try:
         check_sql = "SELECT user_id FROM users WHERE user_id = %s"
         cursor.execute(check_sql, (user_id,))
