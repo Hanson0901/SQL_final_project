@@ -301,7 +301,7 @@ def handle_user_data(user_id, message_text, event):
         print(f"資料庫操作錯誤: {e}")
         db.rollback()
 
-@app.route('http://localhost:2222/linebot/claim', methods=['POST'])
+@app.route('/linebot/claim', methods=['POST'])
 def claim_feedback():
     data = request.get_json()
     print("收到訊息")
