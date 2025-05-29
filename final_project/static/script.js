@@ -299,7 +299,22 @@ if(page === 'foradmin'){
           ? m.platforms.join('、')
           : '無';
         
-        result.innerHTML += `
+        if(m.type === 2){
+          result.innerHTML += `
+            <div class="match-card" id="card_${m.game_no}" style="margin-bottom: 1rem;">
+              <strong>【${sport_name[m.type]}】 ${matchTitle}</strong><br>
+              比賽類型 : ${m.match_type}<br>
+              日期時間 : ${formattedDate} ${m.time}<br>
+              播放平台：${platforms}<br>
+              <div class="button-wrapper" style="margin-top: 0.5rem;">
+                <button onclick="toggleEditForm(${m.game_no}, \`${matchTitle}\`, \`${formattedDate}\`, \`${m.time}\`)">修改</button>
+                <button class="delete-btn" data-id="${m.game_no}">刪除</button>
+              </div>
+              <div id="editForm_${m.game_no}" class="edit-form"></div>
+            </div>
+          `;
+        }else{
+          result.innerHTML += `
           <div class="match-card" id="card_${m.game_no}" style="margin-bottom: 1rem;">
             <strong>【${sport_name[m.type]}】 ${matchTitle}</strong><br>
             日期時間 : ${formattedDate} ${m.time}<br>
@@ -312,6 +327,8 @@ if(page === 'foradmin'){
             <div id="editForm_${m.game_no}" class="edit-form"></div>
           </div>
         `;
+        }
+        
       });
 
 
