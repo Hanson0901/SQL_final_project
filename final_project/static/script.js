@@ -1556,7 +1556,7 @@ try {
                 });
                 const result = await res.json();
 
-                await fetch('http://localhost:928/linebot/claim', {
+                await fetch('http://0.0.0.0:928/linebot/claim', {
                   method: 'POST',
                   headers: { 'Content-Type': 'application/json' },
                   body: JSON.stringify({
