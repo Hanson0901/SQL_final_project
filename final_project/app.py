@@ -481,37 +481,31 @@ def api_mix_search():
                 result = {**team_basic, **sub_info}
                 return jsonify([result])
 
-
-
             elif query_type == "event":
-                if sport_type == "2":  # F1 → 用 type，只抓 team_a
+                keyword_like = f"%{keyword}%"
+
+                if sport_type == "2":  # F1
                     cursor.execute("""
                         SELECT m.game_no, m.date, m.time, m.point, m.type, fmi.*
                         FROM matches_schedule m
                         JOIN f1_match_info fmi ON fmi.game_no = m.game_no
-                        WHERE m.type = %s
-                    """, (sport_type,))
+                        WHERE m.type = %s AND CAST(m.game_no AS CHAR) LIKE %s
+                    """, (sport_type, keyword_like))
                     rows = cursor.fetchall()
                     rows = [fix_timedelta(row) for row in rows]
                     return jsonify(rows)
 
-                # 其他類型 → 用 game_no 查詢
-                try:
-                    game_no = int(keyword)
-                except ValueError:
-                    return jsonify({"error": "無效的 game_no"}), 400
-
-                cursor.execute("""
-                    SELECT m.*, ta.team_name AS team_a_name, tb.team_name AS team_b_name
-                    FROM matches_schedule m
-                    JOIN teams ta ON m.team_a = ta.team_id
-                    JOIN teams tb ON m.team_b = tb.team_id
-                    WHERE m.game_no = %s AND m.type = %s
-                """, (game_no, sport_type))
-
-                rows = cursor.fetchall()
-                rows = [fix_timedelta(row) for row in rows]
-                return jsonify(rows)
+                else:
+                    cursor.execute("""
+                        SELECT m.*, ta.team_name AS team_a_name, tb.team_name AS team_b_name
+                        FROM matches_schedule m
+                        JOIN teams ta ON m.team_a = ta.team_id
+                        JOIN teams tb ON m.team_b = tb.team_id
+                        WHERE m.type = %s AND CAST(m.game_no AS CHAR) LIKE %s
+                    """, (sport_type, keyword_like))
+                    rows = cursor.fetchall()
+                    rows = [fix_timedelta(row) for row in rows]
+                    return jsonify(rows)
 
 
             else:
