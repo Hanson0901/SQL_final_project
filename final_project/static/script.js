@@ -1626,6 +1626,19 @@ try {
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify(payload)
                 });
+                await fetch('https://cgusqlpj.ddns.net:928/linebot/handled', {
+                  method: 'POST',
+                  headers: { 'Content-Type': 'application/json' },
+                  body: JSON.stringify({
+                  msg: 'feedback claimed',
+                  uid:uid,
+                  date:date,
+                  type: fb.f_type,
+                  text:fb.content,
+                  reply: updatedReason,
+                  status: finalStatus
+                  })
+                });
 
                 const result = await res.json();
                 if (result.success) {
