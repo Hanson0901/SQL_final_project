@@ -337,12 +337,13 @@ def handled_feedback():
     content = data.get('text')
     type = data.get('type')
     reply = data.get('reply')
+    status = data.get('status')
     with ApiClient(configuration) as api_client:
         line_bot_api = MessagingApi(api_client)
         line_bot_api.push_message(
             PushMessageRequest(
                 to=user_id,
-                messages=[TextMessage(text=f"您的意見反映：\n分類:{reverse_sport[type]}\n內容{content}]\n管理員回覆為:{reply}\n感謝您的回饋！")]
+                messages=[TextMessage(text=f"您的意見反映：\n分類:{reverse_sport[type]}\n內容{content} {status}\n管理員回覆為:{reply}\n感謝您的回饋！")]
             )
         )
 
