@@ -200,6 +200,7 @@ def handle_message(event):
     user_id = event.source.user_id
     print(f"User ID: {user_id}")
     
+
     if event.message and hasattr(event.message, "text"):
         Message = event.message.text.strip()  # 移除前後空白
         print(f"Received message: {Message}")
@@ -222,7 +223,10 @@ def handle_message(event):
                 )
                 self_reply(event, "請選擇賽事種類：", quick_reply)
             
-                
+            elif Message == "Cancel":
+                # 處理取消回饋流程
+                previous_message = ""
+                self_reply(event, "已取消回饋流程。")
             elif previous_message == "Feed Back" and Message in sport.keys():
                 # 處理賽事選擇
                 previous_message = "Feed Backing"  # 重設狀態
