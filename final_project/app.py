@@ -596,7 +596,8 @@ def get_keywords():
                         SELECT 
                             m.game_no, 
                             m.date, 
-                            f.match_name
+                            f.match_name,
+                            f.match_type
                         FROM matches_schedule m
                         JOIN f1_match_info f ON m.game_no = f.game_no
                         WHERE m.type = %s
@@ -608,7 +609,7 @@ def get_keywords():
                     return jsonify([
                         {
                             "id": row["game_no"],
-                            "name": f'【{row["date"]}】{row["match_name"]}'
+                            "name": f'【{row["date"]}】{row["match_name"]} [{row["match_type"]}]'
                         }for row in rows
                     ])
                 
@@ -1823,24 +1824,24 @@ def public_announcements():
 
 #=========================feedback========================================#
 
-if __name__ == "__main__":
-    context = (
-        "/opt/lampp/etc/pem/fullchain.pem",
-        "/opt/lampp/etc/pem/privkey.pem"
-    )
-    app.run(host='0.0.0.0',port='2222', ssl_context=context)
-    if os.environ.get("WERKZEUG_RUN_MAIN") == "true":  #避免debug重複啟動
-        scheduler = BackgroundScheduler()
-        scheduler.add_job(delete_expired_reminders, 'interval', minutes=10)  
-        scheduler.start()
-    
-
-
 # if __name__ == "__main__":
-#     app.run(port = 5050, host='0.0.0.0')
+#     context = (
+#         "/opt/lampp/etc/pem/fullchain.pem",
+#         "/opt/lampp/etc/pem/privkey.pem"
+#     )
+#     app.run(host='0.0.0.0',port='2222', ssl_context=context)
 #     if os.environ.get("WERKZEUG_RUN_MAIN") == "true":  #避免debug重複啟動
 #         scheduler = BackgroundScheduler()
 #         scheduler.add_job(delete_expired_reminders, 'interval', minutes=10)  
 #         scheduler.start()
+    
+
+
+if __name__ == "__main__":
+    app.run(port = 5050, host='0.0.0.0')
+    if os.environ.get("WERKZEUG_RUN_MAIN") == "true":  #避免debug重複啟動
+        scheduler = BackgroundScheduler()
+        scheduler.add_job(delete_expired_reminders, 'interval', minutes=10)  
+        scheduler.start()
     
     

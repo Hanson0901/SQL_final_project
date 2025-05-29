@@ -300,6 +300,7 @@ if(page === 'foradmin'){
           : '無';
         
         if(m.type === 2){
+
           result.innerHTML += `
             <div class="match-card" id="card_${m.game_no}" style="margin-bottom: 1rem;">
               <strong>【${sport_name[m.type]}】 ${matchTitle}</strong><br>
@@ -2125,17 +2126,34 @@ try {
                 resultArea.appendChild(div);
               });
             } else if (type === "event") {
-              data.forEach(match => {
-                const div = document.createElement("div");
-                div.className = "result-card";
-                const m_n = (sportType === "2") ? match.match_name : match.team_a_name + " vs " + match.team_b_name;
-                let html = `<strong> ${m_n}</strong><br>`;
-                html += `時間：${match.date} ${match.time}<br>`;
-                html += `比數：${match.point === null ? "尚未開始" : match.point}<br><br>`;
 
-                div.innerHTML = html;
-                resultArea.appendChild(div);
-              });
+              if(sportTypeNum === 2){
+                data.forEach(match => {
+                  const div = document.createElement("div");
+                  div.className = "result-card";
+                  const m_n = (sportType === "2") ? match.match_name : match.team_a_name + " vs " + match.team_b_name;
+                  let html = `<strong> ${m_n}</strong><br>`;
+                  html += `比賽類型：${match.match_type}<br>`;
+                  html += `時間：${match.date} ${match.time}<br>`;
+
+                  div.innerHTML = html;
+                  resultArea.appendChild(div);
+                });
+              }else{
+                data.forEach(match => {
+                  const div = document.createElement("div");
+                  div.className = "result-card";
+                  const m_n = (sportType === "2") ? match.match_name : match.team_a_name + " vs " + match.team_b_name;
+                  let html = `<strong> ${m_n}</strong><br>`;
+                  html += `時間：${match.date} ${match.time}<br>`;
+                  html += `比數：${match.point === null ? "尚未開始" : match.point}<br><br>`;
+
+                  div.innerHTML = html;
+                  resultArea.appendChild(div);
+                });
+              }
+
+              
             }
           });
       });
