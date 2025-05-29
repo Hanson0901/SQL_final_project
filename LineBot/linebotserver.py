@@ -313,12 +313,13 @@ def claim_feedback():
     
     #傳送給該uid的使用者
     user_id = data.get('uid')
+    content= data.get('text')
     with ApiClient(configuration) as api_client:
         line_bot_api = MessagingApi(api_client)
         line_bot_api.push_message(
         PushMessageRequest(
             to=user_id,
-            messages=[TextMessage(text="您的意見反映已被認領並進入處理中，感謝您的回饋！")]
+            messages=[TextMessage(text=f"您的意見反映：/{content}已被認領並進入處理中，感謝您的回饋！")]
             )
         )
     return "OK"
