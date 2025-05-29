@@ -328,6 +328,24 @@ def claim_feedback():
         )
     return "OK"
 
+@app.route('/linebot/handled', methods=['POST'])
+def handled_feedback():
+    data = request.get_json()
+    print("收到訊息")
+    print(data)
+    user_id = data.get('uid')
+    content = data.get('text')
+    type = data.get('type')
+    reply = data.get('reply')
+    with ApiClient(configuration) as api_client:
+        line_bot_api = MessagingApi(api_client)
+        line_bot_api.push_message(
+            PushMessageRequest(
+                to=user_id,
+                messages=[TextMessage(text=f"您的意見反映：\n分類:{reverse_sport[type]}\n內容{content}]\n管理員回覆為:{reply}\n感謝您的回饋！")]
+            )
+        )
+
 
 
 
