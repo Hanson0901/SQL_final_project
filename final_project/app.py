@@ -729,6 +729,7 @@ def get_matches():
                 SELECT
                     m.game_no,
                     f.match_name,
+                    f.match_type,
                     m.type,
                     m.date,
                     m.time,
@@ -1091,37 +1092,46 @@ def sql():
 
 @app.route("/api/search_match_advanced")
 def search_match_advanced():
-    sport = request.args.get("sport")
-    date = request.args.get("date")
-
     try:
+        sport = request.args.get("sport")
+        date = request.args.get("date")
+        team_a = request.args.get("team_a")
+        team_b = request.args.get("team_b")
+        game_no = request.args.get("game_no")
+        name_keyword = request.args.get("name")
+        
+        # 一定要選運動類別
+        if not sport:
+            return jsonify(matches=[], error="請選擇運動類別"), 400
+
+        # 選了類別後，必須至少選一個條件
+        if not (date or team_a or team_b or game_no or name_keyword):
+            return jsonify(matches=[], error="請至少輸入一個條件（如日期、隊伍、比賽名稱）"), 400
+    
         with connection.cursor(pymysql.cursors.DictCursor) as cursor:
-            # F1 特別處理
+            # F1 查詢（type = 2）
             if sport == "2":
                 conditions = ["m.type = 2"]
                 params = []
 
-                game_no = request.args.get("game_no")  # ✅ ← 就是這個參數
                 if game_no:
                     conditions.append("m.game_no = %s")
                     params.append(game_no)
-                else:
-                    date = request.args.get("date")
-                    if date:
-                        conditions.append("m.date = %s")
-                        params.append(date)
 
-                    name_keyword = request.args.get("name")
-                    if name_keyword:
-                        conditions.append("f.match_name LIKE %s")
-                        params.append(f"%{name_keyword}%")
+                if name_keyword:
+                    conditions.append("f.match_name LIKE %s")
+                    params.append(f"%{name_keyword}%")
 
-                where_clause = " AND ".join(conditions)
+                if date:
+                    conditions.append("m.date = %s")
+                    params.append(date)
+
+                where_clause = " AND ".join(conditions) if conditions else "1=1"
 
                 cursor.execute(f"""
                     SELECT 
                         m.game_no, m.date, m.time, m.point,
-                        f.match_name
+                        f.match_name, f.match_type
                     FROM matches_schedule m
                     JOIN f1_match_info f ON m.game_no = f.game_no
                     WHERE {where_clause}
@@ -1136,24 +1146,22 @@ def search_match_advanced():
                         hours = total_seconds // 3600
                         minutes = (total_seconds % 3600) // 60
                         m["time"] = f"{hours:02}:{minutes:02}"
-
-                    m["match"] = m["match_name"]  # ✅ 統一欄位名稱給前端用
+                    m["match"] = m["match_name"]
                     m["type"] = 2
-
-                    # 撈平台資料
+                    m["match_type"] = m["match_type"]
+            
+                    # 撈平台
                     cursor.execute("""
-                        SELECT p.name
-                        FROM match_platforms mp
+                        SELECT p.name FROM match_platforms mp
                         JOIN platforms p ON mp.platform_id = p.platform_id
                         WHERE mp.game_no = %s
                     """, (m["game_no"],))
                     platform_rows = cursor.fetchall()
-                    m["platforms"] = [p["name"] for p in platform_rows] if platform_rows else []
-                
+                    m["platforms"] = [p["name"] for p in platform_rows]
+
                 return jsonify(matches=matches)
 
-
-            # 其他運動
+            # 非 F1 查詢
             conditions = []
             params = []
 
@@ -1163,8 +1171,6 @@ def search_match_advanced():
             if date:
                 conditions.append("m.date = %s")
                 params.append(date)
-            team_a = request.args.get("team_a")
-            team_b = request.args.get("team_b")
             if team_a:
                 conditions.append("m.team_a = %s")
                 params.append(team_a)
@@ -1175,13 +1181,12 @@ def search_match_advanced():
             where_clause = " AND ".join(conditions) if conditions else "1=1"
 
             cursor.execute(f"""
-                SELECT m.*, 
-                       ta.team_name AS team_a_name, 
-                       tb.team_name AS team_b_name
+                SELECT m.*, ta.team_name AS team_a_name, tb.team_name AS team_b_name
                 FROM matches_schedule m
                 LEFT JOIN teams ta ON m.team_a = ta.team_id
                 LEFT JOIN teams tb ON m.team_b = tb.team_id
                 WHERE {where_clause}
+                ORDER BY m.date DESC, m.time DESC
             """, params)
 
             matches = cursor.fetchall()
@@ -1193,15 +1198,14 @@ def search_match_advanced():
                     minutes = (total_seconds % 3600) // 60
                     m["time"] = f"{hours:02}:{minutes:02}"
 
-                # 撈平台資料
+                # 撈平台
                 cursor.execute("""
-                    SELECT p.name
-                    FROM match_platforms mp
+                    SELECT p.name FROM match_platforms mp
                     JOIN platforms p ON mp.platform_id = p.platform_id
                     WHERE mp.game_no = %s
                 """, (m["game_no"],))
                 platform_rows = cursor.fetchall()
-                m["platforms"] = [p["name"] for p in platform_rows] if platform_rows else []
+                m["platforms"] = [p["name"] for p in platform_rows]
 
             return jsonify(matches=matches)
 
@@ -1225,62 +1229,29 @@ def add_many():
             for m in new_matches:
                 game_no = None  # 每場比賽的主鍵
 
-                if sport == "2":
-                    conditions = ["m.type = 2"]
-                    params = []
+                if str(m.get("type")) == "2":
+                    match_name = m.get("match_name")
+                    match_type = m.get("match_type")
+                    date = m.get("date")
+                    time = m.get("time")
+                    point = m.get("point")
 
-                    game_no = request.args.get("game_no")  # ✅ 精準指定比賽
-                    if game_no:
-                        conditions.append("m.game_no = %s")
-                        params.append(game_no)
-                    else:
-                        date = request.args.get("date")
-                        if date:
-                            conditions.append("m.date = %s")
-                            params.append(date)
+                    if not all([match_name, date, time]):
+                        continue  # 缺必要欄位
 
-                        name_keyword = request.args.get("name")
-                        if name_keyword:
-                            conditions.append("f.match_name LIKE %s")
-                            params.append(f"%{name_keyword}%")
+                    cursor.execute("""
+                        INSERT INTO matches_schedule (type, date, time, point)
+                        VALUES (2, %s, %s, %s)
+                    """, (date, time, point))
+                    game_no = cursor.lastrowid
 
-                    where_clause = " AND ".join(conditions)
+                    cursor.execute("""
+                        INSERT INTO f1_match_info (game_no, match_name, match_type)
+                        VALUES (%s, %s, %s)
+                    """, (game_no, match_name, match_type))
 
-                    cursor.execute(f"""
-                        SELECT 
-                            m.game_no, m.date, m.time, m.point,
-                            f.match_name
-                        FROM matches_schedule m
-                        JOIN f1_match_info f ON m.game_no = f.game_no
-                        WHERE {where_clause}
-                        ORDER BY m.date DESC, m.time DESC
-                    """, params)
-
-                    matches = cursor.fetchall()
-
-                    for m in matches:
-                        if isinstance(m["time"], timedelta):
-                            total_seconds = int(m["time"].total_seconds())
-                            hours = total_seconds // 3600
-                            minutes = (total_seconds % 3600) // 60
-                            m["time"] = f"{hours:02}:{minutes:02}"
-
-                        m["match"] = m["match_name"]  # 統一欄位
-                        m["type"] = 2
-
-                        # 撈平台資料
-                        cursor.execute("""
-                            SELECT p.name
-                            FROM match_platforms mp
-                            JOIN platforms p ON mp.platform_id = p.platform_id
-                            WHERE mp.game_no = %s
-                        """, (m["game_no"],))
-                        platform_rows = cursor.fetchall()
-                        m["platforms"] = [p["name"] for p in platform_rows] if platform_rows else []
-
-                    return jsonify(matches=matches)
-
-
+                    added += 1
+                        
                 elif str(m.get("type")) == "5":
                     if not all(k in m for k in ("team_a", "team_b", "date", "time")):
                         continue
@@ -1368,7 +1339,7 @@ def get_match_by_id(game_no):
             if sport_type == 2:
                 # F1 特別處理：查 match_name
                 cursor.execute("""
-                    SELECT m.*, f.match_name
+                    SELECT m.*, f.*
                     FROM matches_schedule m
                     JOIN f1_match_info f ON m.game_no = f.game_no
                     WHERE m.game_no = %s
@@ -1443,19 +1414,23 @@ def get_teams():
             if sport_type == "2":
                 # ✅ F1 → 用比賽名稱作為隊伍
                 cursor.execute("""
-                    SELECT m.game_no AS team_id, f.match_name AS team_name, 2 AS sport_type
+                    SELECT 
+                        m.game_no AS team_id, 
+                        CONCAT('【', DATE_FORMAT(m.date, '%Y-%m-%d'), '】', f.match_name) AS team_name, 
+                        2 AS sport_type
                     FROM matches_schedule m
                     JOIN f1_match_info f ON m.game_no = f.game_no
+                    ORDER BY m.date DESC
                 """)
             elif sport_type:
-                # ✅ 有帶 sport → 查指定類別隊伍
+                #   有帶 sport → 查指定類別隊伍
                 cursor.execute("""
                     SELECT team_id, team_name, sport_type
                     FROM teams
                     WHERE sport_type = %s
                 """, (sport_type,))
             else:
-                # ✅ 沒帶參數 → 查全部隊伍
+                # 沒帶參數 → 查全部隊伍
                 cursor.execute("""
                     SELECT team_id, team_name, sport_type
                     FROM teams
@@ -1495,6 +1470,7 @@ def edit_match(game_no):
     time = data.get("time")
     point = data.get("point")
     platforms = data.get("platforms", [])  
+    match_type = data.get("match_type") 
 
     try:
         with connection.cursor(pymysql.cursors.DictCursor) as cursor:
@@ -1508,8 +1484,8 @@ def edit_match(game_no):
 
             if sport_type == 2:
 
-                print(match_name)
-                # F1：只更新日期、時間、比數、名稱（f1_match_info）
+               
+                
                 cursor.execute("""
                     UPDATE matches_schedule
                     SET date = %s, time = %s, point = %s
@@ -1518,9 +1494,9 @@ def edit_match(game_no):
 
                 cursor.execute("""
                     UPDATE f1_match_info
-                    SET match_name = %s
+                    SET match_name = %s, match_type = %s
                     WHERE game_no = %s
-                """, (match_name, game_no))
+                """, (match_name, match_type, game_no))
             elif sport_type == 5:
                 # BWF 更新時間 + 選手
                 def null_if_empty(val):
@@ -1865,3 +1841,12 @@ if __name__ == "__main__":
         scheduler.start()
     
 
+
+# if __name__ == "__main__":
+#     app.run(port = 5050, host='0.0.0.0')
+#     if os.environ.get("WERKZEUG_RUN_MAIN") == "true":  #避免debug重複啟動
+#         scheduler = BackgroundScheduler()
+#         scheduler.add_job(delete_expired_reminders, 'interval', minutes=10)  
+#         scheduler.start()
+    
+    
