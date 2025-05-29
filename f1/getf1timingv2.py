@@ -7,6 +7,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import time
 from bs4 import BeautifulSoup
+import json
 
 chrome_options = Options()
 chrome_options.add_argument('--headless')  # Uncomment if you want to run headless
@@ -37,6 +38,18 @@ points={
     10: 1
 }
 def get_f1_live_timing():
+    '''
+    schedule = fastf1.get_event_schedule(2025)
+    schedule['Session1Date'] = pd.to_datetime(schedule['Session1Date'], utc=True)
+    schedule['RaceDate'] = schedule['Session1Date'].dt.strftime('%Y-%m-%d')    # 只選取比賽名稱與正賽時間
+    schedule['Racetime'] = schedule['Session1Date'].dt.strftime('%H:%M')  # 只選取正賽時間
+    races = schedule[['EventName', 'Country', 'Location', 'RaceDate','Racetime', 'Session1']]
+    races = races.rename(columns={'Session1': 'RaceType'})
+    
+    with open('f1\\f1_schedule.json', 'w', encoding='utf-8') as f:
+        races.to_json(f, orient='records', force_ascii=False, indent=4)
+    print(races)
+    '''
     try:
         # 獲取當前賽事 session（範例：2025年意大利正賽）
         for i in GP:
@@ -68,6 +81,8 @@ def get_f1_live_timing():
                 })
             print(f"成功獲取 {i} 的數據")
             print(pd.DataFrame(merged_data))
+            with open(f'f1\\f1_live_timing.json', 'w', encoding='utf-8') as f:
+                json.dump(merged_data, f, ensure_ascii=False, indent=4)
 
     except Exception as e:
         print(f"數據獲取失敗: {str(e)}")

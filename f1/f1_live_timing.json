@@ -1,0 +1,142 @@
+[
+    {
+        "Position": 1,
+        "Driver": "Max Verstappen",
+        "DriverNumber": "1",
+        "Team": "Red Bull Racing",
+        "points": 25
+    },
+    {
+        "Position": 2,
+        "Driver": "Lando Norris",
+        "DriverNumber": "4",
+        "Team": "McLaren",
+        "points": 18
+    },
+    {
+        "Position": 3,
+        "Driver": "Oscar Piastri",
+        "DriverNumber": "81",
+        "Team": "McLaren",
+        "points": 15
+    },
+    {
+        "Position": 4,
+        "Driver": "Charles Leclerc",
+        "DriverNumber": "16",
+        "Team": "Ferrari",
+        "points": 12
+    },
+    {
+        "Position": 5,
+        "Driver": "George Russell",
+        "DriverNumber": "63",
+        "Team": "Mercedes",
+        "points": 10
+    },
+    {
+        "Position": 6,
+        "Driver": "Kimi Antonelli",
+        "DriverNumber": "12",
+        "Team": "Mercedes",
+        "points": 8
+    },
+    {
+        "Position": 7,
+        "Driver": "Lewis Hamilton",
+        "DriverNumber": "44",
+        "Team": "Ferrari",
+        "points": 6
+    },
+    {
+        "Position": 8,
+        "Driver": "Isack Hadjar",
+        "DriverNumber": "6",
+        "Team": "Racing Bulls",
+        "points": 4
+    },
+    {
+        "Position": 9,
+        "Driver": "Alexander Albon",
+        "DriverNumber": "23",
+        "Team": "Williams",
+        "points": 2
+    },
+    {
+        "Position": 10,
+        "Driver": "Oliver Bearman",
+        "DriverNumber": "87",
+        "Team": "Haas F1 Team",
+        "points": 1
+    },
+    {
+        "Position": 11,
+        "Driver": "Fernando Alonso",
+        "DriverNumber": "14",
+        "Team": "Aston Martin",
+        "points": 0
+    },
+    {
+        "Position": 12,
+        "Driver": "Yuki Tsunoda",
+        "DriverNumber": "22",
+        "Team": "Red Bull Racing",
+        "points": 0
+    },
+    {
+        "Position": 13,
+        "Driver": "Pierre Gasly",
+        "DriverNumber": "10",
+        "Team": "Alpine",
+        "points": 0
+    },
+    {
+        "Position": 14,
+        "Driver": "Carlos Sainz",
+        "DriverNumber": "55",
+        "Team": "Williams",
+        "points": 0
+    },
+    {
+        "Position": 15,
+        "Driver": "Jack Doohan",
+        "DriverNumber": "7",
+        "Team": "Alpine",
+        "points": 0
+    },
+    {
+        "Position": 16,
+        "Driver": "Nico Hulkenberg",
+        "DriverNumber": "27",
+        "Team": "Kick Sauber",
+        "points": 0
+    },
+    {
+        "Position": 17,
+        "Driver": "Liam Lawson",
+        "DriverNumber": "30",
+        "Team": "Racing Bulls",
+        "points": 0
+    },
+    {
+        "Position": 18,
+        "Driver": "Esteban Ocon",
+        "DriverNumber": "31",
+        "Team": "Haas F1 Team",
+        "points": 0
+    },
+    {
+        "Position": 19,
+        "Driver": "Gabriel Bortoleto",
+        "DriverNumber": "5",
+        "Team": "Kick Sauber",
+        "points": 0
+    },
+    {
+        "Position": 20,
+        "Driver": "Lance Stroll",
+        "DriverNumber": "18",
+        "Team": "Aston Martin",
+        "points": 0
+    }
+]
