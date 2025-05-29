@@ -306,7 +306,7 @@ def claim_feedback():
     data = request.get_json()
     print("收到訊息")
     print(data)  # 你可以印出收到的內容
-    return 'OK'
+
 
 @handler.add(PostbackEvent)
 def handle_postback(event):
