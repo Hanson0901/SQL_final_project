@@ -220,10 +220,7 @@ def handle_message(event):
                     ]
                 )
                 self_reply(event, "請選擇賽事種類：", quick_reply)
-            elif Message == '我是屁眼':
-                   with ApiClient(configuration) as api_client:
-                        line_bot_api = MessagingApi(api_client)
-                        send_admin_flex(line_bot_api, event.reply_token, rating=0)
+            
                 
             elif previous_message == "Feed Back" and Message in sport.keys():
                 # 處理賽事選擇
@@ -268,6 +265,10 @@ def handle_message(event):
             elif Message in ["NBA", "F1", "MLB", "CPBL", "BWF"]:
                 # 處理賽事比分顯示
                 self_reply(event, f"您選擇的賽事種類是：{Message}\n正在查詢即時比分...")
+            elif Message == '我是屁眼':
+                   with ApiClient(configuration) as api_client:
+                        line_bot_api = MessagingApi(api_client)
+                        send_admin_flex(line_bot_api, event.reply_token, rating=0)
                 
             else:
                 # 預設回應
