@@ -216,7 +216,8 @@ def handle_message(event):
                         QuickReplyItem(action=MessageAction(label="F1", text="F1")),
                         QuickReplyItem(action=MessageAction(label="MLB", text="MLB")),
                         QuickReplyItem(action=MessageAction(label="CPBL", text="CPBL")),
-                        QuickReplyItem(action=MessageAction(label="BWF", text="BWF"))
+                        QuickReplyItem(action=MessageAction(label="BWF", text="BWF")),
+                        QuickReplyItem(action=MessageAction(label="Cancel", text="Cancel"))
                     ]
                 )
                 self_reply(event, "請選擇賽事種類：", quick_reply)
