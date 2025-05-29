@@ -1,4 +1,5 @@
 from flask import Flask, request, abort
+from flask_cors import CORS
 from flask.logging import create_logger
 import pymysql
 import re
@@ -46,6 +47,8 @@ def sql_connect(host, port, user, passwd, database):
 
 
 app = Flask(__name__)  # 初始化 Flask 應用程式
+CORS(app, origins=["https://cgusqlpj.ddns.net:2222"])  # 只允許你的前端來源
+# 設定 CORS，允許來自特定來源的請求
 LOG = create_logger(app)  # 設定日誌紀錄器
 CHANNEL_ACCESS_TOKEN = "H+2kmGOeBxAqGHImKJpKJPLAtgAUqNa9TTAgY4wesr9kJbs14FJwNDaUFYL90z9Yh/MlJpQXU3A0nPdoDaVvyqZkQeV4fjfAb9Ez5YfOaOGP64bECzjzxeOHMUK/lTvCS009Elcpi6caa5hCeTPfIwdB04t89/1O/w1cDnyilFU="
 CHANNEL_SECRET = "11882e6d285791298ae7897a1445ac3c"
