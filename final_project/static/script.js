@@ -1563,7 +1563,8 @@ try {
                   msg: 'feedback claimed',
                   uid:uid,
                   date:date,
-                  type: fb.f_type
+                  type: fb.f_type,
+                  text:fb.content
                   })
               });
                 if (result.success) {
