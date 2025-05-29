@@ -33,6 +33,8 @@ sport={
     "BWF":5
 }
 
+reverse_sport = {v: k for k, v in sport.items()}
+
 def sql_connect(host, port, user, passwd, database):
     global db, cursor
     try:
@@ -320,7 +322,7 @@ def claim_feedback():
         line_bot_api.push_message(
         PushMessageRequest(
             to=user_id,
-            messages=[TextMessage(text=f"您的意見反映：{type}/{content}\n已被認領並進入處理中，感謝您的回饋！")]
+            messages=[TextMessage(text=f"您的意見反映：{reverse_sport[type]}/{content}\n已被認領並進入處理中，感謝您的回饋！")]
             )
         )
     return "OK"
