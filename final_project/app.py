@@ -1839,8 +1839,8 @@ def public_announcements():
 
 if __name__ == "__main__":
     context = (
-        "/etc/letsencrypt/live/cgusqlpj.ddns.net/fullchain.pem",
-        "/etc/letsencrypt/live/cgusqlpj.ddns.net/privkey.pem",
+        "/opt/lampp/etc/pem/fullchain.pem",
+        "/opt/lampp/etc/pem/privkey.pem"
     )
     app.run(host="0.0.0.0", port=2222, ssl_context=context)
     if os.environ.get("WERKZEUG_RUN_MAIN") == "true":  #避免debug重複啟動
