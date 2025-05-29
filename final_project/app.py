@@ -1838,7 +1838,7 @@ def public_announcements():
 
 
 if __name__ == "__main__":
-    app.run(port = 5050, host='0.0.0.0')
+    app.run(port = 2222, host='0.0.0.0')
     if os.environ.get("WERKZEUG_RUN_MAIN") == "true":  #避免debug重複啟動
         scheduler = BackgroundScheduler()
         scheduler.add_job(delete_expired_reminders, 'interval', minutes=10)  
