@@ -140,7 +140,7 @@ if(page === 'foradmin'){
     }
 });
 
-}else if (page === 'sql') {
+}else if (page === 'sql'){
   
   let allTeams = [];  // 全域隊伍資料
   
@@ -261,8 +261,12 @@ if(page === 'foradmin'){
       const params = new URLSearchParams();
       if (sport) params.append("sport", sport);
       if (date) params.append("date", date);
-      if (teamA) params.append("team_a", teamA);
-      if (teamB) params.append("team_b", teamB);
+      if (sport === "2") {
+        if (teamA) params.append("game_no", teamA);  // 改成 game_no
+      } else {
+        if (teamA) params.append("team_a", teamA);
+        if (teamB) params.append("team_b", teamB);
+      }
 
       const res = await fetch(`/api/search_match_advanced?${params}`);
       const data = await res.json();
@@ -280,13 +284,13 @@ if(page === 'foradmin'){
       data.matches.forEach(m => {
         const formattedDate = new Date(m.date).toISOString().slice(0, 10);
         const matchTitle = isF1
-          ? m.team_a_name
+          ? m.match_name
           : m.match || `${m.team_a_name} vs ${m.team_b_name}`;
 
         const platforms = m.platforms && m.platforms.length > 0
           ? m.platforms.join('、')
           : '無';
-
+        
         result.innerHTML += `
           <div class="match-card" id="card_${m.game_no}" style="margin-bottom: 1rem;">
             <strong>【${sport_name[m.type]}】 ${matchTitle}</strong><br>
@@ -341,151 +345,6 @@ if(page === 'foradmin'){
     });
   }
 
-  // async function addRow(showRemove = true) {
-  //   const tbody = document.querySelector('#addTable tbody');
-  //   const tr = document.createElement('tr');
-
-  //   tr.innerHTML = `
-  //     <td data-label="運動類別">
-  //       <select class="sport-type">
-  //         <option value="">請選擇</option>
-  //         <option value="1">NBA</option>
-  //         <option value="2">F1</option>
-  //         <option value="3">MLB</option>
-  //         <option value="4">CPBL</option>
-  //         <option value="5">BWF</option>
-  //       </select>
-  //     </td>
-  //     <td colspan="2" data-label="隊伍／名稱選擇">
-  //       <div class="team-selects">
-  //         <select class="team-a"><option value="">請先選類別</option></select>
-  //         <select class="team-b"><option value="">請先選類別</option></select>
-  //       </div>
-  //       <input type="text" class="match-name" placeholder="請輸入比賽名稱" style="display: none; width: 100%;" />
-  //       <div class="bwf-players" style="display: none; margin-top: 0.5em;">
-  //         <div style="margin-bottom: 0.5em;">
-  //           <label>隊伍 A：</label><br/>
-  //           <select class="player-id team-a-player-select"><option value="">選手1</option></select><br/>
-  //           <select class="player-id team-a-player-select"><option value="">選手3 (可選)</option></select>
-  //         </div>
-  //         <div>
-  //           <label>隊伍 B：</label><br/>
-  //           <select class="player-id team-b-player-select"><option value="">選手2</option></select><br/>
-  //           <select class="player-id team-b-player-select"><option value="">選手4 (可選)</option></select>
-  //         </div>
-  //       </div>
-
-  //     </td>
-  //     <td data-label="日期"><input type="date" class="date-input" /></td>
-  //     <td data-label="時間">
-  //       <select class="time-input">
-  //         ${generateTimeOptions()}
-  //       </select>
-  //     </td>
-  //     <td data-label="比分"><input type="text" class="point-input" placeholder="比分" /></td>
-  //     ${showRemove ? `<td data-label="" style="text-align: center;"><button class="remove-btn" style="margin: 0 auto; display: block;">X</button></td>` : `<td></td>`}
-  //     <td data-label="播放平台">
-  //       <select class="platform-select" multiple style="width: 100%;">
-  //         <option value="">載入中...</option>
-  //       </select>
-  //     </td>
-  //     `;
-
-  //   tbody.appendChild(tr);
-
-  //   const platformSelect = tr.querySelector('.platform-select');
-  //   try {
-  //     const res = await fetch('/api/platforms');
-  //     const platforms = await res.json();
-  //     platformSelect.innerHTML = '';
-
-  //     platforms.forEach(p => {
-  //       const opt = new Option(p.name, p.platform_id);
-  //       platformSelect.appendChild(opt);
-  //     });
-  //   } catch (err) {
-  //     console.error("❌ 無法載入平台資料", err);
-  //   }
-
-  //   allPlatforms.forEach(p => {
-  //     const opt = new Option(p.name, p.platform_id);
-  //     if (selected.includes(p.platform_id)) opt.selected = true;
-  //     platformSelect.appendChild(opt);
-  //   });
-
-  //   const sportSelect = tr.querySelector('.sport-type');
-  //   const teamASelect = tr.querySelector('.team-a');
-  //   const teamBSelect = tr.querySelector('.team-b');
-  //   const matchNameInput = tr.querySelector('.match-name');
-  //   const teamSelects = tr.querySelector('.team-selects');
-  //   const bwfPlayers = tr.querySelector('.bwf-players');
-
-
-  //   async function updateTeamOptions(sportType) {
-  //     const allTeams = await fetchAllTeams(sportType);  // ✅ 先取得資料
-  //     const filtered = allTeams.filter(t => t.sport_type == sportType);  // ✅ 再使用
-
-  //     teamASelect.innerHTML = '<option value="">請選擇隊伍</option>';
-  //     teamBSelect.innerHTML = '<option value="">請選擇隊伍</option>';
-
-  //     filtered.forEach(team => {
-  //       const opt = new Option(team.team_name, team.team_id);
-  //       teamASelect.appendChild(opt.cloneNode(true));
-  //       teamBSelect.appendChild(opt.cloneNode(true));
-  //     });
-  //   }
-
-
-  //   sportSelect.addEventListener('change', () => {
-  //     const selected = sportSelect.value;
-
-  //     if (selected === "2") {
-  //       teamSelects.style.display = "none";
-  //       matchNameInput.style.display = "block";
-  //       bwfPlayers.style.display = "none";
-  //     } else if (selected === "5") {
-  //       teamSelects.style.display = "flex";
-  //       matchNameInput.style.display = "none";
-  //       bwfPlayers.style.display = "block";
-  //       updateTeamOptions(selected);
-  //     } else {
-  //       teamSelects.style.display = "flex";
-  //       matchNameInput.style.display = "none";
-  //       bwfPlayers.style.display = "none";
-  //       updateTeamOptions(selected);
-  //     }
-  //   });
-
-  //   teamASelect.addEventListener('change', () => {
-  //     if(sportSelect.value !== "5"){
-  //       if (teamASelect.value && teamASelect.value === teamBSelect.value) {
-  //       alert('❌ 兩隊不能相同！');
-  //       teamASelect.value = '';
-  //       return;
-  //     }
-  //     }
-  //     if (sportSelect.value === "5") {
-  //       getBWF_Players(teamASelect.value, tr, 'A');
-  //     }
-  //   });
-
-  //   teamBSelect.addEventListener('change', () => {
-  //     if (teamBSelect.value && teamBSelect.value === teamASelect.value) {
-  //       alert('❌ 兩隊不能相同！');
-  //       teamBSelect.value = '';
-  //       return;
-  //     }
-  //     if (sportSelect.value === "5") {
-  //       getBWF_Players(teamBSelect.value, tr, 'B');
-  //     }
-  //   });
-
-
-  //   if (showRemove) {
-  //     const removeBtn = tr.querySelector('.remove-btn');
-  //     removeBtn.addEventListener('click', () => tr.remove());
-  //   }
-  // }
 
   async function addRow(showRemove = true) {
     const tbody = document.querySelector('#addTable tbody');
@@ -905,7 +764,7 @@ try {
       const isF1 = sport === "2";
 
       data.matches.forEach(m => {
-        const matchTitle = isF1 ? m.team_a_name : m.match || `${m.team_a_name} vs ${m.team_b_name}`;
+        const matchTitle = m.match || `${m.team_a_name} vs ${m.team_b_name}`;
         const formattedDate = new Date(m.date).toISOString().slice(0, 10);
 
         const div = document.createElement('div');
@@ -982,393 +841,7 @@ try {
     showEditForm(id, match, date, time);
   }
 
-  // async function showEditForm(id, match, date, time) {
-  //   const container = document.getElementById(`editForm_${id}`);
-  //   container.innerHTML = '⏳ 載入中...';
-
-  //   const res = await fetch(`/api/match/${id}`);
-  //   const data = await res.json();
-
-  //   if (!data.success) {
-  //     container.innerHTML = '❌ 無法載入比賽資料';
-  //     return;
-  //   }
-
-  //   const m = data.match;
-
-  //   const teamRes = await fetch("/api/teams?sport=" + m.type);
-  //   allTeams = await teamRes.json();   // 初始化完成後才可以用
-  //   const teams = allTeams.filter(t => t.sport_type == m.type);
-
-  //   container.innerHTML = '';
-
-  //   // ✅ 建立日期欄位
-  //   const dateInput = document.createElement("input");
-  //   dateInput.type = "date";
-
-  //   // 確保 m.date 是有效日期字串（例如 "2025-06-05"）
-  //   if (m.date && /^\d{4}-\d{2}-\d{2}$/.test(m.date)) {
-  //     dateInput.value = m.date;
-  //   } else {
-  //     // fallback: 預設今天
-  //     const today = new Date();
-  //     const yyyy = today.getFullYear();
-  //     const mm = String(today.getMonth() + 1).padStart(2, '0');
-  //     const dd = String(today.getDate()).padStart(2, '0');
-  //     dateInput.value = `${yyyy}-${mm}-${dd}`;
-  //   }
-
-  //   // ✅ 建立時間選單欄位
-  //   const timeSelect = document.createElement("select");
-  //   for (let hour = 0; hour < 24; hour++) {
-  //     for (let min = 0; min < 60; min += 30) {
-  //       const timeStr = `${String(hour).padStart(2, "0")}:${String(min).padStart(2, "0")}`;
-  //       const opt = new Option(timeStr, timeStr);
-  //       if (m.time === timeStr) opt.selected = true;
-  //       timeSelect.appendChild(opt);
-  //     }
-  //   }
-
-  //   // ✅ 建立比數欄位
-  //   const pointInput = document.createElement("input");
-  //   pointInput.type = "text";
-  //   pointInput.value = m.point || '';
-
-
-  //   const platformSelect = document.createElement("select");
-  //   platformSelect.multiple = true;
-  //   platformSelect.style.width = "100%";
-
-  //   // 取得所有平台並勾選已選
-  //   const res2 = await fetch(`/api/platforms`);
-  //   const allPlatforms = await res2.json();
-
-  //   const selectedRes = await fetch(`/api/match/${id}/platforms`);
-  //   const selected = await selectedRes.json();  // [1, 2, 5]
-
-  //   allPlatforms.forEach(p => {
-  //     const opt = new Option(p.name, p.platform_id);
-  //     if (selected.includes(p.platform_id)) opt.selected = true;
-  //     platformSelect.appendChild(opt);
-  //   });
-
-  //   container.appendChild(document.createElement("br"));
-  //   container.appendChild(document.createTextNode("播放平台（可複選）："));
-  //   container.appendChild(platformSelect);
-
-  //   const saveBtn = document.createElement("button");
-  //   saveBtn.textContent = "儲存";
-
-  //   if (m.type == 2) {
-  //     // ✅ F1：新增輸入框供使用者編輯 match_name
-  //     const nameInput = document.createElement("input");
-  //     nameInput.type = "text";
-  //     nameInput.placeholder = "比賽名稱";
-  //     nameInput.value = m.team_a_name || ''; // F1 的 match_name 被塞在 team_a_name
-
-  //     const dateInput = document.createElement("input");
-  //     dateInput.type = "date";
-  //     dateInput.value = m.date || '';
-
-  //     const timeSelect = document.createElement("select");
-  //     for (let hour = 0; hour < 24; hour++) {
-  //       for (let min = 0; min < 60; min += 30) {
-  //         const timeStr = `${String(hour).padStart(2, "0")}:${String(min).padStart(2, "0")}`;
-  //         const opt = new Option(timeStr, timeStr);
-  //         if (m.time === timeStr) opt.selected = true;
-  //         timeSelect.appendChild(opt);
-  //       }
-  //     }
-
-  //     const pointInput = document.createElement("input");
-  //     pointInput.type = "text";
-  //     pointInput.value = m.point || '';
-
-  //     const saveBtn = document.createElement("button");
-  //     saveBtn.textContent = "儲存";
-
-  //     saveBtn.addEventListener("click", async () => {
-  //       const payload = {
-  //         date: dateInput.value,
-  //         time: timeSelect.value,
-  //         point: pointInput.value,
-  //         match_name: nameInput.value  // ✅ 加上這個
-  //       };
-
-  //       const res = await fetch(`/api/edit/${id}`, {
-  //         method: "POST",
-  //         headers: { "Content-Type": "application/json" },
-  //         body: JSON.stringify(payload)
-  //       });
-
-  //       const result = await res.json();
-  //       if (result.success) {
-  //         alert("✅ 修改成功");
-  //         container.innerHTML = '';
-  //         document.getElementById("SearchBtn").click();
-  //       } else {
-  //         alert("❌ 修改失敗：" + result.message);
-  //       }
-  //     });
-
-  //     // ✅ 清空原本內容並加上標題欄位
-  //     container.innerHTML = '';
-
-  //     const nameLabel = document.createElement("strong");
-  //     nameLabel.textContent = "比賽名稱：";
-  //     container.appendChild(nameLabel);
-  //     container.appendChild(nameInput);
-
-  //     const dateLabel = document.createElement("strong");
-  //     dateLabel.textContent = "日期：";
-  //     container.appendChild(dateLabel);
-  //     container.appendChild(dateInput);
-
-  //     const timeLabel = document.createElement("strong");
-  //     timeLabel.textContent = "時間：";
-  //     container.appendChild(timeLabel);
-  //     container.appendChild(timeSelect);
-
-  //     const pointLabel = document.createElement("strong");
-  //     pointLabel.textContent = "比分：";
-  //     container.appendChild(pointLabel);
-  //     container.appendChild(pointInput);
-
-  //     const platformSelect = document.createElement("select");
-  //     platformSelect.multiple = true;
-  //     platformSelect.style.width = "100%";
-
-  //     // 取得所有平台並勾選已選
-  //     const res2 = await fetch(`/api/platforms`);
-  //     const allPlatforms = await res2.json();
-
-  //     const selectedRes = await fetch(`/api/match/${id}/platforms`);
-  //     const selected = await selectedRes.json();  // [1, 2, 5]
-
-  //     allPlatforms.forEach(p => {
-  //       const opt = new Option(p.name, p.platform_id);
-  //       if (selected.includes(p.platform_id)) opt.selected = true;
-  //       platformSelect.appendChild(opt);
-  //     });
-
-  //     container.appendChild(document.createElement("br"));
-  //     container.appendChild(document.createTextNode("播放平台（可複選）："));
-  //     container.appendChild(platformSelect);
-
-  //     container.appendChild(saveBtn);
-  //   }else if (m.type == 5) {
-  //     console.log("BWF 選手資訊：", m.player_1, m.player_2, m.player_3, m.player_4);
-
-  //       const selectA = document.createElement("select");
-  //       const selectB = document.createElement("select");
-  //       const playerA1 = document.createElement("select");
-  //       const playerA2 = document.createElement("select");
-  //       const playerB1 = document.createElement("select");
-  //       const playerB2 = document.createElement("select");
-
-  //       const bwfTeams = teams; // 你已經 filter 過 teams
-  //       bwfTeams.forEach(t => {
-  //         const optA = new Option(t.team_name, t.team_id);
-  //         const optB = new Option(t.team_name, t.team_id);
-  //         if (t.team_id == m.team_a) optA.selected = true;
-  //         if (t.team_id == m.team_b) optB.selected = true;
-  //         selectA.appendChild(optA);
-  //         selectB.appendChild(optB);
-  //       });
-
-  //       // 載入選手函式
-  //       async function loadPlayers(teamId, selects, preselected) {
-  //         try {
-  //           const res = await fetch(`/api/get_bwf_players?team_id=${teamId}`);
-  //           const players = await res.json();
-
-  //           selects.forEach((select, idx) => {
-  //             select.innerHTML = `<option value="">請選擇選手</option>`;
-  //             players.forEach(p => {
-  //               const opt = new Option(p.name, p.player_id);
-  //               if (preselected && preselected[idx] == p.player_id) opt.selected = true;
-  //               select.appendChild(opt);
-  //             });
-  //           });
-  //         } catch (err) {
-  //           console.error("❌ 載入選手失敗", err);
-  //         }
-  //       }
-
-  //       // 預設載入目前選手
-  //       await loadPlayers(m.team_a, [playerA1, playerA2], [m.player_1, m.player_2]);
-  //       await loadPlayers(m.team_b, [playerB1, playerB2], [m.player_3, m.player_4]);
-        
-  //         // 標題與欄位顯示
-  //       container.innerHTML = '';
-
-  //       // ⬇️ 新增標題與欄位
-  //       const teamALabel = document.createElement("strong");
-  //       teamALabel.textContent = "隊伍 A：";
-  //       container.appendChild(teamALabel);
-  //       container.appendChild(selectA);
-
-  //       const playerALabel = document.createElement("strong");
-  //       playerALabel.textContent = "選手（隊伍 A）：";
-  //       container.appendChild(playerALabel);
-  //       container.appendChild(playerA1);
-  //       container.appendChild(playerA2);
-
-  //       const teamBLabel = document.createElement("strong");
-  //       teamBLabel.textContent = "隊伍 B：";
-  //       container.appendChild(teamBLabel);
-  //       container.appendChild(selectB);
-
-  //       const playerBLabel = document.createElement("strong");
-  //       playerBLabel.textContent = "選手（隊伍 B）：";
-  //       container.appendChild(playerBLabel);
-  //       container.appendChild(playerB1);
-  //       container.appendChild(playerB2);
-
-  //       const dateLabel = document.createElement("strong");
-  //       dateLabel.textContent = "日期：";
-  //       container.appendChild(dateLabel);
-  //       container.appendChild(dateInput);
-
-  //       const timeLabel = document.createElement("strong");
-  //       timeLabel.textContent = "時間：";
-  //       container.appendChild(timeLabel);
-  //       container.appendChild(timeSelect);
-
-  //       const pointLabel = document.createElement("strong");
-  //       pointLabel.textContent = "比分：";
-  //       container.appendChild(pointLabel);
-  //       container.appendChild(pointInput);
-
-  //       const platformSelect = document.createElement("select");
-  //       platformSelect.multiple = true;
-  //       platformSelect.style.width = "100%";
-
-  //       // 取得所有平台並勾選已選
-  //       const res2 = await fetch(`/api/platforms`);
-  //       const allPlatforms = await res2.json();
-
-  //       const selectedRes = await fetch(`/api/match/${id}/platforms`);
-  //       const selected = await selectedRes.json();  // [1, 2, 5]
-
-  //       allPlatforms.forEach(p => {
-  //         const opt = new Option(p.name, p.platform_id);
-  //         if (selected.includes(p.platform_id)) opt.selected = true;
-  //         platformSelect.appendChild(opt);
-  //       });
-
-  //       container.appendChild(document.createElement("br"));
-  //       container.appendChild(document.createTextNode("播放平台（可複選）："));
-  //       container.appendChild(platformSelect);
-  //       container.appendChild(saveBtn);
-
-
-  //       // 切換隊伍時重新載入選手
-  //       selectA.addEventListener("change", () => {
-  //         loadPlayers(selectA.value, [playerA1, playerA2]);
-  //       });
-  //       selectB.addEventListener("change", () => {
-  //         loadPlayers(selectB.value, [playerB1, playerB2]);
-  //       });
-
-  //       saveBtn.addEventListener("click", async () => {
-  //         const payload = {
-  //           team_a: selectA.value,
-  //           team_b: selectB.value,
-  //           date: dateInput.value,
-  //           time: timeSelect.value,
-  //           point: pointInput.value,
-  //           player_1: playerA1.value,
-  //           player_2: playerA2.value,
-  //           player_3: playerB1.value,
-  //           player_4: playerB2.value
-  //         };
-
-  //         const res = await fetch(`/api/edit/${id}`, {
-  //           method: "POST",
-  //           headers: { "Content-Type": "application/json" },
-  //           body: JSON.stringify(payload)
-  //         });
-
-  //         const result = await res.json();
-  //         if (result.success) {
-  //           alert("✅ 修改成功");
-  //           container.innerHTML = '';
-  //           document.getElementById("SearchBtn").click();
-  //         } else {
-  //           alert("❌ 修改失敗：" + result.message);
-  //         }
-  //       });
-  //   }else {
-  //     const selectA = document.createElement("select");
-  //     const selectB = document.createElement("select");
-
-      
-  //     teams.forEach(t => {
-  //       const optA = new Option(t.team_name, t.team_id);
-  //       const optB = new Option(t.team_name, t.team_id);
-  //       if (t.team_id == m.team_a) optA.selected = true;
-  //       if (t.team_id == m.team_b) optB.selected = true;
-  //       selectA.appendChild(optA);
-  //       selectB.appendChild(optB);
-  //     });
-
-  //     saveBtn.addEventListener("click", async () => {
-  //       const payload = {
-  //         team_a: selectA.value,
-  //         team_b: selectB.value,
-  //         date: dateInput.value,
-  //         time: timeSelect.value,
-  //         point: pointInput.value
-  //       };
-
-  //       const res = await fetch(`/api/edit/${id}`, {
-  //         method: "POST",
-  //         headers: { "Content-Type": "application/json" },
-  //         body: JSON.stringify(payload)
-  //       });
-
-  //       const result = await res.json();
-  //       if (result.success) {
-  //         alert("✅ 修改成功");
-  //         container.innerHTML = '';
-  //         const searchBtn = document.getElementById("SearchBtn");
-  //         if (searchBtn) searchBtn.click();
-
-  //       } else {
-  //         alert("❌ 修改失敗：" + result.message);
-  //       }
-  //     });
-
-  //     // ⬇️ 新增標題與欄位
-  //       const teamALabel = document.createElement("strong");
-  //       teamALabel.textContent = "隊伍 A：";
-  //       container.appendChild(teamALabel);
-  //       container.appendChild(selectA);
-
-  //       const teamBLabel = document.createElement("strong");
-  //       teamBLabel.textContent = "隊伍 B：";
-  //       container.appendChild(teamBLabel);
-  //       container.appendChild(selectB);
-
-  //       const dateLabel = document.createElement("strong");
-  //       dateLabel.textContent = "日期：";
-  //       container.appendChild(dateLabel);
-  //       container.appendChild(dateInput);
-
-  //       const timeLabel = document.createElement("strong");
-  //       timeLabel.textContent = "時間：";
-  //       container.appendChild(timeLabel);
-  //       container.appendChild(timeSelect);
-
-  //       const pointLabel = document.createElement("strong");
-  //       pointLabel.textContent = "比分：";
-  //       container.appendChild(pointLabel);
-  //       container.appendChild(pointInput);
-
-  //       container.appendChild(saveBtn);
-  //   }
-  // }
+  
 
   async function showEditForm(id, match, date, time) {
   const container = document.getElementById(`editForm_${id}`);
@@ -2131,7 +1604,7 @@ try {
         }
         
         console.log(is_top);
-        // ✅ 最高管理員 或「處理中」且 admin 為當前使用者才顯示可編輯區塊（可提交為已處理/不採納）
+        // 最高管理員 或「處理中」且 admin 為當前使用者才顯示可編輯區塊（可提交為已處理/不採納）
         if ((fb.f_status === '處理中' && (is_top || String(fb.admin_id) === String(document.body.dataset.adminId)))) {
             
             const replyInput = document.createElement('textarea');
@@ -2239,7 +1712,7 @@ try {
     const sportTypeSelect = document.getElementById("sport-type");
     const querySelect = document.getElementById("query-type");
     const keywordSelect = document.getElementById("keyword");
-    const searchBtn = document.getElementById("SearchBtn"); // ✅ 抓到按鈕元素
+    const searchBtn = document.getElementById("SearchBtn");
     const dateInput = document.getElementById("date");
     const resultDiv = document.getElementById("searchResult");
     const extraFields = document.getElementById("extra-fields");
@@ -2375,10 +1848,7 @@ try {
             } catch (err) {
                 console.warn("⚠️ 查詢隊伍名稱失敗", err);
             }
-        }
-
-        // 查球員所屬隊伍
-        else if (type === "player") {
+        }else if (type === "player") {
             try {
                 const res = await fetch(`/api/get_team_name_by_player?sport=${sport}&player_id=${keyword}`);
                 const data = await res.json();
@@ -2449,16 +1919,28 @@ try {
             data.matches.forEach(m => {
               const formattedDate = new Date(m.date).toISOString().slice(0, 10);
               const matchTitle = sport === "2"
-                  ? m.team_a_name
+                  ? m.match_name
                   : `${m.team_a_name} vs ${m.team_b_name}`;
 
-              resultDiv.innerHTML += `
+              if(sport === "2"){
+                resultDiv.innerHTML += `
+                <div class="match-card" id="card_${m.game_no}" style="margin-bottom: 1rem;">
+                  <strong>${matchTitle}</strong><br>
+                  日期時間 : ${formattedDate} ${m.time}<br>
+                  類型 : ${m.match_type}<br>
+                </div>  
+              `;
+              }else{
+                resultDiv.innerHTML += `
                 <div class="match-card" id="card_${m.game_no}" style="margin-bottom: 1rem;">
                   <strong>${matchTitle}</strong><br>
                   日期時間 : ${formattedDate} ${m.time}<br>
                   比分：${m.point ?? "尚未公布"}<br>
                 </div>  
               `;
+              }
+
+              
           });
         } catch (err) {
             console.error("查詢錯誤：", err);
@@ -2674,10 +2156,9 @@ try {
                 const div = document.createElement("div");
                 div.className = "result-card";
                 const m_n = (sportType === "2") ? match.match_name : match.team_a_name + " vs " + match.team_b_name;
-
-                let html = `<strong>${m_n}</strong><br>`;
+                let html = `<strong> ${m_n}</strong><br>`;
                 html += `時間：${match.date} ${match.time}<br>`;
-                html += `比數：${match.point === null ? "尚未開始" : match.point}`;
+                html += `比數：${match.point === null ? "尚未開始" : match.point}<br><br>`;
 
                 div.innerHTML = html;
                 resultArea.appendChild(div);
@@ -2822,12 +2303,14 @@ try {
               const combinedMap = {};
 
               list.forEach(match => {
-                const key = `${match.name}_${match.time}`;
+                const matchName = match.match_name || match.name || "未知比賽名稱";
+                const key = `${matchName}_${match.time}`;
 
                 if (!combinedMap[key]) {
                   combinedMap[key] = {
                     game_no: match.game_no,
-                    name: match.name,
+                    name: matchName,
+                    match_name: matchName,
                     time: match.time,
                     platform: [match.platform],
                     type: match.type
@@ -2895,24 +2378,25 @@ try {
           }
         }
 
-        let uniqueBookingKeys = new Set();
+        let uniqueGameNos = new Set();
 
         // 把已預約的加入 Set
         for (let date in existingBookings) {
             for (let match of existingBookings[date]) {
-                uniqueBookingKeys.add(`${date}_${match.name}_${match.time}`);
+                uniqueGameNos.add(match.game_no);
             }
         }
 
-        // 把剛新增的也加入 Set（不會重複）
+        // 把剛新增的也加入 Set
         for (let date in pendingBookings) {
             for (let match of pendingBookings[date]) {
-                uniqueBookingKeys.add(`${date}_${match.name}_${match.time}`);
+                uniqueGameNos.add(match.game_no);
             }
         }
 
-        const total = uniqueBookingKeys.size;
+        const total = uniqueGameNos.size;
         document.getElementById("booking-count").textContent = `已預約 + 新增 ${total} 場比賽`;
+
     }
 
     function createBookingCard(date, match, isNew) {
@@ -2949,7 +2433,7 @@ try {
 
             if (!target[date]) return;
 
-            // ✅ 根據 name + time 刪掉全部相同比賽
+            // 根據 name + time 刪掉全部相同比賽
             const removedList = target[date].filter(m => m.name === name && m.time === time);
             target[date] = target[date].filter(m => !(m.name === name && m.time === time));
 
@@ -2972,11 +2456,6 @@ try {
             refreshSelectedDate(date);
         }
     });
-
-    // function isAlreadySelected(dateStr, matchObj) {
-    //     const check = list => (list[dateStr] || []).some(m => m.name === matchObj.name && m.time === matchObj.time);
-    //     return check(existingBookings) || check(pendingBookings);
-    // }
 
     function isAlreadySelected(dateStr, matchObj) {
       const normalizeTime = (t) => t.length === 5 ? t + ":00" : t;
@@ -3017,7 +2496,8 @@ try {
 
             const btn = document.createElement("button");
             btn.className = "match-card";
-            btn.textContent = `【${typeMap[matchObj.type]}】 ${matchObj.name} 🕒 ${matchObj.time}`;
+            const matchDisplayName = matchObj.type === 2 ? matchObj.match_name : matchObj.name;
+            btn.textContent = `【${typeMap[matchObj.type]}】 ${matchDisplayName} 🕒 ${matchObj.time}`;
 
             if (diffMinutes < 3) {
                 btn.classList.add("disabled");
@@ -3186,7 +2666,23 @@ try {
         });
 
         if (res.ok) {
-            const total = Object.values(merged).reduce((sum, arr) => sum + arr.length, 0);
+            const uniqueGameNos = new Set();
+
+            // 把已預約的加入 Set
+            for (let date in existingBookings) {
+                for (let match of existingBookings[date]) {
+                    uniqueGameNos.add(match.game_no);
+                }
+            }
+
+            // 把剛新增的也加入 Set（不會重複）
+            for (let date in pendingBookings) {
+                for (let match of pendingBookings[date]) {
+                    uniqueGameNos.add(match.game_no);
+                }
+            }
+
+            const total = uniqueGameNos.size;
             alert(`✅ 已儲存 ${total} 筆預約資料！`);
 
             // ✅ 更新 existingBookings
@@ -3200,7 +2696,6 @@ try {
                 if (existingBookings[date].length === 0) delete existingBookings[date];
             }
 
-            // ✅ 最後才清空這兩個
 
             pendingBookings = {};
             deletedBookings = [];
@@ -3263,4 +2758,83 @@ try {
     document.getElementById('NextMonthBtn').addEventListener('click', nextMonth);
     document.getElementById('save').addEventListener('click', saveBookings);
     document.getElementById('cancel').addEventListener('click', clearAllBookings);
+}else if(page === "super_admin"){
+  const sessionId = parseInt("{{ session['admin_id'] }}");
+
+    function updateAdmin(id) {
+      const username = document.querySelector(`.edit-username[data-id='${id}']`)?.value;
+      const password = document.querySelector(`.edit-password[data-id='${id}']`)?.value;
+
+      fetch(`/api/admins/${id}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ username, password })
+      }).then(res => res.json()).then(data => {
+        alert(data.message);
+      });
+    }
+
+    function deleteAdmin(id) {
+      if (!confirm("❗確定要刪除這位管理員嗎？")) return;
+
+      fetch(`/api/admins/${id}`, {
+        method: 'DELETE'
+      }).then(res => res.json()).then(data => {
+        alert(data.message);
+        const row = document.querySelector(`button.delete[onclick*="${id}"]`)?.closest('tr');
+        if (row) row.remove();
+      });
+    }
+
+    function upgradeAdmin(id) {
+      if (!confirm("❗確定要將此管理員升級為最高權限？")) return;
+
+      fetch(`/api/admins/${id}/upgrade`, {
+        method: 'POST'
+      }).then(res => res.json()).then(data => {
+        alert(data.message);
+        if (data.admin) replaceAdminRow(data.admin);
+      });
+    }
+
+    function downgradeAdmin(id) {
+      if (!confirm("❗確定要將此管理員降為一般權限？")) return;
+
+      fetch(`/api/admins/${id}/downgrade`, {
+        method: 'POST'
+      }).then(res => res.json()).then(data => {
+        alert(data.message);
+        if (data.admin) replaceAdminRow(data.admin);
+      });
+    }
+
+    function replaceAdminRow(admin) {
+      const row = document.querySelector(`button.update[onclick*="${admin.admin_id}"]`)?.closest('tr');
+      if (!row) return;
+
+      const isSelf = admin.admin_id === sessionId;
+      const isTop = admin.permission_level === 1;
+
+      row.innerHTML = `
+        <td>${admin.admin_id}</td>
+        <td>
+          ${isSelf || isTop ? `<input type="text" value="${admin.user_name}" data-id="${admin.admin_id}" class="edit-username">` : admin.user_name}
+        </td>
+        <td>
+          ${isSelf || isTop ? `<input type="text" value="${admin.password}" data-id="${admin.admin_id}" class="edit-password">` : '*****'}
+        </td>
+        <td>${admin.permission_level}</td>
+        <td>
+          <button class="update" onclick="updateAdmin(${admin.admin_id})">修改</button>
+          ${!isSelf ? `
+            <button class="delete" onclick="deleteAdmin(${admin.admin_id})">刪除</button>
+            ${admin.permission_level === 1 ? `
+              <button class="upgrade" onclick="upgradeAdmin(${admin.admin_id})">升級權限</button>
+            ` : `
+              <button class="downgrade" onclick="downgradeAdmin(${admin.admin_id})">降級權限</button>
+            `}
+          ` : ''}
+        </td>
+      `;
+    }
 }
