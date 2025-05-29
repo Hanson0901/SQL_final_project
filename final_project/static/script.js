@@ -1593,6 +1593,17 @@ try {
                     })
                 });
                 const result = await res.json();
+
+                await fetch('http://localhost:928/linebot/claim', {
+                  method: 'POST',
+                  headers: { 'Content-Type': 'application/json' },
+                  body: JSON.stringify({
+                  msg: 'feedback claimed',
+                  uid:uid,
+                  date:date,
+                  type: fb.f_type
+                  })
+              });
                 if (result.success) {
                     alert("✅ 已成功認領並轉為處理中");
                     location.reload();
