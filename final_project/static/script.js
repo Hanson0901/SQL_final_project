@@ -268,9 +268,17 @@ if(page === 'foradmin'){
         if (teamB) params.append("team_b", teamB);
       }
 
-      const res = await fetch(`/api/search_match_advanced?${params}`);
-      const data = await res.json();
       const result = document.getElementById("searchResult");
+
+      const res = await fetch(`/api/search_match_advanced?${params}`);
+
+      if (!res.ok) {
+        const errorData = await res.json();
+        alert(`❌ 查詢錯誤：${errorData.error || "未知錯誤"}`);
+        return;
+      }
+
+      const data = await res.json(); // ✅ 放在確認 ok 後再取出
 
       result.innerHTML = "";
       if (!data.matches || data.matches.length === 0) {
@@ -361,12 +369,13 @@ if(page === 'foradmin'){
           <option value="5">BWF</option>
         </select>
       </td>
-      <td colspan="2" data-label="隊伍／名稱選擇">
+      <td colspan="2" data-label="隊伍／名稱選擇／比賽類型">
         <div class="team-selects">
           <select class="team-a"><option value="">請先選類別</option></select>
           <select class="team-b"><option value="">請先選類別</option></select>
         </div>
         <input type="text" class="match-name" placeholder="請輸入比賽名稱" style="display: none; width: 100%;" />
+        <input type="text" class="match-type" placeholder="請輸入比賽類型（如 Race）" style="display: none; width: 100%; margin-top: 0.5em;" />
         <div class="bwf-players" style="display: none; margin-top: 0.5em;">
           <div style="margin-bottom: 0.5em;">
             <label>隊伍 A：</label><br/>
@@ -479,19 +488,27 @@ try {
 
     sportSelect.addEventListener('change', () => {
       const selected = sportSelect.value;
+      const matchTypeInput = tr.querySelector('.match-type');
+      const pointInput = tr.querySelector('.point-input');
 
       if (selected === "2") {
         teamSelects.style.display = "none";
         matchNameInput.style.display = "block";
+        matchTypeInput.style.display = "block";     // 顯示比賽類型
+        pointInput.parentElement.style.display = "none";  // 隱藏比分
         bwfPlayers.style.display = "none";
       } else if (selected === "5") {
         teamSelects.style.display = "flex";
         matchNameInput.style.display = "none";
+        matchTypeInput.style.display = "none";
+        pointInput.parentElement.style.display = "";      // 顯示比分
         bwfPlayers.style.display = "block";
         updateTeamOptions(selected);
       } else {
         teamSelects.style.display = "flex";
         matchNameInput.style.display = "none";
+        matchTypeInput.style.display = "none";
+        pointInput.parentElement.style.display = "";      // 顯示比分
         bwfPlayers.style.display = "none";
         updateTeamOptions(selected);
       }
@@ -571,90 +588,6 @@ try {
     }
   }
   
-  // async function submitAllMatches() {
-  //   const rows = document.querySelectorAll('#addTable tbody tr');
-  //   const matches = [];
-
-  //   rows.forEach((row, i) => {
-  //     const sport = row.querySelector('.sport-type')?.value;
-  //     const teamA = row.querySelector('.team-a')?.value;
-  //     const teamB = row.querySelector('.team-b')?.value;
-  //     const date = row.querySelector('.date-input')?.value;
-  //     const time = row.querySelector('.time-input')?.value.trim();
-  //     let point = row.querySelector('.point-input')?.value.trim();
-  //     point = point === "" ? null : point;
-  //     const matchName = row.querySelector('.match-name')?.value.trim();
-
-  //     if (sport === "2") {
-  //       // F1：使用 match_name
-  //       if (matchName && date && time) {
-  //         matches.push({ type: sport, match_name: matchName, date, time, point });
-  //       }
-  //     } else if (sport === "5") {
-  //       // BWF：隊伍與選手
-  //       const teamAPlayers = Array.from(row.querySelectorAll('.team-a-player-select'))
-  //         .map(sel => sel.value.trim())
-  //         .filter(pid => pid !== "");
-
-  //       const teamBPlayers = Array.from(row.querySelectorAll('.team-b-player-select'))
-  //         .map(sel => sel.value.trim())
-  //         .filter(pid => pid !== "");
-
-  //       const selectedPlayers = [...teamAPlayers, ...teamBPlayers];
-
-  //       if (teamA && teamB && date && time && selectedPlayers.length >= 2 && selectedPlayers.length <= 4){
-  //         if (teamAPlayers.length !== teamBPlayers.length) {
-  //           alert(`❌ 隊伍 A 與 B 選手數量需一致（目前是 ${teamAPlayers.length} vs ${teamBPlayers.length}）`);
-  //           return;
-  //         }
-
-  //         const match = {
-  //           type: sport,
-  //           team_a: teamA,
-  //           team_b: teamB,
-  //           date,
-  //           time,
-  //           point,
-  //         };
-  //         selectedPlayers.forEach((pid, idx) => {
-  //           match[`player_${idx + 1}`] = pid;
-  //         });
-  //         matches.push(match);
-  //       }
-  //     }else {
-  //       // 其他運動（NBA/MLB/CPBL）
-  //       if (teamA && teamB && date && time) {
-  //         matches.push({ type: sport, team_a: teamA, team_b: teamB, date, time, point });
-  //       }
-  //     }
-  //   });
-
-  //   const res = await fetch(`/api/add-many`, {
-  //     method: 'POST',
-  //     headers: { 'Content-Type': 'application/json' },
-  //     body: JSON.stringify({ matches })
-  //   });
-
-  //   const data = await res.json();
-  //   const status = document.getElementById('addStatus');
-  //   if (data.success) {
-  //     alert(`新增 ${data.count} 筆資料成功！`);
-  //     status.innerText = `✅ 新增 ${data.count} 筆資料完成`;
-  //     status.className = 'success';
-  //     const tbody = document.querySelector('#addTable tbody');
-  //     tbody.innerHTML = '';
-  //     addRow(false);
-  //   } else {
-  //     alert(`❌ ${data.message}`);
-  //     status.innerText = `❌ ${data.message}`;
-  //     status.className = 'error';
-  //   }
-
-  //   setTimeout(() => {
-  //     status.innerText = '';
-  //     status.className = '';
-  //   }, 3000);
-  // }
 
   async function submitAllMatches() {
     const rows = document.querySelectorAll('#addTable tbody tr');
@@ -667,13 +600,15 @@ try {
       const date = row.querySelector('.date-input')?.value;
       const time = row.querySelector('.time-input')?.value.trim();
       let point = row.querySelector('.point-input')?.value.trim();
+      const matchType = row.querySelector('.match-type')?.value.trim();
+
       point = point === "" ? null : point;
       const matchName = row.querySelector('.match-name')?.value.trim();
       const selectedPlatforms = Array.from(row.querySelectorAll('.platform-checkbox:checked')).map(cb => Number(cb.value));
 
       if (sport === "2") {
-        if (matchName && date && time) {
-          matches.push({ type: sport, match_name: matchName, date, time, point, platforms: selectedPlatforms });
+        if (matchName && date && time && matchType) {
+          matches.push({ type: sport, match_name: matchName, date, time, point: null, platforms: selectedPlatforms, match_type : matchType});
         }
       } else if (sport === "5") {
         const teamAPlayers = Array.from(row.querySelectorAll('.team-a-player-select'))
@@ -937,16 +872,25 @@ try {
     nameInput.type = "text";
     nameInput.placeholder = "比賽名稱";
     nameInput.value = m.team_a_name || '';
+    
+
+    // 🆕 比賽類型輸入欄位
+    const matchTypeInput = document.createElement("input");
+    matchTypeInput.type = "text";
+    matchTypeInput.placeholder = "比賽類型";
+    matchTypeInput.value = m.match_type || '';
+    matchTypeInput.style.marginBottom = "8px";
+
 
     container.innerHTML = '';
     container.appendChild(document.createTextNode("比賽名稱："));
     container.appendChild(nameInput);
+    container.appendChild(document.createTextNode("比賽類型："));
+    container.appendChild(matchTypeInput);
     container.appendChild(document.createTextNode("日期："));
     container.appendChild(dateInput);
     container.appendChild(document.createTextNode("時間："));
     container.appendChild(timeSelect);
-    container.appendChild(document.createTextNode("比分："));
-    container.appendChild(pointInput);
     container.appendChild(document.createTextNode("播放平台（可複選）："));
     container.appendChild(platformContainer);
     container.appendChild(saveBtn);
@@ -957,9 +901,10 @@ try {
       const payload = {
         date: dateInput.value,
         time: timeSelect.value,
-        point: pointInput.value,
+        point: null,
         match_name: nameInput.value,
-        platforms: selectedPlatforms
+        platforms: selectedPlatforms,
+        match_type: matchTypeInput.value
       };
 
       const res = await fetch(`/api/edit/${id}`, {
