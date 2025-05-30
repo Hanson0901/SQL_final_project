@@ -665,6 +665,7 @@ def recent_match():
     if not uid:
         return "❌ 未登入，請先從 LINE 入口進入", 403
 
+    print(uid)
     return render_template("recent_match.html")
 
 
