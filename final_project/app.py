@@ -660,11 +660,10 @@ def get_keywords():
 #===============================比賽預約=====================================#
 @app.route("/recent_match")
 def recent_match():
-    
-    uid = request.args.get("uid")
 
-    if uid:
-        session["uid"] = uid  # 存進 session
+    uid = session.get("uid")
+    if not uid:
+        return "❌ 未登入，請先從 LINE 入口進入", 403
 
     return render_template("recent_match.html")
 
