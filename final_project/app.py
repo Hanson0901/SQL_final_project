@@ -39,7 +39,7 @@ def index():
 @app.route("/set_uid", methods=["POST"])
 def set_uid():
     data = request.get_json()
-    uid = data.get("uid").strip()
+    uid = data.get("uid", "").strip()
     if uid:
         session["uid"] = uid
         print("使用者 UID：", uid)
@@ -751,8 +751,9 @@ def get_matches():
         print("❌ matches 查詢錯誤：", e)
         return jsonify({"error": str(e)}), 500
 
-@app.route('/api/bookings/user/<uid>', methods=['GET'])
-def get_user_bookings(uid):
+@app.route('/api/bookings/user', methods=['GET'])
+def get_user_bookings():
+    uid = session.get("uid", "").strip()
     try:
         with connection.cursor(pymysql.cursors.DictCursor) as cursor:
             # 查詢 F1 預約
@@ -825,10 +826,10 @@ def get_user_bookings(uid):
         return jsonify({"error": str(e)}), 500
 
 
-@app.route('/api/bookings/user/<uid>', methods=['POST'])
-def save_user_bookings(uid):
+@app.route('/api/bookings/user', methods=['POST'])
+def save_user_bookings():
     data = request.json
-
+    uid = session.get("uid", "").strip()
     try:
         with connection.cursor() as cursor:
             # 刪掉舊的預約資料
@@ -856,8 +857,10 @@ def save_user_bookings(uid):
         print("❌ 預約儲存錯誤：", e)
         return jsonify({"error": str(e)}), 500
 
-@app.route('/api/bookings/user/<uid>', methods=['DELETE'])
-def delete_user_bookings(uid):
+@app.route('/api/bookings/user', methods=['DELETE'])
+def delete_user_bookings():
+    uid = session.get("uid", "").strip()
+    
     try:
         with connection.cursor() as cursor:
             cursor.execute("DELETE FROM reminders WHERE user_id = %s", (uid,))
@@ -884,8 +887,10 @@ def delete_single_booking():
         print("❌ 刪除預約失敗：", e)
         return jsonify({"success": False, "error": str(e)}), 500
 
-@app.route('/api/platform/rank/<uid>')
-def platform_rank(uid):
+@app.route('/api/platform/rank')
+def platform_rank():
+    uid = session.get("uid", "").strip()
+
     try:
         with connection.cursor() as cursor:
             cursor.execute("""
@@ -1692,10 +1697,11 @@ def get_all_feedback():
         return jsonify(success=False, message=str(e)), 500
 
 
-@app.route('/api/feedback/<uid>/<date>', methods=['POST'])
-def update_feedback(uid, date):
+@app.route('/api/feedback/<date>', methods=['POST'])
+def update_feedback(date):
     data = request.get_json()
     time = data.get("time")  # 前端要提供 f_time
+    uid = session.get("uid", "").strip()
 
     if not time:
         return jsonify(success=False, message="缺少時間欄位")

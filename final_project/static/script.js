@@ -1546,7 +1546,7 @@ try {
             claimBtn.textContent = '認領';
             claimBtn.className = 'claim-btn';
             claimBtn.addEventListener('click', async () => {
-                const res = await fetch(`/api/feedback/${uid}/${date}`, {
+                const res = await fetch(`/api/feedback/${date}`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
@@ -1621,7 +1621,7 @@ try {
                 };
               
             
-                const res = await fetch(`/api/feedback/${uid}/${date}`, {
+                const res = await fetch(`/api/feedback/${date}`, {
                     method: 'POST',
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify(payload)
@@ -2237,7 +2237,7 @@ try {
 
     async function loadBookings() {
       try {
-          const res = await fetch(`/api/bookings/user/${uid}`);
+          const res = await fetch(`/api/bookings/user`);
           if (!res.ok) {
               throw new Error(`❌ fetch 錯誤: ${res.status}`);
           }
@@ -2256,7 +2256,7 @@ try {
 
 
     async function loadTopPlatform(uid) {
-        const res = await fetch(`/api/platform/rank/${uid}`);
+        const res = await fetch(`/api/platform/rank`);
         const platforms = await res.json();
 
         const box = document.getElementById("recommend-platform");
@@ -2640,7 +2640,7 @@ try {
             return;
         }
         if (confirm("確定要清除所有預約嗎？")) {
-            await fetch(`/api/bookings/user/${uid}`, { method: 'DELETE' });
+            await fetch(`/api/bookings/user`, { method: 'DELETE' });
             bookingData = {};
             alert("所有預約已清除！");
         }
@@ -2667,7 +2667,7 @@ try {
             if (merged[date].length === 0) delete merged[date];
         }
 
-        const res = await fetch(`/api/bookings/user/${uid}`, {
+        const res = await fetch(`/api/bookings/user`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(merged)
@@ -2716,7 +2716,7 @@ try {
     }
 
     async function saveBookingsToUser() {
-        const res = await fetch(`/api/bookings/user/${uid}`, {
+        const res = await fetch(`/api/bookings/user`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(bookingData)
