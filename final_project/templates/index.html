@@ -66,9 +66,7 @@
 
   <div class="section">
     <h2>我是使用者</h2>
-    <a href="{{ url_for('foruser') }}">
-      <button>進入使用者介面</button>
-    </a>
+    <div id="info">正在載入使用者資訊...</div> <!-- ✅ 顯示名稱與 UID -->
   </div>
 
   <div class="section">
@@ -97,31 +95,32 @@
     }
 
     async function initLIFF() {
-    await liff.init({ liffId: "2007494110-GV925OeY" });
+      await liff.init({ liffId: "2007494110-GV925OeY" });
 
-    if (!liff.isLoggedIn()) {
-      liff.login();
-      return;
+      if (!liff.isLoggedIn()) {
+        liff.login();
+        return;
+      }
+
+      const profile = await liff.getProfile();
+      const userId = profile.userId;
+      const name = profile.displayName;
+
+      // ✅ 印出使用者資訊到 console 與畫面
+      console.log("LIFF 登入成功", name, userId);
+      document.getElementById("info").innerHTML = `
+        <p><strong>顯示名稱：</strong> ${name}</p>
+        <p><strong>user_id：</strong> ${userId}</p>
+        <p>即將進入比賽預約頁面...</p>
+      `;
+
+      // ✅ 延遲跳轉，給你幾秒時間看到畫面
+      setTimeout(() => {
+        window.location.href = `/recent_match?uid=${userId}`;
+      }, 2000);
     }
 
-    const profile = await liff.getProfile();
-    const userId = profile.userId;
-    const name = profile.displayName;
-
-    // ✅ 印出使用者資訊到開發者工具
-    console.log("LIFF 登入成功", name, userId);
-
-    // ✅ 顯示 userId 與名稱在頁面
-      document.getElementById("info").innerHTML = `
-          <p><strong>顯示名稱：</strong> ${name}</p>
-          <p><strong>user_id：</strong> ${userId}</p>
-        `;
-
-    window.location.href = `/foruser?uid=${userId}`;
-
-  }
-
-  initLIFF();
+    initLIFF();
   </script>
 </body>
 </html>
