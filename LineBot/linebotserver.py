@@ -260,7 +260,7 @@ def handle_message(event):
                 carousel_template = CarouselTemplate(
                     columns=[
                         CarouselColumn(
-                            thumbnail_image_url='https://i.imgur.com/2nCt3Sb.jpg',
+                            thumbnail_image_url='https://www.milk.com.hk/content/images/size/w1000/2024/07/nba1-1.png',
                             title='NBA',
                             text='點擊前往 NBA 官網',
                             actions=[
@@ -271,7 +271,7 @@ def handle_message(event):
                             ]
                         ),
                         CarouselColumn(
-                            thumbnail_image_url='https://upload.wikimedia.org/wikipedia/commons/3/33/F1.svg',
+                            thumbnail_image_url='https://miro.medium.com/v2/resize:fit:2560/1*rwpOxkNX0UN5A3BE28HLTQ.png',
                             title='F1',
                             text='點擊前往 F1 官網',
                             actions=[
