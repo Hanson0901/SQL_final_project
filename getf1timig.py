@@ -34,9 +34,10 @@ def get_timing(times):
     })
     driver.execute_script("Object.defineProperty(navigator, 'webdriver', {get: () => undefined})")
     try:
-        driver.get(f"file:///home/cbes100070/Desktop/website_all/SQL_final_project/F1_website_store/F1_{times}.html")  # 使用本地文件URL
+        #driver.get(f"file:///home/cbes100070/Desktop/website_all/SQL_final_project/F1_website_store/F1_{times}.html")  # 使用本地文件URL
+        driver.get("https://www.formula1.com/en/timing/f1-live-lite")
         time.sleep(5)  # 等待頁面加載
-        '''try:
+        try:
         
             iframe = WebDriverWait(driver, 15).until(
                 EC.presence_of_element_located((By.ID, "sp_message_iframe_1149950"))
@@ -61,7 +62,7 @@ def get_timing(times):
         )
         
         time.sleep(5)  # 等待數據加載
-        '''
+        
         soup = BeautifulSoup(driver.page_source, 'html.parser')
         print(soup.prettify())  # 打印HTML內容以便調試
         team_colors = {
