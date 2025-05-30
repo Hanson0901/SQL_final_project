@@ -54,9 +54,15 @@ def generate_live_data():
 def f1_timing():
     return render_template('F1Timing.html')
 
+
+times = 1
 @app.route('/f1/get_live_data')
 def get_live_data():
-    df = get_timing()
+    
+    df = get_timing(times)
+    times += 1
+    if times > 13:
+        times = 1
     return jsonify({
         'last_updated': datetime.datetime.now().strftime("%H:%M:%S"),
         'data': df.to_dict(orient='records')
