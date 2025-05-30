@@ -124,9 +124,9 @@ body {
   }
 
 .rhe-row {
-  display: flex;
-  flex-direction: row;
-  grid-template-columns: 30px 30px 30px; /* 固定 R、H、E 的欄位寬度 */
+  display: grid;
+  /*flex-direction: row;*/
+  grid-template-columns: 5px 5px 5px; /* 固定 R、H、E 的欄位寬度 */
   gap: 15px; /* 欄位之間的間距 */
   margin-top: 5px; /* 每行之間的間距 */
 }
