@@ -32,11 +32,13 @@ def fix_timedelta(row):
 #首頁
 @app.route("/")
 def index():
-    uid = request.args.get("uid")
+    data = request.get_json()
+    uid = data.get("uid")
     if uid:
-        print("✅ 收到 UID：", uid)  # 印出來
         session["uid"] = uid
+        print("✅ 記錄 UID：", uid)
     return render_template("index.html")
+
 
 @app.route("/admin/super")
 def super_admin():

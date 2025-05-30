@@ -106,13 +106,21 @@
       const uid = profile.userId;
       const name = profile.displayName;
 
-      // ✅ 印出使用者資訊到 console 與畫面
-      console.log("LIFF 登入成功", name, uid);
-      document.getElementById("info").innerHTML = `
-        <p><strong>顯示名稱：</strong> ${name}</p>
-        <p><strong>user_id：</strong> ${uid}</p>
-        <p>即將進入比賽預約頁面...</p>
-      `;
+      fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ uid: uid })
+      }).then(() => {
+        // 印出使用者資訊到 console 與畫面
+        console.log("LIFF 登入成功", name, uid);
+        document.getElementById("info").innerHTML = `
+          <p><strong>顯示名稱：</strong> ${name}</p>
+          <p><strong>user_id：</strong> ${uid}</p>
+          <p>即將進入比賽預約頁面...</p>
+        `;
+      });
+
+      
     }
 
     initLIFF();
