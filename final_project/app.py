@@ -1774,6 +1774,7 @@ if __name__ == "__main__":
         "/opt/lampp/etc/pem/fullchain.pem",
         "/opt/lampp/etc/pem/privkey.pem"
     )
+    
     app.run(host='0.0.0.0',port='2222', ssl_context=context)
     if os.environ.get("WERKZEUG_RUN_MAIN") == "true":  #避免debug重複啟動
         scheduler = BackgroundScheduler()
