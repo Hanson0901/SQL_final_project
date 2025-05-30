@@ -106,14 +106,20 @@ def remind():
     try:
         cursor.execute("""
                 SELECT rm.user_id, ms.game_no, ms.date, ms.time, st.sport_name,
-                    t1.team_name AS team_a, t2.team_name AS team_b
+                        t1.team_name AS team_a, t2.team_name AS team_b,
+                        f1.match_name, f1.match_type
                 FROM reminders rm
                 JOIN matches_schedule ms ON rm.game_no = ms.game_no
-                JOIN teams t1 ON ms.team_a = t1.team_id
-                JOIN teams t2 ON ms.team_b = t2.team_id
+                LEFT JOIN teams t1 ON ms.team_a = t1.team_id
+                LEFT JOIN teams t2 ON ms.team_b = t2.team_id
                 JOIN sport_type st ON ms.type = st.type
+                LEFT JOIN f1_match_info f1 ON ms.game_no = f1.game_no
                 WHERE CONCAT(ms.date, ' ', ms.time) BETWEEN %s AND %s
             """, (start_time.strftime("%Y-%m-%d %H:%M:%S"), end_time.strftime("%Y-%m-%d %H:%M:%S")))
+            # , (
+            #     start_datetime.strftime("%Y-%m-%d %H:%M:%S"),
+            #     end_datetime.strftime("%Y-%m-%d %H:%M:%S")
+            # ))
 
 
         results = cursor.fetchall()
@@ -121,24 +127,29 @@ def remind():
             print("⚠️ 沒有要提醒的比賽")
 
         for row in results:
-            user_id, game_no, date, time_str, sport_name, team_a, team_b = row
-            
+            user_id, game_no, date, time_str, sport_name, team_a, team_b, match_name, match_type = row
+
+            if sport_name.lower() == "f1":
+                    match_display = f"{match_name}（{match_type}）"
+            else:
+                    match_display = f"{team_a} vs {team_b}"
+
             cursor.execute("""
-                SELECT p.name
-                FROM match_platforms mp
-                JOIN platforms p ON mp.platform_id = p.platform_id
-                WHERE mp.game_no = %s
-            """, (game_no,))
+                    SELECT p.name
+                    FROM match_platforms mp
+                    JOIN platforms p ON mp.platform_id = p.platform_id
+                    WHERE mp.game_no = %s
+                """, (game_no,))
             platforms = [r[0] for r in cursor.fetchall()]
             platform_str = "、".join(platforms) if platforms else "無"
 
             message = f"📣 您預約的比賽即將開始！\n" \
-                      f"📅 日期：{date} {time_str}\n" \
-                      f"🎮 運動：{sport_name}\n"\
-                      f"🏀 賽事：{team_a} vs {team_b}\n" \
-                      f"📺 推薦平台：{platform_str}"
+                          f"📅 日期：{date} {time_str}\n" \
+                          f"🎮 運動：{sport_name}\n" \
+                          f"🏁 賽事：{match_display}\n"  \
+                          f"📺 推薦平台：{platform_str}"
 
-            print(f"🔔 推播至 {user_id}：{team_a} vs {team_b}")
+            print(f"🔔 推播至 {user_id}：{match_display}")
 
             try:
                 with ApiClient(configuration) as api_client:
