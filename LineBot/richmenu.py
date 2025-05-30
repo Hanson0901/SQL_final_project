@@ -20,7 +20,7 @@ def create_rich_menu():
                 "bounds": {"x": 0, "y": 0, "width": 2500, "height": 843},
                 "action": {
                     "type": "uri",
-                    "uri": "https://cgusqlpj.ddns.net:2222/foruser",
+                    "uri": "https://liff.line.me/2007488459-579gR2Qz",
                 },
             },
             {
