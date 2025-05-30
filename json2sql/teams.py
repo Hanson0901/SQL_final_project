@@ -77,7 +77,7 @@ para = ", ".join(value_template)
 # CPLB 4
 # BWF 5
 write_list = [
-1,2,5
+5
 ]
 
 # NBA
@@ -179,7 +179,7 @@ if 4 in write_list:
 
 # BWF
 if 5 in write_list:
-    FOLDER_PATH = "Player_info\BWF\player_info.json"
+    FOLDER_PATH = r"Player_info\BWF\player_info.json"
     sport_type = 5
     with open(FOLDER_PATH, "r", encoding="utf-8") as f:
         data = json.load(f)
@@ -187,7 +187,9 @@ if 5 in write_list:
     try:
         with connection.cursor() as cursor:
             for item in data:
-                team_name = item["country"]
+                
+                    
+                team_name = item['country']
 
                 # 檢查 team_name 是否已存在於資料庫
                 cursor.execute(f"SELECT COUNT(*) FROM {TABLE} WHERE team_name = %s", (team_name,))

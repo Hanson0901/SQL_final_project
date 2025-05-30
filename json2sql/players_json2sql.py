@@ -37,7 +37,7 @@ para = ", ".join(value_template)
 # CPLB 4
 # BWF 5
 write_list = [
-1,2,5
+5
 ]
 
 
@@ -173,7 +173,7 @@ if 4 in write_list:
 # BWF
 if 5 in write_list:
 
-    FOLDER_PATH = "Player_info\BWF\player_info.json"
+    FOLDER_PATH = r"Player_info\BWF\player_info.json"
     sport_type = 5
     with open(FOLDER_PATH, "r", encoding="utf-8") as f:
         data = json.load(f)
@@ -181,37 +181,55 @@ if 5 in write_list:
     try:
         with connection.cursor() as cursor:
             for item in data:
-
+                
+                
+                name = f"{item['name1']} {item['name2']}"
+                
                 nationality = item.get("country")
+
+                cursor.execute(
+                    "SELECT name FROM players WHERE name = %s",
+                    (name,)
+                )
+                name_result = cursor.fetchone()
+                name_id = name_result[0] if name_result else None
+                
+                if name_id is not None:
+                    print(f"⚠️ 已經找到過這名選手: {name}，跳過")
+                    continue
+                
+                id=f"bwf_{item['id']}"
                 # print(f"nationality={nationality}")
                 cursor.execute(
                     "SELECT id FROM nationality WHERE country_name = %s",
                     (nationality,)
                 )
                 city_result = cursor.fetchone()
+                # print(f"id={id}")
                 city_id = city_result[0] if city_result else None
                 if city_id is None:
                     print(f"❌ 未找到國家 {nationality} 的 ID，將跳過此球員。")
                     print(f"city_id={city_id}")
-               
+            
                 sql = f"""
                     INSERT INTO {TABLE} 
                     (player_id, sport_type, name, nationality_id, age)
                     VALUES ({para})
                 """
+                
                 cursor.execute(
                     sql,
                     (
-                        f"bwf_{item['id']}",
+                        id,
                         sport_type,
-                        f"{null_if_dash(item['name1'])} {null_if_dash(item['name2'])}".strip(),
+                        name,
                         city_id,
                         int(item["age"]) if str(item.get("age", "")).isdigit() else None
                         
                     ),
                 )
-        connection.commit()
-        print(f"✅ {FOLDER_PATH} 已寫入 MySQL！")
+                connection.commit()
+                print(f"✅ {id} 已寫入 MySQL！")
     except Exception as e:
         print(f"❌ error occurs at {FOLDER_PATH}：", e)
     # connection.close()

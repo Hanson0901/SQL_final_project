@@ -1,0 +1,4923 @@
+[
+  {
+    "game_no": "1",
+    "type": 3,
+    "team_a": "China",
+    "team_b": "Malaysia",
+    "player_1": "HU Zhe An",
+    "player_2": "",
+    "player_3": "KOK Jing Hong",
+    "player_4": "",
+    "date": "2025-05-20",
+    "time": "10:00:00",
+    "point": "22 20 21 11",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "2",
+    "type": 3,
+    "team_a": "Malaysia",
+    "team_b": "Chinese Taipei",
+    "player_1": "Sholeh AIDIL",
+    "player_2": "",
+    "player_3": "HUANG Yu Kai",
+    "player_4": "",
+    "date": "2025-05-20",
+    "time": "00:00:00",
+    "point": "21 8 17 21 18 21",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "3",
+    "type": 3,
+    "team_a": "Malaysia",
+    "team_b": "Vietnam",
+    "player_1": "TAN Jia Jie",
+    "player_2": "",
+    "player_3": "NGUYEN Hai Dang",
+    "player_4": "",
+    "date": "2025-05-20",
+    "time": "00:00:00",
+    "point": "17 21 8 21",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "4",
+    "type": 3,
+    "team_a": "Malaysia",
+    "team_b": "Chinese Taipei",
+    "player_1": "CHENG Su Hui",
+    "player_2": "TAN Zhing Yi",
+    "player_3": "SUNG Yi-Hsuan",
+    "player_4": "YANG Yi Hsun",
+    "date": "2025-05-20",
+    "time": "00:00:00",
+    "point": "22 20 13 21 15 21",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "5",
+    "type": 3,
+    "team_a": "China",
+    "team_b": "Chinese Taipei",
+    "player_1": "HU Zhe An",
+    "player_2": "",
+    "player_3": "HUANG Ping-Hsien",
+    "player_4": "",
+    "date": "2025-05-20",
+    "time": "00:00:00",
+    "point": "21 19 13 21 10 21",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "6",
+    "type": 3,
+    "team_a": "Chinese Taipei",
+    "team_b": "Malaysia",
+    "player_1": "CHIANG Chien-Wei",
+    "player_2": "WU Hsuan-Yi",
+    "player_3": "LOW Hang Yee",
+    "player_4": "NG Eng Cheong",
+    "date": "2025-05-20",
+    "time": "16:00:00",
+    "point": "14 21 16 21",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "7",
+    "type": 3,
+    "team_a": "China",
+    "team_b": "Indonesia",
+    "player_1": "LIU Sheng Shu",
+    "player_2": "TAN Ning",
+    "player_3": "Meilysa Trias PUSPITASARI",
+    "player_4": "Rachel Allessya ROSE",
+    "date": "2025-05-20",
+    "time": "00:00:00",
+    "point": "21 13 21 6",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "8",
+    "type": 3,
+    "team_a": "Malaysia",
+    "team_b": "Thailand",
+    "player_1": "CHOONG Hon Jian",
+    "player_2": "Muhammad HAIKAL",
+    "player_3": "Kittinupong KEDREN",
+    "player_4": "Dechapol PUAVARANUKROH",
+    "date": "2025-05-20",
+    "time": "00:00:00",
+    "point": "21 15 21 18",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "9",
+    "type": 3,
+    "team_a": "China",
+    "team_b": "Malaysia",
+    "player_1": "CHEN Qing Chen",
+    "player_2": "WANG Ting Ge",
+    "player_3": "GO Pei Kee",
+    "player_4": "TEOH Mei Xing",
+    "date": "2025-05-20",
+    "time": "00:00:00",
+    "point": "19 21 19 21",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "10",
+    "type": 3,
+    "team_a": "France",
+    "team_b": "Malaysia",
+    "player_1": "Eloi ADAM",
+    "player_2": "Leo ROSSI",
+    "player_3": "GOH Sze Fei",
+    "player_4": "Nur IZZUDDIN",
+    "date": "2025-05-20",
+    "time": "00:00:00",
+    "point": "16 21 13 21",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "11",
+    "type": 3,
+    "team_a": "India",
+    "team_b": "Malaysia",
+    "player_1": "Pruthvi KRISHNAMURTHY ROY",
+    "player_2": "Sai PRATHEEK.K",
+    "player_3": "MAN Wei Chong",
+    "player_4": "Kai Wun TEE",
+    "date": "2025-05-20",
+    "time": "00:00:00",
+    "point": "15 21 21 23",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "12",
+    "type": 3,
+    "team_a": "Malaysia",
+    "team_b": "China",
+    "player_1": "ONG Yew Sin",
+    "player_2": "TEO Ee Yi",
+    "player_3": "LIANG Wei Keng",
+    "player_4": "WANG Chang",
+    "date": "2025-05-20",
+    "time": "00:00:00",
+    "point": "21 9 15 21 15 21",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "13",
+    "type": 3,
+    "team_a": "Chinese Taipei",
+    "team_b": "Canada",
+    "player_1": "HUANG Ping-Hsien",
+    "player_2": "",
+    "player_3": "Xiaodong SHENG",
+    "player_4": "",
+    "date": "2025-05-20",
+    "time": "10:00:00",
+    "point": "21 15 15 21 21 16",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "14",
+    "type": 3,
+    "team_a": "China",
+    "team_b": "India",
+    "player_1": "ZHU Xuan Chen",
+    "player_2": "",
+    "player_3": "S.Sankar Muthusamy SUBRAMANIAN",
+    "player_4": "",
+    "date": "2025-05-20",
+    "time": "00:00:00",
+    "point": "22 20 22 20",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "15",
+    "type": 3,
+    "team_a": "Malaysia",
+    "team_b": "India",
+    "player_1": "Ming Yap TOO",
+    "player_2": "LEE Yu Shan",
+    "player_3": "Mohit JAGLAN",
+    "player_4": "Lakshita JAGLAN",
+    "date": "2025-05-20",
+    "time": "00:00:00",
+    "point": "21 15 21 16",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "16",
+    "type": 3,
+    "team_a": "Malaysia",
+    "team_b": "Malaysia",
+    "player_1": "KANG Khai Xing",
+    "player_2": "Aaron TAI",
+    "player_3": "Bryan Jeremy GOONTING",
+    "player_4": "M FAZRIQ Mohamad Razif",
+    "date": "2025-05-20",
+    "time": "00:00:00",
+    "point": "21 17 21 17",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "17",
+    "type": 3,
+    "team_a": "Chinese Taipei",
+    "team_b": "France",
+    "player_1": "Zhi-Wei HE",
+    "player_2": "HUANG Jui-Hsuan",
+    "player_3": "Julien MAIO",
+    "player_4": "William VILLEGER",
+    "date": "2025-05-20",
+    "time": "00:00:00",
+    "point": "19 21 15 21",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "18",
+    "type": 3,
+    "team_a": "Malaysia",
+    "team_b": "Denmark",
+    "player_1": "CHIA Weijie",
+    "player_2": "LWI Sheng Hao",
+    "player_3": "William Kryger BOE",
+    "player_4": "Christian Faust KJÆR",
+    "date": "2025-05-20",
+    "time": "00:00:00",
+    "point": "9 21 16 21",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "19",
+    "type": 3,
+    "team_a": "Vietnam",
+    "team_b": "Vietnam",
+    "player_1": "NGUYEN Hai Dang",
+    "player_2": "",
+    "player_3": "LE Duc Phat",
+    "player_4": "",
+    "date": "2025-05-20",
+    "time": "00:00:00",
+    "point": "21 15 21 15",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "20",
+    "type": 3,
+    "team_a": "China",
+    "team_b": "Indonesia",
+    "player_1": "LI Yi Jing",
+    "player_2": "LUO Xu Min",
+    "player_3": "Apriyani RAHAYU",
+    "player_4": "Febi SETIANINGRUM",
+    "date": "2025-05-20",
+    "time": "16:00:00",
+    "point": "21 11 17 21 19 21",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "21",
+    "type": 3,
+    "team_a": "Chinese Taipei",
+    "team_b": "Malaysia",
+    "player_1": "LIU Kuang Heng",
+    "player_2": "YANG Po Han",
+    "player_3": "Nur Mohd Azriyn Ayub AZRIYN",
+    "player_4": "TAN Wee Kiong",
+    "date": "2025-05-20",
+    "time": "00:00:00",
+    "point": "21 19 21 15",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "22",
+    "type": 3,
+    "team_a": "Malaysia",
+    "team_b": "China",
+    "player_1": "ONG Xin Yee",
+    "player_2": "Carmen TING",
+    "player_3": "JIA Yi Fan",
+    "player_4": "ZHANG Shu Xian",
+    "date": "2025-05-20",
+    "time": "00:00:00",
+    "point": "11 21 21 17 13 21",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "23",
+    "type": 3,
+    "team_a": "Malaysia",
+    "team_b": "Japan",
+    "player_1": "Junaidi ARIF",
+    "player_2": "Roy King YAP",
+    "player_3": "Hiroki MIDORIKAWA",
+    "player_4": "Kyohei YAMASHITA",
+    "date": "2025-05-20",
+    "time": "00:00:00",
+    "point": "11 21 20 22",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "24",
+    "type": 3,
+    "team_a": "Canada",
+    "team_b": "Japan",
+    "player_1": "Jackie DENT",
+    "player_2": "Crystal LAI",
+    "player_3": "Nami MATSUYAMA",
+    "player_4": "Chiharu SHIDA",
+    "date": "2025-05-20",
+    "time": "00:00:00",
+    "point": "21 19 10 21 16 21",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "25",
+    "type": 3,
+    "team_a": "India",
+    "team_b": "Chinese Taipei",
+    "player_1": "KIDAMBI Srikanth",
+    "player_2": "",
+    "player_3": "KUO Kuan Lin",
+    "player_4": "",
+    "date": "2025-05-20",
+    "time": "10:00:00",
+    "point": "21 8 21 13",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "26",
+    "type": 3,
+    "team_a": "India",
+    "team_b": "Thailand",
+    "player_1": "Tharun MANNEPALLI",
+    "player_2": "",
+    "player_3": "Panitchaphon TEERARATSAKUL",
+    "player_4": "",
+    "date": "2025-05-20",
+    "time": "00:00:00",
+    "point": "13 21 21 23",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "27",
+    "type": 3,
+    "team_a": "Hong Kong China",
+    "team_b": "Myanmar",
+    "player_1": "Saloni Samirbhai MEHTA",
+    "player_2": "",
+    "player_3": "THET HTAR THUZAR",
+    "player_4": "",
+    "date": "2025-05-20",
+    "time": "00:00:00",
+    "point": "21 19 15 21 18 21",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "28",
+    "type": 3,
+    "team_a": "Malaysia",
+    "team_b": "Thailand",
+    "player_1": "HO Lo Ee",
+    "player_2": "Amanda YAP",
+    "player_3": "Phattharin AIAMVAREESRISAKUL",
+    "player_4": "Sarisa JANPENG",
+    "date": "2025-05-20",
+    "time": "00:00:00",
+    "point": "19 21 21 14 22 20",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "29",
+    "type": 3,
+    "team_a": "Chinese Taipei",
+    "team_b": "China",
+    "player_1": "CHANG Ko-Chi",
+    "player_2": "PO Li-Wei",
+    "player_3": "SUN Wen Jun",
+    "player_4": "ZHU Yi Jun",
+    "date": "2025-05-20",
+    "time": "00:00:00",
+    "point": "21 18 21 14",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "30",
+    "type": 3,
+    "team_a": "Chinese Taipei",
+    "team_b": "India",
+    "player_1": "HUANG Yu Kai",
+    "player_2": "",
+    "player_3": "KIDAMBI Srikanth",
+    "player_4": "",
+    "date": "2025-05-20",
+    "time": "00:00:00",
+    "point": "21 9 12 21 6 21",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "31",
+    "type": 3,
+    "team_a": "China",
+    "team_b": "Denmark",
+    "player_1": "CHEN Bo Yang",
+    "player_2": "LIU Yi",
+    "player_3": "Daniel LUNDGAARD",
+    "player_4": "Mads VESTERGAARD",
+    "date": "2025-05-20",
+    "time": "16:00:00",
+    "point": "25 27 21 18 16 21",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "32",
+    "type": 3,
+    "team_a": "Chinese Taipei",
+    "team_b": "India",
+    "player_1": "HSU Yin-Hui",
+    "player_2": "LIN Jhih Yun",
+    "player_3": "Kavipriya SELVAM",
+    "player_4": "Simran SINGHI",
+    "date": "2025-05-20",
+    "time": "00:00:00",
+    "point": "21 14 21 18",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "33",
+    "type": 3,
+    "team_a": "China",
+    "team_b": "Japan",
+    "player_1": "HUANG Di",
+    "player_2": "LIU Yang",
+    "player_3": "Takuro HOKI",
+    "player_4": "Yugo KOBAYASHI",
+    "date": "2025-05-20",
+    "time": "00:00:00",
+    "point": "21 19 20 22 15 21",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "34",
+    "type": 3,
+    "team_a": "Indonesia",
+    "team_b": "Chinese Taipei",
+    "player_1": "Lanny Tria MAYASARI",
+    "player_2": "Siti Fadia Silva RAMADHANTI",
+    "player_3": "CHEN Su Yu",
+    "player_4": "Yi En HSIEH",
+    "date": "2025-05-20",
+    "time": "00:00:00",
+    "point": "21 14 21 11",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "35",
+    "type": 3,
+    "team_a": "Denmark",
+    "team_b": "China",
+    "player_1": "Kim ASTRUP",
+    "player_2": "Anders Skaarup RASMUSSEN",
+    "player_3": "XIE Hao Nan",
+    "player_4": "ZENG Wei Han",
+    "date": "2025-05-20",
+    "time": "00:00:00",
+    "point": "21 10 21 17",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "36",
+    "type": 3,
+    "team_a": "Chinese Taipei",
+    "team_b": "Chinese Taipei",
+    "player_1": "Zhi-Wei HE",
+    "player_2": "Yan Fei CHEN",
+    "player_3": "CHANG Ko-Chi",
+    "player_4": "LIN Jhih Yun",
+    "date": "2025-05-20",
+    "time": "10:00:00",
+    "point": "21 18 15 21 18 21",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "37",
+    "type": 3,
+    "team_a": "Vietnam",
+    "team_b": "Belgium",
+    "player_1": "LE Duc Phat",
+    "player_2": "",
+    "player_3": "Julien CARRAGGI",
+    "player_4": "",
+    "date": "2025-05-20",
+    "time": "00:00:00",
+    "point": "21 19 21 18",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "38",
+    "type": 3,
+    "team_a": "India",
+    "team_b": "Chinese Taipei",
+    "player_1": "Anmol KHARB",
+    "player_2": "",
+    "player_3": "HUNG Yi-Ting",
+    "player_4": "",
+    "date": "2025-05-20",
+    "time": "00:00:00",
+    "point": "14 21 18 21",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "39",
+    "type": 3,
+    "team_a": "Thailand",
+    "team_b": "Chinese Taipei",
+    "player_1": "Tidapron KLEEBYEESUN",
+    "player_2": "",
+    "player_3": "Yi En HSIEH",
+    "player_4": "",
+    "date": "2025-05-20",
+    "time": "00:00:00",
+    "point": "21 18 21 8",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "40",
+    "type": 3,
+    "team_a": "Chinese Taipei",
+    "team_b": "Chinese Taipei",
+    "player_1": "HUANG Ching Ping",
+    "player_2": "",
+    "player_3": "CHEN Su Yu",
+    "player_4": "",
+    "date": "2025-05-20",
+    "time": "00:00:00",
+    "point": "22 20 14 21 21 5",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "41",
+    "type": 3,
+    "team_a": "China",
+    "team_b": "Thailand",
+    "player_1": "ZHU Xuan Chen",
+    "player_2": "",
+    "player_3": "Panitchaphon TEERARATSAKUL",
+    "player_4": "",
+    "date": "2025-05-20",
+    "time": "00:00:00",
+    "point": "21 17 21 14",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "42",
+    "type": 3,
+    "team_a": "Chinese Taipei",
+    "team_b": "Hong Kong China",
+    "player_1": "HSIEH Pei Shan",
+    "player_2": "HUNG En-Tzu",
+    "player_3": "LUI Lok Lok",
+    "player_4": "TSANG Hiu Yan",
+    "date": "2025-05-20",
+    "time": "16:00:00",
+    "point": "21 19 21 16",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "43",
+    "type": 3,
+    "team_a": "Chinese Taipei",
+    "team_b": "India",
+    "player_1": "CHEN Zhi  Ray",
+    "player_2": "LIN Yu Chieh",
+    "player_3": "Hariharan AMSAKARUNAN",
+    "player_4": "Ruban Kumar RETHINASABAPATHI",
+    "date": "2025-05-20",
+    "time": "00:00:00",
+    "point": "21 13 21 18",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "44",
+    "type": 3,
+    "team_a": "India",
+    "team_b": "India",
+    "player_1": "Vaishnavi KHADKEKAR",
+    "player_2": "Alisha KHAN",
+    "player_3": "Prerana ALVEKAR",
+    "player_4": "Mrunmayee DESHPANDE",
+    "date": "2025-05-20",
+    "time": "00:00:00",
+    "point": "19 21 21 19 13 21",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "45",
+    "type": 3,
+    "team_a": "Denmark",
+    "team_b": "Chinese Taipei",
+    "player_1": "Rasmus KJÆR",
+    "player_2": "Frederik SØGAARD",
+    "player_3": "Ming Che LU",
+    "player_4": "TANG Kai  Wei",
+    "date": "2025-05-20",
+    "time": "00:00:00",
+    "point": "21 10 21 14",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "46",
+    "type": 3,
+    "team_a": "Chinese Taipei",
+    "team_b": "Chinese Taipei",
+    "player_1": "HSU Ya Ching",
+    "player_2": "SUNG Yu-Hsuan",
+    "player_3": "HU Ling Fang",
+    "player_4": "JHENG Yu Chieh",
+    "date": "2025-05-20",
+    "time": "00:00:00",
+    "point": "21 18 21 13",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "47",
+    "type": 3,
+    "team_a": "Thailand",
+    "team_b": "India",
+    "player_1": "Pichamon PHATCHARAPHISUTSIN",
+    "player_2": "Nannapas SUKKLAD",
+    "player_3": "Rashmi GANESH",
+    "player_4": "Sania SIKKANDAR",
+    "date": "2025-05-20",
+    "time": "00:00:00",
+    "point": "21 10 21 12",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "48",
+    "type": 3,
+    "team_a": "China",
+    "team_b": "India",
+    "player_1": "JIANG Zhen Bang",
+    "player_2": "WEI Ya Xin",
+    "player_3": "Ashith SURYA",
+    "player_4": "Amrutha PRAMUTHESH",
+    "date": "2025-05-21",
+    "time": "10:00:00",
+    "point": "21 12 21 10",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "49",
+    "type": 3,
+    "team_a": "France",
+    "team_b": "China",
+    "player_1": "Toma Junior POPOV",
+    "player_2": "",
+    "player_3": "WANG Zheng Xing",
+    "player_4": "",
+    "date": "2025-05-21",
+    "time": "00:00:00",
+    "point": "21 17 21 8",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "50",
+    "type": 3,
+    "team_a": "Thailand",
+    "team_b": "Malaysia",
+    "player_1": "Supak JOMKOH",
+    "player_2": "Ornnicha JONGSATHAPORNPARN",
+    "player_3": "WONG Tien Ci",
+    "player_4": "LIM Chiew Sien",
+    "date": "2025-05-21",
+    "time": "00:00:00",
+    "point": "20 22 19 21",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "51",
+    "type": 3,
+    "team_a": "China",
+    "team_b": "Malaysia",
+    "player_1": "HAN Qian Xi",
+    "player_2": "",
+    "player_3": "Karupathevan LETSHANAA",
+    "player_4": "",
+    "date": "2025-05-21",
+    "time": "00:00:00",
+    "point": "10 21 21 19 21 12",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "52",
+    "type": 3,
+    "team_a": "Denmark",
+    "team_b": "Malaysia",
+    "player_1": "Mads VESTERGAARD",
+    "player_2": "Christine BUSCH",
+    "player_3": "GOH Soon Huat",
+    "player_4": "LAI Shevon Jemie",
+    "date": "2025-05-21",
+    "time": "00:00:00",
+    "point": "21 18 21 19",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "53",
+    "type": 3,
+    "team_a": "Thailand",
+    "team_b": "Malaysia",
+    "player_1": "Ratchanok INTANON",
+    "player_2": "",
+    "player_3": "GOH Jin Wei",
+    "player_4": "",
+    "date": "2025-05-21",
+    "time": "00:00:00",
+    "point": "21 7 21 15",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "54",
+    "type": 3,
+    "team_a": "Malaysia",
+    "team_b": "Chinese Taipei",
+    "player_1": "LOO Bing Kun",
+    "player_2": "TOH Ee Wei",
+    "player_3": "Ming Che LU",
+    "player_4": "HUNG En-Tzu",
+    "date": "2025-05-21",
+    "time": "13:30:00",
+    "point": "20 22 21 18 21 15",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "55",
+    "type": 3,
+    "team_a": "Ireland",
+    "team_b": "Malaysia",
+    "player_1": "Nhat NGUYEN",
+    "player_2": "",
+    "player_3": "LEONG Jun Hao",
+    "player_4": "",
+    "date": "2025-05-21",
+    "time": "00:00:00",
+    "point": "10 21 21 18 21 9",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "56",
+    "type": 3,
+    "team_a": "China",
+    "team_b": "Malaysia",
+    "player_1": "CHENG Xing",
+    "player_2": "ZHANG Chi",
+    "player_3": "CHEN Tang Jie",
+    "player_4": "CHAN Wen Tse",
+    "date": "2025-05-21",
+    "time": "00:00:00",
+    "point": "22 20 21 15",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "57",
+    "type": 3,
+    "team_a": "Hong Kong China",
+    "team_b": "Malaysia",
+    "player_1": "FAN Ka Yan",
+    "player_2": "YAU Mau Ying",
+    "player_3": "Pearly TAN",
+    "player_4": "THINAAH Muralitharan",
+    "date": "2025-05-21",
+    "time": "00:00:00",
+    "point": "17 21 16 21",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "58",
+    "type": 3,
+    "team_a": "Malaysia",
+    "team_b": "Japan",
+    "player_1": "Justin HOH",
+    "player_2": "",
+    "player_3": "Kodai NARAOKA",
+    "player_4": "",
+    "date": "2025-05-21",
+    "time": "00:00:00",
+    "point": "14 21 20 22",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "59",
+    "type": 3,
+    "team_a": "Malaysia",
+    "team_b": "Chinese Taipei",
+    "player_1": "Aaron CHIA",
+    "player_2": "SOH Wooi Yik",
+    "player_3": "CHIU Hsiang Chieh",
+    "player_4": "WANG Chi-Lin",
+    "date": "2025-05-21",
+    "time": "00:00:00",
+    "point": "21 18 21 16",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "60",
+    "type": 3,
+    "team_a": "Chinese Taipei",
+    "team_b": "Malaysia",
+    "player_1": "Yan Fei CHEN",
+    "player_2": "Liang Ching SUN",
+    "player_3": "HO Lo Ee",
+    "player_4": "Amanda YAP",
+    "date": "2025-05-21",
+    "time": "00:00:00",
+    "point": "21 6 21 18",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "61",
+    "type": 3,
+    "team_a": "Chinese Taipei",
+    "team_b": "Indonesia",
+    "player_1": "SU Li  Yang",
+    "player_2": "",
+    "player_3": "Alwi FARHAN",
+    "player_4": "",
+    "date": "2025-05-21",
+    "time": "00:00:00",
+    "point": "13 21 13 21",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "62",
+    "type": 3,
+    "team_a": "Japan",
+    "team_b": "India",
+    "player_1": "Kenta NISHIMOTO",
+    "player_2": "",
+    "player_3": "PRANNOY H. S.",
+    "player_4": "",
+    "date": "2025-05-21",
+    "time": "10:00:00",
+    "point": "21 19 17 21 16 21",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "63",
+    "type": 3,
+    "team_a": "Malaysia",
+    "team_b": "Thailand",
+    "player_1": "Ming Yap TOO",
+    "player_2": "LEE Yu Shan",
+    "player_3": "Ratchapol MAKKASASITHORN",
+    "player_4": "Nattamon LAISUAN",
+    "date": "2025-05-21",
+    "time": "00:00:00",
+    "point": "9 21 13 21",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "64",
+    "type": 3,
+    "team_a": "France",
+    "team_b": "Hong Kong China",
+    "player_1": "Christo POPOV",
+    "player_2": "",
+    "player_3": "Jason GUNAWAN",
+    "player_4": "",
+    "date": "2025-05-21",
+    "time": "00:00:00",
+    "point": "21 17 21 18",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "65",
+    "type": 3,
+    "team_a": "Malaysia",
+    "team_b": "Denmark",
+    "player_1": "KANG Khai Xing",
+    "player_2": "Aaron TAI",
+    "player_3": "William Kryger BOE",
+    "player_4": "Christian Faust KJÆR",
+    "date": "2025-05-21",
+    "time": "00:00:00",
+    "point": "12 21 21 11 21 17",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "66",
+    "type": 3,
+    "team_a": "China",
+    "team_b": "India",
+    "player_1": "GUO Xin Wa",
+    "player_2": "CHEN Fang Hui",
+    "player_3": "Rohan KAPOOR",
+    "player_4": "GADDE Ruthvika Shivani",
+    "date": "2025-05-21",
+    "time": "00:00:00",
+    "point": "21 10 21 14",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "67",
+    "type": 3,
+    "team_a": "China",
+    "team_b": "India",
+    "player_1": "LU Guang Zu",
+    "player_2": "",
+    "player_3": "KIDAMBI Srikanth",
+    "player_4": "",
+    "date": "2025-05-21",
+    "time": "00:00:00",
+    "point": "21 23 21 13 11 21",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "68",
+    "type": 3,
+    "team_a": "Chinese Taipei",
+    "team_b": "Chinese Taipei",
+    "player_1": "HUANG Ching Ping",
+    "player_2": "",
+    "player_3": "HUNG Yi-Ting",
+    "player_4": "",
+    "date": "2025-05-21",
+    "time": "13:30:00",
+    "point": "14 21 17 21",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "69",
+    "type": 3,
+    "team_a": "Indonesia",
+    "team_b": "Chinese Taipei",
+    "player_1": "Amri SYAHNAWI",
+    "player_2": "Nita Violina MARWAH",
+    "player_3": "CHEN Cheng Kuan",
+    "player_4": "HSU Yin-Hui",
+    "date": "2025-05-21",
+    "time": "00:00:00",
+    "point": "21 18 22 20",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "70",
+    "type": 3,
+    "team_a": "Thailand",
+    "team_b": "China",
+    "player_1": "Kantaphon WANGCHAROEN",
+    "player_2": "",
+    "player_3": "LI Shi Feng",
+    "player_4": "",
+    "date": "2025-05-21",
+    "time": "00:00:00",
+    "point": "9 21 8 21",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "71",
+    "type": 3,
+    "team_a": "Chinese Taipei",
+    "team_b": "Canada",
+    "player_1": "SUNG Shuo Yun",
+    "player_2": "",
+    "player_3": "Michelle LI",
+    "player_4": "",
+    "date": "2025-05-21",
+    "time": "00:00:00",
+    "point": "10 21 11 21",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "72",
+    "type": 3,
+    "team_a": "Malaysia",
+    "team_b": "Hong Kong China",
+    "player_1": "NG Tze Yong",
+    "player_2": "",
+    "player_3": "NG Ka Long Angus",
+    "player_4": "",
+    "date": "2025-05-21",
+    "time": "00:00:00",
+    "point": "22 20 4 3",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "73",
+    "type": 3,
+    "team_a": "Chinese Taipei",
+    "team_b": "India",
+    "player_1": "LIN Hsiang Ti",
+    "player_2": "",
+    "player_3": "Unnati HOODA",
+    "player_4": "",
+    "date": "2025-05-21",
+    "time": "00:00:00",
+    "point": "21 12 22 20",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "74",
+    "type": 3,
+    "team_a": "Thailand",
+    "team_b": "China",
+    "player_1": "Ornnicha JONGSATHAPORNPARN",
+    "player_2": "Sukitta SUWACHAI",
+    "player_3": "KENG Shu Liang",
+    "player_4": "LI Hua Zhou",
+    "date": "2025-05-21",
+    "time": "00:00:00",
+    "point": "15 21 11 21",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "75",
+    "type": 3,
+    "team_a": "Chinese Taipei",
+    "team_b": "China",
+    "player_1": "HUANG Yu-Hsun",
+    "player_2": "",
+    "player_3": "GAO Fang Jie",
+    "player_4": "",
+    "date": "2025-05-21",
+    "time": "00:00:00",
+    "point": "11 21 21 18 18 21",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "76",
+    "type": 3,
+    "team_a": "Chinese Taipei",
+    "team_b": "India",
+    "player_1": "CHOU Tien Chen",
+    "player_2": "",
+    "player_3": "Sathish Kumar KARUNAKARAN",
+    "player_4": "",
+    "date": "2025-05-21",
+    "time": "10:05:00",
+    "point": "13 21 14 21",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "77",
+    "type": 3,
+    "team_a": "China",
+    "team_b": "Japan",
+    "player_1": "WANG Zhi Yi",
+    "player_2": "",
+    "player_3": "Asuka TAKAHASHI",
+    "player_4": "",
+    "date": "2025-05-21",
+    "time": "00:00:00",
+    "point": "21 13 21 10",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "78",
+    "type": 3,
+    "team_a": "India",
+    "team_b": "Canada",
+    "player_1": "Ayush SHETTY",
+    "player_2": "",
+    "player_3": "Brian YANG",
+    "player_4": "",
+    "date": "2025-05-21",
+    "time": "00:00:00",
+    "point": "20 22 21 10 21 8",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "79",
+    "type": 3,
+    "team_a": "Hong Kong China",
+    "team_b": "France",
+    "player_1": "LUI Chun Wai",
+    "player_2": "FU Chi Yan",
+    "player_3": "Julien MAIO",
+    "player_4": "Lea PALERMO",
+    "date": "2025-05-21",
+    "time": "00:00:00",
+    "point": "23 25 8 21",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "80",
+    "type": 3,
+    "team_a": "Thailand",
+    "team_b": "Indonesia",
+    "player_1": "Phuwanat HORBANLUEKIT",
+    "player_2": "Sapsiree TAERATTANACHAI",
+    "player_3": "Dejan FERDINANSYAH",
+    "player_4": "Siti Fadia Silva RAMADHANTI",
+    "date": "2025-05-21",
+    "time": "00:00:00",
+    "point": "14 21 21 19 17 21",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "81",
+    "type": 3,
+    "team_a": "Chinese Taipei",
+    "team_b": "Japan",
+    "player_1": "TUNG Ciou-Tong",
+    "player_2": "",
+    "player_3": "Akane YAMAGUCHI",
+    "player_4": "",
+    "date": "2025-05-21",
+    "time": "00:00:00",
+    "point": "14 21 12 21",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "82",
+    "type": 3,
+    "team_a": "Chinese Taipei",
+    "team_b": "Denmark",
+    "player_1": "YE Hong Wei",
+    "player_2": "Nicole Gonzales CHAN",
+    "player_3": "Jesper TOFT",
+    "player_4": "Amalie MAGELUND",
+    "date": "2025-05-21",
+    "time": "13:30:00",
+    "point": "21 19 21 15",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "83",
+    "type": 3,
+    "team_a": "Indonesia",
+    "team_b": "India",
+    "player_1": "Verrell Yustin MULIA",
+    "player_2": "Lisa Ayu KUSUMAWATI",
+    "player_3": "Sathish Kumar KARUNAKARAN",
+    "player_4": "Aadya VARIYATH",
+    "date": "2025-05-21",
+    "time": "00:00:00",
+    "point": "21 15 21 16",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "84",
+    "type": 3,
+    "team_a": "China",
+    "team_b": "Indonesia",
+    "player_1": "LI Wen Mei",
+    "player_2": "WANG Yi Duo",
+    "player_3": "Febriana Dwipuji KUSUMA",
+    "player_4": "Amallia Cahaya PRATIWI",
+    "date": "2025-05-21",
+    "time": "00:00:00",
+    "point": "15 21 21 19 10 21",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "85",
+    "type": 3,
+    "team_a": "China",
+    "team_b": "Denmark",
+    "player_1": "ZHU Xuan Chen",
+    "player_2": "",
+    "player_3": "Rasmus GEMKE",
+    "player_4": "",
+    "date": "2025-05-21",
+    "time": "00:00:00",
+    "point": "18 21 19 21",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "86",
+    "type": 3,
+    "team_a": "Chinese Taipei",
+    "team_b": "China",
+    "player_1": "LIANG Ting Yu",
+    "player_2": "",
+    "player_3": "HAN Yue",
+    "player_4": "",
+    "date": "2025-05-21",
+    "time": "00:00:00",
+    "point": "8 21 13 21",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "87",
+    "type": 3,
+    "team_a": "India",
+    "team_b": "Indonesia",
+    "player_1": "AAKARSHI KASHYAP",
+    "player_2": "",
+    "player_3": "Putri Kusuma WARDANI",
+    "player_4": "",
+    "date": "2025-05-21",
+    "time": "00:00:00",
+    "point": "9 21 8 21",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "88",
+    "type": 3,
+    "team_a": "Chinese Taipei",
+    "team_b": "France",
+    "player_1": "CHANG Ko-Chi",
+    "player_2": "PO Li-Wei",
+    "player_3": "Christo POPOV",
+    "player_4": "Toma Junior POPOV",
+    "date": "2025-05-21",
+    "time": "00:00:00",
+    "point": "24 22 19 21 18 21",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "89",
+    "type": 3,
+    "team_a": "Japan",
+    "team_b": "Canada",
+    "player_1": "Natsuki NIDAIRA",
+    "player_2": "",
+    "player_3": "Wen Yu ZHANG",
+    "player_4": "",
+    "date": "2025-05-21",
+    "time": "00:00:00",
+    "point": "16 21 8 9",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "90",
+    "type": 3,
+    "team_a": "India",
+    "team_b": "Vietnam",
+    "player_1": "PUSARLA V. Sindhu",
+    "player_2": "",
+    "player_3": "NGUYEN Thuy Linh",
+    "player_4": "",
+    "date": "2025-05-21",
+    "time": "10:05:00",
+    "point": "11 21 21 14 15 21",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "91",
+    "type": 3,
+    "team_a": "Thailand",
+    "team_b": "Denmark",
+    "player_1": "Tidapron KLEEBYEESUN",
+    "player_2": "",
+    "player_3": "Line CHRISTOPHERSEN",
+    "player_4": "",
+    "date": "2025-05-21",
+    "time": "00:00:00",
+    "point": "18 21 17 21",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "92",
+    "type": 3,
+    "team_a": "Japan",
+    "team_b": "Vietnam",
+    "player_1": "Yushi TANAKA",
+    "player_2": "",
+    "player_3": "NGUYEN Hai Dang",
+    "player_4": "",
+    "date": "2025-05-21",
+    "time": "00:00:00",
+    "point": "21 12 21 13",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "93",
+    "type": 3,
+    "team_a": "Chinese Taipei",
+    "team_b": "Thailand",
+    "player_1": "CHANG Ko-Chi",
+    "player_2": "LIN Jhih Yun",
+    "player_3": "Dechapol PUAVARANUKROH",
+    "player_4": "Supissara PAEWSAMPRAN",
+    "date": "2025-05-21",
+    "time": "00:00:00",
+    "point": "12 21 13 21",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "94",
+    "type": 3,
+    "team_a": "Chinese Taipei",
+    "team_b": "Chinese Taipei",
+    "player_1": "LIU Kuang Heng",
+    "player_2": "JHENG Yu Chieh",
+    "player_3": "HUANG Jui-Hsuan",
+    "player_4": "Liang Ching SUN",
+    "date": "2025-05-21",
+    "time": "00:00:00",
+    "point": "21 15 21 17",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "95",
+    "type": 3,
+    "team_a": "India",
+    "team_b": "Indonesia",
+    "player_1": "DHRUV KAPILA",
+    "player_2": "Tanisha CRASTO",
+    "player_3": "Adnan MAULANA",
+    "player_4": "Indah Cahya Sari JAMIL",
+    "date": "2025-05-21",
+    "time": "00:00:00",
+    "point": "21 18 15 21 21 14",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "96",
+    "type": 3,
+    "team_a": "Japan",
+    "team_b": "Japan",
+    "player_1": "Nozomi OKUHARA",
+    "player_2": "",
+    "player_3": "Hina AKECHI",
+    "player_4": "",
+    "date": "2025-05-21",
+    "time": "13:30:00",
+    "point": "21 14 21 19",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "97",
+    "type": 3,
+    "team_a": "Denmark",
+    "team_b": "Myanmar",
+    "player_1": "Line Højmark KJAERSFELDT",
+    "player_2": "",
+    "player_3": "THET HTAR THUZAR",
+    "player_4": "",
+    "date": "2025-05-21",
+    "time": "00:00:00",
+    "point": "18 21 21 15 21 19",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "98",
+    "type": 3,
+    "team_a": "China",
+    "team_b": "China",
+    "player_1": "GAO Jia Xuan",
+    "player_2": "WU Meng Ying",
+    "player_3": "FENG Yan Zhe",
+    "player_4": "HUANG Dong Ping",
+    "date": "2025-05-21",
+    "time": "00:00:00",
+    "point": "16 21 10 21",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "99",
+    "type": 3,
+    "team_a": "India",
+    "team_b": "Singapore",
+    "player_1": "Priyanshu RAJAWAT",
+    "player_2": "",
+    "player_3": "Jia Heng Jason TEH",
+    "player_4": "",
+    "date": "2025-05-21",
+    "time": "00:00:00",
+    "point": "15 21 17 21",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "100",
+    "type": 3,
+    "team_a": "Chinese Taipei",
+    "team_b": "Thailand",
+    "player_1": "SUNG Yi-Hsuan",
+    "player_2": "YANG Yi Hsun",
+    "player_3": "Tidapron KLEEBYEESUN",
+    "player_4": "Nattamon LAISUAN",
+    "date": "2025-05-21",
+    "time": "00:00:00",
+    "point": "21 17 13 21 20 22",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "101",
+    "type": 3,
+    "team_a": "Korea",
+    "team_b": "France",
+    "player_1": "KIM Gi Jung",
+    "player_2": "KIM Sa Rang",
+    "player_3": "Julien MAIO",
+    "player_4": "William VILLEGER",
+    "date": "2025-05-21",
+    "time": "00:00:00",
+    "point": "21 17 21 15",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "102",
+    "type": 3,
+    "team_a": "India",
+    "team_b": "Chinese Taipei",
+    "player_1": "Malvika BANSOD",
+    "player_2": "",
+    "player_3": "CHIU Pin-Chian",
+    "player_4": "",
+    "date": "2025-05-21",
+    "time": "00:00:00",
+    "point": "21 19 18 21 8 21",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "103",
+    "type": 3,
+    "team_a": "Chinese Taipei",
+    "team_b": "Indonesia",
+    "player_1": "HUANG Ping-Hsien",
+    "player_2": "",
+    "player_3": "Chico  Aura DWI WARDOYO",
+    "player_4": "",
+    "date": "2025-05-21",
+    "time": "00:00:00",
+    "point": "14 21 14 21",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "104",
+    "type": 3,
+    "team_a": "China",
+    "team_b": "China",
+    "player_1": "LEI Lan Xi",
+    "player_2": "",
+    "player_3": "WENG Hong Yang",
+    "player_4": "",
+    "date": "2025-05-21",
+    "time": "00:00:00",
+    "point": "20 22 21 16 11 21",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "105",
+    "type": 3,
+    "team_a": "China",
+    "team_b": "Indonesia",
+    "player_1": "GUO Xin Wa",
+    "player_2": "CHEN Fang Hui",
+    "player_3": "Dejan FERDINANSYAH",
+    "player_4": "Siti Fadia Silva RAMADHANTI",
+    "date": "2025-05-22",
+    "time": "10:00:00",
+    "point": "15 21 22 24",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "106",
+    "type": 3,
+    "team_a": "Thailand",
+    "team_b": "Chinese Taipei",
+    "player_1": "Ratchanok INTANON",
+    "player_2": "",
+    "player_3": "HUNG Yi-Ting",
+    "player_4": "",
+    "date": "2025-05-22",
+    "time": "00:00:00",
+    "point": "21 14 21 12",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "107",
+    "type": 3,
+    "team_a": "Singapore",
+    "team_b": "China",
+    "player_1": "Jia Heng Jason TEH",
+    "player_2": "",
+    "player_3": "LI Shi Feng",
+    "player_4": "",
+    "date": "2025-05-22",
+    "time": "00:00:00",
+    "point": "10 21 17 21",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "108",
+    "type": 3,
+    "team_a": "Vietnam",
+    "team_b": "Denmark",
+    "player_1": "NGUYEN Thuy Linh",
+    "player_2": "",
+    "player_3": "Line CHRISTOPHERSEN",
+    "player_4": "",
+    "date": "2025-05-22",
+    "time": "00:00:00",
+    "point": "20 22 21 11 21 18",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "109",
+    "type": 3,
+    "team_a": "Malaysia",
+    "team_b": "China",
+    "player_1": "GO Pei Kee",
+    "player_2": "TEOH Mei Xing",
+    "player_3": "JIA Yi Fan",
+    "player_4": "ZHANG Shu Xian",
+    "date": "2025-05-22",
+    "time": "00:00:00",
+    "point": "6 21 13 21",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "110",
+    "type": 3,
+    "team_a": "Denmark",
+    "team_b": "Hong Kong China",
+    "player_1": "Rasmus GEMKE",
+    "player_2": "",
+    "player_3": "NG Ka Long Angus",
+    "player_4": "",
+    "date": "2025-05-22",
+    "time": "00:00:00",
+    "point": "18 21 18 21",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "111",
+    "type": 3,
+    "team_a": "Denmark",
+    "team_b": "Malaysia",
+    "player_1": "Kim ASTRUP",
+    "player_2": "Anders Skaarup RASMUSSEN",
+    "player_3": "LOW Hang Yee",
+    "player_4": "NG Eng Cheong",
+    "date": "2025-05-22",
+    "time": "00:00:00",
+    "point": "21 9 21 12",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "112",
+    "type": 3,
+    "team_a": "Chinese Taipei",
+    "team_b": "Malaysia",
+    "player_1": "CHEN Zhi  Ray",
+    "player_2": "LIN Yu Chieh",
+    "player_3": "GOH Sze Fei",
+    "player_4": "Nur IZZUDDIN",
+    "date": "2025-05-22",
+    "time": "00:00:00",
+    "point": "19 21 13 21",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "113",
+    "type": 3,
+    "team_a": "Thailand",
+    "team_b": "Malaysia",
+    "player_1": "Pichamon PHATCHARAPHISUTSIN",
+    "player_2": "Nannapas SUKKLAD",
+    "player_3": "Pearly TAN",
+    "player_4": "THINAAH Muralitharan",
+    "date": "2025-05-22",
+    "time": "00:00:00",
+    "point": "13 21 15 21",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "114",
+    "type": 3,
+    "team_a": "Malaysia",
+    "team_b": "Chinese Taipei",
+    "player_1": "Aaron CHIA",
+    "player_2": "SOH Wooi Yik",
+    "player_3": "LIU Kuang Heng",
+    "player_4": "YANG Po Han",
+    "date": "2025-05-22",
+    "time": "00:00:00",
+    "point": "21 13 21 16",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "115",
+    "type": 3,
+    "team_a": "Malaysia",
+    "team_b": "Thailand",
+    "player_1": "WONG Tien Ci",
+    "player_2": "LIM Chiew Sien",
+    "player_3": "Dechapol PUAVARANUKROH",
+    "player_4": "Supissara PAEWSAMPRAN",
+    "date": "2025-05-22",
+    "time": "10:10:00",
+    "point": "14 21 9 21",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "116",
+    "type": 3,
+    "team_a": "China",
+    "team_b": "Thailand",
+    "player_1": "JIANG Zhen Bang",
+    "player_2": "WEI Ya Xin",
+    "player_3": "Ratchapol MAKKASASITHORN",
+    "player_4": "Nattamon LAISUAN",
+    "date": "2025-05-22",
+    "time": "00:00:00",
+    "point": "21 12 21 17",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "117",
+    "type": 3,
+    "team_a": "India",
+    "team_b": "Ireland",
+    "player_1": "KIDAMBI Srikanth",
+    "player_2": "",
+    "player_3": "Nhat NGUYEN",
+    "player_4": "",
+    "date": "2025-05-22",
+    "time": "00:00:00",
+    "point": "23 21 21 17",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "118",
+    "type": 3,
+    "team_a": "Denmark",
+    "team_b": "Canada",
+    "player_1": "Line Højmark KJAERSFELDT",
+    "player_2": "",
+    "player_3": "Michelle LI",
+    "player_4": "",
+    "date": "2025-05-22",
+    "time": "00:00:00",
+    "point": "22 20 15 21 11 21",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "119",
+    "type": 3,
+    "team_a": "Chinese Taipei",
+    "team_b": "China",
+    "player_1": "LIN Hsiang Ti",
+    "player_2": "",
+    "player_3": "GAO Fang Jie",
+    "player_4": "",
+    "date": "2025-05-22",
+    "time": "00:00:00",
+    "point": "13 21 10 21",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "120",
+    "type": 3,
+    "team_a": "Indonesia",
+    "team_b": "Japan",
+    "player_1": "Chico  Aura DWI WARDOYO",
+    "player_2": "",
+    "player_3": "Kodai NARAOKA",
+    "player_4": "",
+    "date": "2025-05-22",
+    "time": "00:00:00",
+    "point": "11 21 16 21",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "121",
+    "type": 3,
+    "team_a": "Chinese Taipei",
+    "team_b": "Indonesia",
+    "player_1": "Yan Fei CHEN",
+    "player_2": "Liang Ching SUN",
+    "player_3": "Febriana Dwipuji KUSUMA",
+    "player_4": "Amallia Cahaya PRATIWI",
+    "date": "2025-05-22",
+    "time": "00:00:00",
+    "point": "13 21 13 21",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "122",
+    "type": 3,
+    "team_a": "Japan",
+    "team_b": "Malaysia",
+    "player_1": "Hiroki MIDORIKAWA",
+    "player_2": "Kyohei YAMASHITA",
+    "player_3": "MAN Wei Chong",
+    "player_4": "Kai Wun TEE",
+    "date": "2025-05-22",
+    "time": "00:00:00",
+    "point": "17 21 13 21",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "123",
+    "type": 3,
+    "team_a": "China",
+    "team_b": "Thailand",
+    "player_1": "LIU Sheng Shu",
+    "player_2": "TAN Ning",
+    "player_3": "Tidapron KLEEBYEESUN",
+    "player_4": "Nattamon LAISUAN",
+    "date": "2025-05-22",
+    "time": "00:00:00",
+    "point": "21 13 21 8",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "124",
+    "type": 3,
+    "team_a": "Japan",
+    "team_b": "Malaysia",
+    "player_1": "Takuro HOKI",
+    "player_2": "Yugo KOBAYASHI",
+    "player_3": "CHOONG Hon Jian",
+    "player_4": "Muhammad HAIKAL",
+    "date": "2025-05-22",
+    "time": "00:00:00",
+    "point": "21 14 21 13",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "125",
+    "type": 3,
+    "team_a": "Denmark",
+    "team_b": "Malaysia",
+    "player_1": "Rasmus KJÆR",
+    "player_2": "Frederik SØGAARD",
+    "player_3": "KANG Khai Xing",
+    "player_4": "Aaron TAI",
+    "date": "2025-05-22",
+    "time": "18:50:00",
+    "point": "21 10 24 26 21 16",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "126",
+    "type": 3,
+    "team_a": "France",
+    "team_b": "India",
+    "player_1": "Toma Junior POPOV",
+    "player_2": "",
+    "player_3": "Ayush SHETTY",
+    "player_4": "",
+    "date": "2025-05-22",
+    "time": "10:10:00",
+    "point": "21 13 21 17",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "127",
+    "type": 3,
+    "team_a": "India",
+    "team_b": "France",
+    "player_1": "Sathish Kumar KARUNAKARAN",
+    "player_2": "",
+    "player_3": "Christo POPOV",
+    "player_4": "",
+    "date": "2025-05-22",
+    "time": "00:00:00",
+    "point": "14 21 16 21",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "128",
+    "type": 3,
+    "team_a": "China",
+    "team_b": "Indonesia",
+    "player_1": "CHENG Xing",
+    "player_2": "ZHANG Chi",
+    "player_3": "Verrell Yustin MULIA",
+    "player_4": "Lisa Ayu KUSUMAWATI",
+    "date": "2025-05-22",
+    "time": "00:00:00",
+    "point": "21 15 21 18",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "129",
+    "type": 3,
+    "team_a": "Malaysia",
+    "team_b": "Chinese Taipei",
+    "player_1": "LOO Bing Kun",
+    "player_2": "TOH Ee Wei",
+    "player_3": "YE Hong Wei",
+    "player_4": "Nicole Gonzales CHAN",
+    "date": "2025-05-22",
+    "time": "00:00:00",
+    "point": "21 19 20 22 18 21",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "130",
+    "type": 3,
+    "team_a": "China",
+    "team_b": "China",
+    "player_1": "WANG Zhi Yi",
+    "player_2": "",
+    "player_3": "HAN Qian Xi",
+    "player_4": "",
+    "date": "2025-05-22",
+    "time": "00:00:00",
+    "point": "21 8 21 17",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "131",
+    "type": 3,
+    "team_a": "Canada",
+    "team_b": "Indonesia",
+    "player_1": "Wen Yu ZHANG",
+    "player_2": "",
+    "player_3": "Putri Kusuma WARDANI",
+    "player_4": "",
+    "date": "2025-05-22",
+    "time": "00:00:00",
+    "point": "11 21 8 21",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "132",
+    "type": 3,
+    "team_a": "Chinese Taipei",
+    "team_b": "India",
+    "player_1": "HSU Yin-Hui",
+    "player_2": "LIN Jhih Yun",
+    "player_3": "Prerana ALVEKAR",
+    "player_4": "Mrunmayee DESHPANDE",
+    "date": "2025-05-22",
+    "time": "00:00:00",
+    "point": "21 9 21 14",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "133",
+    "type": 3,
+    "team_a": "France",
+    "team_b": "China",
+    "player_1": "Christo POPOV",
+    "player_2": "Toma Junior POPOV",
+    "player_3": "LIANG Wei Keng",
+    "player_4": "WANG Chang",
+    "date": "2025-05-22",
+    "time": "00:00:00",
+    "point": "17 21 15 21",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "134",
+    "type": 3,
+    "team_a": "Denmark",
+    "team_b": "Korea",
+    "player_1": "Daniel LUNDGAARD",
+    "player_2": "Mads VESTERGAARD",
+    "player_3": "KIM Gi Jung",
+    "player_4": "KIM Sa Rang",
+    "date": "2025-05-22",
+    "time": "00:00:00",
+    "point": "22 20 21 15",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "135",
+    "type": 3,
+    "team_a": "Chinese Taipei",
+    "team_b": "China",
+    "player_1": "HSIEH Pei Shan",
+    "player_2": "HUNG En-Tzu",
+    "player_3": "KENG Shu Liang",
+    "player_4": "LI Hua Zhou",
+    "date": "2025-05-22",
+    "time": "00:00:00",
+    "point": "15 21 21 13 14 21",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "136",
+    "type": 3,
+    "team_a": "Chinese Taipei",
+    "team_b": "Denmark",
+    "player_1": "LIU Kuang Heng",
+    "player_2": "JHENG Yu Chieh",
+    "player_3": "Mads VESTERGAARD",
+    "player_4": "Christine BUSCH",
+    "date": "2025-05-22",
+    "time": "10:10:00",
+    "point": "15 21 15 21",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "137",
+    "type": 3,
+    "team_a": "India",
+    "team_b": "France",
+    "player_1": "DHRUV KAPILA",
+    "player_2": "Tanisha CRASTO",
+    "player_3": "Julien MAIO",
+    "player_4": "Lea PALERMO",
+    "date": "2025-05-22",
+    "time": "00:00:00",
+    "point": "21 17 18 21 21 15",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "138",
+    "type": 3,
+    "team_a": "Indonesia",
+    "team_b": "China",
+    "player_1": "Amri SYAHNAWI",
+    "player_2": "Nita Violina MARWAH",
+    "player_3": "FENG Yan Zhe",
+    "player_4": "HUANG Dong Ping",
+    "date": "2025-05-22",
+    "time": "00:00:00",
+    "point": "21 19 11 21 11 21",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "139",
+    "type": 3,
+    "team_a": "India",
+    "team_b": "Japan",
+    "player_1": "PRANNOY H. S.",
+    "player_2": "",
+    "player_3": "Yushi TANAKA",
+    "player_4": "",
+    "date": "2025-05-22",
+    "time": "00:00:00",
+    "point": "9 21 18 21",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "140",
+    "type": 3,
+    "team_a": "Indonesia",
+    "team_b": "China",
+    "player_1": "Alwi FARHAN",
+    "player_2": "",
+    "player_3": "WENG Hong Yang",
+    "player_4": "",
+    "date": "2025-05-22",
+    "time": "00:00:00",
+    "point": "21 19 16 21 17 21",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "141",
+    "type": 3,
+    "team_a": "Japan",
+    "team_b": "Japan",
+    "player_1": "Nozomi OKUHARA",
+    "player_2": "",
+    "player_3": "Akane YAMAGUCHI",
+    "player_4": "",
+    "date": "2025-05-22",
+    "time": "00:00:00",
+    "point": "21 18 24 26 3 21",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "142",
+    "type": 3,
+    "team_a": "Chinese Taipei",
+    "team_b": "China",
+    "player_1": "CHIU Pin-Chian",
+    "player_2": "",
+    "player_3": "HAN Yue",
+    "player_4": "",
+    "date": "2025-05-22",
+    "time": "00:00:00",
+    "point": "9 21 11 21",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "143",
+    "type": 3,
+    "team_a": "Indonesia",
+    "team_b": "Japan",
+    "player_1": "Lanny Tria MAYASARI",
+    "player_2": "Siti Fadia Silva RAMADHANTI",
+    "player_3": "Nami MATSUYAMA",
+    "player_4": "Chiharu SHIDA",
+    "date": "2025-05-22",
+    "time": "00:00:00",
+    "point": "19 21 21 19 21 15",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "144",
+    "type": 3,
+    "team_a": "Indonesia",
+    "team_b": "Chinese Taipei",
+    "player_1": "Apriyani RAHAYU",
+    "player_2": "Febi SETIANINGRUM",
+    "player_3": "HSU Ya Ching",
+    "player_4": "SUNG Yu-Hsuan",
+    "date": "2025-05-22",
+    "time": "00:00:00",
+    "point": "21 18 21 16",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "145",
+    "type": 3,
+    "team_a": "Thailand",
+    "team_b": "China",
+    "player_1": "Dechapol PUAVARANUKROH",
+    "player_2": "Supissara PAEWSAMPRAN",
+    "player_3": "FENG Yan Zhe",
+    "player_4": "HUANG Dong Ping",
+    "date": "2025-05-23",
+    "time": "09:00:00",
+    "point": "21 15",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "146",
+    "type": 3,
+    "team_a": "Hong Kong China",
+    "team_b": "China",
+    "player_1": "NG Ka Long Angus",
+    "player_2": "",
+    "player_3": "LI Shi Feng",
+    "player_4": "",
+    "date": "2025-05-23",
+    "time": "00:00:00",
+    "point": "",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "147",
+    "type": 3,
+    "team_a": "Thailand",
+    "team_b": "Canada",
+    "player_1": "Ratchanok INTANON",
+    "player_2": "",
+    "player_3": "Michelle LI",
+    "player_4": "",
+    "date": "2025-05-23",
+    "time": "00:00:00",
+    "point": "",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "148",
+    "type": 3,
+    "team_a": "China",
+    "team_b": "Vietnam",
+    "player_1": "WANG Zhi Yi",
+    "player_2": "",
+    "player_3": "NGUYEN Thuy Linh",
+    "player_4": "",
+    "date": "2025-05-23",
+    "time": "15:00:00",
+    "point": "",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "149",
+    "type": 3,
+    "team_a": "India",
+    "team_b": "France",
+    "player_1": "KIDAMBI Srikanth",
+    "player_2": "",
+    "player_3": "Toma Junior POPOV",
+    "player_4": "",
+    "date": "2025-05-23",
+    "time": "00:00:00",
+    "point": "",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "150",
+    "type": 3,
+    "team_a": "Japan",
+    "team_b": "China",
+    "player_1": "Takuro HOKI",
+    "player_2": "Yugo KOBAYASHI",
+    "player_3": "LIANG Wei Keng",
+    "player_4": "WANG Chang",
+    "date": "2025-05-23",
+    "time": "00:00:00",
+    "point": "",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "151",
+    "type": 3,
+    "team_a": "Indonesia",
+    "team_b": "Malaysia",
+    "player_1": "Febriana Dwipuji KUSUMA",
+    "player_2": "Amallia Cahaya PRATIWI",
+    "player_3": "Pearly TAN",
+    "player_4": "THINAAH Muralitharan",
+    "date": "2025-05-23",
+    "time": "00:00:00",
+    "point": "",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "152",
+    "type": 3,
+    "team_a": "Malaysia",
+    "team_b": "Denmark",
+    "player_1": "Aaron CHIA",
+    "player_2": "SOH Wooi Yik",
+    "player_3": "Rasmus KJÆR",
+    "player_4": "Frederik SØGAARD",
+    "date": "2025-05-23",
+    "time": "00:00:00",
+    "point": "",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "153",
+    "type": 3,
+    "team_a": "Indonesia",
+    "team_b": "China",
+    "player_1": "Dejan FERDINANSYAH",
+    "player_2": "Siti Fadia Silva RAMADHANTI",
+    "player_3": "CHENG Xing",
+    "player_4": "ZHANG Chi",
+    "date": "2025-05-23",
+    "time": "09:10:00",
+    "point": "12 10",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "154",
+    "type": 3,
+    "team_a": "China",
+    "team_b": "India",
+    "player_1": "JIANG Zhen Bang",
+    "player_2": "WEI Ya Xin",
+    "player_3": "DHRUV KAPILA",
+    "player_4": "Tanisha CRASTO",
+    "date": "2025-05-23",
+    "time": "00:00:00",
+    "point": "",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "155",
+    "type": 3,
+    "team_a": "Indonesia",
+    "team_b": "China",
+    "player_1": "Putri Kusuma WARDANI",
+    "player_2": "",
+    "player_3": "HAN Yue",
+    "player_4": "",
+    "date": "2025-05-23",
+    "time": "00:00:00",
+    "point": "",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "156",
+    "type": 3,
+    "team_a": "Indonesia",
+    "team_b": "Chinese Taipei",
+    "player_1": "Apriyani RAHAYU",
+    "player_2": "Febi SETIANINGRUM",
+    "player_3": "HSU Yin-Hui",
+    "player_4": "LIN Jhih Yun",
+    "date": "2025-05-23",
+    "time": "15:10:00",
+    "point": "",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "157",
+    "type": 3,
+    "team_a": "Malaysia",
+    "team_b": "Malaysia",
+    "player_1": "MAN Wei Chong",
+    "player_2": "Kai Wun TEE",
+    "player_3": "GOH Sze Fei",
+    "player_4": "Nur IZZUDDIN",
+    "date": "2025-05-23",
+    "time": "00:00:00",
+    "point": "",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "158",
+    "type": 3,
+    "team_a": "China",
+    "team_b": "Indonesia",
+    "player_1": "JIA Yi Fan",
+    "player_2": "ZHANG Shu Xian",
+    "player_3": "Lanny Tria MAYASARI",
+    "player_4": "Siti Fadia Silva RAMADHANTI",
+    "date": "2025-05-23",
+    "time": "00:00:00",
+    "point": "",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "159",
+    "type": 3,
+    "team_a": "Chinese Taipei",
+    "team_b": "Denmark",
+    "player_1": "YE Hong Wei",
+    "player_2": "Nicole Gonzales CHAN",
+    "player_3": "Mads VESTERGAARD",
+    "player_4": "Christine BUSCH",
+    "date": "2025-05-23",
+    "time": "09:10:00",
+    "point": "14 13",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "160",
+    "type": 3,
+    "team_a": "China",
+    "team_b": "Japan",
+    "player_1": "GAO Fang Jie",
+    "player_2": "",
+    "player_3": "Akane YAMAGUCHI",
+    "player_4": "",
+    "date": "2025-05-23",
+    "time": "00:00:00",
+    "point": "",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "161",
+    "type": 3,
+    "team_a": "China",
+    "team_b": "Japan",
+    "player_1": "WENG Hong Yang",
+    "player_2": "",
+    "player_3": "Kodai NARAOKA",
+    "player_4": "",
+    "date": "2025-05-23",
+    "time": "00:00:00",
+    "point": "",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "162",
+    "type": 3,
+    "team_a": "France",
+    "team_b": "Japan",
+    "player_1": "Christo POPOV",
+    "player_2": "",
+    "player_3": "Yushi TANAKA",
+    "player_4": "",
+    "date": "2025-05-23",
+    "time": "15:10:00",
+    "point": "",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "163",
+    "type": 3,
+    "team_a": "China",
+    "team_b": "China",
+    "player_1": "LIU Sheng Shu",
+    "player_2": "TAN Ning",
+    "player_3": "KENG Shu Liang",
+    "player_4": "LI Hua Zhou",
+    "date": "2025-05-23",
+    "time": "00:00:00",
+    "point": "",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "164",
+    "type": 3,
+    "team_a": "Denmark",
+    "team_b": "Denmark",
+    "player_1": "Kim ASTRUP",
+    "player_2": "Anders Skaarup RASMUSSEN",
+    "player_3": "Daniel LUNDGAARD",
+    "player_4": "Mads VESTERGAARD",
+    "date": "2025-05-23",
+    "time": "00:00:00",
+    "point": "",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "165",
+    "type": 3,
+    "team_a": "Chinese Taipei",
+    "team_b": "China",
+    "player_1": "YE Hong Wei",
+    "player_2": "Nicole Gonzales CHAN",
+    "player_3": "FENG Yan Zhe",
+    "player_4": "HUANG Dong Ping",
+    "date": "2025-05-24",
+    "time": "12:00:00",
+    "point": "10 21 7 21",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "166",
+    "type": 3,
+    "team_a": "Japan",
+    "team_b": "China",
+    "player_1": "Akane YAMAGUCHI",
+    "player_2": "",
+    "player_3": "HAN Yue",
+    "player_4": "",
+    "date": "2025-05-24",
+    "time": "00:00:00",
+    "point": "19 21 16 21",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "167",
+    "type": 3,
+    "team_a": "Japan",
+    "team_b": "India",
+    "player_1": "Yushi TANAKA",
+    "player_2": "",
+    "player_3": "KIDAMBI Srikanth",
+    "player_4": "",
+    "date": "2025-05-24",
+    "time": "00:00:00",
+    "point": "18 21 22 24",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "168",
+    "type": 3,
+    "team_a": "China",
+    "team_b": "Thailand",
+    "player_1": "WANG Zhi Yi",
+    "player_2": "",
+    "player_3": "Ratchanok INTANON",
+    "player_4": "",
+    "date": "2025-05-24",
+    "time": "00:00:00",
+    "point": "21 17 21 16",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "169",
+    "type": 3,
+    "team_a": "Japan",
+    "team_b": "China",
+    "player_1": "Kodai NARAOKA",
+    "player_2": "",
+    "player_3": "LI Shi Feng",
+    "player_4": "",
+    "date": "2025-05-24",
+    "time": "00:00:00",
+    "point": "15 21 15 21",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "170",
+    "type": 3,
+    "team_a": "Japan",
+    "team_b": "Malaysia",
+    "player_1": "Takuro HOKI",
+    "player_2": "Yugo KOBAYASHI",
+    "player_3": "MAN Wei Chong",
+    "player_4": "Kai Wun TEE",
+    "date": "2025-05-24",
+    "time": "00:00:00",
+    "point": "12 21 14 21",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "171",
+    "type": 3,
+    "team_a": "Malaysia",
+    "team_b": "China",
+    "player_1": "Pearly TAN",
+    "player_2": "THINAAH Muralitharan",
+    "player_3": "JIA Yi Fan",
+    "player_4": "ZHANG Shu Xian",
+    "date": "2025-05-24",
+    "time": "00:00:00",
+    "point": "16 21 21 15 14 21",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "172",
+    "type": 3,
+    "team_a": "Denmark",
+    "team_b": "Malaysia",
+    "player_1": "Kim ASTRUP",
+    "player_2": "Anders Skaarup RASMUSSEN",
+    "player_3": "Aaron CHIA",
+    "player_4": "SOH Wooi Yik",
+    "date": "2025-05-24",
+    "time": "00:00:00",
+    "point": "19 21 21 17 15 21",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "173",
+    "type": 3,
+    "team_a": "China",
+    "team_b": "China",
+    "player_1": "JIANG Zhen Bang",
+    "player_2": "WEI Ya Xin",
+    "player_3": "CHENG Xing",
+    "player_4": "ZHANG Chi",
+    "date": "2025-05-24",
+    "time": "13:00:00",
+    "point": "15 21 22 20 21 19",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "174",
+    "type": 3,
+    "team_a": "China",
+    "team_b": "Indonesia",
+    "player_1": "LIU Sheng Shu",
+    "player_2": "TAN Ning",
+    "player_3": "Apriyani RAHAYU",
+    "player_4": "Febi SETIANINGRUM",
+    "date": "2025-05-24",
+    "time": "17:00:00",
+    "point": "12 21 21 7 21 9",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "175",
+    "type": 3,
+    "team_a": "China",
+    "team_b": "China",
+    "player_1": "JIANG Zhen Bang",
+    "player_2": "WEI Ya Xin",
+    "player_3": "FENG Yan Zhe",
+    "player_4": "HUANG Dong Ping",
+    "date": "2025-05-25",
+    "time": "12:00:00",
+    "point": "17 21 21 14 16 21",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "176",
+    "type": 3,
+    "team_a": "China",
+    "team_b": "China",
+    "player_1": "WANG Zhi Yi",
+    "player_2": "",
+    "player_3": "HAN Yue",
+    "player_4": "",
+    "date": "2025-05-25",
+    "time": "00:00:00",
+    "point": "13 21 21 13 21 18",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "177",
+    "type": 3,
+    "team_a": "India",
+    "team_b": "China",
+    "player_1": "KIDAMBI Srikanth",
+    "player_2": "",
+    "player_3": "LI Shi Feng",
+    "player_4": "",
+    "date": "2025-05-25",
+    "time": "00:00:00",
+    "point": "11 21 9 21",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "178",
+    "type": 3,
+    "team_a": "China",
+    "team_b": "China",
+    "player_1": "LIU Sheng Shu",
+    "player_2": "TAN Ning",
+    "player_3": "JIA Yi Fan",
+    "player_4": "ZHANG Shu Xian",
+    "date": "2025-05-25",
+    "time": "00:00:00",
+    "point": "21 17 21 18",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "179",
+    "type": 3,
+    "team_a": "Malaysia",
+    "team_b": "Malaysia",
+    "player_1": "Aaron CHIA",
+    "player_2": "SOH Wooi Yik",
+    "player_3": "MAN Wei Chong",
+    "player_4": "Kai Wun TEE",
+    "date": "2025-05-25",
+    "time": "00:00:00",
+    "point": "12 21 21 15 16 21",
+    "c_name": "malaysia-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "180",
+    "type": 3,
+    "team_a": "China",
+    "team_b": "Singapore",
+    "player_1": "SHI Yu Qi",
+    "player_2": "",
+    "player_3": "Jia Heng Jason TEH",
+    "player_4": "",
+    "date": "2025-05-27",
+    "time": "10:00:00",
+    "point": "21 16 21 16",
+    "c_name": "singapore-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "181",
+    "type": 3,
+    "team_a": "Japan",
+    "team_b": "France",
+    "player_1": "Yushi TANAKA",
+    "player_2": "",
+    "player_3": "Toma Junior POPOV",
+    "player_4": "",
+    "date": "2025-05-27",
+    "time": "00:00:00",
+    "point": "19 21 15 21",
+    "c_name": "singapore-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "182",
+    "type": 3,
+    "team_a": "Japan",
+    "team_b": "India",
+    "player_1": "Yuichi SHIMOGAMI",
+    "player_2": "Sayaka HOBARA",
+    "player_3": "Ashith SURYA",
+    "player_4": "Amrutha PRAMUTHESH",
+    "date": "2025-05-27",
+    "time": "00:00:00",
+    "point": "21 11 21 17",
+    "c_name": "singapore-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "183",
+    "type": 3,
+    "team_a": "Japan",
+    "team_b": "India",
+    "player_1": "Kodai NARAOKA",
+    "player_2": "",
+    "player_3": "Priyanshu RAJAWAT",
+    "player_4": "",
+    "date": "2025-05-27",
+    "time": "00:00:00",
+    "point": "14 21 21 10 21 14",
+    "c_name": "singapore-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "184",
+    "type": 3,
+    "team_a": "India",
+    "team_b": "Korea",
+    "player_1": "Rakshitha Sree SANTHOSH RAMRAJ",
+    "player_2": "",
+    "player_3": "KIM Ga Eun",
+    "player_4": "",
+    "date": "2025-05-27",
+    "time": "00:00:00",
+    "point": "14 21 8 21",
+    "c_name": "singapore-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "185",
+    "type": 3,
+    "team_a": "Poland",
+    "team_b": "Chinese Taipei",
+    "player_1": "Paulina HANKIEWICZ",
+    "player_2": "Kornelia MARCZAK",
+    "player_3": "TENG Chun Hsun",
+    "player_4": "YANG Chu Yun",
+    "date": "2025-05-27",
+    "time": "00:00:00",
+    "point": "18 21 12 21",
+    "c_name": "singapore-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "186",
+    "type": 3,
+    "team_a": "India",
+    "team_b": "Canada",
+    "player_1": "PUSARLA V. Sindhu",
+    "player_2": "",
+    "player_3": "Wen Yu ZHANG",
+    "player_4": "",
+    "date": "2025-05-27",
+    "time": "00:00:00",
+    "point": "21 14 21 9",
+    "c_name": "singapore-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "187",
+    "type": 3,
+    "team_a": "Thailand",
+    "team_b": "USA",
+    "player_1": "Laksika KANLAHA",
+    "player_2": "Phataimas MUENWONG",
+    "player_3": "Lauren LAM",
+    "player_4": "Allison LEE",
+    "date": "2025-05-27",
+    "time": "00:00:00",
+    "point": "15 21 10 21",
+    "c_name": "singapore-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "188",
+    "type": 3,
+    "team_a": "China",
+    "team_b": "Chinese Taipei",
+    "player_1": "LU Guang Zu",
+    "player_2": "",
+    "player_3": "LEE Chia Hao",
+    "player_4": "",
+    "date": "2025-05-27",
+    "time": "00:00:00",
+    "point": "19 21 21 15 21 16",
+    "c_name": "singapore-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "189",
+    "type": 3,
+    "team_a": "Indonesia",
+    "team_b": "Thailand",
+    "player_1": "Leo Rolly CARNANDO",
+    "player_2": "Bagas MAULANA",
+    "player_3": "Kittinupong KEDREN",
+    "player_4": "Dechapol PUAVARANUKROH",
+    "date": "2025-05-27",
+    "time": "00:00:00",
+    "point": "24 22 19 21 16 21",
+    "c_name": "singapore-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "190",
+    "type": 3,
+    "team_a": "Singapore",
+    "team_b": "Thailand",
+    "player_1": "YEO Jia Min",
+    "player_2": "",
+    "player_3": "Busanan ONGBAMRUNGPHAN",
+    "player_4": "",
+    "date": "2025-05-27",
+    "time": "00:00:00",
+    "point": "21 14 21 13",
+    "c_name": "singapore-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "191",
+    "type": 3,
+    "team_a": "France",
+    "team_b": "Singapore",
+    "player_1": "Alex LANIER",
+    "player_2": "",
+    "player_3": "LOH Kean Yew",
+    "player_4": "",
+    "date": "2025-05-27",
+    "time": "00:00:00",
+    "point": "23 21 17 21 11 21",
+    "c_name": "singapore-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "192",
+    "type": 3,
+    "team_a": "Denmark",
+    "team_b": "Chinese Taipei",
+    "player_1": "Kim ASTRUP",
+    "player_2": "Anders Skaarup RASMUSSEN",
+    "player_3": "LEE Jhe-Huei",
+    "player_4": "YANG Po-Hsuan",
+    "date": "2025-05-27",
+    "time": "00:00:00",
+    "point": "21 6 21 14",
+    "c_name": "singapore-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "193",
+    "type": 3,
+    "team_a": "Chinese Taipei",
+    "team_b": "Chinese Taipei",
+    "player_1": "YE Hong Wei",
+    "player_2": "Nicole Gonzales CHAN",
+    "player_3": "LIU Kuang Heng",
+    "player_4": "JHENG Yu Chieh",
+    "date": "2025-05-27",
+    "time": "10:00:00",
+    "point": "16 21 21 16 21 9",
+    "c_name": "singapore-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "194",
+    "type": 3,
+    "team_a": "China",
+    "team_b": "India",
+    "player_1": "CHENG Xing",
+    "player_2": "ZHANG Chi",
+    "player_3": "DHRUV KAPILA",
+    "player_4": "Tanisha CRASTO",
+    "date": "2025-05-27",
+    "time": "00:00:00",
+    "point": "21 18 21 13",
+    "c_name": "singapore-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "195",
+    "type": 3,
+    "team_a": "Denmark",
+    "team_b": "France",
+    "player_1": "Anders ANTONSEN",
+    "player_2": "",
+    "player_3": "Christo POPOV",
+    "player_4": "",
+    "date": "2025-05-27",
+    "time": "00:00:00",
+    "point": "17 21 13 21",
+    "c_name": "singapore-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "196",
+    "type": 3,
+    "team_a": "Malaysia",
+    "team_b": "USA",
+    "player_1": "CHEN Tang Jie",
+    "player_2": "TOH Ee Wei",
+    "player_3": "Presley SMITH",
+    "player_4": "Jennie GAI",
+    "date": "2025-05-27",
+    "time": "00:00:00",
+    "point": "21 18 21 15",
+    "c_name": "singapore-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "197",
+    "type": 3,
+    "team_a": "France",
+    "team_b": "Japan",
+    "player_1": "Thom GICQUEL",
+    "player_2": "Delphine DELRUE",
+    "player_3": "Yuta WATANABE",
+    "player_4": "Misaki MATSUTOMO",
+    "date": "2025-05-27",
+    "time": "00:00:00",
+    "point": "21 16 19 21 19 21",
+    "c_name": "singapore-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "198",
+    "type": 3,
+    "team_a": "Korea",
+    "team_b": "China",
+    "player_1": "AN Se Young",
+    "player_2": "",
+    "player_3": "GAO Fang Jie",
+    "player_4": "",
+    "date": "2025-05-27",
+    "time": "00:00:00",
+    "point": "21 16 21 14",
+    "c_name": "singapore-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "199",
+    "type": 3,
+    "team_a": "China",
+    "team_b": "Japan",
+    "player_1": "LIANG Wei Keng",
+    "player_2": "WANG Chang",
+    "player_3": "Kenya MITSUHASHI",
+    "player_4": "Hiroki OKAMURA",
+    "date": "2025-05-27",
+    "time": "00:00:00",
+    "point": "11 21 21 9 21 17",
+    "c_name": "singapore-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "200",
+    "type": 3,
+    "team_a": "England",
+    "team_b": "China",
+    "player_1": "Ben LANE",
+    "player_2": "Sean VENDY",
+    "player_3": "XIE Hao Nan",
+    "player_4": "ZENG Wei Han",
+    "date": "2025-05-27",
+    "time": "00:00:00",
+    "point": "20 22 21 15 15 21",
+    "c_name": "singapore-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "201",
+    "type": 3,
+    "team_a": "Indonesia",
+    "team_b": "Malaysia",
+    "player_1": "Fajar ALFIAN",
+    "player_2": "Muhammad Rian ARDIANTO",
+    "player_3": "Nur Mohd Azriyn Ayub AZRIYN",
+    "player_4": "TAN Wee Kiong",
+    "date": "2025-05-27",
+    "time": "00:00:00",
+    "point": "21 18 21 16",
+    "c_name": "singapore-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "202",
+    "type": 3,
+    "team_a": "Chinese Taipei",
+    "team_b": "Chinese Taipei",
+    "player_1": "HSU Yin-Hui",
+    "player_2": "LIN Jhih Yun",
+    "player_3": "HU Ling Fang",
+    "player_4": "JHENG Yu Chieh",
+    "date": "2025-05-27",
+    "time": "00:00:00",
+    "point": "21 15 22 20",
+    "c_name": "singapore-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "203",
+    "type": 3,
+    "team_a": "China",
+    "team_b": "France",
+    "player_1": "CHEN Bo Yang",
+    "player_2": "LIU Yi",
+    "player_3": "Christo POPOV",
+    "player_4": "Toma Junior POPOV",
+    "date": "2025-05-27",
+    "time": "00:00:00",
+    "point": "21 19 22 24 19 21",
+    "c_name": "singapore-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "204",
+    "type": 3,
+    "team_a": "Korea",
+    "team_b": "Chinese Taipei",
+    "player_1": "KIM Won Ho",
+    "player_2": "SEO Seung Jae",
+    "player_3": "LIU Kuang Heng",
+    "player_4": "YANG Po Han",
+    "date": "2025-05-27",
+    "time": "00:00:00",
+    "point": "21 15 21 11",
+    "c_name": "singapore-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "205",
+    "type": 3,
+    "team_a": "Thailand",
+    "team_b": "Malaysia",
+    "player_1": "Dechapol PUAVARANUKROH",
+    "player_2": "Supissara PAEWSAMPRAN",
+    "player_3": "WONG Tien Ci",
+    "player_4": "LIM Chiew Sien",
+    "date": "2025-05-27",
+    "time": "10:00:00",
+    "point": "19 21 21 19 22 20",
+    "c_name": "singapore-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "206",
+    "type": 3,
+    "team_a": "Thailand",
+    "team_b": "India",
+    "player_1": "Supanida KATETHONG",
+    "player_2": "",
+    "player_3": "Malvika BANSOD",
+    "player_4": "",
+    "date": "2025-05-27",
+    "time": "00:00:00",
+    "point": "14 21 21 18 21 11",
+    "c_name": "singapore-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "207",
+    "type": 3,
+    "team_a": "Denmark",
+    "team_b": "Japan",
+    "player_1": "Line Højmark KJAERSFELDT",
+    "player_2": "",
+    "player_3": "Natsuki NIDAIRA",
+    "player_4": "",
+    "date": "2025-05-27",
+    "time": "00:00:00",
+    "point": "14 21 21 15 10 21",
+    "c_name": "singapore-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "208",
+    "type": 3,
+    "team_a": "China",
+    "team_b": "India",
+    "player_1": "CHEN Yu Fei",
+    "player_2": "",
+    "player_3": "Anmol KHARB",
+    "player_4": "",
+    "date": "2025-05-27",
+    "time": "00:00:00",
+    "point": "21 11 24 22",
+    "c_name": "singapore-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "209",
+    "type": 3,
+    "team_a": "India",
+    "team_b": "China",
+    "player_1": "Kiran GEORGE",
+    "player_2": "",
+    "player_3": "WENG Hong Yang",
+    "player_4": "",
+    "date": "2025-05-27",
+    "time": "00:00:00",
+    "point": "19 21 17 21",
+    "c_name": "singapore-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "210",
+    "type": 3,
+    "team_a": "Malaysia",
+    "team_b": "Ukraine",
+    "player_1": "GOH Soon Huat",
+    "player_2": "LAI Shevon Jemie",
+    "player_3": "Oleksii TITOV",
+    "player_4": "Yevheniia KANTEMYR",
+    "date": "2025-05-27",
+    "time": "00:00:00",
+    "point": "21 11 21 8",
+    "c_name": "singapore-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "211",
+    "type": 3,
+    "team_a": "China",
+    "team_b": "Chinese Taipei",
+    "player_1": "LI Yi Jing",
+    "player_2": "LUO Xu Min",
+    "player_3": "SUNG Shuo Yun",
+    "player_4": "YU Chien Hui",
+    "date": "2025-05-27",
+    "time": "00:00:00",
+    "point": "21 12 21 9",
+    "c_name": "singapore-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "212",
+    "type": 3,
+    "team_a": "Denmark",
+    "team_b": "India",
+    "player_1": "Rasmus GEMKE",
+    "player_2": "",
+    "player_3": "PRANNOY H. S.",
+    "player_4": "",
+    "date": "2025-05-27",
+    "time": "00:00:00",
+    "point": "21 19 16 21 14 21",
+    "c_name": "singapore-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "213",
+    "type": 3,
+    "team_a": "Korea",
+    "team_b": "India",
+    "player_1": "BAEK Ha Na",
+    "player_2": "LEE So Hee",
+    "player_3": "Kavipriya SELVAM",
+    "player_4": "Simran SINGHI",
+    "date": "2025-05-27",
+    "time": "00:00:00",
+    "point": "21 4 21 9",
+    "c_name": "singapore-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "214",
+    "type": 3,
+    "team_a": "Thailand",
+    "team_b": "Thailand",
+    "player_1": "Pichamon PHATCHARAPHISUTSIN",
+    "player_2": "Nannapas SUKKLAD",
+    "player_3": "Ornnicha JONGSATHAPORNPARN",
+    "player_4": "Sukitta SUWACHAI",
+    "date": "2025-05-27",
+    "time": "00:00:00",
+    "point": "12 21 21 15 23 21",
+    "c_name": "singapore-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "215",
+    "type": 3,
+    "team_a": "Denmark",
+    "team_b": "Chinese Taipei",
+    "player_1": "Daniel LUNDGAARD",
+    "player_2": "Mads VESTERGAARD",
+    "player_3": "CHIU Hsiang Chieh",
+    "player_4": "WANG Chi-Lin",
+    "date": "2025-05-27",
+    "time": "00:00:00",
+    "point": "21 19 15 21 17 21",
+    "c_name": "singapore-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "216",
+    "type": 3,
+    "team_a": "Japan",
+    "team_b": "Chinese Taipei",
+    "player_1": "Rin IWANAGA",
+    "player_2": "Kie NAKANISHI",
+    "player_3": "HSIEH Pei Shan",
+    "player_4": "HUNG En-Tzu",
+    "date": "2025-05-27",
+    "time": "00:00:00",
+    "point": "21 19 19 21 21 17",
+    "c_name": "singapore-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "217",
+    "type": 3,
+    "team_a": "Thailand",
+    "team_b": "Scotland",
+    "player_1": "Ratchanok INTANON",
+    "player_2": "",
+    "player_3": "Kirsty GILMOUR",
+    "player_4": "",
+    "date": "2025-05-28",
+    "time": "10:00:00",
+    "point": "",
+    "c_name": "singapore-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "218",
+    "type": 3,
+    "team_a": "Indonesia",
+    "team_b": "Chinese Taipei",
+    "player_1": "Jafar HIDAYATULLAH",
+    "player_2": "Felisha Alberta Nathaniel PASARIBU",
+    "player_3": "Ming Che LU",
+    "player_4": "HUNG En-Tzu",
+    "date": "2025-05-28",
+    "time": "00:00:00",
+    "point": "",
+    "c_name": "singapore-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "219",
+    "type": 3,
+    "team_a": "India",
+    "team_b": "Chinese Taipei",
+    "player_1": "Lakshya SEN",
+    "player_2": "",
+    "player_3": "LIN Chun-Yi",
+    "player_4": "",
+    "date": "2025-05-28",
+    "time": "00:00:00",
+    "point": "",
+    "c_name": "singapore-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "220",
+    "type": 3,
+    "team_a": "India",
+    "team_b": "Malaysia",
+    "player_1": "Satwiksairaj RANKIREDDY",
+    "player_2": "Chirag SHETTY",
+    "player_3": "CHOONG Hon Jian",
+    "player_4": "Muhammad HAIKAL",
+    "date": "2025-05-28",
+    "time": "00:00:00",
+    "point": "",
+    "c_name": "singapore-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "221",
+    "type": 3,
+    "team_a": "Japan",
+    "team_b": "China",
+    "player_1": "Koki WATANABE",
+    "player_2": "",
+    "player_3": "LI Shi Feng",
+    "player_4": "",
+    "date": "2025-05-28",
+    "time": "00:00:00",
+    "point": "",
+    "c_name": "singapore-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "222",
+    "type": 3,
+    "team_a": "USA",
+    "team_b": "Thailand",
+    "player_1": "Beiwen ZHANG",
+    "player_2": "",
+    "player_3": "Pornpicha CHOEIKEEWONG",
+    "player_4": "",
+    "date": "2025-05-28",
+    "time": "00:00:00",
+    "point": "",
+    "c_name": "singapore-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "223",
+    "type": 3,
+    "team_a": "Chinese Taipei",
+    "team_b": "Hong Kong China",
+    "player_1": "WANG Tzu Wei",
+    "player_2": "",
+    "player_3": "LEE Cheuk Yiu",
+    "player_4": "",
+    "date": "2025-05-28",
+    "time": "00:00:00",
+    "point": "",
+    "c_name": "singapore-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "224",
+    "type": 3,
+    "team_a": "Thailand",
+    "team_b": "Korea",
+    "player_1": "Tidapron KLEEBYEESUN",
+    "player_2": "Nattamon LAISUAN",
+    "player_3": "KIM Hye Jeong",
+    "player_4": "KONG Hee Yong",
+    "date": "2025-05-28",
+    "time": "00:00:00",
+    "point": "",
+    "c_name": "singapore-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "225",
+    "type": 3,
+    "team_a": "Japan",
+    "team_b": "Thailand",
+    "player_1": "Kenta NISHIMOTO",
+    "player_2": "",
+    "player_3": "Kunlavut VITIDSARN",
+    "player_4": "",
+    "date": "2025-05-28",
+    "time": "00:00:00",
+    "point": "",
+    "c_name": "singapore-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "226",
+    "type": 3,
+    "team_a": "Denmark",
+    "team_b": "Malaysia",
+    "player_1": "Rasmus KJÆR",
+    "player_2": "Frederik SØGAARD",
+    "player_3": "Aaron CHIA",
+    "player_4": "SOH Wooi Yik",
+    "date": "2025-05-28",
+    "time": "00:00:00",
+    "point": "",
+    "c_name": "singapore-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "227",
+    "type": 3,
+    "team_a": "Indonesia",
+    "team_b": "Singapore",
+    "player_1": "Rehan Naufal KUSHARJANTO",
+    "player_2": "Gloria Emanuelle WIDJAJA",
+    "player_3": "HEE Yong Kai Terry",
+    "player_4": "JIN Yu Jia",
+    "date": "2025-05-28",
+    "time": "00:00:00",
+    "point": "",
+    "c_name": "singapore-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "228",
+    "type": 3,
+    "team_a": "China",
+    "team_b": "Scotland",
+    "player_1": "JIA Yi Fan",
+    "player_2": "ZHANG Shu Xian",
+    "player_3": "Julie MACPHERSON",
+    "player_4": "Ciara TORRANCE",
+    "date": "2025-05-28",
+    "time": "00:00:00",
+    "point": "",
+    "c_name": "singapore-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "229",
+    "type": 3,
+    "team_a": "Japan",
+    "team_b": "USA",
+    "player_1": "Yuki FUKUSHIMA",
+    "player_2": "Mayu MATSUMOTO",
+    "player_3": "Francesca CORBETT",
+    "player_4": "Jennie GAI",
+    "date": "2025-05-28",
+    "time": "00:00:00",
+    "point": "",
+    "c_name": "singapore-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "230",
+    "type": 3,
+    "team_a": "Chinese Taipei",
+    "team_b": "India",
+    "player_1": "CHANG Ching  Hui",
+    "player_2": "YANG Ching Tun",
+    "player_3": "Treesa JOLLY",
+    "player_4": "GAYATRI GOPICHAND PULLELA",
+    "date": "2025-05-28",
+    "time": "00:00:00",
+    "point": "",
+    "c_name": "singapore-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "231",
+    "type": 3,
+    "team_a": "China",
+    "team_b": "India",
+    "player_1": "HAN Yue",
+    "player_2": "",
+    "player_3": "AAKARSHI KASHYAP",
+    "player_4": "",
+    "date": "2025-05-28",
+    "time": "10:10:00",
+    "point": "",
+    "c_name": "singapore-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "232",
+    "type": 3,
+    "team_a": "Chinese Taipei",
+    "team_b": "Thailand",
+    "player_1": "CHIU Pin-Chian",
+    "player_2": "",
+    "player_3": "Pornpawee CHOCHUWONG",
+    "player_4": "",
+    "date": "2025-05-28",
+    "time": "00:00:00",
+    "point": "",
+    "c_name": "singapore-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "233",
+    "type": 3,
+    "team_a": "Thailand",
+    "team_b": "Chinese Taipei",
+    "player_1": "Pakkapon TEERARATSAKUL",
+    "player_2": "Phataimas MUENWONG",
+    "player_3": "YANG Po-Hsuan",
+    "player_4": "HU Ling Fang",
+    "date": "2025-05-28",
+    "time": "00:00:00",
+    "point": "",
+    "c_name": "singapore-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "234",
+    "type": 3,
+    "team_a": "Scotland",
+    "team_b": "Indonesia",
+    "player_1": "Alexander DUNN",
+    "player_2": "Julie MACPHERSON",
+    "player_3": "Rinov RIVALDY",
+    "player_4": "Pitha Haningtyas MENTARI",
+    "date": "2025-05-28",
+    "time": "00:00:00",
+    "point": "",
+    "c_name": "singapore-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "235",
+    "type": 3,
+    "team_a": "India",
+    "team_b": "China",
+    "player_1": "Unnati HOODA",
+    "player_2": "",
+    "player_3": "WANG Zhi Yi",
+    "player_4": "",
+    "date": "2025-05-28",
+    "time": "00:00:00",
+    "point": "",
+    "c_name": "singapore-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "236",
+    "type": 3,
+    "team_a": "Japan",
+    "team_b": "Indonesia",
+    "player_1": "Hiroki MIDORIKAWA",
+    "player_2": "Kyohei YAMASHITA",
+    "player_3": "Sabar Karyaman GUTAMA",
+    "player_4": "Moh Reza Pahlevi ISFAHANI",
+    "date": "2025-05-28",
+    "time": "00:00:00",
+    "point": "",
+    "c_name": "singapore-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "237",
+    "type": 3,
+    "team_a": "Thailand",
+    "team_b": "Hong Kong China",
+    "player_1": "Phuwanat HORBANLUEKIT",
+    "player_2": "Sapsiree TAERATTANACHAI",
+    "player_3": "TANG Chun Man",
+    "player_4": "TSE Ying Suet",
+    "date": "2025-05-28",
+    "time": "00:00:00",
+    "point": "",
+    "c_name": "singapore-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "238",
+    "type": 3,
+    "team_a": "Chinese Taipei",
+    "team_b": "Japan",
+    "player_1": "LIN Hsiang Ti",
+    "player_2": "",
+    "player_3": "Tomoka MIYAZAKI",
+    "player_4": "",
+    "date": "2025-05-28",
+    "time": "00:00:00",
+    "point": "",
+    "c_name": "singapore-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "239",
+    "type": 3,
+    "team_a": "Ukraine",
+    "team_b": "Canada",
+    "player_1": "Polina BUHROVA",
+    "player_2": "Yevheniia KANTEMYR",
+    "player_3": "Jackie DENT",
+    "player_4": "Crystal LAI",
+    "date": "2025-05-28",
+    "time": "00:00:00",
+    "point": "",
+    "c_name": "singapore-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "240",
+    "type": 3,
+    "team_a": "Canada",
+    "team_b": "Chinese Taipei",
+    "player_1": "Michelle LI",
+    "player_2": "",
+    "player_3": "HUNG Yi-Ting",
+    "player_4": "",
+    "date": "2025-05-28",
+    "time": "00:00:00",
+    "point": "",
+    "c_name": "singapore-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "241",
+    "type": 3,
+    "team_a": "China",
+    "team_b": "Canada",
+    "player_1": "WANG Zheng Xing",
+    "player_2": "",
+    "player_3": "Brian YANG",
+    "player_4": "",
+    "date": "2025-05-28",
+    "time": "00:00:00",
+    "point": "",
+    "c_name": "singapore-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "242",
+    "type": 3,
+    "team_a": "Japan",
+    "team_b": "Malaysia",
+    "player_1": "Takuro HOKI",
+    "player_2": "Yugo KOBAYASHI",
+    "player_3": "ONG Yew Sin",
+    "player_4": "TEO Ee Yi",
+    "date": "2025-05-28",
+    "time": "00:00:00",
+    "point": "",
+    "c_name": "singapore-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "243",
+    "type": 3,
+    "team_a": "Chinese Taipei",
+    "team_b": "Malaysia",
+    "player_1": "CHEN Zhi  Ray",
+    "player_2": "LIN Yu Chieh",
+    "player_3": "MAN Wei Chong",
+    "player_4": "Kai Wun TEE",
+    "date": "2025-05-28",
+    "time": "00:00:00",
+    "point": "",
+    "c_name": "singapore-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "244",
+    "type": 3,
+    "team_a": "Chinese Taipei",
+    "team_b": "China",
+    "player_1": "CHEN Cheng Kuan",
+    "player_2": "HSU Yin-Hui",
+    "player_3": "GUO Xin Wa",
+    "player_4": "CHEN Fang Hui",
+    "date": "2025-05-28",
+    "time": "00:00:00",
+    "point": "",
+    "c_name": "singapore-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "245",
+    "type": 3,
+    "team_a": "China",
+    "team_b": "Hong Kong China",
+    "player_1": "LIU Sheng Shu",
+    "player_2": "TAN Ning",
+    "player_3": "YEUNG Nga Ting",
+    "player_4": "YEUNG Pui Lam",
+    "date": "2025-05-28",
+    "time": "10:10:00",
+    "point": "",
+    "c_name": "singapore-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "246",
+    "type": 3,
+    "team_a": "Denmark",
+    "team_b": "China",
+    "player_1": "Mads VESTERGAARD",
+    "player_2": "Christine BUSCH",
+    "player_3": "FENG Yan Zhe",
+    "player_4": "WEI Ya Xin",
+    "date": "2025-05-28",
+    "time": "00:00:00",
+    "point": "",
+    "c_name": "singapore-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "247",
+    "type": 3,
+    "team_a": "Thailand",
+    "team_b": "Denmark",
+    "player_1": "Ruttanapak OUPTHONG",
+    "player_2": "Jhenicha SUDJAIPRAPARAT",
+    "player_3": "Jesper TOFT",
+    "player_4": "Amalie MAGELUND",
+    "date": "2025-05-28",
+    "time": "00:00:00",
+    "point": "",
+    "c_name": "singapore-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "248",
+    "type": 3,
+    "team_a": "India",
+    "team_b": "USA",
+    "player_1": "Rohan KAPOOR",
+    "player_2": "GADDE Ruthvika Shivani",
+    "player_3": "CHEN ZHI YI",
+    "player_4": "Francesca CORBETT",
+    "date": "2025-05-28",
+    "time": "00:00:00",
+    "point": "",
+    "c_name": "singapore-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "249",
+    "type": 3,
+    "team_a": "Ukraine",
+    "team_b": "Japan",
+    "player_1": "Polina BUHROVA",
+    "player_2": "",
+    "player_3": "Akane YAMAGUCHI",
+    "player_4": "",
+    "date": "2025-05-28",
+    "time": "00:00:00",
+    "point": "",
+    "c_name": "singapore-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "250",
+    "type": 3,
+    "team_a": "China",
+    "team_b": "Malaysia",
+    "player_1": "LEI Lan Xi",
+    "player_2": "",
+    "player_3": "LEONG Jun Hao",
+    "player_4": "",
+    "date": "2025-05-28",
+    "time": "00:00:00",
+    "point": "",
+    "c_name": "singapore-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "251",
+    "type": 3,
+    "team_a": "Chinese Taipei",
+    "team_b": "India",
+    "player_1": "SUNG Shuo Yun",
+    "player_2": "",
+    "player_3": "Anupama UPADHYAYA",
+    "player_4": "",
+    "date": "2025-05-28",
+    "time": "00:00:00",
+    "point": "",
+    "c_name": "singapore-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "252",
+    "type": 3,
+    "team_a": "Ireland",
+    "team_b": "Indonesia",
+    "player_1": "Nhat NGUYEN",
+    "player_2": "",
+    "player_3": "Jonatan CHRISTIE",
+    "player_4": "",
+    "date": "2025-05-28",
+    "time": "00:00:00",
+    "point": "",
+    "c_name": "singapore-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "253",
+    "type": 3,
+    "team_a": "Chinese Taipei",
+    "team_b": "Chinese Taipei",
+    "player_1": "CHI Yu Jen",
+    "player_2": "",
+    "player_3": "CHOU Tien Chen",
+    "player_4": "",
+    "date": "2025-05-28",
+    "time": "00:00:00",
+    "point": "",
+    "c_name": "singapore-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "254",
+    "type": 3,
+    "team_a": "India",
+    "team_b": "Australia",
+    "player_1": "Vaishnavi KHADKEKAR",
+    "player_2": "Alisha KHAN",
+    "player_3": "Gronya SOMERVILLE",
+    "player_4": "Angela YU",
+    "date": "2025-05-28",
+    "time": "00:00:00",
+    "point": "",
+    "c_name": "singapore-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "255",
+    "type": 3,
+    "team_a": "USA",
+    "team_b": "China",
+    "player_1": "CHEN ZHI YI",
+    "player_2": "Presley SMITH",
+    "player_3": "HUANG Di",
+    "player_4": "LIU Yang",
+    "date": "2025-05-28",
+    "time": "00:00:00",
+    "point": "",
+    "c_name": "singapore-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "256",
+    "type": 3,
+    "team_a": "France",
+    "team_b": "Malaysia",
+    "player_1": "Eloi ADAM",
+    "player_2": "Leo ROSSI",
+    "player_3": "Junaidi ARIF",
+    "player_4": "Roy King YAP",
+    "date": "2025-05-28",
+    "time": "00:00:00",
+    "point": "",
+    "c_name": "singapore-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "257",
+    "type": 3,
+    "team_a": "India",
+    "team_b": "Japan",
+    "player_1": "Amrutha PRAMUTHESH",
+    "player_2": "Sonali SINGH",
+    "player_3": "Nami MATSUYAMA",
+    "player_4": "Chiharu SHIDA",
+    "date": "2025-05-28",
+    "time": "00:00:00",
+    "point": "",
+    "c_name": "singapore-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "258",
+    "type": 3,
+    "team_a": "Chinese Taipei",
+    "team_b": "Malaysia",
+    "player_1": "Fang-Chih LEE",
+    "player_2": "Fang-Jen LEE",
+    "player_3": "GOH Sze Fei",
+    "player_4": "Nur IZZUDDIN",
+    "date": "2025-05-28",
+    "time": "00:00:00",
+    "point": "",
+    "c_name": "singapore-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  },
+  {
+    "game_no": "259",
+    "type": 3,
+    "team_a": "Hong Kong China",
+    "team_b": "Malaysia",
+    "player_1": "LUI Lok Lok",
+    "player_2": "TSANG Hiu Yan",
+    "player_3": "Pearly TAN",
+    "player_4": "THINAAH Muralitharan",
+    "date": "2025-05-28",
+    "time": "00:00:00",
+    "point": "",
+    "c_name": "singapore-masters",
+    "channels": [
+      "YT",
+      "BWF TV",
+      "愛爾達"
+    ]
+  }
+]
