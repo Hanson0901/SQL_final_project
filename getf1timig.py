@@ -36,7 +36,7 @@ def get_timing(times):
     try:
         #driver.get(f"file:///home/cbes100070/Desktop/website_all/SQL_final_project/F1_website_store/F1_{times}.html")  # 使用本地文件URL
         driver.get("https://www.formula1.com/en/timing/f1-live-lite")
-        time.sleep(5)  # 等待頁面加載
+        time.sleep(2)  # 等待頁面加載
         try:
         
             iframe = WebDriverWait(driver, 15).until(
