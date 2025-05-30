@@ -119,6 +119,10 @@ def downgrade_admin(admin_id):
 
 @app.route("/foruser")
 def foruser():
+    uid = request.args.get("uid")
+    if uid:
+        print("✅ 收到 UID：", uid)  # 印出來
+        session["uid"] = uid
     return render_template("foruser.html")
 
 player_table_map = {
@@ -1774,7 +1778,7 @@ if __name__ == "__main__":
         "/opt/lampp/etc/pem/fullchain.pem",
         "/opt/lampp/etc/pem/privkey.pem"
     )
-    
+
     app.run(host='0.0.0.0',port='2222', ssl_context=context)
     if os.environ.get("WERKZEUG_RUN_MAIN") == "true":  #避免debug重複啟動
         scheduler = BackgroundScheduler()
