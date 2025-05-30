@@ -22,10 +22,10 @@ from linebot.v3.messaging import (
     QuickReplyItem,
     FlexMessage,
     FlexContainer,
-    PushMessageRequest
+    PushMessageRequest,
+    ApiException
 )
 from linebot.v3.webhooks import MessageEvent, TextMessageContent, PostbackEvent
-from linebot.v3.exceptions import ApiException
 
 import json
 from datetime import datetime, timedelta
