@@ -40,6 +40,14 @@
     background-color: var(--color-2);
     resize: both;
   }
+  
+  .button-wrapper {
+    display: flex;
+    flex-direction: row;   /* ⬅️ 水平排列 */
+    justify-content: center; /* ⬅️ 水平置中 */
+    gap: 1rem;             /* ⬅️ 按鈕之間的間距 */
+  }
+
 
   button {
     background-color: var(--color-1);

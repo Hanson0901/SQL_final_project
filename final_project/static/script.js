@@ -299,13 +299,15 @@ if(page === 'foradmin'){
           ? m.platforms.join('、')
           : '無';
         
+        const m_time = m.time;
+        if(m.type === 1){const m_time = (m.time === "00:00:00" && m.point != null)?"Final":m.time;}
+        
         if(m.type === 2){
-
           result.innerHTML += `
             <div class="match-card" id="card_${m.game_no}" style="margin-bottom: 1rem;">
               <strong>【${sport_name[m.type]}】 ${matchTitle}</strong><br>
               比賽類型 : ${m.match_type}<br>
-              日期時間 : ${formattedDate} ${m.time}<br>
+              日期時間 : ${formattedDate} | ${m_time}<br>
               播放平台：${platforms}<br>
               <div class="button-wrapper" style="margin-top: 0.5rem;">
                 <button onclick="toggleEditForm(${m.game_no}, \`${matchTitle}\`, \`${formattedDate}\`, \`${m.time}\`)">修改</button>
@@ -314,11 +316,26 @@ if(page === 'foradmin'){
               <div id="editForm_${m.game_no}" class="edit-form"></div>
             </div>
           `;
+        }else if(m.type === 5){
+        result.innerHTML += `
+          <div class="match-card" id="card_${m.game_no}" style="margin-bottom: 1rem;">
+            <strong>【${sport_name[m.type]}】 ${matchTitle}</strong><br>
+            日期時間 : ${formattedDate} | ${m_time}<br>
+            比分：${m.point || '尚未公布'}<br>
+            獲勝隊伍：${m.winner_name == null ? "正在打 或 還未開賽" : m.winner_name}<br>
+            播放平台：${platforms}<br>
+            <div class="button-wrapper" style="margin-top: 0.5rem;">
+              <button onclick="toggleEditForm(${m.game_no}, \`${matchTitle}\`, \`${formattedDate}\`, \`${m.time}\`)">修改</button>
+              <button class="delete-btn" data-id="${m.game_no}">刪除</button>
+            </div>
+            <div id="editForm_${m.game_no}" class="edit-form"></div>
+          </div>
+        `;
         }else{
           result.innerHTML += `
           <div class="match-card" id="card_${m.game_no}" style="margin-bottom: 1rem;">
             <strong>【${sport_name[m.type]}】 ${matchTitle}</strong><br>
-            日期時間 : ${formattedDate} ${m.time}<br>
+            日期時間 : ${formattedDate} | ${m_time}<br>
             比分：${m.point || '尚未公布'}<br>
             播放平台：${platforms}<br>
             <div class="button-wrapper" style="margin-top: 0.5rem;">
@@ -398,14 +415,31 @@ if(page === 'foradmin'){
           <div style="margin-bottom: 0.5em;">
             <label>隊伍 A：</label><br/>
             <select class="player-id team-a-player-select"><option value="">選手1</option></select><br/>
-            <select class="player-id team-a-player-select"><option value="">選手3 (可選)</option></select>
+            <select class="player-id team-a-player-select"><option value="">選手2</option></select><br/>
           </div>
-          <div>
+          <div style="margin-bottom: 0.5em;">
             <label>隊伍 B：</label><br/>
-            <select class="player-id team-b-player-select"><option value="">選手2</option></select><br/>
+            <select class="player-id team-b-player-select"><option value="">選手3 (可選)</option></select>
             <select class="player-id team-b-player-select"><option value="">選手4 (可選)</option></select>
           </div>
-        </div>
+          <div style="margin-top: 0.5em;">
+            <label>比分 (每局最多 3 局)：</label><br><br>
+            <div style="display: flex; gap: 0.5em; flex-wrap: wrap; margin-top: 0.25em; justify-content: center;">
+              <input type="number" class="game-1-a" placeholder="第1局 A" style="width: 100px;">
+              <input type="number" class="game-1-b" placeholder="第1局 B" style="width: 100px;"><br>
+              <input type="number" class="game-2-a" placeholder="第2局 A" style="width: 100px;">
+              <input type="number" class="game-2-b" placeholder="第2局 B" style="width: 100px;"><br>
+              <input type="number" class="game-3-a" placeholder="第3局 A" style="width: 100px;">
+              <input type="number" class="game-3-b" placeholder="第3局 B" style="width: 100px;"><br><br>
+            </div>
+          </div>
+          <div style="margin-top: 0.5em;">
+            <label>勝隊：</label><br/>
+            <select class="winner-name-select">
+              <option value="">未選擇</option>
+            </select>
+          </div>
+      </div>
       </td>
       <td data-label="日期"><input type="date" class="date-input" /></td>
       <td data-label="時間">
@@ -486,6 +520,27 @@ try {
     const sportSelect = tr.querySelector('.sport-type');
     const teamASelect = tr.querySelector('.team-a');
     const teamBSelect = tr.querySelector('.team-b');
+    const winnerSelect = tr.querySelector('.winner-name-select');  
+
+    
+    function updateWinnerOptions() {
+      winnerSelect.innerHTML = `<option value="">未選擇</option>`;
+      const teamAId = teamASelect.value;
+      const teamBId = teamBSelect.value;
+      const teamAName = teamASelect.selectedOptions[0]?.textContent;
+      const teamBName = teamBSelect.selectedOptions[0]?.textContent;
+
+      if (teamAId && teamAName) {
+        const opt = new Option(teamAName, teamAName);  // ✅ value 也改成隊伍名稱
+        winnerSelect.appendChild(opt);
+      }
+      if (teamBId && teamBId !== teamAId && teamBName) {
+        const opt = new Option(teamBName, teamBName);  // ✅ value 是隊伍名稱
+        winnerSelect.appendChild(opt);
+      }
+    }
+
+
     const matchNameInput = tr.querySelector('.match-name');
     const teamSelects = tr.querySelector('.team-selects');
     const bwfPlayers = tr.querySelector('.bwf-players');
@@ -519,7 +574,7 @@ try {
         teamSelects.style.display = "flex";
         matchNameInput.style.display = "none";
         matchTypeInput.style.display = "none";
-        pointInput.parentElement.style.display = "";      // 顯示比分
+        pointInput.parentElement.style.display = "none";      // 隱藏比分
         bwfPlayers.style.display = "block";
         updateTeamOptions(selected);
       } else {
@@ -539,19 +594,22 @@ try {
         return;
       }
       if (sportSelect.value === "5") {
-        getBWF_Players(teamASelect.value, tr, 'A');
+          getBWF_Players(teamASelect.value, tr, 'A');
+          updateWinnerOptions();
       }
     });
 
     teamBSelect.addEventListener('change', () => {
-      if (teamBSelect.value === teamASelect.value) {
+      if (sportSelect.value !== "5" && teamASelect.value === teamBSelect.value) {
         alert('❌ 兩隊不能相同！');
         teamBSelect.value = '';
         return;
       }
       if (sportSelect.value === "5") {
         getBWF_Players(teamBSelect.value, tr, 'B');
-      }
+
+        updateWinnerOptions();
+         }
     });
 
     if (showRemove) {
@@ -640,6 +698,11 @@ try {
             alert(`❌ 隊伍 A 與 B 選手數量需一致（目前是 ${teamAPlayers.length} vs ${teamBPlayers.length}）`);
             return;
           }
+
+          const winnerSelect = row.querySelector('.winner-name-select');
+          
+          const point = winnerSelect?.value || null;  
+
           const match = {
             type: sport,
             team_a: teamA,
@@ -647,14 +710,22 @@ try {
             date,
             time,
             point,
-            platforms: selectedPlatforms
+            platforms: selectedPlatforms,
+            game_1_a: row.querySelector('.game-1-a')?.value.trim() || 0,
+            game_1_b: row.querySelector('.game-1-b')?.value.trim() || 0,
+            game_2_a: row.querySelector('.game-2-a')?.value.trim() || 0,
+            game_2_b: row.querySelector('.game-2-b')?.value.trim() || 0,
+            game_3_a: row.querySelector('.game-3-a')?.value.trim() || 0,
+            game_3_b: row.querySelector('.game-3-b')?.value.trim() || 0,
+            player_1: teamAPlayers[0] || null,
+            player_2: teamAPlayers[1] || null,
+            player_3: teamBPlayers[0] || null,
+            player_4: teamBPlayers[1] || null
           };
-          selectedPlayers.forEach((pid, idx) => {
-            match[`player_${idx + 1}`] = pid;
-          });
+
           matches.push(match);
         }
-      } else {
+      }else {
         if (teamA && teamB && date && time) {
           matches.push({ type: sport, team_a: teamA, team_b: teamB, date, time, point, platforms: selectedPlatforms });
         }
@@ -976,6 +1047,7 @@ try {
     await loadPlayers(m.team_b, [playerB1, playerB2], [m.player_3, m.player_4]);
 
     container.innerHTML = '';
+
     container.appendChild(document.createTextNode("隊伍 A："));
     container.appendChild(selectA);
     container.appendChild(document.createTextNode("選手（隊伍 A）："));
@@ -986,12 +1058,52 @@ try {
     container.appendChild(document.createTextNode("選手（隊伍 B）："));
     container.appendChild(playerB1);
     container.appendChild(playerB2);
+
+    // 建立 6 格比分欄位
+    const scoreInputs = {};
+    for (let i = 1; i <= 3; i++) {
+      const row = document.createElement("div");
+      row.style.marginBottom = "4px";
+      row.innerHTML = `<strong>Game ${i}：</strong>`;
+
+      const inputA = document.createElement("input");
+      inputA.type = "number";
+      inputA.placeholder = `A 隊`;
+      inputA.style.width = "60px";
+      inputA.value = m[`game_${i}_a`] ?? "";
+
+      const inputB = document.createElement("input");
+      inputB.type = "number";
+      inputB.placeholder = `B 隊`;
+      inputB.style.width = "60px";
+      inputB.value = m[`game_${i}_b`] ?? "";
+
+      scoreInputs[`game_${i}_a`] = inputA;
+      scoreInputs[`game_${i}_b`] = inputB;
+
+      row.appendChild(inputA);
+      row.appendChild(document.createTextNode(" : "));
+      row.appendChild(inputB);
+
+      container.appendChild(row);
+    }
+
+    const winnerSelect = document.createElement("select");
+    const teamAName = selectA.options[selectA.selectedIndex].textContent;
+    const teamBName = selectB.options[selectB.selectedIndex].textContent;
+
+    winnerSelect.innerHTML = `
+      <option value="">請選擇獲勝隊伍</option>
+      <option value="${selectA.value}" ${m.point == selectA.value ? 'selected' : ''}>${teamAName}</option>
+      <option value="${selectB.value}" ${m.point == selectB.value ? 'selected' : ''}>${teamBName}</option>
+    `;
+
     container.appendChild(document.createTextNode("日期："));
     container.appendChild(dateInput);
     container.appendChild(document.createTextNode("時間："));
     container.appendChild(timeSelect);
-    container.appendChild(document.createTextNode("比分："));
-    container.appendChild(pointInput);
+    container.appendChild(document.createTextNode("獲勝隊伍："));
+    container.appendChild(winnerSelect);
     container.appendChild(document.createTextNode("播放平台（可複選）："));
     container.appendChild(platformContainer);
     container.appendChild(saveBtn);
@@ -1026,12 +1138,18 @@ try {
         team_b: selectB.value,
         date: dateInput.value,
         time: timeSelect.value,
-        point: pointInput.value,
+        point: winnerSelect.value,
         platforms: selectedPlatforms,
         player_1: aPlayers[0] || null,
         player_2: aPlayers[1] || null,
         player_3: bPlayers[0] || null,
-        player_4: bPlayers[1] || null
+        player_4: bPlayers[1] || null,
+        game_1_a: scoreInputs.game_1_a.value || 0,
+        game_1_b: scoreInputs.game_1_b.value || 0,
+        game_2_a: scoreInputs.game_2_a.value || 0,
+        game_2_b: scoreInputs.game_2_b.value || 0,
+        game_3_a: scoreInputs.game_3_a.value || 0,
+        game_3_b: scoreInputs.game_3_b.value || 0
       };
 
       const res = await fetch(`/api/edit/${id}`, {
@@ -1292,9 +1410,11 @@ try {
             <div class="meta">
               日期時間 : ${sqlDateTime} ｜ 管理員 : ${ann.admin_name}
               ${canEdit ? `
-                <button class="EditAnsBtn" data-datetime="${sqlDateTime}" style="margin: 0.3rem;">修改</button>
-                <button class="SaveAnsBtn" data-datetime="${sqlDateTime}" style="display:none; margin: 0.3rem;">儲存</button>
-                <button class="DeleteAnsBtn" data-datetime="${sqlDateTime}" style="margin: 0.3rem;">刪除</button>
+                <div class = "button-wrapper">
+                  <button class="EditAnsBtn" data-datetime="${sqlDateTime}" style="margin: 0.3rem;">修改</button>
+                  <button class="SaveAnsBtn" data-datetime="${sqlDateTime}" style="display:none; margin: 0.3rem;">儲存</button>
+                  <button class="DeleteAnsBtn" data-datetime="${sqlDateTime}" style="margin: 0.3rem;">刪除</button>
+                </div>
               ` : ''}
             </div>
         `;
@@ -1909,20 +2029,34 @@ try {
               const matchTitle = sport === "2"
                   ? m.match_name
                   : `${m.team_a_name} vs ${m.team_b_name}`;
+              
+              const m_time = m.time;
+              if(sport === "1"){const m_time = (m.time === "00:00:00" && m.point != null)?"Final":m.time;}
 
               if(sport === "2"){
                 resultDiv.innerHTML += `
                 <div class="match-card" id="card_${m.game_no}" style="margin-bottom: 1rem;">
                   <strong>${matchTitle}</strong><br>
-                  日期時間 : ${formattedDate} ${m.time}<br>
+                  日期時間 : ${formattedDate} | ${m_time}<br>
                   類型 : ${m.match_type}<br>
                 </div>  
+              `;
+              }else if(sport === "5"){
+                resultDiv.innerHTML += `
+                <div class="match-card" id="card_${m.game_no}" style="margin-bottom: 1rem;">
+                  <strong>${matchTitle}</strong><br>
+                    日期時間 : ${formattedDate} | ${m_time}<br>
+                    比分：${m.point ?? "尚未公布"}<br>
+                    ${m.team_a_name} 隊 : ${m.player_1_name == null ? "" : m.player_1_name} | ${m.player_2_name == null ? "" : m.player_2_name}<br>
+                    ${m.team_b_name} 隊 : ${m.player_3_name == null ? "" : m.player_3_name} | ${m.player_4_name == null ? "" : m.player_4_name}<br>                
+                    獲勝隊伍 : ${m.winner_name == null ? "正在打 或 還未開賽" : m.winner_name}<br>
+                    </div>  
               `;
               }else{
                 resultDiv.innerHTML += `
                 <div class="match-card" id="card_${m.game_no}" style="margin-bottom: 1rem;">
                   <strong>${matchTitle}</strong><br>
-                  日期時間 : ${formattedDate} ${m.time}<br>
+                  日期時間 : ${formattedDate} | ${m_time}<br>
                   比分：${m.point ?? "尚未公布"}<br>
                 </div>  
               `;
@@ -2152,6 +2286,23 @@ try {
                   div.innerHTML = html;
                   resultArea.appendChild(div);
                 });
+              }else if(sportTypeNum === 5){
+                
+                data.forEach(match => {
+                    const div = document.createElement("div");
+                    div.className = "result-card";
+                    const m_n = (sportType === "2") ? match.match_name : match.team_a_name + " vs " + match.team_b_name;
+                    let html = `<strong> ${m_n}</strong><br>`;
+                    html += `日期時間 : ${match.date} | ${match.time}<br>`;
+                    html += `比數：${match.point === null ? "尚未開始" : match.point}<br>`;
+                    html += `${match.team_a_name} 隊 : ${match.player_1_name == null ? "" : match.player_1_name} | ${match.player_2_name == null ? "" : match.player_2_name}<br>`;
+                    html += `${match.team_b_name} 隊 : ${match.player_3_name == null ? "" : match.player_3_name} | ${match.player_4_name == null ? "" : match.player_4_name}<br>`;                
+                    html += `獲勝隊伍 : ${match.winner_name == null ? "正在打 或 還未開賽" : match.winner_name}<br><br>`;
+
+                    div.innerHTML = html;
+                    resultArea.appendChild(div);
+                  });
+
               }else{
                 data.forEach(match => {
                   const div = document.createElement("div");

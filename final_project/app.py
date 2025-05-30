@@ -179,16 +179,13 @@ def search_matches():
                     WHERE m.type = 2
                 """
                 params = []
-
                 if date:
                     sql += " AND m.date = %s"
                     params.append(date)
-
                 sql += " ORDER BY m.date DESC, m.time DESC"
 
                 cursor.execute(sql, params)
                 rows = cursor.fetchall()
-
                 for row in rows:
                     row = fix_timedelta(row)
 
@@ -197,9 +194,54 @@ def search_matches():
                     "matches": rows
                 })
 
-            # ✅ 其他運動類別照舊邏輯
+            # ✅ 羽球比分與選手補充
+            def enrich_bwf_info(rows):
+                for row in rows:
+                    row = fix_timedelta(row)
+
+                    # 補比分
+                    cursor.execute("""
+                        SELECT game_1_a, game_1_b, game_2_a, game_2_b, game_3_a, game_3_b, 
+                               player_1, player_2, player_3, player_4
+                        FROM bwf_match_info 
+                        WHERE game_no = %s
+                    """, (row["game_no"],))
+                    score = cursor.fetchone()
+
+                    if score:
+                        row["point"] = f"{score['game_1_a']} : {score['game_1_b']} | {score['game_2_a']} : {score['game_2_b']} | {score['game_3_a']} : {score['game_3_b']}"
+                        row.update({
+                            "game_1_a": score["game_1_a"],
+                            "game_1_b": score["game_1_b"],
+                            "game_2_a": score["game_2_a"],
+                            "game_2_b": score["game_2_b"],
+                            "game_3_a": score["game_3_a"],
+                            "game_3_b": score["game_3_b"],
+                            "player_1": score["player_1"],
+                            "player_2": score["player_2"],
+                            "player_3": score["player_3"],
+                            "player_4": score["player_4"]
+                        })
+
+                        # 撈選手姓名
+                        for key in ["player_1", "player_2", "player_3", "player_4"]:
+                            if score[key]:
+                                cursor.execute("SELECT name FROM players WHERE player_id = %s", (score[key],))
+                                result = cursor.fetchone()
+                                row[f"{key}_name"] = result["name"] if result else None
+
+                    else:
+                        row["point"] = ""
+
+                return rows
+
+            # ✅ 基本查詢 SQL：team_a_name / team_b_name / winner_name（直接用 point 名稱）
             sql = """
-                SELECT m.*, ta.team_name AS team_a_name, tb.team_name AS team_b_name
+                SELECT 
+                    m.*, 
+                    ta.team_name AS team_a_name, 
+                    tb.team_name AS team_b_name,
+                    m.point AS winner_name
                 FROM matches_schedule m
                 JOIN teams ta ON m.team_a = ta.team_id
                 JOIN teams tb ON m.team_b = tb.team_id
@@ -220,13 +262,11 @@ def search_matches():
                     cursor.execute("SELECT team_id, team_name FROM teams WHERE team_id = %s", (team_id,))
                     team_info = cursor.fetchone()
                 except ValueError:
-                    print("❌ 無效 team_id：", keyword)
                     return jsonify([])
 
             elif query_type == "player" and keyword:
                 table = player_table_map.get(sport)
                 if not table:
-                    print("❌ 找不到對應選手子表")
                     return jsonify([])
 
                 if sport == "5":
@@ -242,17 +282,19 @@ def search_matches():
 
                     placeholders = ','.join(['%s'] * len(game_nos))
                     query_sql = f"""
-                        SELECT m.*, ta.team_name AS team_a_name, tb.team_name AS team_b_name
+                        SELECT 
+                            m.*, 
+                            ta.team_name AS team_a_name, 
+                            tb.team_name AS team_b_name,
+                            m.point AS winner_name
                         FROM matches_schedule m
-                        LEFT JOIN teams ta ON m.team_a = ta.team_id
-                        LEFT JOIN teams tb ON m.team_b = tb.team_id
+                        JOIN teams ta ON m.team_a = ta.team_id
+                        JOIN teams tb ON m.team_b = tb.team_id
                         WHERE m.type = %s AND m.game_no IN ({placeholders})
                     """
                     cursor.execute(query_sql, [sport] + game_nos)
                     rows = cursor.fetchall()
-
-                    for row in rows:
-                        row = fix_timedelta(row)
+                    rows = enrich_bwf_info(rows)
 
                     return jsonify({
                         "team": {"team_name": f"{player_id} 參與了 {len(game_nos)} 場比賽"},
@@ -272,14 +314,15 @@ def search_matches():
                     cursor.execute("SELECT team_id, team_name FROM teams WHERE team_id = %s", (team_id,))
                     team_info = cursor.fetchone()
 
-            # 執行其他運動的查詢
+            # 最終查詢
             cursor.execute(sql, params)
             rows = cursor.fetchall()
 
-            for row in rows:
-                for k, v in row.items():
-                    if isinstance(v, (time, timedelta)):
-                        row[k] = v.strftime("%H:%M") if isinstance(v, time) else str(v)
+            if sport == "5":
+                rows = enrich_bwf_info(rows)
+            else:
+                for row in rows:
+                    row = fix_timedelta(row)
 
             return jsonify({
                 "team": team_info if query_type in ["player", "team"] else None,
@@ -507,20 +550,48 @@ def api_mix_search():
                     rows = cursor.fetchall()
                     rows = [fix_timedelta(row) for row in rows]
                     return jsonify(rows)
-
+                
                 else:
-                    cursor.execute("""
-                        SELECT m.*, ta.team_name AS team_a_name, tb.team_name AS team_b_name
-                        FROM matches_schedule m
-                        JOIN teams ta ON m.team_a = ta.team_id
-                        JOIN teams tb ON m.team_b = tb.team_id
-                        WHERE m.type = %s AND CAST(m.game_no AS CHAR) LIKE %s
-                    """, (sport_type, keyword_like))
-                    rows = cursor.fetchall()
-                    rows = [fix_timedelta(row) for row in rows]
+                    if sport_type == "5":
+                        # 羽球 JOIN 比分
+                        cursor.execute("""
+                            SELECT 
+                                m.*, 
+                                ta.team_name AS team_a_name, 
+                                tb.team_name AS team_b_name,
+                                b.*,
+                                pa1.name AS player_1_name,
+                                pa2.name AS player_2_name,
+                                pb1.name AS player_3_name,
+                                pb2.name AS player_4_name,
+                                m.point AS winner_name
+                            FROM matches_schedule m
+                            JOIN teams ta ON m.team_a = ta.team_id
+                            JOIN teams tb ON m.team_b = tb.team_id
+                            JOIN bwf_match_info b ON m.game_no = b.game_no
+                            LEFT JOIN players pa1 ON b.player_1 = pa1.player_id
+                            LEFT JOIN players pa2 ON b.player_2 = pa2.player_id
+                            LEFT JOIN players pb1 ON b.player_3 = pb1.player_id
+                            LEFT JOIN players pb2 ON b.player_4 = pb2.player_id
+                            WHERE m.type = %s AND CAST(m.game_no AS CHAR) LIKE %s
+                        """, (sport_type, keyword_like))
+
+                        rows = cursor.fetchall()
+                        for row in rows:
+                            row["point"] = f"{row['game_1_a']} : {row['game_1_b']} | {row['game_2_a']} : {row['game_2_b']} | {row['game_3_a']} : {row['game_3_b']}"
+                            row = fix_timedelta(row)
+                    else:
+                        cursor.execute("""
+                            SELECT m.*, ta.team_name AS team_a_name, tb.team_name AS team_b_name
+                            FROM matches_schedule m
+                            JOIN teams ta ON m.team_a = ta.team_id
+                            JOIN teams tb ON m.team_b = tb.team_id
+                            WHERE m.type = %s AND CAST(m.game_no AS CHAR) LIKE %s
+                        """, (sport_type, keyword_like))
+                        rows = cursor.fetchall()
+                        rows = [fix_timedelta(row) for row in rows]
+
                     return jsonify(rows)
-
-
             else:
                 return jsonify({"error": "query_type not supported"}), 400
 
@@ -673,7 +744,7 @@ def recent_match():
 def get_matches():
     try:
         with connection.cursor(pymysql.cursors.DictCursor) as cursor:
-            # 🔹 撈 F1 比賽資料
+            # F1 比賽
             cursor.execute("""
                 SELECT
                     m.game_no,
@@ -690,7 +761,31 @@ def get_matches():
                 WHERE m.type = 2                 
             """)
             f1_rows = cursor.fetchall()
-            # 撈其他運動類型比賽資料
+
+            # 羽球比賽（包含比分與隊伍 id）
+            cursor.execute("""
+                SELECT
+                    m.game_no,
+                    m.team_a,
+                    m.team_b,
+                    CONCAT(ta.team_name, ' vs ', tb.team_name) AS match_name,
+                    m.type,
+                    m.date,
+                    m.time,
+                    p.name AS platform_name,
+                    m.point,  -- 儲存獲勝 team_id
+                    b.game_1_a, b.game_1_b, b.game_2_a, b.game_2_b, b.game_3_a, b.game_3_b
+                FROM matches_schedule m
+                JOIN teams ta ON m.team_a = ta.team_id
+                JOIN teams tb ON m.team_b = tb.team_id
+                JOIN match_platforms mp ON m.game_no = mp.game_no
+                JOIN platforms p ON mp.platform_id = p.platform_id
+                JOIN bwf_match_info b ON m.game_no = b.game_no
+                WHERE m.type = 5
+            """)
+            bwf_rows = cursor.fetchall()
+
+            # 其他運動
             cursor.execute("""
                 SELECT
                     m.game_no,
@@ -698,22 +793,23 @@ def get_matches():
                     m.type,
                     m.date,
                     m.time,
-                    p.name AS platform_name
+                    p.name AS platform_name,
+                    m.point
                 FROM matches_schedule m
                 JOIN teams ta ON m.team_a = ta.team_id
                 JOIN teams tb ON m.team_b = tb.team_id
                 JOIN match_platforms mp ON m.game_no = mp.game_no
                 JOIN platforms p ON mp.platform_id = p.platform_id
-                WHERE m.type != 2
+                WHERE m.type NOT IN (2, 5)
             """)
-            other_rows = list(cursor.fetchall())
+            other_rows = cursor.fetchall()
 
-        # 合併所有比賽資料   
-        all_rows = list(f1_rows) + list(other_rows)
+        # 合併資料
+        all_rows = f1_rows + bwf_rows + other_rows
         matches = {}
 
         for row in all_rows:
-            # 時間轉換
+            # 時間處理
             match_time = row["time"]
             if isinstance(match_time, timedelta):
                 t = (datetime.min + match_time).time()
@@ -723,7 +819,7 @@ def get_matches():
             else:
                 time_str = str(match_time)
 
-            # 📅 日期轉換
+            # 日期處理
             match_date = row["date"]
             if isinstance(match_date, datetime):
                 date_str = match_date.date().isoformat()
@@ -732,17 +828,34 @@ def get_matches():
             else:
                 date_str = str(match_date)
 
-            # 📦 組裝資料進入對應日期欄位
+            # 組合比分與勝隊名稱（僅羽球）
+            point = ""
+            winner_name = None
+            if row["type"] == 5:
+                point = f"{row['game_1_a']} : {row['game_1_b']} | {row['game_2_a']} : {row['game_2_b']} | {row['game_3_a']} : {row['game_3_b']}"
+                winner_team_id = row.get("point")
+                if winner_team_id in [row.get("team_a"), row.get("team_b")]:
+                    with connection.cursor() as cursor:
+                        cursor.execute("SELECT team_name FROM teams WHERE team_id = %s", (winner_team_id,))
+                        team = cursor.fetchone()
+                        if team:
+                            winner_name = team["team_name"]
+            elif "point" in row:
+                point = row["point"]
+
+            # 建立日期分類
             if date_str not in matches:
                 matches[date_str] = []
 
             matches[date_str].append({
                 "game_no": row["game_no"],
-                "name": row["match_name"],        
-                "match_name": row["match_name"],  
+                "name": row["match_name"],
+                "match_name": row["match_name"],
                 "time": time_str,
                 "platform": row["platform_name"],
-                "type": row["type"]
+                "type": row["type"],
+                "point": point,
+                "winner_team_name": winner_name
             })
 
         return jsonify(matches)
@@ -750,6 +863,7 @@ def get_matches():
     except Exception as e:
         print("❌ matches 查詢錯誤：", e)
         return jsonify({"error": str(e)}), 500
+
 
 @app.route('/api/bookings/user', methods=['GET'])
 def get_user_bookings():
@@ -1053,16 +1167,14 @@ def search_match_advanced():
         game_no = request.args.get("game_no")
         name_keyword = request.args.get("name")
         
-        # 一定要選運動類別
         if not sport:
             return jsonify(matches=[], error="請選擇運動類別"), 400
 
-        # 選了類別後，必須至少選一個條件
         if not (date or team_a or team_b or game_no or name_keyword):
             return jsonify(matches=[], error="請至少輸入一個條件（如日期、隊伍、比賽名稱）"), 400
     
         with connection.cursor(pymysql.cursors.DictCursor) as cursor:
-            # F1 查詢（type = 2）
+            # ✅ F1 特別處理
             if sport == "2":
                 conditions = ["m.type = 2"]
                 params = []
@@ -1070,16 +1182,14 @@ def search_match_advanced():
                 if game_no:
                     conditions.append("m.game_no = %s")
                     params.append(game_no)
-
                 if name_keyword:
                     conditions.append("f.match_name LIKE %s")
                     params.append(f"%{name_keyword}%")
-
                 if date:
                     conditions.append("m.date = %s")
                     params.append(date)
 
-                where_clause = " AND ".join(conditions) if conditions else "1=1"
+                where_clause = " AND ".join(conditions)
 
                 cursor.execute(f"""
                     SELECT 
@@ -1102,7 +1212,7 @@ def search_match_advanced():
                     m["match"] = m["match_name"]
                     m["type"] = 2
                     m["match_type"] = m["match_type"]
-            
+
                     # 撈平台
                     cursor.execute("""
                         SELECT p.name FROM match_platforms mp
@@ -1114,7 +1224,7 @@ def search_match_advanced():
 
                 return jsonify(matches=matches)
 
-            # 非 F1 查詢
+            # ✅ 非 F1（包含羽球）
             conditions = []
             params = []
 
@@ -1131,16 +1241,37 @@ def search_match_advanced():
                 conditions.append("m.team_b = %s")
                 params.append(team_b)
 
-            where_clause = " AND ".join(conditions) if conditions else "1=1"
+            where_clause = " AND ".join(conditions)
 
-            cursor.execute(f"""
-                SELECT m.*, ta.team_name AS team_a_name, tb.team_name AS team_b_name
-                FROM matches_schedule m
-                LEFT JOIN teams ta ON m.team_a = ta.team_id
-                LEFT JOIN teams tb ON m.team_b = tb.team_id
-                WHERE {where_clause}
-                ORDER BY m.date DESC, m.time DESC
-            """, params)
+            if sport == "5":
+                # 羽球特別 JOIN bwf_match_info
+                cursor.execute(f"""
+                    SELECT 
+                        m.*, 
+                        ta.team_name AS team_a_name, 
+                        tb.team_name AS team_b_name,
+                        b.*,
+                        m.point AS winner_name
+                    FROM matches_schedule m
+                    LEFT JOIN teams ta ON m.team_a = ta.team_id
+                    LEFT JOIN teams tb ON m.team_b = tb.team_id
+                    LEFT JOIN bwf_match_info b ON m.game_no = b.game_no
+                    WHERE {where_clause}
+                    ORDER BY m.date DESC, m.time DESC
+                """, params)
+            else:
+                # 其他運動不需要 JOIN 比分
+                cursor.execute(f"""
+                    SELECT 
+                        m.*, 
+                        ta.team_name AS team_a_name, 
+                        tb.team_name AS team_b_name
+                    FROM matches_schedule m
+                    LEFT JOIN teams ta ON m.team_a = ta.team_id
+                    LEFT JOIN teams tb ON m.team_b = tb.team_id
+                    WHERE {where_clause}
+                    ORDER BY m.date DESC, m.time DESC
+                """, params)
 
             matches = cursor.fetchall()
 
@@ -1150,6 +1281,10 @@ def search_match_advanced():
                     hours = total_seconds // 3600
                     minutes = (total_seconds % 3600) // 60
                     m["time"] = f"{hours:02}:{minutes:02}"
+
+                # ✅ 如果是羽球，組合比分 point
+                if sport == "5":
+                    m["point"] = f"{m['game_1_a']} : {m['game_1_b']} | {m['game_2_a']} : {m['game_2_b']} | {m['game_3_a']} : {m['game_3_b']}"
 
                 # 撈平台
                 cursor.execute("""
@@ -1165,6 +1300,7 @@ def search_match_advanced():
     except Exception as e:
         print("❌ 查詢錯誤：", e)
         return jsonify(matches=[], error=str(e)), 500
+
 
 
 @app.route("/api/add-many", methods=["POST"])
@@ -1213,21 +1349,40 @@ def add_many():
                     if len(players) < 2 or len(players) > 4:
                         continue
 
+                    player_1 = players[0] if len(players) > 0 else None  # A1
+                    player_3 = players[1] if len(players) > 1 else None  # B1
+                    player_2 = players[2] if len(players) > 2 else None  # A2
+                    player_4 = players[3] if len(players) > 3 else None  # B2
+
+                    game_1_a = m.get("game_1_a")
+                    game_1_b = m.get("game_1_b")
+                    game_2_a = m.get("game_2_a")
+                    game_2_b = m.get("game_2_b")
+                    game_3_a = m.get("game_3_a")
+                    game_3_b = m.get("game_3_b")
+
+                    winner_name = m.get("point") 
+
                     cursor.execute("""
                         INSERT INTO matches_schedule (type, team_a, team_b, date, time, point)
                         VALUES (5, %s, %s, %s, %s, %s)
-                    """, (m["team_a"], m["team_b"], m["date"], m["time"], m.get("point")))
+                    """, (m["team_a"], m["team_b"], m["date"], m["time"], winner_name))
                     game_no = cursor.lastrowid
 
-                    placeholders = ["%s"] * 4
-                    values = players + [None] * (4 - len(players))
-                    cursor.execute(f"""
-                        INSERT INTO bwf_match_info (game_no, player_1, player_3, player_2, player_4)
-                        VALUES (%s, {', '.join(placeholders)})
-                    """, [game_no] + values)
+                    cursor.execute("""
+                        INSERT INTO bwf_match_info (
+                            game_no, player_1, player_2, player_3, player_4,
+                            game_1_a, game_1_b, game_2_a, game_2_b, game_3_a, game_3_b
+                        )
+                        VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+                    """, (
+                        game_no, player_1, player_2, player_3, player_4,
+                        game_1_a, game_1_b, game_2_a, game_2_b, game_3_a, game_3_b
+                    ))
 
                     added += 1
 
+                
                 else:
                     if not all(k in m for k in ("team_a", "team_b", "date", "time")):
                         continue
@@ -1280,7 +1435,7 @@ def add_many():
 def get_match_by_id(game_no):
     try:
         with connection.cursor(pymysql.cursors.DictCursor) as cursor:
-            # 先查 type 判斷是否為 F1
+            # 查運動類型
             cursor.execute("SELECT type FROM matches_schedule WHERE game_no = %s", (game_no,))
             result = cursor.fetchone()
 
@@ -1290,7 +1445,7 @@ def get_match_by_id(game_no):
             sport_type = result["type"]
 
             if sport_type == 2:
-                # F1 特別處理：查 match_name
+                # F1
                 cursor.execute("""
                     SELECT m.*, f.*
                     FROM matches_schedule m
@@ -1298,15 +1453,14 @@ def get_match_by_id(game_no):
                     WHERE m.game_no = %s
                 """, (game_no,))
                 match = cursor.fetchone()
-
                 if not match:
                     return jsonify(success=False, message="查無此比賽")
 
-                # 放進 team_a_name 以兼容前端
                 match["team_a_name"] = match["match_name"]
                 match["team_b_name"] = None
+
             elif sport_type == 5:
-                # 先查 match 本體
+                # 羽球：隊伍、選手、比分
                 cursor.execute("""
                     SELECT m.*, ta.team_name AS team_a_name, tb.team_name AS team_b_name
                     FROM matches_schedule m
@@ -1315,13 +1469,13 @@ def get_match_by_id(game_no):
                     WHERE m.game_no = %s
                 """, (game_no,))
                 match = cursor.fetchone()
-
                 if not match:
                     return jsonify(success=False, message="查無此比賽")
 
-                # 再補上選手資料
+                # 選手與比分
                 cursor.execute("""
-                    SELECT player_1, player_2, player_3, player_4
+                    SELECT player_1, player_2, player_3, player_4,
+                           game_1_a, game_1_b, game_2_a, game_2_b, game_3_a, game_3_b
                     FROM bwf_match_info
                     WHERE game_no = %s
                 """, (game_no,))
@@ -1329,8 +1483,19 @@ def get_match_by_id(game_no):
                 if pinfo:
                     match.update(pinfo)
 
+                    # 組合比分字串
+                    match["point"] = f"{pinfo['game_1_a']} : {pinfo['game_1_b']} | {pinfo['game_2_a']} : {pinfo['game_2_b']} | {pinfo['game_3_a']} : {pinfo['game_3_b']}"
+
+                # 額外補上勝隊名稱（如果 point 是 team_id）
+                winner_team_id = match.get("point")
+                if match.get("point") in [match.get("team_a"), match.get("team_b")]:
+                    cursor.execute("SELECT team_name FROM teams WHERE team_id = %s", (match["point"],))
+                    team = cursor.fetchone()
+                    if team:
+                        match["winner_team_name"] = team["team_name"]
+
             else:
-                # 其他運動照原邏輯處理
+                # 其他運動類型
                 cursor.execute("""
                     SELECT m.*, ta.team_name AS team_a_name, tb.team_name AS team_b_name
                     FROM matches_schedule m
@@ -1339,11 +1504,10 @@ def get_match_by_id(game_no):
                     WHERE m.game_no = %s
                 """, (game_no,))
                 match = cursor.fetchone()
-
                 if not match:
                     return jsonify(success=False, message="查無此比賽")
 
-            # 時間處理
+            # 時間格式轉換
             if isinstance(match["time"], timedelta):
                 total_seconds = int(match["time"].total_seconds())
                 hours = total_seconds // 3600
@@ -1357,6 +1521,7 @@ def get_match_by_id(game_no):
 
     except Exception as e:
         return jsonify(success=False, message=str(e)), 500
+
 
 @app.route("/api/teams")
 def get_teams():
@@ -1416,18 +1581,17 @@ def get_bwf_players():
 @app.route("/api/edit/<int:game_no>", methods=["POST"])
 def edit_match(game_no):
     data = request.get_json()
-    match_name = data.get("match_name") 
-    team_a = data.get("team_a")          
+    match_name = data.get("match_name")
+    team_a = data.get("team_a")
     team_b = data.get("team_b")
     date = data.get("date")
     time = data.get("time")
-    point = data.get("point")
-    platforms = data.get("platforms", [])  
-    match_type = data.get("match_type") 
+    point = data.get("point")  # 對 BWF 是獲勝隊伍 ID
+    platforms = data.get("platforms", [])
+    match_type = data.get("match_type")
 
     try:
         with connection.cursor(pymysql.cursors.DictCursor) as cursor:
-            # 查目前是什麼運動類型
             cursor.execute("SELECT type FROM matches_schedule WHERE game_no = %s", (game_no,))
             result = cursor.fetchone()
             if not result:
@@ -1435,10 +1599,11 @@ def edit_match(game_no):
 
             sport_type = result["type"]
 
-            if sport_type == 2:
+            def null_if_empty(val):
+                return val if val not in ("", None) else None
 
-               
-                
+            if sport_type == 2:
+                # F1 保留原本 point（如時間或數值）
                 cursor.execute("""
                     UPDATE matches_schedule
                     SET date = %s, time = %s, point = %s
@@ -1450,48 +1615,78 @@ def edit_match(game_no):
                     SET match_name = %s, match_type = %s
                     WHERE game_no = %s
                 """, (match_name, match_type, game_no))
+
             elif sport_type == 5:
-                # BWF 更新時間 + 選手
-                def null_if_empty(val):
-                    return val if val not in ("", None) else None
+                # ✅ 只在 BWF 中將 point (team_id) 轉為 team_name
+                winner_team_name = None
+                if point in [team_a, team_b]:
+                    cursor.execute("SELECT team_name FROM teams WHERE team_id = %s", (point,))
+                    row = cursor.fetchone()
+                    if row:
+                        winner_team_name = row["team_name"]
 
                 player_1 = null_if_empty(data.get("player_1"))
                 player_2 = null_if_empty(data.get("player_2"))
                 player_3 = null_if_empty(data.get("player_3"))
                 player_4 = null_if_empty(data.get("player_4"))
 
+                game_1_a = null_if_empty(data.get("game_1_a"))
+                game_1_b = null_if_empty(data.get("game_1_b"))
+                game_2_a = null_if_empty(data.get("game_2_a"))
+                game_2_b = null_if_empty(data.get("game_2_b"))
+                game_3_a = null_if_empty(data.get("game_3_a"))
+                game_3_b = null_if_empty(data.get("game_3_b"))
+
                 cursor.execute("""
                     UPDATE matches_schedule
                     SET date = %s, time = %s, point = %s
                     WHERE game_no = %s
-                """, (date, time, point, game_no))
-
-                print("📤 送進來的 BWF 選手：", player_1, player_2, player_3, player_4)
+                """, (date, time, winner_team_name, game_no))
 
                 cursor.execute("""
                     UPDATE bwf_match_info
-                    SET player_1 = %s, player_2 = %s, player_3 = %s, player_4 = %s
+                    SET 
+                        player_1 = %s,
+                        player_2 = %s,
+                        player_3 = %s,
+                        player_4 = %s,
+                        game_1_a = %s,
+                        game_1_b = %s,
+                        game_2_a = %s,
+                        game_2_b = %s,
+                        game_3_a = %s,
+                        game_3_b = %s
                     WHERE game_no = %s
-                """, (player_1, player_2, player_3, player_4, game_no))
+                """, (
+                    player_1, player_2, player_3, player_4,
+                    game_1_a, game_1_b, game_2_a, game_2_b, game_3_a, game_3_b,
+                    game_no
+                ))
 
             else:
-                # 其他運動：更新隊伍、時間、比數
+                # 其他類型維持原本的 point 值（可能是數字或 ID）
                 cursor.execute("""
                     UPDATE matches_schedule
                     SET team_a = %s, team_b = %s, date = %s, time = %s, point = %s
                     WHERE game_no = %s
                 """, (team_a, team_b, date, time, point, game_no))
-            
+
+            # 播放平台更新
             cursor.execute("DELETE FROM match_platforms WHERE game_no = %s", (game_no,))
             for pid in platforms:
-                cursor.execute("INSERT INTO match_platforms (game_no, platform_id) VALUES (%s, %s)", (game_no, pid))
-                
+                cursor.execute(
+                    "INSERT INTO match_platforms (game_no, platform_id) VALUES (%s, %s)",
+                    (game_no, pid)
+                )
+
         connection.commit()
         return jsonify(success=True)
 
     except Exception as e:
         print("❌ 編輯錯誤：", e)
         return jsonify(success=False, message=str(e)), 500
+
+
 
 
 @app.route("/api/delete/<int:game_no>", methods=["DELETE"])
