@@ -3,22 +3,29 @@
 <head>
   <meta charset="UTF-8" />
   <title>入口大門</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
       background-color: #EFE4DD;
       color: #6F6A69;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
       margin: 0;
+      padding: 40px 20px;
+      box-sizing: border-box;
     }
 
     h2 {
-      margin-top: 30px;
       color: #6F6A69;
+      font-size: 2em;
+      text-align: center;
+      margin-top: 40px;
+      margin-bottom: 20px;
+    }
+
+    .section {
+      max-width: 500px;
+      margin: 0 auto 60px auto;
+      text-align: center;
     }
 
     a button,
@@ -26,11 +33,13 @@
       background-color: #A8D4D1;
       color: #fff;
       border: none;
-      padding: 12px 24px;
-      margin-top: 10px;
-      border-radius: 6px;
-      font-size: 16px;
+      padding: 16px 32px;
+      margin-top: 20px;
+      border-radius: 8px;
+      font-size: 1.2em;
       cursor: pointer;
+      width: 100%;
+      max-width: 300px;
       transition: background-color 0.2s ease;
     }
 
@@ -40,24 +49,32 @@
     }
 
     input[type="password"] {
-      padding: 10px;
-      font-size: 16px;
+      padding: 14px;
+      font-size: 1.1em;
       border: 1px solid #DAD4CE;
-      border-radius: 4px;
+      border-radius: 6px;
       margin-top: 10px;
-      width: 220px;
+      width: 100%;
+      max-width: 300px;
       background-color: #fff;
       color: #6F6A69;
     }
   </style>
 </head>
 <body>
-  <h2>我是使用者</h2>
-  <a href="{{ url_for('foruser') }}"><button>進入使用者介面</button></a>
 
-  <h2>我是管理者</h2>
-  <input type="password" id="admin_key" placeholder="請輸入進入密碼">
-  <button onclick="enterAdmin()">進入管理者介面</button>
+  <div class="section">
+    <h2>我是使用者</h2>
+    <a href="{{ url_for('foruser') }}">
+      <button>進入使用者介面</button>
+    </a>
+  </div>
+
+  <div class="section">
+    <h2>我是管理者</h2>
+    <input type="password" id="admin_key" placeholder="請輸入進入密碼">
+    <button onclick="enterAdmin()">進入管理者介面</button>
+  </div>
 
   <script>
     function enterAdmin() {
@@ -78,7 +95,5 @@
         });
     }
   </script>
-
-  
 </body>
 </html>

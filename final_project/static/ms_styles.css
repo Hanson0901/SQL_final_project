@@ -9,7 +9,7 @@ body {
   h1 {
     text-align: center;
     margin-bottom: 24px;
-    color: #A593E0;
+    color: rgb(104, 149, 216);
   }
   
   label {
@@ -20,7 +20,7 @@ body {
   input, select {
     padding: 10px;
     font-size: 16px;
-    border: 2px solid #566270;
+    border: 2px solid #2e2e2e;
     border-radius: 8px;
     width: 100%;
     box-sizing: border-box;
@@ -30,9 +30,9 @@ body {
   }
   
   input:focus, select:focus {
-    border-color: #A593E0;
+    border-color: #2e2e2e;
     outline: none;
-    box-shadow: 0 0 6px rgba(165, 147, 224, 0.6);
+    box-shadow: 0 0 6px rgba(147, 187, 224, 0.6);
   }
   
   .button-wrapper {
@@ -45,8 +45,8 @@ body {
   .button-wrapper button {
     min-width: 140px;
     padding: 12px 24px;
-    background-color: #A593E0;
-    color: white;
+    background-color: #93d0e0;
+    color: rgb(255, 255, 255);
     font-size: 18px;
     border: none;
     border-radius: 8px;
@@ -56,11 +56,11 @@ body {
   }
   
   .button-wrapper button:hover {
-    background-color: #866dc6;
+    background-color: #96e3e6;
   }
   
   .button-wrapper .reset {
-    background-color: #566270;
+    background-color: #70767d;
   }
   
   .button-wrapper .reset:hover {
@@ -87,5 +87,5 @@ body {
     font-size: 16px;
     cursor: pointer;
     transition: background-color 0.2s;
-    background-color:#A593E0;
+    background-color:#93d0e0;
   }

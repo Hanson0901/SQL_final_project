@@ -9,7 +9,7 @@ body {
 h1, h2 {
   text-align: center;
   margin-bottom: 24px;
-  color: #A593E0;
+  color: #70a3e5;
 }
 
 label {
@@ -30,9 +30,9 @@ input, select {
 }
 
 input:focus, select:focus {
-  border-color: #A593E0;
+  border-color: #1f1f1f;
   outline: none;
-  box-shadow: 0 0 6px rgba(165, 147, 224, 0.6);
+  box-shadow: 0 0 6px rgba(144, 212, 239, 0.6);
 }
 
 input[type="date"],
@@ -64,7 +64,7 @@ li {
 .button-wrapper button {
   min-width: 140px;
   padding: 12px 24px;
-  background-color: #A593E0;
+  background-color: #93d0e0;
   color: white;
   font-size: 18px;
   border: none;
@@ -75,7 +75,7 @@ li {
 }
 
 .button-wrapper button:hover {
-  background-color: #866dc6;
+  background-color: #a6f1f4;
 }
 
 .button-wrapper .reset {
@@ -106,7 +106,7 @@ li {
   font-size: 16px;
   cursor: pointer;
   transition: background-color 0.2s;
-  background-color:#A593E0;
+  background-color:#93d0e0;
 }
 
 .search-info {

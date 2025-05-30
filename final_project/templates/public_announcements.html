@@ -4,24 +4,31 @@
   <meta charset="UTF-8">
   <title>📢 公告專區</title>
   <style>
+    html, body {
+        max-width: 100vw;
+        overflow-x: hidden; /* ✅ 禁止左右捲動 */
+      }
+
     body {
       font-family: "Microsoft JhengHei", sans-serif;
-      background-color: #fff4f4;
+      background-color: #cff0f3;
       margin: 0;
       padding: 40px 20px;
     }
 
-    h2 {
-      color: #d94e5c;
+    h1 {
+      color: #6dc6c9;
       text-align: center;
       margin-bottom: 30px;
+      font-size: 80px;
     }
 
     .announcement {
       background-color: #ffffff;
-      border-left: 6px solid #d94e5c;
+      border-left: 6px solid #9bb7f5;
       padding: 20px;
       margin: 0 auto 20px auto;
+      width: 95%;  
       max-width: 800px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.08);
       border-radius: 10px;
@@ -52,17 +59,19 @@
       font-size: 0.95em;
       color: #444;
       z-index: 999;
-      border-left: 4px solid #d94e5c;
+      border-left: 4px solid #9bb7f5;
     }
+
+    
   </style>
 </head>
 <body>
 
 <div id="now-time-box">
-  ⏰ 現在時間：<span id="current-time"></span>
+  現在時間：<span id="current-time"></span>
 </div>
 
-<h2>📢 最新公告</h2>
+<h1>最新公告</h1>
 
 {% for a in announcements %}
   <div class="announcement">

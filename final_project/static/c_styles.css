@@ -8,7 +8,7 @@ body {
 
 h1 {
   text-align: center;
-  color: #A593E0;
+  color: #465be3;
 }
 
 .calendar-controls {
@@ -36,11 +36,11 @@ h1 {
 }
 
 .calendar-grid .today {
-  border: 2px solid #A593E0;
+  border: 2px solid #93c8e0;
 }
 
 .calendar-grid .selected {
-  background-color: #A593E0;
+  background-color: #56a7de;
   color: white;
 }
 
@@ -59,7 +59,7 @@ h1 {
 }
 
 .match-info-box ul {
-  padding-left: 20px;
+  padding-left: 0;
 }
 
 .calendar-grid .weekday-header {
@@ -77,7 +77,7 @@ h1 {
 }
 
 .booking-card {
-  background-color: #E0E3DA;
+  background-color: #ceeeef;
   padding: 12px 16px;
   border-radius: 10px;
   margin-bottom: 12px;
@@ -90,18 +90,18 @@ h1 {
 
 .match-card {
   display: block;
-  background-color: #E0E3DA;
+  background-color: #ceeeef;
   color: #333;
   padding: 10px;
-  margin: 5px 0;
+  margin: 16px;
   border: none;
-  border-radius: 8px;
+  border-radius: 12px;
   text-align: left;
   cursor: pointer;
   transition: background-color 0.2s;
 }
 .match-card:hover {
-  background-color: #d4d7cf;
+  background-color: #e2f5f5;
 }
 .match-card.booked {
   background-color: #A593E0;
@@ -149,7 +149,7 @@ h1 {
 }
 
 .calendar-controls button {
-  background-color: #A593E0;
+  background-color: #93d0e0;
   color: white;
   border: none;
   padding: 8px 16px;
@@ -160,7 +160,7 @@ h1 {
 }
 
 .calendar-controls button:hover {
-  background-color: #8e79d9;
+  background-color: #67c0db;
 }
 
 #current-month {
@@ -230,8 +230,8 @@ button.match-box .disabled {
   justify-content: space-between;
   align-items: center;
   padding: 0.5em;
-  background-color: #e8ebea;
-  border-radius: 8px;
+  background-color: #ceeeef;
+  border-radius: 12px;
   margin: 0.5em 0;
   margin-bottom: 5%;
 }
@@ -255,14 +255,14 @@ button.match-box .disabled {
 
 .booking-card button {
   margin-left: 12px;
-  background-color: #333;
+  background-color: #8b8b8b;
   color: white;
   border: none;
-  border-radius: 5px;
+  border-radius: 8px;
   padding: 6px 12px;
   cursor: pointer;
   display: flex;
-  align-items: center; /* ✅ 讓按鈕圖示與文字垂直置中 */
+  align-items: center;
 } 
 
 
@@ -284,5 +284,9 @@ button.match-box .disabled {
   font-size: 16px;
   cursor: pointer;
   transition: background-color 0.2s;
-  background-color:#A593E0;
+  background-color:#93cfe0;
+}
+
+.backbtn button:hover{
+  background-color:#6ec5dd;
 }

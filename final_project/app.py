@@ -213,7 +213,7 @@ def search_matches():
             elif query_type == "player" and keyword:
                 table = player_table_map.get(sport)
                 if not table:
-                    print("❌ 找不到對應球員子表")
+                    print("❌ 找不到對應選手子表")
                     return jsonify([])
 
                 if sport == "5":
@@ -392,7 +392,7 @@ def api_mix_search():
                 if not subtable:
                     return jsonify({"error": "Unknown sport_type"}), 400
 
-                print(f"👉 SQL: 查詢 {subtable} 球員 ID 與詳細資料")
+                print(f"👉 SQL: 查詢 {subtable} 選手 ID 與詳細資料")
 
                 try:
                     with connection.cursor() as cursor:
@@ -439,7 +439,7 @@ def api_mix_search():
                     traceback.print_exc()
                     return jsonify({"error": str(e)}), 500
 
-
+    
             elif query_type == "team":
                 if sport_type == "5":  # 羽毛球不查隊伍
                     return
@@ -654,66 +654,6 @@ def recent_match():
 
     return render_template("recent_match.html")
 
-# @app.route('/api/matches')
-# def get_matches():
-#     try:
-#         with connection.cursor() as cursor:
-#             cursor.execute("""
-#                 SELECT
-#                     m.game_no,
-#                     CONCAT(ta.team_name, ' vs ', tb.team_name) AS match_name,
-#                     m.type,
-#                     m.date,
-#                     m.time,
-#                     p.name AS platform_name
-#                 FROM matches_schedule m
-#                 JOIN teams ta ON m.team_a = ta.team_id
-#                 JOIN teams tb ON m.team_b = tb.team_id
-#                 JOIN match_platforms mp ON m.game_no = mp.game_no
-#                 JOIN platforms p ON mp.platform_id = p.platform_id
-#                 ORDER BY m.date, m.time
-#             """)
-#             rows = cursor.fetchall()
-
-#         matches = {}
-#         for row in rows:
-#             # 處理時間
-#             match_time = row["time"]
-#             if isinstance(match_time, timedelta):
-#                 # 若是 timedelta，就轉成 HH:MM 格式
-#                 t = (datetime.min + match_time).time()
-#                 time_str = t.strftime("%H:%M")
-#             elif isinstance(match_time, time):
-#                 time_str = match_time.strftime("%H:%M")
-#             else:
-#                 time_str = str(match_time)
-
-#             # 處理日期
-#             match_date = row["date"]
-#             if isinstance(match_date, datetime):
-#                 date_str = match_date.date().isoformat()
-#             elif isinstance(match_date, date):
-#                 date_str = match_date.isoformat()
-#             else:
-#                 date_str = str(match_date)
-
-#             # 塞入 dict
-#             if date_str not in matches:
-#                 matches[date_str] = []
-
-#             matches[date_str].append({
-#                 "game_no": row["game_no"],
-#                 "name": row["match_name"],
-#                 "time": time_str,
-#                 "platform": row["platform_name"],
-#                 "type": row["type"]
-#             })
-
-#         return jsonify(matches)
-
-#     except Exception as e:
-#         print("❌ matches 查詢錯誤：", e)
-#         return jsonify({"error": str(e)}), 500
 
 @app.route('/api/matches')
 def get_matches():
@@ -733,11 +673,11 @@ def get_matches():
                 JOIN f1_match_info f ON m.game_no = f.game_no
                 JOIN match_platforms mp ON m.game_no = mp.game_no
                 JOIN platforms p ON mp.platform_id = p.platform_id
-                WHERE m.type = 2
+                WHERE m.type = 2                 
             """)
             f1_rows = cursor.fetchall()
-
-            # 🔸 撈其他運動類型比賽資料
+            print(list(f1_rows))
+            # 撈其他運動類型比賽資料
             cursor.execute("""
                 SELECT
                     m.game_no,
@@ -755,12 +695,12 @@ def get_matches():
             """)
             other_rows = list(cursor.fetchall())
 
-        # 🔁 合併所有比賽資料   
+        # 合併所有比賽資料   
         all_rows = list(f1_rows) + list(other_rows)
         matches = {}
 
         for row in all_rows:
-            # ⏰ 時間轉換
+            # 時間轉換
             match_time = row["time"]
             if isinstance(match_time, timedelta):
                 t = (datetime.min + match_time).time()
@@ -1803,8 +1743,9 @@ def update_feedback(uid, date):
     except Exception as e:
         return jsonify(success=False, message=str(e)), 500
     
+#=========================feedback========================================#
 
-#===========================使用者公告區====================================#
+
 @app.route("/public_announcements")
 def public_announcements():
     try:
@@ -1819,29 +1760,33 @@ def public_announcements():
         return render_template("public_announcements.html", announcements=rows)
     except Exception as e:
         return f"查詢錯誤：{str(e)}", 500
+#===========================使用者公告區====================================#
 
 
-
-#=========================feedback========================================#
-
-# if __name__ == "__main__":
-#     context = (
-#         "/opt/lampp/etc/pem/fullchain.pem",
-#         "/opt/lampp/etc/pem/privkey.pem"
-#     )
-#     app.run(host='0.0.0.0',port='2222', ssl_context=context)
-#     if os.environ.get("WERKZEUG_RUN_MAIN") == "true":  #避免debug重複啟動
-#         scheduler = BackgroundScheduler()
-#         scheduler.add_job(delete_expired_reminders, 'interval', minutes=10)  
-#         scheduler.start()
-    
-
+#===========================及時比分====================================#
+@app.route("/livescore")
+def livescore():
+    return render_template("livescore.html")
+#===========================及時比分====================================#
 
 if __name__ == "__main__":
-    app.run(port = 5050, host='0.0.0.0')
+    context = (
+        "/opt/lampp/etc/pem/fullchain.pem",
+        "/opt/lampp/etc/pem/privkey.pem"
+    )
+    app.run(host='0.0.0.0',port='2222', ssl_context=context)
     if os.environ.get("WERKZEUG_RUN_MAIN") == "true":  #避免debug重複啟動
         scheduler = BackgroundScheduler()
         scheduler.add_job(delete_expired_reminders, 'interval', minutes=10)  
         scheduler.start()
+    
+
+
+# if __name__ == "__main__":
+#     app.run(port = 5050, host='0.0.0.0')
+#     if os.environ.get("WERKZEUG_RUN_MAIN") == "true":  #避免debug重複啟動
+#         scheduler = BackgroundScheduler()
+#         scheduler.add_job(delete_expired_reminders, 'interval', minutes=15)  
+#         scheduler.start()
     
     

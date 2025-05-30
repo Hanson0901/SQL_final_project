@@ -1290,7 +1290,7 @@ try {
             <input class="editInput" type="text" style="display:none; width: 90%;" value="${ann.content}">
             <hr>
             <div class="meta">
-              🕒 ${sqlDateTime} ｜ 👤 ${ann.admin_name}
+              日期時間 : ${sqlDateTime} ｜ 管理員 : ${ann.admin_name}
               ${canEdit ? `
                 <button class="EditAnsBtn" data-datetime="${sqlDateTime}" style="margin: 0.3rem;">修改</button>
                 <button class="SaveAnsBtn" data-datetime="${sqlDateTime}" style="display:none; margin: 0.3rem;">儲存</button>
@@ -1844,7 +1844,7 @@ try {
                     teamText = data.team_name + " ";
                 }
             } catch (err) {
-                console.warn("⚠️ 撈球員隊伍名失敗：", err);
+                console.warn("⚠️ 撈選手隊伍名失敗：", err);
             }
         }
 
@@ -2093,8 +2093,7 @@ try {
 
                     break;
                   case 5:
-                    html += `慣用手：${player.hand}<br>
-                            世界排名：${player.world_rank === "null" ? "/" : player.world_rank}<br>
+                    html += `世界排名：${player.world_rank === "null" ? "/" : player.world_rank}<br>
                             巡迴排名：${player.world_tour_rank === "null" ? "/" : player.world_tour_rank}<br>
                             世界 : ${player.world_rank_title} <br>巡迴 : ${player.world_tour_rank_title}<br>
                             積分頭銜：${player.point_title}｜積分：${player.point}`;
@@ -2287,7 +2286,7 @@ try {
 
         for (const p of topPlatforms) {
             const li = document.createElement("li");
-            li.innerHTML = `🎖️ <strong>${p.platform_name}</strong>（預約次數 ${p.usage_count}）`;
+            li.innerHTML = `<strong>${p.platform_name}</strong>（預約次數 ${p.usage_count}）`;
             list.appendChild(li);
         }
 
@@ -2328,8 +2327,10 @@ try {
                 }
               });
 
-              // 將 map 的值轉成陣列
-              matchData[date] = Object.values(combinedMap);
+              // 將 map 的值轉成陣列並時間由晚到早
+              matchData[date] = Object.values(combinedMap).sort((a, b) => {
+                return b.time.localeCompare(a.time);
+              });
             }
 
 
@@ -2351,14 +2352,14 @@ try {
         if (!bookedEl) return;
         bookedEl.innerHTML = "";
 
-        bookedEl.innerHTML += `<h3>🆕 剛新增</h3>`;
+        bookedEl.innerHTML += `<h3><strong>剛新增</strong></h3>`;
         for (let date in pendingBookings) {
             for (let match of pendingBookings[date]) {
                 bookedEl.appendChild(createBookingCard(date, match, true));
             }
         }
 
-        bookedEl.innerHTML += `<h3>✅ 已預約</h3>`;
+        bookedEl.innerHTML += `<h3><strong>已預約</strong></h3>`;
         for (let date in existingBookings) {
           const merged = {};
 
@@ -2412,9 +2413,9 @@ try {
         content.className = "card-content";
         console.log(typeMap[match.type]);
         content.innerHTML = `
-            【${typeMap[match.type]}】  ${match.name}<br>
-            📅 <strong>${date}</strong> - 🕒 ${match.time}<br>
-            📺 平台：${Array.isArray(match.platform) ? match.platform.join("、") : match.platform}
+            【${typeMap[match.type]}】<strong>${match.name}</strong><br>
+            日期時間 : ${date} | ${match.time}<br>
+            平台：${Array.isArray(match.platform) ? match.platform.join("、") : match.platform}
         `;
 
         const cancelBtn = document.createElement("button");
@@ -2481,7 +2482,7 @@ try {
         document.querySelectorAll(".calendar-grid .selected").forEach(el => el.classList.remove("selected"));
         cell.classList.add("selected");
 
-        selectedDateEl.textContent = `📅 ${dateStr} 的比賽`;
+        selectedDateEl.textContent = `${dateStr} 的比賽`;
         matchListEl.innerHTML = "";
 
         const matches = matchData[dateStr];
@@ -2502,9 +2503,11 @@ try {
             const btn = document.createElement("button");
             btn.className = "match-card";
             const matchDisplayName = matchObj.type === 2 ? matchObj.match_name : matchObj.name;
-            btn.textContent = `【${typeMap[matchObj.type]}】 ${matchDisplayName} 🕒 ${matchObj.time}`;
+            btn.textContent = `【${typeMap[matchObj.type]}】 ${matchDisplayName}\n\n時間 : ${matchObj.time}`;
+            btn.style.whiteSpace = "pre-line";
 
-            if (diffMinutes < 3) {
+            //比賽開始前15分鐘不能預約了
+            if (diffMinutes < 15) {
                 btn.classList.add("disabled");
                 btn.addEventListener("click", () => {
                 alert(`此比賽已過或即將開始，無法預約。\n ${matchObj.name}\n📅 ${dateStr}\n🕒 ${matchObj.time}`);
@@ -2548,7 +2551,7 @@ try {
         const selectedDayCell = document.querySelector(".calendar-grid .selected");
 
         if (dateOverride) {
-            // 傳入的是完整的 date 字串：2025-05-12
+            // 傳入的是完整的 date 字串：2025-05-22
             const [y, m, d] = dateOverride.split("-");
             const selectedKey = `${y}-${String(m).padStart(2, "0")}-${String(d).padStart(2, "0")}`;
             const allCells = document.querySelectorAll(".calendar-grid div");
