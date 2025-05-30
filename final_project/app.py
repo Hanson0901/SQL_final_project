@@ -681,7 +681,6 @@ def get_matches():
                 WHERE m.type = 2                 
             """)
             f1_rows = cursor.fetchall()
-            print(list(f1_rows))
             # 撈其他運動類型比賽資料
             cursor.execute("""
                 SELECT
