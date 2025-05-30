@@ -53,7 +53,6 @@ body {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(800px, 1fr));
     gap: 20px;
-    font-size: 40px;
   }
   
   .scoreboard {
@@ -73,6 +72,8 @@ body {
     display: flex;
     flex-direction: column;
     gap: 15px;
+    font-size: 40px;
+
   }
   .game-status{
     display: flex;
