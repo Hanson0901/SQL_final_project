@@ -14,6 +14,7 @@ body {
   h1 {
     text-align: center;
     color: #333;
+    font-size: 60px;
   }
   
   .date-picker {
@@ -50,7 +51,7 @@ body {
 
   .scoreboards {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(800px, 1fr));
     gap: 20px;
   }
   
@@ -71,6 +72,8 @@ body {
     display: flex;
     flex-direction: column;
     gap: 15px;
+    font-size: 40px;
+
   }
   .game-status{
     display: flex;
@@ -84,8 +87,8 @@ body {
   }
   
   .team-logo {
-    width: 24px; /* 設定圖片寬度 */
-    height: 24px; /* 設定圖片高度 */
+    width: 40x; /* 設定圖片寬度 */
+    height: 40px; /* 設定圖片高度 */
     object-fit: contain; /* 確保圖片不會變形 */
     vertical-align: middle; /* 讓圖片與文字垂直對齊 */
     margin-right: 5px; /* 與文字保持適當間距 */
@@ -104,10 +107,13 @@ body {
   .rhe {
     display: flex;
     margin-left: auto;
+    width: 160px;
     flex-direction: column;
     grid-template-columns: 30px 30px 30px; /* 固定 R、H、E 的欄位寬度 */
     text-align: right; /* 讓內容向右對齊 */
     gap: 10px;
+    
+
 }
   .rhe-header {
     display: flex;
@@ -115,21 +121,22 @@ body {
     grid-template-columns: 30px 30px 30px; /* 固定 R、H、E 的欄位寬度 */
     text-align: right; /* 讓內容向右對齊 */
     gap: 15px; /* 欄位之間的間距 */
+    font-size: 40px;
 }
   .rhe-header span {
-    width: 15px; /* 固定欄位寬度 */
+    width: 40px; /* 固定欄位寬度 */
     text-align: middle; /* 讓內容向右對齊 */
   }
 
 .rhe-row {
-  display: flex;
-  flex-direction: row;
-  grid-template-columns: 30px 30px 30px; /* 固定 R、H、E 的欄位寬度 */
+  display: grid;
+  /*flex-direction: row;*/
+  grid-template-columns: 5px 5px 5px; /* 固定 R、H、E 的欄位寬度 */
   gap: 15px; /* 欄位之間的間距 */
   margin-top: 5px; /* 每行之間的間距 */
 }
   .rhe-row span {
-    width: 15px; /* 固定欄位寬度 */
+    width: 40px; /* 固定欄位寬度 */
     text-align: middle; /* 讓內容向右對齊 */
   }
 .bag{
