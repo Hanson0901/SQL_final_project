@@ -38,13 +38,13 @@ points={
     10: 1
 }
 def get_f1_live_timing():
-    '''
+    
     schedule = fastf1.get_event_schedule(2025)
-    schedule['Session1Date'] = pd.to_datetime(schedule['Session1Date'], utc=True)
-    schedule['RaceDate'] = schedule['Session1Date'].dt.strftime('%Y-%m-%d')    # 只選取比賽名稱與正賽時間
-    schedule['Racetime'] = schedule['Session1Date'].dt.strftime('%H:%M')  # 只選取正賽時間
-    races = schedule[['EventName', 'Country', 'Location', 'RaceDate','Racetime', 'Session1']]
-    races = races.rename(columns={'Session1': 'RaceType'})
+    schedule['Session5Date'] = pd.to_datetime(schedule['Session5Date'], utc=True)
+    schedule['RaceDate'] = schedule['Session5Date'].dt.strftime('%Y-%m-%d')    # 只選取比賽名稱與正賽時間
+    schedule['Racetime'] = schedule['Session5Date'].dt.strftime('%H:%M')  # 只選取正賽時間
+    races = schedule[['EventName', 'Country', 'Location', 'RaceDate','Racetime', 'Session5']]
+    races = races.rename(columns={'Session5': 'RaceType'})
     
     with open('f1\\f1_schedule.json', 'w', encoding='utf-8') as f:
         races.to_json(f, orient='records', force_ascii=False, indent=4)
@@ -87,6 +87,7 @@ def get_f1_live_timing():
     except Exception as e:
         print(f"數據獲取失敗: {str(e)}")
         return pd.DataFrame()
+        '''
 
 # 使用範例
 df = get_f1_live_timing()

@@ -3,200 +3,200 @@
         "EventName":"Pre-Season Testing",
         "Country":"Bahrain",
         "Location":"Sakhir",
-        "RaceDate":"2025-02-26",
-        "Racetime":"07:00",
-        "RaceType":"Practice 1"
+        "RaceDate":null,
+        "Racetime":null,
+        "RaceType":"None"
     },
     {
         "EventName":"Australian Grand Prix",
         "Country":"Australia",
         "Location":"Melbourne",
-        "RaceDate":"2025-03-14",
-        "Racetime":"01:30",
-        "RaceType":"Practice 1"
+        "RaceDate":"2025-03-16",
+        "Racetime":"04:00",
+        "RaceType":"Race"
     },
     {
         "EventName":"Chinese Grand Prix",
         "Country":"China",
         "Location":"Shanghai",
-        "RaceDate":"2025-03-21",
-        "Racetime":"03:30",
-        "RaceType":"Practice 1"
+        "RaceDate":"2025-03-23",
+        "Racetime":"07:00",
+        "RaceType":"Race"
     },
     {
         "EventName":"Japanese Grand Prix",
         "Country":"Japan",
         "Location":"Suzuka",
-        "RaceDate":"2025-04-04",
-        "Racetime":"02:30",
-        "RaceType":"Practice 1"
+        "RaceDate":"2025-04-06",
+        "Racetime":"05:00",
+        "RaceType":"Race"
     },
     {
         "EventName":"Bahrain Grand Prix",
         "Country":"Bahrain",
         "Location":"Sakhir",
-        "RaceDate":"2025-04-11",
-        "Racetime":"11:30",
-        "RaceType":"Practice 1"
+        "RaceDate":"2025-04-13",
+        "Racetime":"15:00",
+        "RaceType":"Race"
     },
     {
         "EventName":"Saudi Arabian Grand Prix",
         "Country":"Saudi Arabia",
         "Location":"Jeddah",
-        "RaceDate":"2025-04-18",
-        "Racetime":"13:30",
-        "RaceType":"Practice 1"
+        "RaceDate":"2025-04-20",
+        "Racetime":"17:00",
+        "RaceType":"Race"
     },
     {
         "EventName":"Miami Grand Prix",
         "Country":"United States",
         "Location":"Miami",
-        "RaceDate":"2025-05-02",
-        "Racetime":"16:30",
-        "RaceType":"Practice 1"
+        "RaceDate":"2025-05-04",
+        "Racetime":"20:00",
+        "RaceType":"Race"
     },
     {
         "EventName":"Emilia Romagna Grand Prix",
         "Country":"Italy",
         "Location":"Imola",
-        "RaceDate":"2025-05-16",
-        "Racetime":"11:30",
-        "RaceType":"Practice 1"
+        "RaceDate":"2025-05-18",
+        "Racetime":"13:00",
+        "RaceType":"Race"
     },
     {
         "EventName":"Monaco Grand Prix",
         "Country":"Monaco",
         "Location":"Monaco",
-        "RaceDate":"2025-05-23",
-        "Racetime":"11:30",
-        "RaceType":"Practice 1"
+        "RaceDate":"2025-05-25",
+        "Racetime":"13:00",
+        "RaceType":"Race"
     },
     {
         "EventName":"Spanish Grand Prix",
         "Country":"Spain",
         "Location":"Barcelona",
-        "RaceDate":"2025-05-30",
-        "Racetime":"11:30",
-        "RaceType":"Practice 1"
+        "RaceDate":"2025-06-01",
+        "Racetime":"13:00",
+        "RaceType":"Race"
     },
     {
         "EventName":"Canadian Grand Prix",
         "Country":"Canada",
         "Location":"Montréal",
-        "RaceDate":"2025-06-13",
-        "Racetime":"17:30",
-        "RaceType":"Practice 1"
+        "RaceDate":"2025-06-15",
+        "Racetime":"18:00",
+        "RaceType":"Race"
     },
     {
         "EventName":"Austrian Grand Prix",
         "Country":"Austria",
         "Location":"Spielberg",
-        "RaceDate":"2025-06-27",
-        "Racetime":"11:30",
-        "RaceType":"Practice 1"
+        "RaceDate":"2025-06-29",
+        "Racetime":"13:00",
+        "RaceType":"Race"
     },
     {
         "EventName":"British Grand Prix",
         "Country":"United Kingdom",
         "Location":"Silverstone",
-        "RaceDate":"2025-07-04",
-        "Racetime":"11:30",
-        "RaceType":"Practice 1"
+        "RaceDate":"2025-07-06",
+        "Racetime":"14:00",
+        "RaceType":"Race"
     },
     {
         "EventName":"Belgian Grand Prix",
         "Country":"Belgium",
         "Location":"Spa-Francorchamps",
-        "RaceDate":"2025-07-25",
-        "Racetime":"10:30",
-        "RaceType":"Practice 1"
+        "RaceDate":"2025-07-27",
+        "Racetime":"13:00",
+        "RaceType":"Race"
     },
     {
         "EventName":"Hungarian Grand Prix",
         "Country":"Hungary",
         "Location":"Budapest",
-        "RaceDate":"2025-08-01",
-        "Racetime":"11:30",
-        "RaceType":"Practice 1"
+        "RaceDate":"2025-08-03",
+        "Racetime":"13:00",
+        "RaceType":"Race"
     },
     {
         "EventName":"Dutch Grand Prix",
         "Country":"Netherlands",
         "Location":"Zandvoort",
-        "RaceDate":"2025-08-29",
-        "Racetime":"10:30",
-        "RaceType":"Practice 1"
+        "RaceDate":"2025-08-31",
+        "Racetime":"13:00",
+        "RaceType":"Race"
     },
     {
         "EventName":"Italian Grand Prix",
         "Country":"Italy",
         "Location":"Monza",
-        "RaceDate":"2025-09-05",
-        "Racetime":"11:30",
-        "RaceType":"Practice 1"
+        "RaceDate":"2025-09-07",
+        "Racetime":"13:00",
+        "RaceType":"Race"
     },
     {
         "EventName":"Azerbaijan Grand Prix",
         "Country":"Azerbaijan",
         "Location":"Baku",
-        "RaceDate":"2025-09-19",
-        "Racetime":"08:30",
-        "RaceType":"Practice 1"
+        "RaceDate":"2025-09-21",
+        "Racetime":"11:00",
+        "RaceType":"Race"
     },
     {
         "EventName":"Singapore Grand Prix",
         "Country":"Singapore",
         "Location":"Marina Bay",
-        "RaceDate":"2025-10-03",
-        "Racetime":"09:30",
-        "RaceType":"Practice 1"
+        "RaceDate":"2025-10-05",
+        "Racetime":"12:00",
+        "RaceType":"Race"
     },
     {
         "EventName":"United States Grand Prix",
         "Country":"United States",
         "Location":"Austin",
-        "RaceDate":"2025-10-17",
-        "Racetime":"17:30",
-        "RaceType":"Practice 1"
+        "RaceDate":"2025-10-19",
+        "Racetime":"19:00",
+        "RaceType":"Race"
     },
     {
         "EventName":"Mexico City Grand Prix",
         "Country":"Mexico",
         "Location":"Mexico City",
-        "RaceDate":"2025-10-24",
-        "Racetime":"18:30",
-        "RaceType":"Practice 1"
+        "RaceDate":"2025-10-26",
+        "Racetime":"20:00",
+        "RaceType":"Race"
     },
     {
         "EventName":"São Paulo Grand Prix",
         "Country":"Brazil",
         "Location":"São Paulo",
-        "RaceDate":"2025-11-07",
-        "Racetime":"14:30",
-        "RaceType":"Practice 1"
+        "RaceDate":"2025-11-09",
+        "Racetime":"17:00",
+        "RaceType":"Race"
     },
     {
         "EventName":"Las Vegas Grand Prix",
         "Country":"United States",
         "Location":"Las Vegas",
-        "RaceDate":"2025-11-21",
-        "Racetime":"00:30",
-        "RaceType":"Practice 1"
+        "RaceDate":"2025-11-23",
+        "Racetime":"04:00",
+        "RaceType":"Race"
     },
     {
         "EventName":"Qatar Grand Prix",
         "Country":"Qatar",
         "Location":"Lusail",
-        "RaceDate":"2025-11-28",
-        "Racetime":"13:30",
-        "RaceType":"Practice 1"
+        "RaceDate":"2025-11-30",
+        "Racetime":"16:00",
+        "RaceType":"Race"
     },
     {
         "EventName":"Abu Dhabi Grand Prix",
         "Country":"United Arab Emirates",
         "Location":"Yas Island",
-        "RaceDate":"2025-12-05",
-        "Racetime":"09:30",
-        "RaceType":"Practice 1"
+        "RaceDate":"2025-12-07",
+        "Racetime":"13:00",
+        "RaceType":"Race"
     }
 ]
