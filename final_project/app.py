@@ -42,7 +42,7 @@ def set_uid():
     uid = data.get("uid")
     if uid:
         session["uid"] = uid
-        print("記錄 UID：", uid)
+        print("使用者 UID：", uid)
     return jsonify(success=True)
 
 

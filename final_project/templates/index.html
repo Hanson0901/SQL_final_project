@@ -66,7 +66,9 @@
 
   <div class="section">
     <h2>我是使用者</h2>
-    <div id="info">正在載入使用者資訊...</div> <!-- ✅ 顯示名稱與 UID -->
+    <button>進入使用介面
+      <a href="{{ url_for('/foruser') }}"></a>
+    </button>
   </div>
 
   <div class="section">
@@ -94,6 +96,8 @@
         });
     }
 
+    
+
     async function initLIFF() {
       await liff.init({ liffId: "2007494110-GV925OeY" });
 
@@ -110,17 +114,8 @@
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ uid: uid })
-      }).then(() => {
-        // 印出使用者資訊到 console 與畫面
-        console.log("LIFF 登入成功", name, uid);
-        document.getElementById("info").innerHTML = `
-          <p><strong>顯示名稱：</strong> ${name}</p>
-          <p><strong>user_id：</strong> ${uid}</p>
-          <p>即將進入比賽預約頁面...</p>
-        `;
-      });
+      })
     }
-
     initLIFF();
   </script>
 </body>
