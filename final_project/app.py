@@ -666,7 +666,7 @@ def recent_match():
         return "❌ 未登入，請先從 LINE 入口進入", 403
 
     print(uid)
-    return render_template("recent_match.html")
+    return render_template("recent_match.html", uid = uid)
 
 
 @app.route('/api/matches')
