@@ -3,7 +3,7 @@ from flask_cors import CORS
 import json
 
 app = Flask(__name__)
-CORS(app, origins=["https://cgusqlpj.ddns.net:5001"])
+CORS(app, origins=["https://cgusqlpj.ddns.net:5000"])
 
 
 NBA_SCORE_FILE = "nba_score.json"
