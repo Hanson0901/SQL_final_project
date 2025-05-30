@@ -54,7 +54,8 @@ def get_timing(times):
             # 切換回主文件
             driver.switch_to.default_content()
         except Exception as e:
-            print(f"Cookie處理失敗: {str(e)}")
+            driver.get(f"file:///home/cbes100070/Desktop/website_all/SQL_final_project/F1_website_store/F1_{times}.html")  # 使用本地文件URL
+            print(f"無法找到iframe或按鈕，使用本地文件: {str(e)}")
 
             # 等待數據加載
         WebDriverWait(driver, 20).until(
