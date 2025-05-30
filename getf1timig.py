@@ -61,7 +61,7 @@ def get_timing(times):
                 EC.presence_of_element_located((By.CSS_SELECTOR, ".w-full.grid"))
         )
         
-        time.sleep(5)  # 等待數據加載
+        time.sleep(10)  # 等待數據加載
         
         soup = BeautifulSoup(driver.page_source, 'html.parser')
         print(soup.prettify())  # 打印HTML內容以便調試
