@@ -852,7 +852,7 @@ def get_matches():
                 "name": row["match_name"],
                 "match_name": row["match_name"],
                 "time": time_str,
-                "platform": row["platform_name"].split(','),
+                "platform": row["platform_name"].split('、'),
                 "type": row["type"],
                 "point": point,
                 "winner_team_name": winner_name
