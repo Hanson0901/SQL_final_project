@@ -271,7 +271,7 @@ def handle_message(event):
                             ]
                         ),
                         CarouselColumn(
-                            thumbnail_image_url='https://i.imgur.com/8QfKQ7b.jpg',
+                            thumbnail_image_url='https://upload.wikimedia.org/wikipedia/commons/3/33/F1.svg',
                             title='F1',
                             text='點擊前往 F1 官網',
                             actions=[
@@ -282,7 +282,7 @@ def handle_message(event):
                             ]
                         ),
                         CarouselColumn(
-                            thumbnail_image_url='https://i.imgur.com/7vQ6Hb.jpg',
+                            thumbnail_image_url='https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Major_League_Baseball_logo.svg/1200px-Major_League_Baseball_logo.svg.png',
                             title='MLB',
                             text='點擊前往 MLB 官網',
                             actions=[
@@ -293,7 +293,7 @@ def handle_message(event):
                             ]
                         ),
                         CarouselColumn(
-                            thumbnail_image_url='https://i.imgur.com/6IujQb.jpg',
+                            thumbnail_image_url='https://scontent.ftpe8-4.fna.fbcdn.net/v/t39.30808-6/312987768_174139705273413_768451481816410125_n.png?_nc_cat=110&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=R9Tif76Q7dwQ7kNvwHl2pGW&_nc_oc=AdlWTd1wi63zzaWlMtGTN0NpQ0lYGMCq4K3LklVCAytMQQpjbDNSq9t4zJfdZ9RdofY&_nc_zt=23&_nc_ht=scontent.ftpe8-4.fna&_nc_gid=x3FYdY6mdI4RhUQHVG-mLQ&oh=00_AfLAFtuHo6XasRdpCC-7KQUXGicXrXQ_3C2ykUFnC1pokw&oe=683F66A9',
                             title='CPBL',
                             text='點擊前往 CPBL 官網',
                             actions=[
@@ -304,7 +304,7 @@ def handle_message(event):
                             ]
                         ),
                         CarouselColumn(
-                            thumbnail_image_url='https://i.imgur.com/3yQF8b.jpg',
+                            thumbnail_image_url='https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/dc/b0/27/dcb027a7-7be4-f050-e127-df60254d1a38/AppIcon-0-1x_U007ephone-0-85-220-0.png/434x0w.webp',
                             title='BWF',
                             text='點擊前往 BWF 官網',
                             actions=[
