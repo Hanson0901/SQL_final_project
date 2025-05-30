@@ -107,6 +107,7 @@ body {
   .rhe {
     display: flex;
     margin-left: auto;
+    width: 160px;
     flex-direction: column;
     grid-template-columns: 30px 30px 30px; /* 固定 R、H、E 的欄位寬度 */
     text-align: right; /* 讓內容向右對齊 */
