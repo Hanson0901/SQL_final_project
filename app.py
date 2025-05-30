@@ -1,5 +1,6 @@
 # app.py
 from flask import Flask, render_template, jsonify, request
+from flask_cors import CORS
 import pandas as pd
 import random
 from datetime import datetime
@@ -17,6 +18,7 @@ from selenium.webdriver.firefox.options import Options
 from fake_useragent import UserAgent
 
 app = Flask(__name__)
+CORS(app)
 
 @app.route("/")
 def index():
