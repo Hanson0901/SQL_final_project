@@ -68,6 +68,7 @@ def get_timing(times):
             print("成功找到賽事數據")
         else:
             driver.quit()
+            driver = webdriver.Chrome(options=options)
             driver.get(f"file:///home/cbes100070/Desktop/website_all/SQL_final_project/F1_website_store/F1_{times}.html")  # 使用本地文件URL
             soup = BeautifulSoup(driver.page_source, 'html.parser')
             print("使用本地文件獲取賽事數據")
