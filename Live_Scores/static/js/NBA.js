@@ -1,4 +1,4 @@
-const API_URL = 'http://34.80.207.190:5000/app/NBAscore';
+const API_URL = 'https://34.80.207.190:5000/app/NBAscore';
 // fetchScore();
 function formatDateTime(date) {
   const year = date.getFullYear();
