@@ -39,7 +39,7 @@ def index():
 @app.route("/set_uid", methods=["POST"])
 def set_uid():
     data = request.get_json()
-    uid = data.get("uid")
+    uid = data.get("uid").strip()
     if uid:
         session["uid"] = uid
         print("使用者 UID：", uid)
