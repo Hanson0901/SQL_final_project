@@ -97,7 +97,7 @@ Type=""
 
 @app.route("/remind", methods=["GET"])
 def remind():
-        with sql_connect.cursor() as cursor:
+        with db.cursor() as cursor:
             start_time = datetime.now() + timedelta(minutes=9)
             end_time = datetime.now() + timedelta(minutes=10)
 
