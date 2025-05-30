@@ -104,6 +104,8 @@ def get_timing(times):
             tyre_tag = row.select_one('td:nth-of-type(4)')
             for img in tyre_tag.find_all('img'):
                 src = img['src']
+                if img['data-original-src']:
+                    src = img['data-original-src']
                 if 'hard' in src:
                     tyre = '硬胎'
                 elif 'medium' in src:
