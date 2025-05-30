@@ -98,8 +98,8 @@ Type=""
 @app.route("/remind", methods=["GET"])
 def remind():
     global cursor, db
-    start_time = datetime.now() + timedelta(minutes=9)
-    end_time = datetime.now() + timedelta(minutes=10)
+    start_time = datetime.now() + timedelta(minutes=13)
+    end_time = datetime.now() + timedelta(minutes=14)
 
     print("🔍 查詢提醒範圍：", start_time.strftime("%Y-%m-%d %H:%M:%S"), "～", end_time.strftime("%Y-%m-%d %H:%M:%S"))
 
