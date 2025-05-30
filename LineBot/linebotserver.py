@@ -14,12 +14,14 @@ from linebot.v3.messaging import (
     CarouselTemplate,
     CarouselColumn,
     MessageAction,
+    URITemplateAction,
     TextMessage,
     QuickReply,
     QuickReplyItem,
     FlexMessage,
     FlexContainer,
-    PushMessageRequest
+    PushMessageRequest,
+    TemplateSendMessage  # <-- Add this import
 )
 from linebot.v3.webhooks import MessageEvent, TextMessageContent, PostbackEvent
 
@@ -256,16 +258,70 @@ def handle_message(event):
 
             elif Message == "及時比分":
                 # 處理比分查詢
-                quick_reply = QuickReply(
-                    items=[
-                        QuickReplyItem(action=MessageAction(label="NBA", text="NBA")),
-                        QuickReplyItem(action=MessageAction(label="F1", text="F1")),
-                        QuickReplyItem(action=MessageAction(label="MLB", text="MLB")),
-                        QuickReplyItem(action=MessageAction(label="CPBL", text="CPBL")),
-                        QuickReplyItem(action=MessageAction(label="BWF", text="BWF"))
-                    ]
+                carousel_template = CarouselTemplate(
+                columns=[
+                CarouselColumn(
+                thumbnail_image_url='https://i.imgur.com/2nCt3Sbl.jpg',  # NBA 圖片
+                title='NBA',
+                text='點擊前往 NBA 官網',
+                actions=[
+                    URITemplateAction(
+                        label='前往官網',
+                        uri='https://www.nba.com/scores'
+                    )
+                ]
+            ),
+            CarouselColumn(
+                thumbnail_image_url='https://i.imgur.com/8QfKQ7bl.jpg',  # F1 圖片
+                title='F1',
+                text='點擊前往 F1 官網',
+                actions=[
+                    URITemplateAction(
+                        label='前往官網',
+                        uri='https://www.formula1.com/en/results.html'
+                    )
+                ]
+            ),
+            CarouselColumn(
+                thumbnail_image_url='https://i.imgur.com/7vQ6Hbl.jpg',  # MLB 圖片
+                title='MLB',
+                text='點擊前往 MLB 官網',
+                actions=[
+                    URITemplateAction(
+                        label='前往官網',
+                        uri='https://www.mlb.com/scores'
+                    )
+                ]
+            ),
+            CarouselColumn(
+                thumbnail_image_url='https://i.imgur.com/6IujQbl.jpg',  # CPBL 圖片
+                title='CPBL',
+                text='點擊前往 CPBL 官網',
+                actions=[
+                    URITemplateAction(
+                        label='前往官網',
+                        uri='https://www.cpbl.com.tw/box'
+                    )
+                ]
+            ),
+            CarouselColumn(
+                thumbnail_image_url='https://i.imgur.com/3yQF8bl.jpg',  # BWF 圖片
+                title='BWF',
+                text='點擊前往 BWF 官網',
+                actions=[
+                    URITemplateAction(
+                        label='前往官網',
+                        uri='https://bwfworldtour.bwfbadminton.com/live-scores/'
+                    )
+                ]
+            ),
+        ]
+    )
+                template_message = TemplateSendMessage(
+                    alt_text='請選擇賽事種類',
+                    template=carousel_template
                 )
-                self_reply(event, "請選擇賽事種類：", quick_reply)
+                line_bot_api.reply_message(event.reply_token, template_message)
                 
             elif Message in ["NBA", "F1", "MLB", "CPBL", "BWF"]:
                 # 處理賽事比分顯示
