@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://static.line-scdn.net/liff/edge/2.1/sdk.js"></script>
   <title>比賽大門</title>
   <style>
     body {
@@ -50,4 +51,36 @@
     <a href="https://cgusqlpj.ddns.net:5000/">及時比分</a>
   </div>
 </body>
+<script>
+  async function initLIFF() {
+  await liff.init({ liffId: "2007494110-GV925OeY" });
+
+  if (!liff.isLoggedIn()) {
+    liff.login();
+    return;
+  }
+
+  const profile = await liff.getProfile();
+  const userId = profile.userId;
+  const name = profile.displayName;
+
+  // ✅ 印出使用者資訊到開發者工具
+  console.log("LIFF 登入成功", name, userId);
+
+  // ✅ 顯示 userId 與名稱在頁面
+    document.getElementById("info").innerHTML = `
+        <p><strong>顯示名稱：</strong> ${name}</p>
+        <p><strong>user_id：</strong> ${userId}</p>
+      `;
+
+  fetch("https://cgusqlpj.ddns.net:2222/", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({ user_id: userId, name: name })
+});
+
+}
+
+initLIFF();
+</script>
 </html> 
