@@ -22,6 +22,7 @@ from linebot.v3.messaging import (
     FlexContainer,
     PushMessageRequest
 )
+from linebot.v3.messaging import TemplateSendMessage  # Add this import
 from linebot.v3.webhooks import MessageEvent, TextMessageContent, PostbackEvent
 
 import json
