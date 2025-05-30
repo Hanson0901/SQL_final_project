@@ -64,7 +64,7 @@ def get_timing(times):
         time.sleep(10)  # 等待數據加載
         
         soup = BeautifulSoup(driver.page_source, 'html.parser')
-        if soup.find(".grid.grid-cols-[50px_auto_70px_50px_60px].rounded-md.tablet:grid-cols-[50px_auto_90px_70px_90px].auto-cols-auto.relative.text-xs.font-normal.text-center.py-5.even:bg-grey-90"):
+        if soup.find('tr[class="grid grid-cols-[50px_auto_70px_50px_60px] rounded-md tablet:grid-cols-[50px_auto_90px_70px_90px] auto-cols-auto relative text-xs font-normal text-center py-5 even:bg-grey-90"]'):
             print("成功找到賽事數據")
         else:
             driver.quit()
