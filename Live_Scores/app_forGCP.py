@@ -109,4 +109,8 @@ def nba_official():
 
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5001, debug=True)
+    context = (
+        "/opt/lampp/etc/pem/fullchain.pem",
+        "/opt/lampp/etc/pem/privkey.pem"
+    )
+    app.run(host="0.0.0.0", port=5001, debug=True, ssl_context=context)
