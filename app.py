@@ -249,7 +249,7 @@ def get_bwf_score():
 
     # url = "https://bwfbadminton.com/"
 
-    url = "http://cgusqlpj.ddns.net:5001/BWF_official"
+    url = "https://cgusqlpj.ddns.net:5001/BWF_official"
 
     # url = "http://localhost:5001/BWF_official"
 
