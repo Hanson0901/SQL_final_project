@@ -54,7 +54,6 @@ def get_timing(times):
             # 切換回主文件
             driver.switch_to.default_content()
         except Exception as e:
-            driver.get(f"file:///home/cbes100070/Desktop/website_all/SQL_final_project/F1_website_store/F1_{times}.html")  # 使用本地文件URL
             print(f"無法找到iframe或按鈕，使用本地文件: {str(e)}")
 
             # 等待數據加載
@@ -65,6 +64,13 @@ def get_timing(times):
         time.sleep(10)  # 等待數據加載
         
         soup = BeautifulSoup(driver.page_source, 'html.parser')
+        if soup.find("[class=\"grid grid-cols-[50px_auto_70px_50px_60px] rounded-md tablet:grid-cols-[50px_auto_90px_70px_90px] auto-cols-auto relative text-xs font-normal text-center py-5 even:bg-grey-90\"]"):
+            print("成功找到賽事數據")
+        else:
+            driver.quit()
+            driver.get(f"file:///home/cbes100070/Desktop/website_all/SQL_final_project/F1_website_store/F1_{times}.html")  # 使用本地文件URL
+            soup = BeautifulSoup(driver.page_source, 'html.parser')
+            print("使用本地文件獲取賽事數據")
         print(soup.prettify())  # 打印HTML內容以便調試
         team_colors = {
             'Red Bull Racing': '#1E41FF',
