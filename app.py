@@ -18,7 +18,8 @@ from selenium.webdriver.firefox.options import Options
 from fake_useragent import UserAgent
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, origins=["https://cgusqlpj.ddns.net:5001"])
+
 
 @app.route("/")
 def index():
