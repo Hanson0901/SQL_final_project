@@ -34,7 +34,7 @@ def get_timing(times):
     })
     driver.execute_script("Object.defineProperty(navigator, 'webdriver', {get: () => undefined})")
     try:
-        driver.get(f"file:///{os.path.abspath(f'F1_website_store/f1_{times}.html')}")  # 使用本地文件URL
+        driver.get(f"file:///home/cbes100070/Desktop/website_all/SQL_final_project/F1_website_store/F1_{times}.html")  # 使用本地文件URL
         time.sleep(5)  # 等待頁面加載
         '''try:
         
