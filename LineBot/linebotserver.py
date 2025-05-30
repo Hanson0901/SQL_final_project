@@ -122,7 +122,7 @@ def remind():
 
         for row in results:
             user_id, game_no, date, time_str, sport_name, team_a, team_b = row
-            f"🎮 運動：{sport_name}\n"
+            
             cursor.execute("""
                 SELECT p.name
                 FROM match_platforms mp
@@ -134,7 +134,7 @@ def remind():
 
             message = f"📣 您預約的比賽即將開始！\n" \
                       f"📅 日期：{date} {time_str}\n" \
-                      f"🎮 種類：{type_id}\n" \
+                      f"🎮 運動：{sport_name}\n"\
                       f"🏀 賽事：{team_a} vs {team_b}\n" \
                       f"📺 推薦平台：{platform_str}"
 
