@@ -265,7 +265,7 @@ def handle_message(event):
                             text='點擊前往 NBA 官網',
                             actions=[
                                 URIAction(
-                                    label='前往官網',
+                                    label='前往及時比分',
                                     uri='https://cgusqlpj.ddns.net:5000/NBAscore'
                                 )
                             ]
@@ -276,7 +276,7 @@ def handle_message(event):
                             text='點擊前往 F1 官網',
                             actions=[
                                 URIAction(
-                                label='前往官網',
+                                label='前往及時比分',
                                 uri='https://cgusqlpj.ddns.net:5000/F1Timing'
                                 )
                             ]
@@ -287,7 +287,7 @@ def handle_message(event):
                             text='點擊前往 MLB 官網',
                             actions=[
                                 URIAction(
-                             label='前往官網',
+                             label='前往及時比分',
                                 uri='https://cgusqlpj.ddns.net:5000/MLB_living'
                                 )
                             ]
@@ -298,7 +298,7 @@ def handle_message(event):
                             text='點擊前往 CPBL 官網',
                             actions=[
                                 URIAction(
-                                    label='前往官網',
+                                    label='前往及時比分',
                                     uri='https://cgusqlpj.ddns.net:5000/CPBL_living'
                                 )
                             ]
@@ -309,7 +309,7 @@ def handle_message(event):
                             text='點擊前往 BWF 官網',
                             actions=[
                                 URIAction(
-                                    label='前往官網',
+                                    label='前往及時比分',
                                     uri='https://cgusqlpj.ddns.net:5000/BWFscore'
                                 )
                             ]
