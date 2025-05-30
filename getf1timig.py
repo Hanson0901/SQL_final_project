@@ -21,7 +21,6 @@ def get_timing(times):
 
     # 其他反檢測設定
     options.add_argument("--disable-blink-features=AutomationControlled")
-    options.add_argument("--headless")  # 無頭模式
     options.add_experimental_option("excludeSwitches", ["enable-automation"])
     options.add_experimental_option("useAutomationExtension", False)
 
