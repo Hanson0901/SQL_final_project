@@ -37,7 +37,7 @@ def get_timing(times):
     try:
         driver.get(f"file:///{os.path.abspath(f'F1_website_store/f1_{times}.mhtml')}")  # 使用本地文件URL
         time.sleep(5)  # 等待頁面加載
-        try:
+        '''try:
         
             iframe = WebDriverWait(driver, 15).until(
                 EC.presence_of_element_located((By.ID, "sp_message_iframe_1149950"))
@@ -60,8 +60,9 @@ def get_timing(times):
         WebDriverWait(driver, 20).until(
                 EC.presence_of_element_located((By.CSS_SELECTOR, ".w-full.grid"))
         )
+        
         time.sleep(5)  # 等待數據加載
-
+        '''
         soup = BeautifulSoup(driver.page_source, 'html.parser')
         team_colors = {
             'Red Bull Racing': '#1E41FF',
