@@ -7,6 +7,7 @@ from bs4 import BeautifulSoup
 import pandas as pd
 import requests
 import time
+import os
 from fake_useragent import UserAgent
 
 
@@ -20,6 +21,7 @@ def get_timing(times):
 
     # 其他反檢測設定
     options.add_argument("--disable-blink-features=AutomationControlled")
+    options.add_argument("--headless")  # 無頭模式
     options.add_experimental_option("excludeSwitches", ["enable-automation"])
     options.add_experimental_option("useAutomationExtension", False)
 
@@ -33,8 +35,7 @@ def get_timing(times):
     })
     driver.execute_script("Object.defineProperty(navigator, 'webdriver', {get: () => undefined})")
     try:
-        #driver.get("https://www.formula1.com/en/timing/f1-live-lite")
-        driver.get(f"file://F1_website_store/f1_{times}.mhtml") #/F1 website store/f1.html
+        driver.get(f"file:///{os.path.abspath(f'F1_website_store/f1_{times}.mhtml')}")  # 使用本地文件URL
         time.sleep(5)  # 等待頁面加載
         try:
         
