@@ -40,9 +40,10 @@ points={
 def get_f1_live_timing():
     
     schedule = fastf1.get_event_schedule(2025)
-    schedule['Session5Date'] = pd.to_datetime(schedule['Session5Date'], utc=True)
+    schedule['Session5Date'] = pd.to_datetime(schedule['Session5Date'], utc=True)  # 確保時間是 UTC
+    schedule['Session5Date'] = schedule['Session5Date'].dt.tz_convert('Asia/Shanghai')
     schedule['RaceDate'] = schedule['Session5Date'].dt.strftime('%Y-%m-%d')    # 只選取比賽名稱與正賽時間
-    schedule['Racetime'] = schedule['Session5Date'].dt.strftime('%H:%M')  # 只選取正賽時間
+    schedule['Racetime'] = schedule['Session5Date'].dt.strftime('%H:%M')  # 只選取正賽時間+8hr
     races = schedule[['EventName', 'Country', 'Location', 'RaceDate','Racetime', 'Session5']]
     races = races.rename(columns={'Session5': 'RaceType'})
     
