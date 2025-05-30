@@ -110,7 +110,7 @@ def get_NBAscore():
 
     # url = "http://127.0.0.1:5000/NBA_official"
 
-    url = "http://cgusqlpj.ddns.net:5001/NBA_official"
+    url = "https://cgusqlpj.ddns.net:5001/NBA_official"
 
     # url = "http://localhost:5001/NBA_official"
 
@@ -259,7 +259,7 @@ def get_bwf_score():
     # driver = uc.Chrome(options=options)
 
     driver.get(url)
-    if url != "http://cgusqlpj.ddns.net:5001/BWF_official":
+    if url != "https://cgusqlpj.ddns.net:5001/BWF_official":
 
         # 取得所有下一場賽事的連結（div.menu-next-tmt-outer 裡的 href）
         next_tmt_links = []
