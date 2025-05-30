@@ -111,6 +111,8 @@ body {
     grid-template-columns: 30px 30px 30px; /* 固定 R、H、E 的欄位寬度 */
     text-align: right; /* 讓內容向右對齊 */
     gap: 10px;
+    font-size: 40px;
+
 }
   .rhe-header {
     display: flex;
