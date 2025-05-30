@@ -60,6 +60,7 @@ times = 1
 def get_live_data():
     global times
     df = get_timing(times)
+    print(times)
     times += 1
     if times > 13:
         times = 1
