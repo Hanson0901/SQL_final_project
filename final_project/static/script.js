@@ -2565,9 +2565,9 @@ try {
         content.innerHTML = `
             【${typeMap[match.type]}】<strong>${match.name}</strong><br>
             日期時間 : ${date} | ${match.time}<br>
-            平台：${[match.platform].flat().join("、")}
+            平台：${Array.isArray(match.platform) ? match.platform.join("、") : match.platform}
         `;
-        
+
         const cancelBtn = document.createElement("button");
         cancelBtn.textContent = "X";
         cancelBtn.dataset.date = date;
