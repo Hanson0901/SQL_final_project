@@ -97,61 +97,68 @@ Type=""
 
 @app.route("/remind", methods=["GET"])
 def remind():
-        with db.cursor() as cursor:
-            start_time = datetime.now() + timedelta(minutes=9)
-            end_time = datetime.now() + timedelta(minutes=10)
+    global cursor, db
+    start_time = datetime.now() + timedelta(minutes=9)
+    end_time = datetime.now() + timedelta(minutes=10)
 
-            print("🔍 查詢提醒範圍：", start_time.strftime("%Y-%m-%d %H:%M:%S"), "～", end_time.strftime("%Y-%m-%d %H:%M:%S"))
+    print("🔍 查詢提醒範圍：", start_time.strftime("%Y-%m-%d %H:%M:%S"), "～", end_time.strftime("%Y-%m-%d %H:%M:%S"))
+
+    try:
+        cursor.execute("""
+            SELECT rm.user_id, ms.game_no, ms.date, ms.time, ms.type,
+                   t1.team_name AS team_a, t2.team_name AS team_b
+            FROM reminders rm
+            JOIN matches_schedule ms ON rm.game_no = ms.game_no
+            JOIN teams t1 ON ms.team_a = t1.team_id
+            JOIN teams t2 ON ms.team_b = t2.team_id
+            WHERE CONCAT(ms.date, ' ', ms.time) BETWEEN %s AND %s
+        """, (start_time.strftime("%Y-%m-%d %H:%M:%S"), end_time.strftime("%Y-%m-%d %H:%M:%S")))
+
+        results = cursor.fetchall()
+        if not results:
+            print("⚠️ 沒有要提醒的比賽")
+
+        for row in results:
+            user_id, game_no, date, time_str, type_id, team_a, team_b = row
 
             cursor.execute("""
-                SELECT rm.user_id, ms.game_no, ms.date, ms.time, ms.type,
-                       t1.team_name AS team_a, t2.team_name AS team_b
-                FROM reminders rm
-                JOIN matches_schedule ms ON rm.game_no = ms.game_no
-                JOIN teams t1 ON ms.team_a = t1.team_id
-                JOIN teams t2 ON ms.team_b = t2.team_id
-                WHERE CONCAT(ms.date, ' ', ms.time) BETWEEN %s AND %s
-            """, (start_time.strftime("%Y-%m-%d %H:%M:%S"), end_time.strftime("%Y-%m-%d %H:%M:%S")))
+                SELECT p.name
+                FROM match_platforms mp
+                JOIN platforms p ON mp.platform_id = p.platform_id
+                WHERE mp.game_no = %s
+            """, (game_no,))
+            platforms = [r[0] for r in cursor.fetchall()]
+            platform_str = "、".join(platforms) if platforms else "無"
 
-            results = cursor.fetchall()
-            if not results:
-                print("⚠️ 沒有要提醒的比賽")
+            message = f"📣 您預約的比賽即將開始！\n" \
+                      f"📅 日期：{date} {time_str}\n" \
+                      f"🎮 種類：{type_id}\n" \
+                      f"🏀 賽事：{team_a} vs {team_b}\n" \
+                      f"📺 推薦平台：{platform_str}"
 
-            for row in results:
-                user_id, game_no, date, time_str, type_id, team_a, team_b = row
+            print(f"🔔 推播至 {user_id}：{team_a} vs {team_b}")
 
-                cursor.execute("""
-                    SELECT p.name
-                    FROM match_platforms mp
-                    JOIN platforms p ON mp.platform_id = p.platform_id
-                    WHERE mp.game_no = %s
-                """, (game_no,))
-                platforms = [r[0] for r in cursor.fetchall()]
-                platform_str = "、".join(platforms) if platforms else "無"
-
-                message = f"📣 您預約的比賽即將開始！\n" \
-                          f"📅 日期：{date} {time_str}\n" \
-                          f"🎮 種類：{type_id}\n" \
-                          f"🏀 賽事：{team_a} vs {team_b}\n" \
-                          f"📺 推薦平台：{platform_str}"
-
-                print(f"🔔 推播至 {user_id}：{team_a} vs {team_b}")
-
-                try:
-                    with ApiClient(configuration) as api_client:
-                        line_bot_api = MessagingApi(api_client)
-                        line_bot_api.push_message(
+            try:
+                with ApiClient(configuration) as api_client:
+                    line_bot_api = MessagingApi(api_client)
+                    line_bot_api.push_message(
                         PushMessageRequest(
                             to=user_id,
                             messages=[TextMessage(text=message)]
                         )
-                        )
-                    print("✅ 成功發送提醒\n" + "-" * 50)
-                except ApiException as e:
-                    print("❌ 發送失敗")
-                    print("🔴 錯誤類型：", type(e))
-                    print("📩 回應內容：", e.body)
-                    print("-" * 50)
+                    )
+                print("✅ 成功發送提醒\n" + "-" * 50)
+            except ApiException as e:
+                print("❌ 發送失敗")
+                print("🔴 錯誤類型：", type(e))
+                print("📩 回應內容：", e.body)
+                print("-" * 50)
+    except pymysql.Error as e:
+        print("❌ 資料庫操作錯誤:", str(e))
+        db.rollback()
+
+    return "OK"
+
 
 
 @handler.add(MessageEvent, message=TextMessageContent)
