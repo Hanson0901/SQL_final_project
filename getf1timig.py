@@ -64,6 +64,7 @@ def get_timing(times):
         time.sleep(5)  # 等待數據加載
         '''
         soup = BeautifulSoup(driver.page_source, 'html.parser')
+        print(soup.prettify())  # 打印HTML內容以便調試
         team_colors = {
             'Red Bull Racing': '#1E41FF',
             'Ferrari': '#E10600',
