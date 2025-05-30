@@ -1,8 +1,11 @@
 from flask import Flask, jsonify, request, render_template
-
+from flask_cors import CORS
 import json
 
 app = Flask(__name__)
+CORS(app, origins=["https://cgusqlpj.ddns.net:5000"])
+
+
 NBA_SCORE_FILE = "nba_score.json"
 BWF_SCORE_FILE = "bwf_score.json"
 
@@ -109,4 +112,8 @@ def nba_official():
 
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5001, debug=True)
+    context = (
+        "/opt/lampp/etc/pem/fullchain.pem",
+        "/opt/lampp/etc/pem/privkey.pem"
+    )
+    app.run(host="0.0.0.0", port=5001, debug=True, ssl_context=context)
