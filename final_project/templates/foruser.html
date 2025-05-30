@@ -73,11 +73,7 @@
         <p><strong>user_id：</strong> ${userId}</p>
       `;
 
-  fetch("https://cgusqlpj.ddns.net:2222/recent_match", {
-  method: "POST",
-  headers: { "Content-Type": "application/json" },
-  body: JSON.stringify({ user_id: userId, name: name })
-});
+  window.location.href = `/foruser?uid=${userId}`;
 
 }
 
