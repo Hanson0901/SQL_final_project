@@ -32,7 +32,6 @@ def fix_timedelta(row):
 #首頁
 @app.route("/")
 def index():
-    
     return render_template("index.html")
 
 
@@ -43,7 +42,7 @@ def set_uid():
     uid = data.get("uid")
     if uid:
         session["uid"] = uid
-        print("✅ 記錄 UID：", uid)
+        print("記錄 UID：", uid)
     return jsonify(success=True)
 
 
@@ -661,10 +660,10 @@ def get_keywords():
 #===============================比賽預約=====================================#
 @app.route("/recent_match")
 def recent_match():
-    # uid = request.args.get("uid")
+    uid = request.args.get("uid")
 
-    # if uid:
-    #     session["uid"] = uid  # 存進 session
+    if uid:
+        session["uid"] = uid  # 存進 session
 
     return render_template("recent_match.html")
 

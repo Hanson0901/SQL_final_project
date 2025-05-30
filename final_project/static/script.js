@@ -2206,7 +2206,7 @@ try {
 
 }else if(page === "recent_match"){
     //UID
-    const uid = "10107670810";
+    const uid = "{{ session.get('uid', '') }}";
 
     const calendarEl = document.getElementById("calendar");
     const currentMonthEl = document.getElementById("current-month");
