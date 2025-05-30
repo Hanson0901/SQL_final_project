@@ -805,7 +805,7 @@ def get_matches():
             other_rows = cursor.fetchall()
 
         # 合併資料
-        all_rows = f1_rows + bwf_rows + other_rows
+        all_rows = list(f1_rows) + list(bwf_rows) + list(other_rows)
         matches = {}
 
         for row in all_rows:
