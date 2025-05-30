@@ -316,15 +316,18 @@ def handle_message(event):
                         ),
                     ]
                 )
+                template_message = TemplateMessage(
+                    alt_text='請選擇賽事種類',
+                    template=carousel_template
+                )
                 with ApiClient(configuration) as api_client:
                     line_bot_api = MessagingApi(api_client)
                     line_bot_api.reply_message(
                         ReplyMessageRequest(
                             reply_token=event.reply_token,
-                            messages=[carousel_template]
+                            messages=[template_message]
                         )
                     )
-                
             elif Message in ["NBA", "F1", "MLB", "CPBL", "BWF"]:
                 # 處理賽事比分顯示
                 self_reply(event, f"您選擇的賽事種類是：{Message}\n正在查詢即時比分...")
