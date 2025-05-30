@@ -13,7 +13,7 @@
 <!-- PROJECT SHIELDS -->
 <!--
 *** I'm using markdown "reference style" links for readability.
-*** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
+*** Reference links are enclosed  in brackets [ ] instead of parentheses ( ).
 *** See the bottom of this document for the declaration of the reference variables
 *** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
 *** https://www.markdownguide.org/basic-syntax/#reference-style-links
@@ -307,3 +307,4 @@ Use this space to list resources you find helpful and would like to give credit 
 [GCP-url]: https://console.cloud.google.com/?hl=zh-tw
 [JQuery.com]: https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white
 [JQuery-url]: https://jquery.com 
+>>>>>>> 716d625 (FIX MD)
