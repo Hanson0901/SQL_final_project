@@ -105,22 +105,24 @@ def remind():
 
     try:
         cursor.execute("""
-            SELECT rm.user_id, ms.game_no, ms.date, ms.time, ms.type,
-                   t1.team_name AS team_a, t2.team_name AS team_b
-            FROM reminders rm
-            JOIN matches_schedule ms ON rm.game_no = ms.game_no
-            JOIN teams t1 ON ms.team_a = t1.team_id
-            JOIN teams t2 ON ms.team_b = t2.team_id
-            WHERE CONCAT(ms.date, ' ', ms.time) BETWEEN %s AND %s
-        """, (start_time.strftime("%Y-%m-%d %H:%M:%S"), end_time.strftime("%Y-%m-%d %H:%M:%S")))
+                SELECT rm.user_id, ms.game_no, ms.date, ms.time, st.sport_name,
+                    t1.team_name AS team_a, t2.team_name AS team_b
+                FROM reminders rm
+                JOIN matches_schedule ms ON rm.game_no = ms.game_no
+                JOIN teams t1 ON ms.team_a = t1.team_id
+                JOIN teams t2 ON ms.team_b = t2.team_id
+                JOIN sport_type st ON ms.type = st.type
+                WHERE CONCAT(ms.date, ' ', ms.time) BETWEEN %s AND %s
+            """, (start_time.strftime("%Y-%m-%d %H:%M:%S"), end_time.strftime("%Y-%m-%d %H:%M:%S")))
+
 
         results = cursor.fetchall()
         if not results:
             print("⚠️ 沒有要提醒的比賽")
 
         for row in results:
-            user_id, game_no, date, time_str, type_id, team_a, team_b = row
-
+            user_id, game_no, date, time_str, sport_name, team_a, team_b = row
+            f"🎮 運動：{sport_name}\n"
             cursor.execute("""
                 SELECT p.name
                 FROM match_platforms mp
