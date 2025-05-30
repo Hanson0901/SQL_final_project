@@ -32,6 +32,10 @@ def fix_timedelta(row):
 #首頁
 @app.route("/")
 def index():
+    uid = request.args.get("uid")
+    if uid:
+        print("✅ 收到 UID：", uid)  # 印出來
+        session["uid"] = uid
     return render_template("index.html")
 
 @app.route("/admin/super")
@@ -119,10 +123,7 @@ def downgrade_admin(admin_id):
 
 @app.route("/foruser")
 def foruser():
-    uid = request.args.get("uid")
-    if uid:
-        print("✅ 收到 UID：", uid)  # 印出來
-        session["uid"] = uid
+    
     return render_template("foruser.html")
 
 player_table_map = {
