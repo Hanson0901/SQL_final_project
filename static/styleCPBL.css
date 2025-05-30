@@ -49,8 +49,8 @@ body {
   }
 
   .scoreboards {
-    display: flex;
-    /*grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));*/
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(800px, 1fr));
     gap: 20px;
   }
   
