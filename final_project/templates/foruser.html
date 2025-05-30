@@ -76,7 +76,7 @@
       await liff.init({ liffId: "2007488459-579gR2Qz" });
 
       if (!liff.isLoggedIn()) {
-        liff.login();
+        liff.login({ redirectUri: window.location.href });
         return;
       }
 
