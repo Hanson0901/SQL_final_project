@@ -87,8 +87,8 @@ body {
   }
   
   .team-logo {
-    width: 24px; /* 設定圖片寬度 */
-    height: 24px; /* 設定圖片高度 */
+    width: 40x; /* 設定圖片寬度 */
+    height: 40px; /* 設定圖片高度 */
     object-fit: contain; /* 確保圖片不會變形 */
     vertical-align: middle; /* 讓圖片與文字垂直對齊 */
     margin-right: 5px; /* 與文字保持適當間距 */
