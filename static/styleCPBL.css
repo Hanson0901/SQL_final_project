@@ -124,7 +124,7 @@ body {
     font-size: 40px;
 }
   .rhe-header span {
-    width: 15px; /* 固定欄位寬度 */
+    width: 40px; /* 固定欄位寬度 */
     text-align: middle; /* 讓內容向右對齊 */
   }
 
