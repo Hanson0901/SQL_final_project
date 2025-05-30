@@ -811,6 +811,7 @@ def get_matches():
         for row in all_rows:
             # 時間處理
             match_time = row["time"]
+            
             if isinstance(match_time, timedelta):
                 t = (datetime.min + match_time).time()
                 time_str = t.strftime("%H:%M")
