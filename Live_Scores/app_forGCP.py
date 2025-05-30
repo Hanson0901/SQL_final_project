@@ -1,8 +1,9 @@
 from flask import Flask, jsonify, request, render_template
-
+from flask_cors import CORS
 import json
 
 app = Flask(__name__)
+CORS(app)
 NBA_SCORE_FILE = "nba_score.json"
 BWF_SCORE_FILE = "bwf_score.json"
 
