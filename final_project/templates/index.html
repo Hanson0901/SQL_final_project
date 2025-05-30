@@ -103,21 +103,16 @@
       }
 
       const profile = await liff.getProfile();
-      const userId = profile.userId;
+      const uid = profile.userId;
       const name = profile.displayName;
 
       // ✅ 印出使用者資訊到 console 與畫面
-      console.log("LIFF 登入成功", name, userId);
+      console.log("LIFF 登入成功", name, uid);
       document.getElementById("info").innerHTML = `
         <p><strong>顯示名稱：</strong> ${name}</p>
-        <p><strong>user_id：</strong> ${userId}</p>
+        <p><strong>user_id：</strong> ${uid}</p>
         <p>即將進入比賽預約頁面...</p>
       `;
-
-      // ✅ 延遲跳轉，給你幾秒時間看到畫面
-      setTimeout(() => {
-        window.location.href = `/recent_match?uid=${userId}`;
-      }, 2000);
     }
 
     initLIFF();
