@@ -811,7 +811,6 @@ def get_matches():
         for row in all_rows:
             # 時間處理
             match_time = row["time"]
-            
             if isinstance(match_time, timedelta):
                 t = (datetime.min + match_time).time()
                 time_str = t.strftime("%H:%M")
@@ -850,22 +849,22 @@ def get_matches():
 
             existing = next((m for m in matches[date_str] if m["game_no"] == row["game_no"]), None)
 
-            if existing:
-                if isinstance(existing["platform"], list):
-                    existing["platform"].append(row["platform_name"])
-                else:
-                    existing["platform"] = [existing["platform"], row["platform_name"]]
+        if existing:
+            if isinstance(existing["platform"], list):
+                existing["platform"].append(row["platform_name"].split(','))
             else:
-                matches[date_str].append({
-                    "game_no": row["game_no"],
-                    "name": row["match_name"],
-                    "match_name": row["match_name"],
-                    "time": time_str,
-                    "platform": row["platform_name"],
-                    "type": row["type"],
-                    "point": point,
-                    "winner_team_name": winner_name
-                })
+                existing["platform"] = [existing["platform"], row["platform_name"]]
+        else:
+            matches[date_str].append({
+                "game_no": row["game_no"],
+                "name": row["match_name"],
+                "match_name": row["match_name"],
+                "time": time_str,
+                "platform": row["platform_name"],
+                "type": row["type"],
+                "point": point,
+                "winner_team_name": winner_name
+            })
 
         return jsonify(matches)
 
