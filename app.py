@@ -55,7 +55,7 @@ def f1_timing():
 def get_live_data():
     df = get_timing()
     return jsonify({
-        'last_updated': datetime.now().strftime("%H:%M:%S"),
+        'last_updated': datetime.datetime.now().strftime("%H:%M:%S"),
         'data': df.to_dict(orient='records')
     })
 
