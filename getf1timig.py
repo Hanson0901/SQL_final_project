@@ -34,7 +34,7 @@ def get_timing(times):
     driver.execute_script("Object.defineProperty(navigator, 'webdriver', {get: () => undefined})")
     try:
         #driver.get("https://www.formula1.com/en/timing/f1-live-lite")
-        driver.get(f"file://F1_website_store/f1_{times}.html") #/F1 website store/f1.html
+        driver.get(f"file://F1_website_store/f1_{times}.mhtml") #/F1 website store/f1.html
         time.sleep(5)  # 等待頁面加載
         try:
         

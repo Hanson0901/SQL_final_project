@@ -58,7 +58,7 @@ def f1_timing():
 times = 1
 @app.route('/f1/get_live_data')
 def get_live_data():
-    
+    global times
     df = get_timing(times)
     times += 1
     if times > 13:
