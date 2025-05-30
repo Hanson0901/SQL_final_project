@@ -1034,8 +1034,8 @@ def delete_expired_reminders():
             FROM reminders r
             JOIN matches_schedule m ON r.game_no = m.game_no
             WHERE 
-                m.date < CURDATE()
-                OR (m.date = CURDATE() AND m.time < CURTIME())
+                STR_TO_DATE(m.date, '%Y-%m-%d') < CURDATE()
+                OR (STR_TO_DATE(m.date, '%Y-%m-%d') = CURDATE() AND STR_TO_DATE(m.time, '%H:%i:%s') < CURTIME());
         """)
         connection.commit()
         print(f"[{datetime.now()}] ⏰ 過期提醒已刪除")
@@ -1989,6 +1989,8 @@ if __name__ == "__main__":
     scheduler.start()
     print("定時任務啟動")
 
+    delete_expired_reminders()
+    
     context = (
         "/opt/lampp/etc/pem/fullchain.pem",
         "/opt/lampp/etc/pem/privkey.pem"
