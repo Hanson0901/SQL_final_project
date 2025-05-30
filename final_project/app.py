@@ -847,16 +847,24 @@ def get_matches():
             if date_str not in matches:
                 matches[date_str] = []
 
-            matches[date_str].append({
-                "game_no": row["game_no"],
-                "name": row["match_name"],
-                "match_name": row["match_name"],
-                "time": time_str,
-                "platform": row["platform_name"],
-                "type": row["type"],
-                "point": point,
-                "winner_team_name": winner_name
-            })
+            existing = next((m for m in matches[date_str] if m["game_no"] == row["game_no"]), None)
+
+            if existing:
+                if isinstance(existing["platform"], list):
+                    existing["platform"].append(row["platform_name"])
+                else:
+                    existing["platform"] = [existing["platform"], row["platform_name"]]
+            else:
+                matches[date_str].append({
+                    "game_no": row["game_no"],
+                    "name": row["match_name"],
+                    "match_name": row["match_name"],
+                    "time": time_str,
+                    "platform": row["platform_name"],
+                    "type": row["type"],
+                    "point": point,
+                    "winner_team_name": winner_name
+                })
 
         return jsonify(matches)
 
@@ -1990,7 +1998,7 @@ if __name__ == "__main__":
     print("定時任務啟動")
 
     delete_expired_reminders()
-    
+
     context = (
         "/opt/lampp/etc/pem/fullchain.pem",
         "/opt/lampp/etc/pem/privkey.pem"
