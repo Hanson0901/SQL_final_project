@@ -106,7 +106,7 @@
       const uid = profile.userId;
       const name = profile.displayName;
 
-      fetch("/", {
+      fetch("/set_uid", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ uid: uid })

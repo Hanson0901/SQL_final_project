@@ -32,12 +32,19 @@ def fix_timedelta(row):
 #首頁
 @app.route("/")
 def index():
+    
+    return render_template("index.html")
+
+
+#抓UID
+@app.route("/set_uid", methods=["POST"])
+def set_uid():
     data = request.get_json()
     uid = data.get("uid")
     if uid:
         session["uid"] = uid
         print("✅ 記錄 UID：", uid)
-    return render_template("index.html")
+    return jsonify(success=True)
 
 
 @app.route("/admin/super")
