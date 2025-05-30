@@ -1,6 +1,8 @@
 from flask import Flask, request, abort
 from flask_cors import CORS
 from flask.logging import create_logger
+from flask_apscheduler import APScheduler
+import requests
 import pymysql
 import re
 from linebot.v3 import WebhookHandler
@@ -23,9 +25,10 @@ from linebot.v3.messaging import (
     PushMessageRequest
 )
 from linebot.v3.webhooks import MessageEvent, TextMessageContent, PostbackEvent
+from linebot.v3.exceptions import ApiException
 
 import json
-from datetime import datetime
+from datetime import datetime, timedelta
 sport={
     "NBA":1,
     "F1":2,
@@ -60,6 +63,24 @@ configuration = Configuration(access_token=CHANNEL_ACCESS_TOKEN)
 handler = WebhookHandler(CHANNEL_SECRET)
 sql_connect("localhost", 3306, "hanson0901", "Hanson940901", "final_project")
 
+class Config:
+    SCHEDULER_API_ENABLED = True
+
+app.config.from_object(Config())
+
+scheduler = APScheduler()
+scheduler.init_app(app)
+scheduler.start()
+
+# 定時任務：每60秒請求 /remind
+@scheduler.task('interval', id='call_remind', seconds=60)
+def call_remind():
+    try:
+        # 假設本機運行在 5000 port
+        resp = requests.get('https://cgusqlpj.ddns.net:928/remind')
+        print("自動呼叫 /remind，狀態碼：", resp.status_code)
+    except Exception as e:
+        print("自動呼叫失敗：", e)
 
 @app.route("/", methods=["POST"])
 def callback():
@@ -73,126 +94,65 @@ def callback():
 
 previous_message = ""  # 儲存上一條訊息
 Type=""
-'''@handler.add(MessageEvent, message=TextMessageContent)
-def handle_message(event):
-    user_id = event.source.user_id
-    print(f"User ID: {user_id}")
-    
-    if event.message and hasattr(event.message, "text"):
-        global previous_message 
-        Message = event.message.text
-        print(f"Received message: {Message}")
 
-        if Message == "Feed Back":
-            with ApiClient(configuration) as api_client:
-                messaging_api = MessagingApi(api_client)
+@app.route("/remind", methods=["GET"])
+def remind():
+        with sql_connect.cursor() as cursor:
+            start_time = datetime.now() + timedelta(minutes=9)
+            end_time = datetime.now() + timedelta(minutes=10)
 
-                quick_reply = QuickReply(
-                items=[
-                    QuickReplyItem(action=MessageAction(label="NBA", text="NBA")),
-                    QuickReplyItem(action=MessageAction(label="F1", text="F1")),
-                    QuickReplyItem(action=MessageAction(label="MLB", text="MLB")),
-                    QuickReplyItem(action=MessageAction(label="CPBL", text="CPBL")),
-                    QuickReplyItem(action=MessageAction(label="BWF", text="BWF")),
-                ]
-            )
-            msg = TextMessage(
-                text="請選擇賽事種類：",
-                quick_reply=quick_reply
-            )
-            messaging_api.reply_message(
-                ReplyMessageRequest(
-                    reply_token=event.reply_token,
-                    messages=[msg]
-                )
-            )
-        elif  previous_message=="Feed Back" and Message in ["NBA", "F1", "MLB", "CPBL", "BWF"]:
-            with ApiClient(configuration) as api_client:
-                messaging_api = MessagingApi(api_client)
-                reply = TextMessage(text=f"您選擇的賽事種類是：{Message}\n請輸入您的回報內容")
-                messaging_api.reply_message(
-                    ReplyMessageRequest(
-                        reply_token=event.reply_token,
-                        messages=[reply]
-                    )
-                )
+            print("🔍 查詢提醒範圍：", start_time.strftime("%Y-%m-%d %H:%M:%S"), "～", end_time.strftime("%Y-%m-%d %H:%M:%S"))
 
-            
-        elif Message == "及時比分":
-            with ApiClient(configuration) as api_client:
-                messaging_api = MessagingApi(api_client)
+            cursor.execute("""
+                SELECT rm.user_id, ms.game_no, ms.date, ms.time, ms.type,
+                       t1.team_name AS team_a, t2.team_name AS team_b
+                FROM reminders rm
+                JOIN matches_schedule ms ON rm.game_no = ms.game_no
+                JOIN teams t1 ON ms.team_a = t1.team_id
+                JOIN teams t2 ON ms.team_b = t2.team_id
+                WHERE CONCAT(ms.date, ' ', ms.time) BETWEEN %s AND %s
+            """, (start_time.strftime("%Y-%m-%d %H:%M:%S"), end_time.strftime("%Y-%m-%d %H:%M:%S")))
 
-                quick_reply = QuickReply(
-                items=[
-                    QuickReplyItem(action=MessageAction(label="NBA", text="NBA")),
-                    QuickReplyItem(action=MessageAction(label="F1", text="F1")),
-                    QuickReplyItem(action=MessageAction(label="MLB", text="MLB")),
-                    QuickReplyItem(action=MessageAction(label="CPBL", text="CPBL")),
-                    QuickReplyItem(action=MessageAction(label="BWF", text="BWF")),
-                ]
-            )
-            msg = TextMessage(
-                text="請選擇賽事種類：",
-                quick_reply=quick_reply
-            )
-            messaging_api.reply_message(
-                ReplyMessageRequest(
-                    reply_token=event.reply_token,
-                    messages=[msg]
-                )
-            )
-        elif  previous_message=="及時比分" and Message in ["NBA", "F1", "MLB", "CPBL", "BWF"]:
-            with ApiClient(configuration) as api_client:
-                messaging_api = MessagingApi(api_client)
-                reply = TextMessage(text=f"您選擇的賽事種類是：{Message}\n正在查詢即時比分...")
-                messaging_api.reply_message(
-                    ReplyMessageRequest(
-                        reply_token=event.reply_token,
-                        messages=[reply]
-                    )
-                )
-        else:
-            with ApiClient(configuration) as api_client:
-                messaging_api = MessagingApi(api_client)
-                reply = TextMessage(text=f"收到訊息：{Message}")
-                messaging_api.reply_message(
-                    ReplyMessageRequest(
-                        reply_token=event.reply_token,
-                        messages=[reply]
-                    )
-                )
-        previous_message = Message  # 更新上一條訊息
-        # 先檢查使用者是否已存在
-        try:
-            check_sql = "SELECT user_id FROM users WHERE user_id = %s"
-            cursor.execute(check_sql, (user_id,))
-            result = cursor.fetchone()
-            
-            if not result:  # 如果資料庫沒有該使用者
-                insert_sql = """
-                    INSERT INTO users (user_id, user_name) 
-                    VALUES (%s, %s)
-                """
-                cursor.execute(insert_sql, (user_id, Message))
-                db.commit()
-                print("新使用者已儲存")
-                
-                # 傳送歡迎訊息
-                with ApiClient(configuration) as api_client:
-                    messaging_api = MessagingApi(api_client)
-                    welcome_message = TextMessage(text="歡迎新朋友！資料已儲存")
-                    messaging_api.reply_message(
-                        ReplyMessageRequest(
-                            reply_token=event.reply_token,
-                            messages=[welcome_message]
+            results = cursor.fetchall()
+            if not results:
+                print("⚠️ 沒有要提醒的比賽")
+
+            for row in results:
+                user_id, game_no, date, time_str, type_id, team_a, team_b = row
+
+                cursor.execute("""
+                    SELECT p.name
+                    FROM match_platforms mp
+                    JOIN platforms p ON mp.platform_id = p.platform_id
+                    WHERE mp.game_no = %s
+                """, (game_no,))
+                platforms = [r[0] for r in cursor.fetchall()]
+                platform_str = "、".join(platforms) if platforms else "無"
+
+                message = f"📣 您預約的比賽即將開始！\n" \
+                          f"📅 日期：{date} {time_str}\n" \
+                          f"🎮 種類：{type_id}\n" \
+                          f"🏀 賽事：{team_a} vs {team_b}\n" \
+                          f"📺 推薦平台：{platform_str}"
+
+                print(f"🔔 推播至 {user_id}：{team_a} vs {team_b}")
+
+                try:
+                    with ApiClient(configuration) as api_client:
+                        line_bot_api = MessagingApi(api_client)
+                        line_bot_api.push_message(
+                        PushMessageRequest(
+                            to=user_id,
+                            messages=[TextMessage(text=message)]
                         )
-                    )
-            
-                
-        except Exception as e:
-            print(f"資料庫操作錯誤: {e}")
-            db.rollback()  # 回滾交易
-'''
+                        )
+                    print("✅ 成功發送提醒\n" + "-" * 50)
+                except ApiException as e:
+                    print("❌ 發送失敗")
+                    print("🔴 錯誤類型：", type(e))
+                    print("📩 回應內容：", e.body)
+                    print("-" * 50)
+
 
 @handler.add(MessageEvent, message=TextMessageContent)
 def handle_message(event):
@@ -568,3 +528,123 @@ if __name__ == "__main__":
     app.run(host="0.0.0.0", port=928, ssl_context=context)
 
 # 80 8080 21 22 20 433 443 59...不要用
+'''@handler.add(MessageEvent, message=TextMessageContent)
+def handle_message(event):
+    user_id = event.source.user_id
+    print(f"User ID: {user_id}")
+    
+    if event.message and hasattr(event.message, "text"):
+        global previous_message 
+        Message = event.message.text
+        print(f"Received message: {Message}")
+
+        if Message == "Feed Back":
+            with ApiClient(configuration) as api_client:
+                messaging_api = MessagingApi(api_client)
+
+                quick_reply = QuickReply(
+                items=[
+                    QuickReplyItem(action=MessageAction(label="NBA", text="NBA")),
+                    QuickReplyItem(action=MessageAction(label="F1", text="F1")),
+                    QuickReplyItem(action=MessageAction(label="MLB", text="MLB")),
+                    QuickReplyItem(action=MessageAction(label="CPBL", text="CPBL")),
+                    QuickReplyItem(action=MessageAction(label="BWF", text="BWF")),
+                ]
+            )
+            msg = TextMessage(
+                text="請選擇賽事種類：",
+                quick_reply=quick_reply
+            )
+            messaging_api.reply_message(
+                ReplyMessageRequest(
+                    reply_token=event.reply_token,
+                    messages=[msg]
+                )
+            )
+        elif  previous_message=="Feed Back" and Message in ["NBA", "F1", "MLB", "CPBL", "BWF"]:
+            with ApiClient(configuration) as api_client:
+                messaging_api = MessagingApi(api_client)
+                reply = TextMessage(text=f"您選擇的賽事種類是：{Message}\n請輸入您的回報內容")
+                messaging_api.reply_message(
+                    ReplyMessageRequest(
+                        reply_token=event.reply_token,
+                        messages=[reply]
+                    )
+                )
+
+            
+        elif Message == "及時比分":
+            with ApiClient(configuration) as api_client:
+                messaging_api = MessagingApi(api_client)
+
+                quick_reply = QuickReply(
+                items=[
+                    QuickReplyItem(action=MessageAction(label="NBA", text="NBA")),
+                    QuickReplyItem(action=MessageAction(label="F1", text="F1")),
+                    QuickReplyItem(action=MessageAction(label="MLB", text="MLB")),
+                    QuickReplyItem(action=MessageAction(label="CPBL", text="CPBL")),
+                    QuickReplyItem(action=MessageAction(label="BWF", text="BWF")),
+                ]
+            )
+            msg = TextMessage(
+                text="請選擇賽事種類：",
+                quick_reply=quick_reply
+            )
+            messaging_api.reply_message(
+                ReplyMessageRequest(
+                    reply_token=event.reply_token,
+                    messages=[msg]
+                )
+            )
+        elif  previous_message=="及時比分" and Message in ["NBA", "F1", "MLB", "CPBL", "BWF"]:
+            with ApiClient(configuration) as api_client:
+                messaging_api = MessagingApi(api_client)
+                reply = TextMessage(text=f"您選擇的賽事種類是：{Message}\n正在查詢即時比分...")
+                messaging_api.reply_message(
+                    ReplyMessageRequest(
+                        reply_token=event.reply_token,
+                        messages=[reply]
+                    )
+                )
+        else:
+            with ApiClient(configuration) as api_client:
+                messaging_api = MessagingApi(api_client)
+                reply = TextMessage(text=f"收到訊息：{Message}")
+                messaging_api.reply_message(
+                    ReplyMessageRequest(
+                        reply_token=event.reply_token,
+                        messages=[reply]
+                    )
+                )
+        previous_message = Message  # 更新上一條訊息
+        # 先檢查使用者是否已存在
+        try:
+            check_sql = "SELECT user_id FROM users WHERE user_id = %s"
+            cursor.execute(check_sql, (user_id,))
+            result = cursor.fetchone()
+            
+            if not result:  # 如果資料庫沒有該使用者
+                insert_sql = """
+                    INSERT INTO users (user_id, user_name) 
+                    VALUES (%s, %s)
+                """
+                cursor.execute(insert_sql, (user_id, Message))
+                db.commit()
+                print("新使用者已儲存")
+                
+                # 傳送歡迎訊息
+                with ApiClient(configuration) as api_client:
+                    messaging_api = MessagingApi(api_client)
+                    welcome_message = TextMessage(text="歡迎新朋友！資料已儲存")
+                    messaging_api.reply_message(
+                        ReplyMessageRequest(
+                            reply_token=event.reply_token,
+                            messages=[welcome_message]
+                        )
+                    )
+            
+                
+        except Exception as e:
+            print(f"資料庫操作錯誤: {e}")
+            db.rollback()  # 回滾交易
+'''
