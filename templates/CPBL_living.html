@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <title>CPBL 每日賽程 - {{ games[0].Date if games else date }}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styleCPBL.css') }}">
+  <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}"> 
+</head>
+<body>
+  <div class="container">
+    <h1>CPBL 每日賽程 - {{ games[0].Date if games else date }}</h1>
+      <div class="refresh-time">
+        
+      </div>
+    {% if games %}
+      <div class="scoreboards">
+        {% for game in games %}
+        <div class="scoreboard">
+          <div class="game-time">{{ game.time | truncate(4, True, '')  }}</div>
+          <div class="game-status">
+            <div class="teams">
+              <div>隊伍</div>
+              <div class="team-info">
+                <img  src ={{game.img[0]}} class="team-logo">
+                <div>
+                    <div class="team-name">{{ game.teams[0] }}</div>
+                </div>
+              </div>
+              <div class="team-info">
+                <img  src ={{game.img[1]}} class="team-logo">
+                <div>
+                    <div class="team-name">{{ game.teams[1] }}</div>
+                </div>
+              </div>
+            </div>
+            <div class = "rhe">
+              <div class="rhe-header">
+                <span>R</span>
+                <span>H</span>
+                <span>E</span>
+              </div>
+              <div class="rhe-row">
+                <span><b>{{ game.rhe.away.R }}</b></span>
+                <span>{{ game.rhe.away.H }}</span>
+                <span>{{ game.rhe.away.E }}</span>
+              </div>
+              <div class="rhe-row">
+                <span><b>{{ game.rhe.home.R }}</b></span>
+                <span>{{ game.rhe.home.H }}</span>
+                <span>{{ game.rhe.home.E }}</span>
+              </div>
+            </div>
+            <div class="bag">
+              
+              {{ game.bag|safe }}
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    {% else %}
+      <div class="no-games">當日無賽事或數據獲取失敗</div>
+    {% endif %}
+  </div>
+  <script>
+    window.pageDate = "{{ date }}";
+  </script>
+  <script src="{{ url_for('static', filename='scriptCPBL.js') }}"></script>
+</body>
+</html>

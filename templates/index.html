@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <title>首頁選單</title>
+</head>
+
+<body>
+    <h2>請選擇頁面</h2>
+    <br>
+    <button onclick="location.href='{{ url_for('nba_score') }}'">NBA Live Scores</button>
+    <button onclick="location.href='{{ url_for('bwf_score') }}'">BWF Live Scores</button>
+    <button onclick="location.href='{{ url_for('cpbl_living') }}'">CPBL Live Scores</button>
+    <button onclick="location.href='{{ url_for('mlb_living') }}'">MLB Live Scores</button>
+    <button onclick="location.href='{{ url_for('f1_timing') }}'">F1 Live Scores</button>
+    <!-- ';' expected.不用鳥它 可以正常跑 -->
+</body>
+
+</html>
