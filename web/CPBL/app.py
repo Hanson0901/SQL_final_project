@@ -1,7 +1,7 @@
 # app.py
 from flask import Flask, render_template, request, jsonify  # 新增 jsonify
 import datetime
-from get_cpbl_score import get_cpbl_score
+from CPBL.get_cpbl_score import get_cpbl_score
 
 app = Flask(__name__)
 
