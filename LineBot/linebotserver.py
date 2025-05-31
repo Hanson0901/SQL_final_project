@@ -326,7 +326,7 @@ def handle_message(event):
                 
             else:
                 # 預設回應
-                self_reply(event, f"收到訊息：{Message}")
+                self_reply(event, f"沒有以下指令：{Message}")
                 
 
             
