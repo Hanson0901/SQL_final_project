@@ -251,7 +251,7 @@ def handle_message(event):
                 self_reply(event, reply.text)
 
 
-            elif Message == "及時比分":
+            elif Message == "即時比分":
                 # 處理比分查詢
                 carousel_template = CarouselTemplate(
                     columns=[
@@ -261,7 +261,7 @@ def handle_message(event):
                             text='點擊前往 NBA 官網',
                             actions=[
                                 URIAction(
-                                    label='前往及時比分',
+                                    label='前往即時比分',
                                     uri='https://cgusqlpj.ddns.net:5000/NBAscore'
                                 )
                             ]
@@ -272,7 +272,7 @@ def handle_message(event):
                             text='點擊前往 F1 官網',
                             actions=[
                                 URIAction(
-                                label='前往及時比分',
+                                label='前往即時比分',
                                 uri='https://cgusqlpj.ddns.net:5000/F1Timing'
                                 )
                             ]
@@ -283,7 +283,7 @@ def handle_message(event):
                             text='點擊前往 MLB 官網',
                             actions=[
                                 URIAction(
-                             label='前往及時比分',
+                             label='前往即時比分',
                                 uri='https://cgusqlpj.ddns.net:5000/MLB_living'
                                 )
                             ]
@@ -294,7 +294,7 @@ def handle_message(event):
                             text='點擊前往 CPBL 官網',
                             actions=[
                                 URIAction(
-                                    label='前往及時比分',
+                                    label='前往即時比分',
                                     uri='https://cgusqlpj.ddns.net:5000/CPBL_living'
                                 )
                             ]
@@ -305,7 +305,7 @@ def handle_message(event):
                             text='點擊前往 BWF 官網',
                             actions=[
                                 URIAction(
-                                    label='前往及時比分',
+                                    label='前往即時比分',
                                     uri='https://cgusqlpj.ddns.net:5000/BWFscore'
                                 )
                             ]
@@ -587,7 +587,7 @@ def handle_message(event):
                 )
 
             
-        elif Message == "及時比分":
+        elif Message == "即時比分":
             with ApiClient(configuration) as api_client:
                 messaging_api = MessagingApi(api_client)
 
@@ -610,7 +610,7 @@ def handle_message(event):
                     messages=[msg]
                 )
             )
-        elif  previous_message=="及時比分" and Message in ["NBA", "F1", "MLB", "CPBL", "BWF"]:
+        elif  previous_message=="即時比分" and Message in ["NBA", "F1", "MLB", "CPBL", "BWF"]:
             with ApiClient(configuration) as api_client:
                 messaging_api = MessagingApi(api_client)
                 reply = TextMessage(text=f"您選擇的賽事種類是：{Message}\n正在查詢即時比分...")
