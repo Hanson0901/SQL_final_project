@@ -100,6 +100,7 @@ def remind():
     # 確保資料庫連線仍然有效，若失效則重新連線
     try:
         db.ping(reconnect=True)
+        print("資料庫連線正常")
     except:
         print("資料庫連線失效，重新連線中...")
         sql_connect("localhost", 3306, "hanson0901", "Hanson940901", "final_project")
