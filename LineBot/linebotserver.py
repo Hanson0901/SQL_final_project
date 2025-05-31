@@ -25,7 +25,7 @@ from linebot.v3.messaging import (
     PushMessageRequest,
     ApiException
 )
-from linebot.v3.webhooks import MessageEvent, TextMessageContent, PostbackEvent
+from linebot.v3.webhooks import MessageEvent, TextMessageContent, PostbackEvent, FollowEvent
 
 import json
 from datetime import datetime, timedelta
@@ -92,7 +92,7 @@ def callback():
         abort(400)
     return "OK"
 
-previous_message = ""  # 儲存上一條訊息
+previous_message = []  # 儲存上一條訊息
 Type=""
 
 @app.route("/remind", methods=["GET"])
@@ -191,13 +191,17 @@ def handle_message(event):
     if event.message and hasattr(event.message, "text"):
         Message = event.message.text.strip()  # 移除前後空白
         print(f"Received message: {Message}")
+        UID(user_id, Message)  # 更新使用者ID到previous_message
+        pm = next((item["message"] for item in previous_message if item["user_id"] == user_id), None)
         # 用戶資料庫處理
         handle_user_data(user_id, Message, event)
         try:
             # 訊息處理邏輯
             if Message == "Feed Back":
                 # 處理回饋流程
-                previous_message = "Feed Back"
+                pm = "Feed Back"
+                previous_message = [item for item in previous_message if item["user_id"] != user_id]
+                previous_message.append({"user_id": user_id, "message": pm})  # 更新使用者ID到previous_message
                 quick_reply = QuickReply(
                     items=[
                         QuickReplyItem(action=MessageAction(label="NBA", text="NBA")),
@@ -212,19 +216,23 @@ def handle_message(event):
             
             elif Message == "Cancel":
                 # 處理取消回饋流程
-                previous_message = ""
+                previous_message = [item for item in previous_message if item["user_id"] != user_id]
+                previous_message.append({"user_id": user_id, "message": ""})  # 更新使用者ID到previous_message
                 self_reply(event, "已取消回饋流程。")
             elif Message == "取消進入管理者":
                 self_reply(event, "已取消進入管理者介面。")
-            elif previous_message == "Feed Back" and Message in sport.keys():
+            elif pm == "Feed Back" and Message in sport.keys():
                 # 處理賽事選擇
-                previous_message = "Feed Backing"  # 重設狀態
+                pm = "Feed Backing"  # 重設狀態
+                previous_message = [item for item in previous_message if item["user_id"] != user_id]
+                previous_message.append({"user_id": user_id, "message": pm})  # 更新使用者ID到previous_message
                 self_reply(event, f"您選擇的賽事種類是：{Message}\n請輸入您的回報內容(限一個文字框):")
                 Type = Message
             
-            elif previous_message == "Feed Backing":
+            elif pm == "Feed Backing":
                 # 處理回報內容
-                previous_message = ""
+                previous_message = [item for item in previous_message if item["user_id"] != user_id]
+                previous_message.append({"user_id": user_id, "message": ""})  # 更新使用者ID到previous_message
                 try:
                     today = datetime.now().strftime("%Y-%m-%d")
                     print("f_type:", sport[Type])
@@ -323,9 +331,11 @@ def handle_message(event):
                    with ApiClient(configuration) as api_client:
                         line_bot_api = MessagingApi(api_client)
                         send_admin_flex(line_bot_api, event.reply_token, rating=0)
-                
+
             else:
                 # 預設回應
+                previous_message = [item for item in previous_message if item["user_id"] != user_id]
+                previous_message.append({"user_id": user_id, "message":""})  # 更新使用者ID到previous_message
                 self_reply(event, f"沒有以下指令：{Message}")
                 
 
@@ -361,6 +371,43 @@ def handle_user_data(user_id, message_text, event):
     except Exception as e:
         print(f"資料庫操作錯誤: {e}")
         db.rollback()
+
+def UID(user_id, message):
+    previous_message.append({"user_id": user_id, "message": message})
+
+@handler.add(FollowEvent)
+def handle_follow(event):
+        user_id = event.source.user_id
+        try:
+            check_sql = "SELECT user_id FROM users WHERE user_id = %s"
+            sql_connect("localhost", 3306, "hanson0901", "Hanson940901", "final_project")
+
+            cursor.execute(check_sql, (user_id,))
+            result = cursor.fetchone()
+        
+            if not result:
+                with ApiClient(configuration) as api_client:
+                    messaging_api = MessagingApi(api_client)
+                    msg = TextMessage(text="歡迎來到『賽事LINE BOT 到』！\n請輸入您的暱稱以儲存您的資料。", quick_reply=None)
+                    messaging_api.reply_message(
+                        ReplyMessageRequest(
+                            reply_token=event.reply_token,
+                            messages=[msg]
+                        )
+                    )
+            else:
+                with ApiClient(configuration) as api_client:
+                    messaging_api = MessagingApi(api_client)
+                    msg = TextMessage(text="歡迎回來！您的資料已存在。", quick_reply=None)
+                    messaging_api.reply_message(
+                        ReplyMessageRequest(
+                            reply_token=event.reply_token,
+                            messages=[msg]
+                        )
+                    )
+        except Exception as e:
+            print(f"處理 follow 事件時發生錯誤: {e}")
+
 
 @app.route('/linebot/claim', methods=['POST'])
 def claim_feedback():
