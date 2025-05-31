@@ -410,20 +410,6 @@ def handle_postback(event):
 
 def send_admin_flex(line_bot_api, reply_token, rating):
     # ⭐ 使用 Unicode 星星表情作為 Text 元件，避免 ... 問題
-    star_row = []
-    for i in range(1, 6):
-        star_row.append({
-            "type": "text",
-            "text": "⭐" if i <= rating else "☆",
-            "size": "xl",
-            "align": "center",
-            "action": {
-                "type": "postback",
-                "data": f"rating={i}"
-            },
-            "flex": 1
-        })
-
     admin_flex = {
         "type": "bubble",
         "hero": {
@@ -446,46 +432,10 @@ def send_admin_flex(line_bot_api, reply_token, rating):
                 },
                 {
                     "type": "box",
-                    "layout": "horizontal",
-                    "spacing": "sm",
-                    "margin": "md",
-                    "contents": star_row
-                },
-                {
-                    "type": "text",
-                    "text": f"目前評分：{rating}.0",
-                    "margin": "md",
-                    "size": "sm",
-                    "color": "#666666"
-                },
-                {
-                    "type": "box",
                     "layout": "vertical",
                     "margin": "lg",
                     "spacing": "sm",
                     "contents": [
-                        {
-                            "type": "box",
-                            "layout": "baseline",
-                            "spacing": "sm",
-                            "contents": [
-                                {
-                                    "type": "text",
-                                    "text": "營業時間",
-                                    "color": "#aaaaaa",
-                                    "size": "sm",
-                                    "flex": 3
-                                },
-                                {
-                                    "type": "text",
-                                    "text": "10:00 - 23:00",
-                                    "wrap": True,
-                                    "color": "#666666",
-                                    "size": "sm",
-                                    "flex": 8
-                                }
-                            ]
-                        },
                         {
                             "type": "text",
                             "text": "是否要進入管理者介面？",
@@ -519,7 +469,7 @@ def send_admin_flex(line_bot_api, reply_token, rating):
                     "height": "sm",
                     "action": {
                         "type": "message",
-                        "label": "不要",
+                        "label": "取消",
                         "text": "取消進入管理者"
                     },
                     "flex": 2
