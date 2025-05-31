@@ -1,0 +1,90 @@
+@handler.add(MessageEvent, message=TextMessageContent)
+def handle_message(event):
+    text = event.message.text
+    print("✅ 收到使用者輸入：", text)
+
+    with ApiClient(configuration) as api_client:
+        line_bot_api = MessagingApi(api_client)
+
+        if text == '我愛運動':
+            send_admin_flex(line_bot_api, event.reply_token)
+
+def send_admin_flex(line_bot_api, reply_token):
+    admin_flex = {
+        "type": "bubble",
+        "hero": {
+            "type": "image",
+            "url": "https://i.postimg.cc/fLSSMrpQ/Manager.png",
+            "size": "full",
+            "aspectRatio": "20:13",
+            "aspectMode": "cover"
+        },
+        "body": {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+                {
+                    "type": "text",
+                    "text": "我是管理者",
+                    "weight": "bold",
+                    "size": "xxl",
+                    "margin": "none"
+                },
+                {
+                    "type": "box",
+                    "layout": "vertical",
+                    "margin": "lg",
+                    "spacing": "sm",
+                    "contents": [
+                        {
+                            "type": "text",
+                            "text": "是否要進入管理者介面？",
+                            "margin": "md",
+                            "size": "sm",
+                            "color": "#444444"
+                        }
+                    ]
+                }
+            ]
+        },
+        "footer": {
+            "type": "box",
+            "layout": "horizontal",
+            "spacing": "sm",
+            "contents": [
+                {
+                    "type": "button",
+                    "style": "primary",
+                    "height": "sm",
+                    "action": {
+                        "type": "uri",
+                        "label": "進入",
+                        "uri": "https://cgusqlpj.ddns.net:2222/"
+                    },
+                    "flex": 2
+                },
+                {
+                    "type": "button",
+                    "style": "secondary",
+                    "height": "sm",
+                    "action": {
+                        "type": "message",
+                        "label": "取消",
+                        "text": "取消進入管理者"
+                    },
+                    "flex": 2
+                }
+            ],
+            "flex": 0
+        }
+    }
+
+    line_bot_api.reply_message(
+        ReplyMessageRequest(
+            reply_token=reply_token,
+            messages=[FlexMessage(
+                alt_text="管理者模式",
+                contents=FlexContainer.from_json(json.dumps(admin_flex))
+            )]
+        )
+    )
