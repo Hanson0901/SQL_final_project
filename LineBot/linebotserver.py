@@ -424,7 +424,7 @@ def claim_feedback():
         line_bot_api.push_message(
         PushMessageRequest(
             to=user_id,
-            messages=[TextMessage(text=f"您的意見反映：\n分類:{reverse_sport[type]}\n內容:{content}\n已被認領並進入處理中，感謝您的回饋！")]
+            messages=[TextMessage(text=f"您的意見反映~\n\n分類:{reverse_sport[type]}\n\n內容:{content}\n\n已被認領並進入處理中\n\n感謝您的回饋！")]
             )
         )
     return "OK"
@@ -445,7 +445,7 @@ def handled_feedback():
         line_bot_api.push_message(
             PushMessageRequest(
                 to=user_id,
-                messages=[TextMessage(text=f"您的意見反映：\n分類:{reverse_sport[type]}\n內容:{content} \n管理員:{status}\n回覆為:{reply}\n感謝您的回饋！")]
+                messages=[TextMessage(text=f"您的意見回覆結果如下~\n\n分類:{reverse_sport[type]}\n\n內容:{content} \n\n回覆狀態:{status}\n回覆為:{reply}\n\n感謝您的回饋！")]
             )
         )
 
