@@ -99,8 +99,8 @@ Type=""
 def remind():
     global cursor, db
     now = datetime.now()
-    start_time = now.replace(second=0, microsecond=0) + timedelta(minutes=15)
-    end_time = now.replace(second=0, microsecond=0) + timedelta(minutes=16)
+    start_time = now.replace(second=0, microsecond=0) + timedelta(minutes=13)
+    end_time = now.replace(second=0, microsecond=0) + timedelta(minutes=14)
 
     print("🔍 查詢提醒範圍：", start_time.strftime("%Y-%m-%d %H:%M:%S"), "～", end_time.strftime("%Y-%m-%d %H:%M:%S"))
 
