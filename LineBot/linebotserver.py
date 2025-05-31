@@ -206,6 +206,8 @@ def handle_message(event):
                 # 處理取消回饋流程
                 previous_message = ""
                 self_reply(event, "已取消回饋流程。")
+            elif Message == "取消進入管理者":
+                self_reply(event, "已取消進入管理者介面。")
             elif previous_message == "Feed Back" and Message in sport.keys():
                 # 處理賽事選擇
                 previous_message = "Feed Backing"  # 重設狀態
