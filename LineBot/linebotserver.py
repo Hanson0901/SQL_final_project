@@ -97,7 +97,6 @@ Type=""
 
 @app.route("/remind", methods=["GET"])
 def remind():
-    global cursor, db
     now = datetime.now()
     start_time = now.replace(second=0, microsecond=0) + timedelta(minutes=13)
     end_time = now.replace(second=0, microsecond=0) + timedelta(minutes=14)
@@ -116,7 +115,8 @@ def remind():
                 JOIN sport_type st ON ms.type = st.type
                 LEFT JOIN f1_match_info f1 ON ms.game_no = f1.game_no
                 WHERE CONCAT(ms.date, ' ', ms.time) BETWEEN %s AND %s
-            """, (start_time.strftime("%Y-%m-%d %H:%M:%S"), end_time.strftime("%Y-%m-%d %H:%M:%S")))
+                        """, (start_time.strftime("%Y-%m-%d %H:%M:%S"), end_time.strftime("%Y-%m-%d %H:%M:%S")))
+            # Make sure the 'date' and 'time' columns in your database are stored as strings in 'YYYY-MM-DD' and 'HH:MM:SS' format, or as DATETIME.
 
 
 
@@ -125,7 +125,7 @@ def remind():
             print("⚠️ 沒有要提醒的比賽")
 
         for row in results:
-            user_id, game_no, date, time_str, sport_name, team_a, team_b, match_name, match_type = row
+            user_id, game_no, date, time, sport_name, team_a, team_b, match_name, match_type = row
 
             if sport_name.lower() == "f1":
                     match_display = f"{match_name}（{match_type}）"
@@ -142,7 +142,7 @@ def remind():
             platform_str = "、".join(platforms) if platforms else "無"
 
             message = f"📣 您預約的比賽即將開始！\n" \
-                          f"📅 日期：{date} {time_str}\n" \
+                          f"📅 日期：{date} {time}\n" \
                           f"🎮 運動：{sport_name}\n" \
                           f"🏁 賽事：{match_display}\n"  \
                           f"📺 推薦平台：{platform_str}"
