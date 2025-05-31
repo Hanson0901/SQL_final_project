@@ -97,6 +97,12 @@ Type=""
 
 @app.route("/remind", methods=["GET"])
 def remind():
+    # 確保資料庫連線仍然有效，若失效則重新連線
+    try:
+        db.ping(reconnect=True)
+    except:
+        print("資料庫連線失效，重新連線中...")
+        sql_connect("localhost", 3306, "hanson0901", "Hanson940901", "final_project")
     now = datetime.now()
     start_time = now.replace(second=0, microsecond=0) + timedelta(minutes=13)
     end_time = now.replace(second=0, microsecond=0) + timedelta(minutes=14)
