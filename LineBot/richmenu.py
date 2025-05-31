@@ -1,73 +1,65 @@
-import requests
-import json
+from linebot import LineBotApi
+from linebot.exceptions import LineBotApiError
+from linebot.models import (
+    RichMenu,
+    RichMenuArea,
+    RichMenuSize,
+    RichMenuBounds,
+    MessageAction,
+    URIAction,
+)
 
-CHANNEL_ACCESS_TOKEN = "H+2kmGOeBxAqGHImKJpKJPLAtgAUqNa9TTAgY4wesr9kJbs14FJwNDaUFYL90z9Yh/MlJpQXU3A0nPdoDaVvyqZkQeV4fjfAb9Ez5YfOaOGP64bECzjzxeOHMUK/lTvCS009Elcpi6caa5hCeTPfIwdB04t89/1O/w1cDnyilFU="
+CHANNEL_ACCESS_TOKEN = LineBotApi(
+    "H+2kmGOeBxAqGHImKJpKJPLAtgAUqNa9TTAgY4wesr9kJbs14FJwNDaUFYL90z9Yh/MlJpQXU3A0nPdoDaVvyqZkQeV4fjfAb9Ez5YfOaOGP64bECzjzxeOHMUK/lTvCS009Elcpi6caa5hCeTPfIwdB04t89/1O/w1cDnyilFU="
+)
 
+button1 = RichMenuArea(
+    bounds=RichMenuBounds(x=0, y=0, width=2500, height=843),
+    action=URIAction(label="button 1", uri="https://cgusqlpj.ddns.net:2222/foruser"),
+)
+button2 = RichMenuArea(
+    bounds=RichMenuBounds(x=0, y=843, width=843, height=843),
+    action=MessageAction(label="button 2", text="Feed Back"),
+)
+button3 = RichMenuArea(
+    bounds=RichMenuBounds(x=843, y=843, width=843, height=843),
+    action=URIAction(
+        label="button 3", uri="https://cgusqlpj.ddns.net:2222/public_announcements"
+    ),
+)
+button4 = RichMenuArea(
+    bounds=RichMenuBounds(x=1686, y=843, width=843, height=843),
+    action=MessageAction(label="button 4", text="即時比分"),
+)
 
-def create_rich_menu():
-    headers = {
-        "Authorization": "Bearer " + CHANNEL_ACCESS_TOKEN,
-        "Content-Type": "application/json",
-    }
-
-    body = {
-        "size": {"width": 2500, "height": 1686},
-        "selected": True,
-        "name": "圖文選單 1",
-        "chatBarText": "賽事LINE BOT到",
-        "areas": [
-            {
-                "bounds": {"x": 0, "y": 0, "width": 2500, "height": 843},
-                "action": {
-                    "type": "uri",
-                    "uri": "https://liff.line.me/2007488459-579gR2Qz",
-                },
-            },
-            {
-                "bounds": {"x": 0, "y": 839, "width": 834, "height": 847},
-                "action": {"type": "message", "text": "Feed Back"},
-            },
-            {
-                "bounds": {"x": 835, "y": 838, "width": 835, "height": 848},
-                "action": {
-                    "type": "uri",
-                    "uri": "https://cgusqlpj.ddns.net:2222/public_announcements",
-                },
-            },
-            {
-                "bounds": {"x": 1664, "y": 843, "width": 836, "height": 843},
-                "action": {"type": "message", "text": "及時比分"},
-            },
-        ],
-    }
-
-    response = requests.post(
-        "https://api.line.me/v2/bot/richmenu",
-        headers=headers,
-        data=json.dumps(body).encode("utf-8"),
-    )
-    response = response.json()
-    print(response)
-    rich_menu_id = response["richMenuId"]
-
-    # 上傳圖片
-    with open(r"1.png", "rb") as image:
-        img_headers = {
-            "Authorization": "Bearer " + CHANNEL_ACCESS_TOKEN,
-            "Content-Type": "image/jpeg",
-        }
-        requests.post(
-            f"https://api.line.me/v2/bot/richmenu/{rich_menu_id}/content",
-            headers=img_headers,
-            data=image,
-        )
-
-    # 設定預設 rich menu
-    requests.post(
-        f"https://api.line.me/v2/bot/user/all/richmenu/{rich_menu_id}",
-        headers={"Authorization": "Bearer " + CHANNEL_ACCESS_TOKEN},
-    )
+rich_menu = RichMenu(
+    size=RichMenuSize(width=2500, height=1686),
+    selected=True,
+    name="圖文選單 1",
+    chat_bar_text="查看更多資訊",
+    areas=[
+        button1,
+        button2,
+        button3,
+        button4,
+    ],
+)
 
 
 if __name__ == "__main__":
-    create_rich_menu()
+    try:
+        # 建立 Rich Menu
+        rich_menu_id = CHANNEL_ACCESS_TOKEN.create_rich_menu(rich_menu=rich_menu)
+        print(f"Rich Menu created. rich_menu_id: {rich_menu_id}")
+
+        # 上傳 Rich Menu 圖片
+        with open(r"LineBot\richmenu.png", "rb") as f:
+            CHANNEL_ACCESS_TOKEN.set_rich_menu_image(rich_menu_id, "image/png", f)
+            print("Rich Menu image uploaded.")
+
+        # 設定 Rich Menu 至 Channel
+        CHANNEL_ACCESS_TOKEN.set_default_rich_menu(rich_menu_id)
+        print("Rich Menu set as default.")
+
+    except LineBotApiError as e:
+        print(f"Error creating Rich Menu: {e}")
