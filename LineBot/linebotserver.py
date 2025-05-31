@@ -98,8 +98,9 @@ Type=""
 @app.route("/remind", methods=["GET"])
 def remind():
     global cursor, db
-    start_time = datetime.now() + timedelta(minutes=13)
-    end_time = datetime.now() + timedelta(minutes=14)
+    now = datetime.now()
+    start_time = now.replace(second=0, microsecond=0) + timedelta(minutes=15)
+    end_time = now.replace(second=0, microsecond=0) + timedelta(minutes=16)
 
     print("🔍 查詢提醒範圍：", start_time.strftime("%Y-%m-%d %H:%M:%S"), "～", end_time.strftime("%Y-%m-%d %H:%M:%S"))
 
@@ -116,10 +117,7 @@ def remind():
                 LEFT JOIN f1_match_info f1 ON ms.game_no = f1.game_no
                 WHERE CONCAT(ms.date, ' ', ms.time) BETWEEN %s AND %s
             """, (start_time.strftime("%Y-%m-%d %H:%M:%S"), end_time.strftime("%Y-%m-%d %H:%M:%S")))
-            # , (
-            #     start_datetime.strftime("%Y-%m-%d %H:%M:%S"),
-            #     end_datetime.strftime("%Y-%m-%d %H:%M:%S")
-            # ))
+
 
 
         results = cursor.fetchall()
