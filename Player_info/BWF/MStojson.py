@@ -26,14 +26,14 @@ def Next_Page(driver):
     current_page, total_page = map(
         int, page_text.replace("Page", "").replace("of", "").split()
     )
-    print(f"目前頁碼：{current_page+1} / {total_page}")
+    
 
     # 如果已經到最後一頁就 break
     if current_page == total_page:
         print("已到最後一頁，結束搜尋。")
         next_page = False
         return next_page
-
+    print(f"目前頁碼：{current_page+1} / {total_page}")
     # 點擊右箭頭按鈕
     next_btn = page_nav.find_elements(By.CLASS_NAME, "button")[
         2
@@ -139,19 +139,19 @@ with open(r"Player_info\BWF\BWF_schedule.json", "r", encoding="utf-8") as f:
     for player in data:
 
         
-        for index in range(1, 4):
+        for index in range(1, 5):
             if index == 1 or index == 2:
                 team = "a"
             else:
                 team = "b"
             not_find = True
-            name = player[f"player_{index}"]
-            if name:
-                if name in found_players:
-                    print(f"⚠️ 已經找到過這名選手: {name}，跳過")
+            full_name = player[f"player_{index}"]
+            if full_name:
+                if full_name in found_players:
+                    print(f"⚠️ 已經找到過這名選手: {full_name}，跳過")
                     continue
                 country= player[f"team_{team}"]
-                print(f"Searching for player: {name}")
+                print(f"Searching for player: {full_name}")
                 driver.execute_script("window.scrollTo(0, 0);")
                 search_box = WebDriverWait(driver, 3).until(
                     EC.presence_of_element_located((By.ID, "input-3"))
@@ -159,7 +159,7 @@ with open(r"Player_info\BWF\BWF_schedule.json", "r", encoding="utf-8") as f:
                 search_box.click()
                 search_box.send_keys("\ue009" + "a")  # Ctrl+A
                 search_box.send_keys("\ue003")  # Delete
-                search_box.send_keys(name)
+                search_box.send_keys(full_name)
                 time.sleep(3)  # wait for results to load
 
                 
@@ -181,35 +181,41 @@ with open(r"Player_info\BWF\BWF_schedule.json", "r", encoding="utf-8") as f:
                         if flag_img and flag_img.has_attr("alt")
                         else ""
                     )
-                    print(f"Flag alt: {flag_alt}, Country: {country}")
+                    # 根據名字與國家判斷
                     if flag_alt == country:
-
-                        a_tag = div.find("a", href=True)
-                        link = a_tag["href"]
-                        print(f"✅找到對應的 player: {name}\n")
-                        all_link.append(link)
-                        not_find = False
-                        break
-                        
+                        # print(f"Flag alt: {flag_alt}, Country: {country}")
+                        name1_text = name1_span.text.strip() if name1_span else ""
+                        name2_text = name2_span.text.strip() if name2_span else ""
+                        find_full_name1 = f"{name2_text} {name1_text}".strip()
+                        find_full_name2 = f"{name1_text} {name2_text}".strip()
+                        if find_full_name1 == full_name or find_full_name2 == full_name:
+                            a_tag = div.find("a", href=True)
+                            if a_tag:
+                                link = a_tag["href"]
+                                all_link.append(link)
+                                not_find = False
+                                found_players.add(full_name)
+                                print(f"✅找到對應的 player: {full_name}\n")
+                                break
                         
                     
                 if not_find:
 
-                    not_find = if_not_find(driver, index, team, player, name)
+                    not_find = if_not_find(driver, index, team, player, full_name)
                     if not_find:
-                        name = get_search_name(name)
+                        name = get_search_name(full_name)
                         not_find = if_not_find(driver, index, team, player, name)
                         if not_find:
-                            print(f"❌找不到對應的 player: {name}\n")
+                            print(f"❌❌❌找不到對應的 player: {full_name}\n")
                             continue
                         else:
-                            print(f"✅找到對應的 player: {name}\n")
-                            found_players.add(name)
+                            print(f"✅找到對應的 player: {full_name}\n")
+                            found_players.add(full_name)
                     else:
-                        print(f"✅找到對應的 player: {name}\n")
-                        found_players.add(name)  # 新增這行
+                        print(f"✅找到對應的 player: {full_name}\n")
+                        found_players.add(full_name)  
                 else:
-                    found_players.add(name)  # 新增這行
+                    found_players.add(full_name)  
 
 
 

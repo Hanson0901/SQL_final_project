@@ -1,31 +1,15 @@
 import json
 import pymysql  # type: ignore
+from itertools import permutations
+
+
+
 
 def null_if_dash(val):
     return None if val == "-" or val == "" else val
 
-def name_split(name):
-    parts = name.strip().split()
-    if not parts:
-        return "", ""
-    if parts[0].isupper():
-        name1 = " ".join(parts[1:]) if len(parts) > 1 else ""
-        name2 = parts[0]
-        return name1, name2
-    for i in range(1, len(parts)):
-        if parts[i].isupper():
-            name1 = " ".join(parts[:i])
-            name2 = " ".join(parts[i:])
-            return name1, name2
-    name1 = parts[0]
-    name2 = " ".join(parts[1:]) if len(parts) > 1 else ""
-    return name1, name2
 
-def is_first_upper(name):
-    parts = name.strip().split()
-    if not parts:
-        return False
-    return parts[0].isupper()
+
 
 def get_final_winner(score_str):
     scores = list(map(int, score_str.strip().split()))
@@ -55,6 +39,8 @@ type = 5  # BWF
 with open(FOLDER_PATH, "r", encoding="utf-8") as f:
     data = json.load(f)
 
+
+not_find = set()  # 用來記錄找不到的選手
 try:
     with connection.cursor() as cursor:
         for item in data:
@@ -125,6 +111,7 @@ try:
             point_list = [int(x) if x.strip().isdigit() else 0 for x in point_str.strip().split()]
             while len(point_list) < 6:
                 point_list.append(0)
+                
             game_1_a = point_list[0]
             game_2_a = point_list[2]
             game_3_a = point_list[4]
@@ -139,19 +126,30 @@ try:
                 if not player_name:
                     player_id_lst.append(None)
                     continue
-                if is_first_upper(player_name):
-                    name1, name2 = name_split(player_name)
-                    player_name = name1 + " " + name2
-                cursor.execute(
-                    "SELECT player_id FROM players WHERE name = %s",
-                    (player_name,)
-                )
-                player_id = cursor.fetchone()
-                if player_id:
-                    player_id_lst.append(player_id[0])
-                else:
-                    player_id_lst.append(None)
+                
+                
+                words = player_name.split()
 
+                all_combinations = list(permutations(words))
+
+                found = False
+                for combo_name in all_combinations:
+                    combo_full_name = ' '.join(combo_name)
+                    cursor.execute(
+                        "SELECT player_id FROM players WHERE name = %s",
+                        (combo_full_name,)
+                    )
+                    player_id = cursor.fetchone()
+                    if player_id:
+                        player_id_lst.append(player_id[0])
+                        found = True
+                        break  # 找到就跳出
+                if not found:
+                    print(f"❌ 找不到 {player_name} 的 player_id")
+                    not_find.add(player_name)
+                    
+
+                    
             # 寫入 bwf_match_info
             sql_info = """
                 INSERT INTO bwf_match_info

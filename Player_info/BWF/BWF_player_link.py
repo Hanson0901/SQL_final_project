@@ -31,5 +31,5 @@ for div in soup.find_all("div", class_="popular-player-pair-wrap"):
     for a in div.find_all("a", href=True):
         player_list.append(a["href"])
 
-        with open("player_links.json", "w", encoding="utf-8") as f:
+        with open("Player_info", "w", encoding="utf-8") as f:
             json.dump(player_list, f, ensure_ascii=False, indent=2)
