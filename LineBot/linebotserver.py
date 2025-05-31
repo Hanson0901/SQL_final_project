@@ -101,9 +101,10 @@ def remind():
     try:
         db.ping(reconnect=True)
         print("資料庫連線正常")
+        sql_connect("localhost", 3306, "hanson0901", "Hanson940901", "final_project"
     except:
         print("資料庫連線失效，重新連線中...")
-        sql_connect("localhost", 3306, "hanson0901", "Hanson940901", "final_project")
+        
     now = datetime.now()
     start_time = now.replace(second=0, microsecond=0) + timedelta(minutes=13)
     end_time = now.replace(second=0, microsecond=0) + timedelta(minutes=14)
