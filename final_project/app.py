@@ -1973,12 +1973,6 @@ def public_announcements():
 #===========================使用者公告區====================================#
 
 
-#===========================及時比分====================================#
-@app.route("/livescore")
-def livescore():
-    return render_template("livescore.html")
-#===========================及時比分====================================#
-
 if __name__ == "__main__":
     scheduler = BackgroundScheduler()
     scheduler.add_job(delete_expired_reminders, 'interval', minutes=10)
