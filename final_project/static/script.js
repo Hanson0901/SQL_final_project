@@ -2439,7 +2439,7 @@ try {
             const li = document.createElement("li");
             li.style.marginBottom = "0.4rem"; // ⬅ 加大間距
             li.innerHTML = `
-                <strong>${p.platform_name}</strong> 預約次數 ${p.usage_count}）\n方案價格 : ${p.price}
+                <strong>${p.platform_name}</strong>（預約次數 : ${p.usage_count}）<br>方案價格 : ${p.price}
                 <button class="go-btn" style="font-size: 0.85rem;" onclick="window.open('${p.link}', '_blank')">前往</button>
             `;
             list.appendChild(li);
@@ -2464,7 +2464,7 @@ try {
 
         for (const p of platforms) {
               const li = document.createElement("li");
-              li.innerHTML = `<strong>${p.platform_name}</strong>（${p.usage_count} 次）
+              li.innerHTML = `<strong>${p.platform_name}</strong>（預約次數 : ${p.usage_count}）<br>方案價格 : ${p.price}
               <button class="go-btn" style="font-size: 0.85rem;" onclick="window.open('${p.link}', '_blank')">前往</button>`;
               allList.appendChild(li);
           }
