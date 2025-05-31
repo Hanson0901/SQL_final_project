@@ -2677,60 +2677,60 @@ try {
 
         const matches = matchData[dateStr];
         if (matches) {
-        let hasVisible = false;
+          let hasVisible = false;
 
-        matches.forEach((matchObj) => {
-            const matchDateTime = new Date(`${dateStr}T${matchObj.time}:00`);
-            const now = new Date();
-            const diffMinutes = (matchDateTime - now) / (1000 * 60);
+          matches.forEach((matchObj) => {
+              const matchDateTime = new Date(`${dateStr}T${matchObj.time}:00`);
+              const now = new Date();
+              const diffMinutes = (matchDateTime - now) / (1000 * 60);
 
-            if (isAlreadySelected(dateStr, matchObj)) {
-              console.log("已經選過了，跳過：", matchObj.name);
-              return;
-            }
-            hasVisible = true; // 有比賽可以顯示
+              if (isAlreadySelected(dateStr, matchObj)) {
+                console.log("已經選過了，跳過：", matchObj.name);
+                return;
+              }
+              hasVisible = true; // 有比賽可以顯示
 
-            const btn = document.createElement("button");
-            btn.className = "match-card";
-            const matchDisplayName = matchObj.type === 2 ? matchObj.match_name : matchObj.name;
-            btn.textContent = `【${typeMap[matchObj.type]}】 ${matchDisplayName}\n\n時間 : ${matchObj.time}`;
-            btn.style.whiteSpace = "pre-line";
+              const btn = document.createElement("button");
+              btn.className = "match-card";
+              const matchDisplayName = matchObj.type === 2 ? matchObj.match_name : matchObj.name;
+              btn.textContent = `【${typeMap[matchObj.type]}】 ${matchDisplayName}\n\n時間 : ${matchObj.time}`;
+              btn.style.whiteSpace = "pre-line";
 
-            //比賽開始前15分鐘不能預約了
-            if (diffMinutes < 15) {
-                btn.classList.add("disabled");
-                btn.addEventListener("click", () => {
-                alert(`此比賽已過或即將開始，無法預約。\n ${matchObj.name}\n📅 ${dateStr}\n🕒 ${matchObj.time}`);
-            });
-            } else {
-            btn.addEventListener("click", async () => {
-                console.log('selected');
-                if (!pendingBookings[dateStr]) pendingBookings[dateStr] = [];
-                const now = new Date();
-                pendingBookings[dateStr].push({
-                  ...matchObj,
-                  game_no: matchObj.game_no 
-                });
-                displayBookedMatches();
-                btn.remove();
+              //比賽開始前15分鐘不能預約了
+              if (diffMinutes < 15) {
+                  btn.classList.add("disabled");
+                  btn.addEventListener("click", () => {
+                  alert(`此比賽已過或即將開始，無法預約。\n ${matchObj.name}\n ${dateStr}\n | ${matchObj.time}<br>
+                    比分 : ${matchObj.point}`);
+              });
+              } else {
+              btn.addEventListener("click", async () => {
+                  console.log('selected');
+                  if (!pendingBookings[dateStr]) pendingBookings[dateStr] = [];
+                  const now = new Date();
+                  pendingBookings[dateStr].push({
+                    ...matchObj,
+                    game_no: matchObj.game_no 
+                  });
+                  displayBookedMatches();
+                  btn.remove();
 
-                // ✅ 檢查是否所有比賽都被選完
-                const remaining = matchData[dateStr].filter(m => !isAlreadySelected(dateStr, m));
-                if (remaining.length === 0) {
-                    matchListEl.innerHTML = "<li>✅ 今天的比賽都已預約或選擇完畢！</li>";
-                }
-            });
-            }
+                  // ✅ 檢查是否所有比賽都被選完
+                  const remaining = matchData[dateStr].filter(m => !isAlreadySelected(dateStr, m));
+                  if (remaining.length === 0) {
+                      matchListEl.innerHTML = "<li>✅ 今天的比賽都已預約或選擇完畢！</li>";
+                  }
+              });
+              }
 
-            matchListEl.appendChild(btn);
-        });
+              matchListEl.appendChild(btn);
+          });
 
-        // 若全部比賽都已選擇，顯示提示
-        if(!hasVisible) {
-            matchListEl.innerHTML = "<li>✅ 今天的比賽都已預約或選擇完畢！</li>";
-            displayBookedMatches();
-        }
-
+          // 若全部比賽都已選擇，顯示提示
+          if(!hasVisible) {
+              matchListEl.innerHTML = "<li>✅ 今天的比賽都已預約或選擇完畢！</li>";
+              displayBookedMatches();
+          }
         }else{
             matchListEl.innerHTML = "<li>❌ 沒有比賽資訊</li>";
         }
