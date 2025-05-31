@@ -774,7 +774,7 @@ def get_matches():
                     m.date,
                     m.time,
                     p.name AS platform_name,
-                    m.point,  -- 儲存獲勝 team_id
+                    m.point, 
                     b.game_1_a, b.game_1_b, b.game_2_a, b.game_2_b, b.game_3_a, b.game_3_b
                 FROM matches_schedule m
                 JOIN teams ta ON m.team_a = ta.team_id
@@ -1009,7 +1009,7 @@ def platform_rank():
         with connection.cursor() as cursor:
             cursor.execute("""
                 SELECT 
-                    p.platform_id, p.link as link, p.name as platform_name,
+                    p.platform_id, p.link as link, p.name as platform_name, p.price as price
                     COUNT(*) AS usage_count
                 FROM reminders r
                 JOIN match_platforms mp ON r.game_no = mp.game_no
