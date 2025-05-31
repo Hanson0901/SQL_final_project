@@ -2700,8 +2700,7 @@ try {
               if (diffMinutes < 15) {
                   btn.classList.add("disabled");
                   btn.addEventListener("click", () => {
-                  alert(`此比賽已過或即將開始，無法預約。\n ${matchObj.name}\n ${dateStr} | ${matchObj.time}\n
-                  詳細比分資訊可去比賽搜尋區查看 !`);
+                  alert(`此比賽已過或即將開始，無法預約。\n ${matchObj.name}\n ${dateStr} | ${matchObj.time}\n詳細比分資訊可去比賽搜尋區查看 !`);
               });
               } else {
               btn.addEventListener("click", async () => {
