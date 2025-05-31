@@ -192,7 +192,7 @@ def handle_message(event):
         Message = event.message.text.strip()  # 移除前後空白
         print(f"Received message: {Message}")
         # 用戶資料庫處理
-        handle_user_data(user_id, Message, event)
+        #handle_user_data(user_id, Message, event)
         try:
             # 訊息處理邏輯
             if Message == "Feed Back":
@@ -345,7 +345,7 @@ def self_reply(event, text, quick_reply=None):
                 messages=[msg]
             )
         )
-
+'''
 def handle_user_data(user_id, message_text, event):
     try:
         check_sql = "SELECT user_id FROM users WHERE user_id = %s"
@@ -362,7 +362,7 @@ def handle_user_data(user_id, message_text, event):
     except Exception as e:
         print(f"資料庫操作錯誤: {e}")
         db.rollback()
-
+'''
 @handler.add(FollowEvent)
 def handle_follow(event):
         user_id = event.source.user_id
