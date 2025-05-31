@@ -1009,7 +1009,7 @@ def platform_rank():
         with connection.cursor() as cursor:
             cursor.execute("""
                 SELECT 
-                    p.platform_id, p.link as link, p.name as platform_name, p.price as price
+                    p.platform_id, p.link as link, p.name as platform_name, p.price as price,
                     COUNT(*) AS usage_count
                 FROM reminders r
                 JOIN match_platforms mp ON r.game_no = mp.game_no
