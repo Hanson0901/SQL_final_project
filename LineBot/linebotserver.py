@@ -116,10 +116,7 @@ def remind():
                 LEFT JOIN f1_match_info f1 ON ms.game_no = f1.game_no
                 WHERE CONCAT(ms.date, ' ', ms.time) BETWEEN %s AND %s
             """, (start_time.strftime("%Y-%m-%d %H:%M:%S"), end_time.strftime("%Y-%m-%d %H:%M:%S")))
-            # , (
-            #     start_datetime.strftime("%Y-%m-%d %H:%M:%S"),
-            #     end_datetime.strftime("%Y-%m-%d %H:%M:%S")
-            # ))
+
 
 
         results = cursor.fetchall()
