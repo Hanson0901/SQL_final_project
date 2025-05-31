@@ -368,11 +368,12 @@ def handle_follow(event):
         user_id = event.source.user_id
         try:
             check_sql = "SELECT user_id FROM users WHERE user_id = %s"
+            sql_connect("localhost", 3306, "hanson0901", "Hanson940901", "final_project")
+
             cursor.execute(check_sql, (user_id,))
             result = cursor.fetchone()
         
             if not result:
-                self_reply(event, )
                 with ApiClient(configuration) as api_client:
                     messaging_api = MessagingApi(api_client)
                     msg = TextMessage(text="歡迎來到『賽事LINE BOT 到』！\n請輸入您的暱稱以儲存您的資料。", quick_reply=None)
