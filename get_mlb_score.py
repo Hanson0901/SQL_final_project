@@ -21,7 +21,7 @@ def get_mlb_score(date):
     
     #url="C:/Users/cbes1/Desktop/MLB%20Scores_%20Scoreboard,%20Results%20and%20Highlights.mhtml"
     date_obj = datetime.datetime.strptime(date, "%Y-%m-%d") - datetime.timedelta(days=1)
-    date = date_obj.strftime("%Y/%m/%d")
+    date = date_obj.strftime("%Y-%m-%d")
     url=f"https://www.mlb.com/scores/{date}"
     driver.get(url)
 
