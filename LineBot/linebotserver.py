@@ -229,7 +229,7 @@ def handle_message(event):
                 self_reply(event, f"您選擇的賽事種類是：{Message}\n請輸入您的回報內容(限一個文字框):")
                 Type = Message
             
-            elif previous_message == "Feed Backing":
+            elif pm == "Feed Backing":
                 # 處理回報內容
                 previous_message = [item for item in previous_message if item["user_id"] != user_id]
                 previous_message.append({"user_id": user_id, "message": ""})  # 更新使用者ID到previous_message
