@@ -1892,8 +1892,8 @@ def get_all_feedback():
 def update_feedback(date):
     data = request.get_json()
     time = data.get("time")  # 前端要提供 f_time
-    uid = session.get("uid", "").strip()
-
+    
+    feedback_user_id = data.get("user_id")
     if not time:
         return jsonify(success=False, message="缺少時間欄位")
 
@@ -1905,7 +1905,7 @@ def update_feedback(date):
                     UPDATE feedbacks
                     SET admin_id = %s, f_status = '處理中'
                     WHERE user_id = %s AND send_date = %s AND f_time = %s
-                """, (data['admin_id'], uid, date, time))
+                """, (data['admin_id'], feedback_user_id, date, time))
                 connection.commit()
                 return jsonify(success=True, message="已認領")
 
@@ -1914,13 +1914,13 @@ def update_feedback(date):
                 UPDATE feedbacks
                 SET f_status = %s, admin_id = %s
                 WHERE user_id = %s AND send_date = %s AND f_time = %s
-            """, (data.get('status'), data.get('admin_id'), uid, date, time))
+            """, (data.get('status'), data.get('admin_id'), feedback_user_id, date, time))
 
             # 更新 reply 表（可插入或更新）
             cursor.execute("""
                 SELECT user_id FROM feedback_replies
                 WHERE user_id = %s AND send_date = %s AND f_time = %s
-            """, (uid, date, time))
+            """, (feedback_user_id, date, time))
             exists = cursor.fetchone()
 
             if exists:
@@ -1933,7 +1933,7 @@ def update_feedback(date):
                     data.get("reason"),
                     data.get("reply_date"),
                     data.get("reply_time"),
-                    uid, date, time
+                    feedback_user_id, date, time
                 ))
             else:
                 cursor.execute("""
@@ -1941,7 +1941,7 @@ def update_feedback(date):
                     (user_id, send_date, f_time, reply, reason, reply_date, reply_time)
                     VALUES (%s, %s, %s, %s, %s, %s, %s)
                 """, (
-                    uid, date, time,
+                    feedback_user_id, date, time,
                     data.get("reply"),
                     data.get("reason"),
                     data.get("reply_date"),

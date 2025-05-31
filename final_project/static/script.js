@@ -1672,7 +1672,8 @@ try {
                     body: JSON.stringify({
                         admin_id: document.body.dataset.adminId,
                         status: '處理中',
-                        time: fb.f_time
+                        time: fb.f_time,
+                        user_id: fb.user_id
                     })
                 });
                 const result = await res.json();
@@ -1737,7 +1738,8 @@ try {
                     admin_id: document.body.dataset.adminId,
                     reply_date: dateStr,
                     reply_time: timeStr,
-                    reason: updatedReason
+                    reason: updatedReason,
+                    user_id: fb.user_id
                 };
               
             
