@@ -319,7 +319,7 @@ def handle_message(event):
             elif Message in ["NBA", "F1", "MLB", "CPBL", "BWF"]:
                 # 處理賽事比分顯示
                 self_reply(event, f"您選擇的賽事種類是：{Message}\n正在查詢即時比分...")
-            elif Message == '我是屁眼':
+            elif Message == '/gamemode creative':
                    with ApiClient(configuration) as api_client:
                         line_bot_api = MessagingApi(api_client)
                         send_admin_flex(line_bot_api, event.reply_token, rating=0)
