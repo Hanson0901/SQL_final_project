@@ -22,46 +22,71 @@ FOLDER_PATH = r"Player_info\BWF\BWF_schedule.json"
 
 with open(FOLDER_PATH, "r", encoding="utf-8") as f:
     data = json.load(f)
-
+platform_id_lst=[]
 try:
     with connection.cursor() as cursor:
         for item in data:
+            team_a = item.get("team_a")
+            team_b = item.get("team_b")
+            date = item.get("date")
+            time = item.get("time")
             
+            # 取得 team_id
+            cursor.execute("SELECT team_id FROM bwf_team WHERE team_name = %s", (team_a,))
+            team_a_id = cursor.fetchone()
+            if team_a_id:
+                team_a_id = team_a_id[0]
+            else:
+                print(f"❌ 找不到 {team_a} 的 team_id")
+                continue
+
+            cursor.execute("SELECT team_id FROM bwf_team WHERE team_name = %s", (team_b,))
+            team_b_id = cursor.fetchone()
+            if team_b_id:
+                team_b_id = team_b_id[0]
+            else:
+                print(f"❌ 找不到 {team_b} 的 team_id")
+                continue
+
+            cursor.execute(
+                "SELECT game_no FROM matches_schedule WHERE team_a = %s AND team_b = %s AND date = %s AND time = %s ORDER BY game_no DESC LIMIT 1",
+                (team_a_id, team_b_id, date, time)
+            )
+            result = cursor.fetchone()
+            if result:
+                game_no = result[0]
+
             channels= item.get('channels')
             for channel in channels:
                 channel = channel.strip()
 
-            cursor.execute(
-                    "SELECT team_id FROM teams WHERE team_name = %s",
-                    (team_name,)
-                )
-            team_result = cursor.fetchone()
-            
-            team_id = team_result[0] if team_result else None
-
-            # 檢查 team_name 是否已存在於資料庫
-            cursor.execute(f"SELECT COUNT(*) FROM {TABLE} WHERE team_name = %s", (team_name,))
-            exists = cursor.fetchone()[0]
-            if not exists:
+                cursor.execute(
+                        "SELECT platform_id FROM platforms WHERE name = %s",
+                        (channel,)
+                    )
+                platform_result = cursor.fetchone()
+                
+                platform_id = platform_result[0] if platform_result else None
+                platform_id_lst.append(platform_id)
                 
 
-                sql = f"""
-                    INSERT INTO {TABLE} 
-                    (team_id,team_name)
-                    VALUES ({para})
-                """
-                cursor.execute(
-                    sql,
-                    (
-                        team_id,
-                        team_name,  
-                        
-                    ),
-                )
-                connection.commit()
-                print(f"✅ {FOLDER_PATH} 已寫入 MySQL！")
-            else:
-                print(f"⚠️ {team_name} 已存在於 {TABLE}，跳過寫入。")
+            for platform_id in platform_id_lst:
+               
+                # sql = f"""
+                #     INSERT INTO {TABLE} 
+                #     (game_no,platform_id)
+                #     VALUES ({para})
+                # """
+                # cursor.execute(
+                #     sql,
+                #     (
+                #         game_no,
+                #         platform_id  
+                #     ),
+                # )
+                # connection.commit()
+                print(f"✅ {team_a} vs {team_b} 已寫入 MySQL！")
+      
             
 except Exception as e:
     print(f"❌ error occurs at {FOLDER_PATH}：", e)

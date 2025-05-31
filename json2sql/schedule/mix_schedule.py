@@ -111,7 +111,7 @@ try:
             point_list = [int(x) if x.strip().isdigit() else 0 for x in point_str.strip().split()]
             while len(point_list) < 6:
                 point_list.append(0)
-                
+
             game_1_a = point_list[0]
             game_2_a = point_list[2]
             game_3_a = point_list[4]
@@ -170,6 +170,41 @@ try:
                 game_3_b,
             ]
             cursor.execute(sql_info, values)
+
+            #寫入 match_platforms 
+            platform_id_lst = []
+            channels= item.get('channels')
+            for channel in channels:
+                channel = channel.strip()
+
+                cursor.execute(
+                        "SELECT platform_id FROM platforms WHERE name = %s",
+                        (channel,)
+                    )
+                platform_result = cursor.fetchone()
+                
+                platform_id = platform_result[0] if platform_result else None
+                platform_id_lst.append(platform_id)
+                
+
+            for platform_id in platform_id_lst:
+               
+                sql = f"""
+                    INSERT INTO match_platforms
+                    (game_no,platform_id)
+                    VALUES (%s, %s)
+                """
+                cursor.execute(
+                    sql,
+                    (
+                        game_no,
+                        platform_id  
+                    ),
+                )
+                connection.commit()
+                print(f"✅ {team_a} vs {team_b} 已寫入 MySQL！")
+
+
             connection.commit()
             print(f"✅ {team_a} vs {team_b} 已寫入 matches_schedule 與 bwf_match_info！")
 except Exception as e:

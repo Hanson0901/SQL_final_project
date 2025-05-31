@@ -1,6 +1,6 @@
 from itertools import permutations
 
-name = "KAPILA DHRUV"
+name = "THUZAR THET HTAR"
 words = name.split()
 
 all_combinations = list(permutations(words))
