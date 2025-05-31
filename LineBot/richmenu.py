@@ -51,7 +51,7 @@ def create_rich_menu():
     rich_menu_id = response["richMenuId"]
 
     # 上傳圖片
-    with open(r"richmenu.jpg", "rb") as image:
+    with open(r"1.png", "rb") as image:
         img_headers = {
             "Authorization": "Bearer " + CHANNEL_ACCESS_TOKEN,
             "Content-Type": "image/jpeg",
