@@ -358,8 +358,6 @@ def handle_user_data(user_id, message_text, event):
             db.commit()
             print("新使用者已儲存")
             self_reply(event, "歡迎新朋友！資料已儲存")
-        else:
-            self_reply(event, "歡迎回來！您的資料已存在。")
             
     except Exception as e:
         print(f"資料庫操作錯誤: {e}")
