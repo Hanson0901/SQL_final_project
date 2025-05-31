@@ -481,7 +481,7 @@ def send_admin_flex(line_bot_api, reply_token, rating):
     line_bot_api.reply_message(
         ReplyMessageRequest(
             reply_token=reply_token,
-            messages=[FlexMessage(alt_text="管理者模式與評分功能", contents=FlexContainer.from_json(json.dumps(admin_flex)))]
+            messages=[FlexMessage(alt_text="管理者模式", contents=FlexContainer.from_json(json.dumps(admin_flex)))]
         )
     )
 
