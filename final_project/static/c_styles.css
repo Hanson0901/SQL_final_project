@@ -159,6 +159,25 @@ h1 {
   transition: background-color 0.2s;
 }
 
+.go-btn {
+        margin-left: 1rem;
+        padding: 4px 10px;
+        background-color: #A8D4D1;
+        color: white;
+        border: none;
+        margin: 8px;
+        border-radius: 8px;
+        cursor: pointer;
+    }
+
+.go-btn:hover {
+    background-color: #7FB9B3;
+}
+
+.hidden {
+    display: none;
+}
+
 .calendar-controls button:hover {
   background-color: #67c0db;
 }

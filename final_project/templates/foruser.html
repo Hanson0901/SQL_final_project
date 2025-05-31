@@ -84,6 +84,12 @@
       const uid = profile.userId;
       const name = profile.displayName;
 
+      // 顯示歡迎文字
+      const welcomeEl = document.getElementById("welcome-text");
+      if (welcomeEl) {
+        welcomeEl.textContent = `歡迎 ~ ${name}`;
+      }
+
       fetch("/set_uid", {
         method: "POST",
         headers: { "Content-Type": "application/json" },

@@ -733,6 +733,7 @@ def get_keywords():
 def recent_match():
 
     uid = session.get("uid")
+
     if not uid:
         return "❌ 未登入，請先從 LINE 入口進入", 403
 
@@ -1004,13 +1005,11 @@ def delete_single_booking():
 @app.route('/api/platform/rank')
 def platform_rank():
     uid = session.get("uid", "").strip()
-
     try:
         with connection.cursor() as cursor:
             cursor.execute("""
                 SELECT 
-                    p.platform_id,
-                    p.name AS platform_name,
+                    p.platform_id, p.link as link, p.name as platform_name,
                     COUNT(*) AS usage_count
                 FROM reminders r
                 JOIN match_platforms mp ON r.game_no = mp.game_no
@@ -1039,9 +1038,6 @@ def delete_expired_reminders():
         """)
         connection.commit()
         print(f"[{datetime.now()}] ⏰ 過期提醒已刪除")
-
-
-
 
 
 #===============================比賽預約=====================================#

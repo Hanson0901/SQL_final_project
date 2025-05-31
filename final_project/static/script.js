@@ -2398,14 +2398,14 @@ try {
 
           console.log("🎯 existingBookings:", existingBookings);
           displayBookedMatches();
-          await loadTopPlatform(uid);
+          await loadTopPlatform();
       } catch (err) {
           console.error("❌ loadBookings 發生錯誤:", err);
       }
     }
 
 
-    async function loadTopPlatform(uid) {
+    async function loadTopPlatform() {
         const res = await fetch(`/api/platform/rank`);
         const platforms = await res.json();
 
@@ -2426,9 +2426,10 @@ try {
         const card = document.createElement("div");
         card.className = "platform-card";
 
+        //推薦平台資訊區塊
         const title = document.createElement("h3");
         title.textContent = "為您推薦平台";
-        title.style.marginBottom = "0.5rem";
+        title.style.margin = "0.8rem 0 0.5rem";
 
         const list = document.createElement("ul");
         list.style.listStyle = "none";
@@ -2436,14 +2437,48 @@ try {
 
         for (const p of topPlatforms) {
             const li = document.createElement("li");
-            li.innerHTML = `<strong>${p.platform_name}</strong>（預約次數 ${p.usage_count}）`;
+            li.style.marginBottom = "0.4rem"; // ⬅ 加大間距
+            li.innerHTML = `
+                <strong>${p.platform_name}</strong>（預約次數 ${p.usage_count}）
+                <button class="go-btn" style="font-size: 0.85rem;" onclick="window.open('${p.link}', '_blank')">前往</button>
+            `;
             list.appendChild(li);
         }
 
         card.appendChild(title);
         card.appendChild(list);
         box.appendChild(card);
-    }
+
+        // 所有平台展開區塊
+        const toggleBtn = document.createElement("button");
+        toggleBtn.textContent = "查看所有平台使用次數";
+        toggleBtn.className = "go-btn";
+        toggleBtn.style.margin = "0.5rem 0 0.5rem 0";
+        toggleBtn.style.fontSize = "0.9rem";
+        toggleBtn.style.padding = "6px 12px";
+
+        const allList = document.createElement("ul");
+        allList.style.listStyle = "none";
+        allList.style.paddingLeft = "0";
+        allList.classList.add("hidden"); // 初始隱藏
+
+        for (const p of platforms) {
+              const li = document.createElement("li");
+              li.innerHTML = `<strong>${p.platform_name}</strong>（${p.usage_count} 次）
+              <button class="go-btn" style="font-size: 0.85rem;" onclick="window.open('${p.link}', '_blank')">前往</button>`;
+              allList.appendChild(li);
+          }
+
+          toggleBtn.onclick = () => {
+              allList.classList.toggle("hidden");
+              toggleBtn.textContent = allList.classList.contains("hidden")
+                  ? "查看所有平台使用次數"
+                  : "收起平台資訊";
+          };
+
+          card.appendChild(toggleBtn);
+          card.appendChild(allList);
+      }
 
     async function loadMatchData() {
         
@@ -2633,6 +2668,11 @@ try {
         cell.classList.add("selected");
 
         selectedDateEl.textContent = `${dateStr} 的比賽`;
+        selectedDateEl.onclick = () => {
+            matchListEl.classList.toggle("hidden");  
+        };
+
+        matchListEl.classList.remove("hidden");
         matchListEl.innerHTML = "";
 
         const matches = matchData[dateStr];
@@ -2859,7 +2899,7 @@ try {
             deletedBookings = [];
 
             displayBookedMatches();
-            await loadTopPlatform(uid);
+            await loadTopPlatform();
         }else {
             alert("❌ 儲存失敗！");
         }
