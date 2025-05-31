@@ -106,8 +106,8 @@ def remind():
         print("資料庫連線失效，重新連線中...")
         
     now = datetime.now()
-    start_time = now.replace(second=0, microsecond=0) + timedelta(minutes=13)
-    end_time = now.replace(second=0, microsecond=0) + timedelta(minutes=14)
+    start_time = now+ timedelta(minutes=9)
+    end_time = now + timedelta(minutes=10)
 
     print("🔍 查詢提醒範圍：", start_time.strftime("%Y-%m-%d %H:%M:%S"), "～", end_time.strftime("%Y-%m-%d %H:%M:%S"))
 
