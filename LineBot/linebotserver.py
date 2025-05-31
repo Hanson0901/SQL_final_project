@@ -464,17 +464,6 @@ def send_admin_flex(line_bot_api, reply_token, rating):
                         "uri": "https://cgusqlpj.ddns.net:2222/"
                     },
                     "flex": 2
-                },
-                {
-                    "type": "button",
-                    "style": "secondary",
-                    "height": "sm",
-                    "action": {
-                        "type": "message",
-                        "label": "取消",
-                        "text": "取消進入管理者"
-                    },
-                    "flex": 2
                 }
             ],
             "flex": 0
