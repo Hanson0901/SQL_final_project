@@ -29,7 +29,10 @@ function formatLocalTime(utcTimeString, offsetHours = -12) {
 
   (function autoRefresh() {
     const pageDate = window.pageDate;
-    const today = new Date().toISOString().split('T')[0];
+    // 取得明天的日期字串 (yyyy-mm-dd)
+    const tomorrow = new Date();
+    tomorrow.setDate(tomorrow.getDate() + 1);
+    const today = tomorrow.toISOString().split('T')[0];
     console.log('pageDate:', pageDate, 'today:', today);
   
     const refreshInterval = setInterval(() => {
