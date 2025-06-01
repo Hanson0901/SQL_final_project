@@ -153,10 +153,12 @@ body {
   margin: 0 20px;  
 }
 .bag-inner-space{
-  height: 20px;  
+  height: 40px;  
 }
 [class*="inningStatestyle__StyledInningWrapper-sc"] {
   text-align: right;   /* 文字靠右 */
+  /*顯示大小*/
+  font-size: 32px;
   margin-left: auto; /* 自動左邊距，讓區塊浮動到右側 */
   /* 如果你希望整個區塊浮動到右側，可以加上： */
   /* float: right; */
