@@ -155,7 +155,7 @@ body {
 .bag-inner-space{
   height: 30px;  
 }
-[class*="inningStatestyle__StyledInningWrapper-sc"] {
+[class*="inningStatestyle__StyledInningWrapper-sc-1ubcxdf-0"] {
   text-align: right;   /* 文字靠右 */
   /*顯示大小*/
   font-size: 32px;
@@ -164,7 +164,7 @@ body {
   /* 如果你希望整個區塊浮動到右側，可以加上： */
   /* float: right; */
 }
-[class*="basepathsstyle__BaseRect-sc-1xzx55b-1 gKeJOB"]{
+[class="basepathsstyle__BaseRect-sc-1xzx55b-1 gKeJOB"]{
   width: 12px !important;/* 設定寬度 */
   height: 12px !important; /* 設定高度 */
 }
