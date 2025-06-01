@@ -170,6 +170,11 @@ body {
   height: 56px !important; /* 可選：設定高度 */
   /* SVG 的 viewBox 屬性應在 HTML/SVG 標籤內設定，不能用 CSS 設定 */
 }
+[class*="outsstyle__StyledBaseSVG-sc-banevc-0"]{
+  width: 56px !important; /* 設定寬度 */
+  height: 56px !important; /* 可選：設定高度 */
+  /* SVG 的 viewBox 屬性應在 HTML/SVG 標籤內設定，不能用 CSS 設定 */
+}
   .no-games {
     text-align: center;
     color: #666;
