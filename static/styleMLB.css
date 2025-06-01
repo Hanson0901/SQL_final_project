@@ -129,8 +129,8 @@ body {
   }
 
 .rhe-row {
-  display: grid;
-  /*flex-direction: row;*/
+  display: flex;
+  flex-direction: column;
   grid-template-columns: 5px 5px 5px; /* 固定 R、H、E 的欄位寬度 */
   gap: 15px; /* 欄位之間的間距 */
   margin-top: 15px; /* 每行之間的間距 */
@@ -138,7 +138,8 @@ body {
   .rhe-row span {
     width: 40px; /* 固定欄位寬度 */
     text-align: middle; /* 讓內容向右對齊 */
-    font-size: 40px;
+    gap: 15px; /* 欄位之間的間距 */
+
   }
 .bag{
     display: flex;
