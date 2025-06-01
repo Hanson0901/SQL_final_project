@@ -159,12 +159,15 @@ body {
   text-align: right;   /* 文字靠右 */
   /*顯示大小*/
   font-size: 32px;
-  width: 72px; /* 或 24px，依需求調整 */
+  width: 72px !important;
   margin-left: auto; /* 自動左邊距，讓區塊浮動到右側 */
   /* 如果你希望整個區塊浮動到右側，可以加上： */
   /* float: right; */
 }
-  
+[class*="basepathsstyle__BaseRect-sc-1xzx55b-1 gKeJOB"]{
+  width: 24px !important;/* 設定寬度 */
+  height: 24px !important; /* 設定高度 */
+}
   .no-games {
     text-align: center;
     color: #666;
