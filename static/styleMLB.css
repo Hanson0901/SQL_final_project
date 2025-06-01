@@ -165,15 +165,15 @@ body {
   /* float: right; */
 }
 [class="basepathsstyle__BaseRect-sc-1xzx55b-1 gKeJOB"]{
-  width: 24px !important;/* 設定寬度 */
-  height: 24px !important; /* 設定高度 */
+  width: 18px !important;/* 設定寬度 */
+  height: 18px !important; /* 設定高度 */
 }
 [class*="inningStatestyle__StyledBasepathsWrapper-sc-1ubcxdf-1"]{
   width: 72px !important; /* 設定寬度 */
 }
 [class*="basepathsstyle__StyledBaseSVG-sc-1xzx55b-0"]{
-  width: 36px !important; /* 設定寬度 */
-  height: 36px !important; /* 可選：設定高度 */
+  width: 48px !important; /* 設定寬度 */
+  height: 48px !important; /* 可選：設定高度 */
   /* SVG 的 viewBox 屬性應在 HTML/SVG 標籤內設定，不能用 CSS 設定 */
 }
 }
