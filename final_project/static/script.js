@@ -320,7 +320,9 @@ if(page === 'foradmin'){
         result.innerHTML += `
           <div class="match-card" id="card_${m.game_no}" style="margin-bottom: 1rem;">
             <strong>【${sport_name[m.type]}】 ${matchTitle}</strong><br>
-            日期時間 : ${formattedDate} | ${m_time}<br>
+            日期時間 : ${formattedDate} | ${m_time}<br><br>
+            ${m.team_a_name} 隊 : ${m.player_1_name} | ${m.player_2_name == null ? "" : m.player_2_name}<br>
+            ${m.team_b_name} 隊 : ${m.player_3_name} | ${m.player_4_name == null ? "" : m.player_4_name}<br><br>
             比分：${m.point || '尚未公布'}<br>
             獲勝隊伍：${m.winner_name == null ? "正在打 或 還未開賽" : m.winner_name}<br>
             播放平台：${platforms}<br>

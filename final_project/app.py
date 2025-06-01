@@ -1170,7 +1170,7 @@ def search_match_advanced():
             return jsonify(matches=[], error="請至少輸入一個條件（如日期、隊伍、比賽名稱）"), 400
     
         with connection.cursor(pymysql.cursors.DictCursor) as cursor:
-            # ✅ F1 特別處理
+            #  F1 特別處理
             if sport == "2":
                 conditions = ["m.type = 2"]
                 params = []
@@ -1220,7 +1220,7 @@ def search_match_advanced():
 
                 return jsonify(matches=matches)
 
-            # ✅ 非 F1（包含羽球）
+            # 非 F1（包含羽球）
             conditions = []
             params = []
 
@@ -1247,11 +1247,19 @@ def search_match_advanced():
                         ta.team_name AS team_a_name, 
                         tb.team_name AS team_b_name,
                         b.*,
+                        p1.name AS player_1_name,
+                        p2.name AS player_2_name,
+                        p3.name AS player_3_name,
+                        p4.name AS player_4_name,
                         m.point AS winner_name
                     FROM matches_schedule m
                     LEFT JOIN teams ta ON m.team_a = ta.team_id
                     LEFT JOIN teams tb ON m.team_b = tb.team_id
                     LEFT JOIN bwf_match_info b ON m.game_no = b.game_no
+                    LEFT JOIN players p1 ON b.player_1 = p1.player_id
+                    LEFT JOIN players p2 ON b.player_2 = p2.player_id
+                    LEFT JOIN players p3 ON b.player_3 = p3.player_id
+                    LEFT JOIN players p4 ON b.player_4 = p4.player_id
                     WHERE {where_clause}
                     ORDER BY m.date DESC, m.time DESC
                 """, params)
@@ -1278,7 +1286,7 @@ def search_match_advanced():
                     minutes = (total_seconds % 3600) // 60
                     m["time"] = f"{hours:02}:{minutes:02}"
 
-                # ✅ 如果是羽球，組合比分 point
+                # 如果是羽球，組合比分 point
                 if sport == "5":
                     m["point"] = f"{m['game_1_a']} : {m['game_1_b']} | {m['game_2_a']} : {m['game_2_b']} | {m['game_3_a']} : {m['game_3_b']}"
 
@@ -1986,6 +1994,7 @@ if __name__ == "__main__":
         "/opt/lampp/etc/pem/privkey.pem"
     )
     app.run(host='0.0.0.0', port=2222, ssl_context=context)
+
 # if __name__ == "__main__":
 #     app.run(port = 5050, host='0.0.0.0')
 #     if os.environ.get("WERKZEUG_RUN_MAIN") == "true":  #避免debug重複啟動
