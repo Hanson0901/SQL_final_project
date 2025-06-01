@@ -31,7 +31,6 @@ function formatLocalTime(utcTimeString, offsetHours = 12) {
     const pageDate = window.pageDate;
     const today = new Date().toISOString().split('T')[0];
     console.log('pageDate:', pageDate, 'today:', today);
-    if (pageDate !== today) return;
   
     const refreshInterval = setInterval(() => {
       console.log('定時刷新觸發:', new Date().toLocaleTimeString());
