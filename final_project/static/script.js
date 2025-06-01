@@ -2034,8 +2034,7 @@ try {
               
               const today = new Date().toISOString().split('T')[0];
               const m_time = m.time;
-
-              if(sport === "5" && ((formattedDate <= today) && (m_time === "00:00:00"))){m_time = "Final";}
+              
 
               if(sport === "2"){
                 resultDiv.innerHTML += `
@@ -2292,16 +2291,12 @@ try {
                 });
               }else if(sportTypeNum === 5){
                 
-                const today = new Date().toISOString().split('T')[0];
-                const m_time = match.time;
-                if(match.date <= today && (m_time === "00:00:00")){m_time = "Final";}
-
                 data.forEach(match => {
                     const div = document.createElement("div");
                     div.className = "result-card";
                     const m_n = (sportType === "2") ? match.match_name : match.team_a_name + " vs " + match.team_b_name;
                     let html = `<strong> ${m_n}</strong><br>`;
-                    html += `日期時間 : ${match.date} | ${m_time}<br>`;
+                    html += `日期時間 : ${match.date} | ${match.time}<br>`;
                     html += `比數：${match.point === null ? "尚未開始" : match.point}<br>`;
                     html += `${match.team_a_name} 隊 : ${match.player_1_name == null ? "" : match.player_1_name} | ${match.player_2_name == null ? "" : match.player_2_name}<br>`;
                     html += `${match.team_b_name} 隊 : ${match.player_3_name == null ? "" : match.player_3_name} | ${match.player_4_name == null ? "" : match.player_4_name}<br>`;                
