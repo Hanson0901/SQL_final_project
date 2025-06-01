@@ -168,6 +168,9 @@ body {
   width: 24px !important;/* 設定寬度 */
   height: 24px !important; /* 設定高度 */
 }
+[class*="inningStatestyle__StyledBasepathsWrapper-sc-1ubcxdf-1"]{
+  width: 72px !important; /* 設定寬度 */
+}
   .no-games {
     text-align: center;
     color: #666;
