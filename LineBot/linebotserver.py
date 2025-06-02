@@ -189,7 +189,7 @@ def handle_message(event):
     
 
     if event.message and hasattr(event.message, "text"):
-        Message = event.message.text.strip()  # 移除前後空白
+        Message = event.message.text
         print(f"Received message: {Message}")
         UID(user_id, Message)  # 更新使用者ID到previous_message
         pm = next((item["message"] for item in previous_message if item["user_id"] == user_id), None)
