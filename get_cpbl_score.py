@@ -42,7 +42,7 @@ def get_cpbl_score(date):
             #rhe_info = game.select("div[class^='GameInfoLayoutstyle__GameInfoWrapper-sc'] tbody tr")
             time_info_element = game.select("li[class^='item']")
             Date=soup.select_one("div[class='date']").text
-            if Date!= datetime.now().strftime("%Y/%m/%d"):
+            if Date!= datetime.datetime.now().strftime("%Y/%m/%d"):
                 return []  # 如果日期不符合，返回空列表
             for times in time_info_element:
                 img=[]
