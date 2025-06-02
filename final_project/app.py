@@ -1059,7 +1059,7 @@ def admin_entry():
 is_top = False
 
 #==================================登入/註冊介面==============================#
-@app.route('/foradmin')
+@app.route('/Tasuketettesakenderudakedetodokanakutekanashikute')
 def foradmin():
     return render_template("foradmin.html")
 
