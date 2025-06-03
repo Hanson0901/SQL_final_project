@@ -110,6 +110,9 @@ def bwf_official():
 def nba_official():
     return render_template("NBA_official.html")
 
+@app.route("/cpbl")
+def cpbl():
+    return render_template("CPBL.html")
 
 if __name__ == "__main__":
     context = (
