@@ -2010,9 +2010,16 @@ try {
 
         const hasDate = !!date?.trim();
         const hasKeyword = !!keyword?.trim();
-        const hasTeamOrPlayer = (type === "team" || type === "player") && hasKeyword;
+        const hasQueryType = (type === "team" || type === "player");
+        const hasTeamOrPlayer = hasQueryType && hasKeyword;
 
-        // 非 F1 的情況下，必須有 日期 或 關鍵字 查詢條件
+        // 有選查詢方式但沒選關鍵字 → 應該擋
+        if (hasQueryType && !hasKeyword) {
+          alert("請選擇關鍵字（隊伍 / 球員）");
+          return;
+        }
+
+        // 非 F1 時，至少要 日期 或 查詢方式 + 關鍵字
         if (sport !== "2" && !hasDate && !hasTeamOrPlayer) {
           alert("請輸入日期 或 選擇隊伍/選手");
           return;
