@@ -31,7 +31,7 @@ function formatLocalTime(utcTimeString, offsetHours = -12) {
     const pageDate = window.pageDate;
     // 取得明天的日期字串 (yyyy-mm-dd)
     const tomorrow = new Date();
-    tomorrow.setDate(tomorrow.getDate() + 1);
+    tomorrow.setDate(tomorrow.getDate());
     const today = tomorrow.toISOString().split('T')[0];
     console.log('pageDate:', pageDate, 'today:', today);
   
