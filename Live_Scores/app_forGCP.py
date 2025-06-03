@@ -112,7 +112,7 @@ def nba_official():
 
 @app.route("/cpbl")
 def cpbl():
-    return render_template("CPBL.html")
+    return render_template("CPBL.mhtml")
 
 if __name__ == "__main__":
     context = (
