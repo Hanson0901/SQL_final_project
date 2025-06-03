@@ -2561,6 +2561,8 @@ try {
           </div>
         `;
 
+        document.getElementById('save').addEventListener('click', saveBookings);
+
         bookedEl.innerHTML += `<h3><strong>已預約</strong></h3>`;
         for (let date in existingBookings) {
           const merged = {};
@@ -2970,7 +2972,7 @@ try {
 
     document.getElementById('PrevMonthBtn').addEventListener('click', prevMonth);
     document.getElementById('NextMonthBtn').addEventListener('click', nextMonth);
-    document.getElementById('save').addEventListener('click', saveBookings);
+    
     document.getElementById('cancel').addEventListener('click', clearAllBookings);
 }else if(page === "super_admin"){
   const sessionId = parseInt("{{ session['admin_id'] }}");
