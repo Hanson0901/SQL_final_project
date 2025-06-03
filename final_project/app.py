@@ -1981,25 +1981,25 @@ def public_announcements():
 #===========================使用者公告區====================================#
 
 
-# if __name__ == "__main__":
-#     scheduler = BackgroundScheduler()
-#     scheduler.add_job(delete_expired_reminders, 'interval', minutes=10)
-#     scheduler.start()
-#     print("定時任務啟動")
-
-#     delete_expired_reminders()
-    
-#     context = (
-#         "/opt/lampp/etc/pem/fullchain.pem",
-#         "/opt/lampp/etc/pem/privkey.pem"
-#     )
-#     app.run(host='0.0.0.0', port=2222, ssl_context=context)
-
 if __name__ == "__main__":
-    app.run(port = 5050, host='0.0.0.0')
-    if os.environ.get("WERKZEUG_RUN_MAIN") == "true":  #避免debug重複啟動
-        scheduler = BackgroundScheduler()
-        scheduler.add_job(delete_expired_reminders, 'interval', minutes=15)  
-        scheduler.start()
+    scheduler = BackgroundScheduler()
+    scheduler.add_job(delete_expired_reminders, 'interval', minutes=10)
+    scheduler.start()
+    print("定時任務啟動")
+
+    delete_expired_reminders()
+    
+    context = (
+        "/opt/lampp/etc/pem/fullchain.pem",
+        "/opt/lampp/etc/pem/privkey.pem"
+    )
+    app.run(host='0.0.0.0', port=2222, ssl_context=context)
+
+# if __name__ == "__main__":
+#     app.run(port = 5050, host='0.0.0.0')
+#     if os.environ.get("WERKZEUG_RUN_MAIN") == "true":  #避免debug重複啟動
+#         scheduler = BackgroundScheduler()
+#         scheduler.add_job(delete_expired_reminders, 'interval', minutes=15)  
+#         scheduler.start()
     
     
