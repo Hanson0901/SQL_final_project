@@ -2374,6 +2374,13 @@ try {
     const matchListEl = document.getElementById("match-list");
     const selectedDateEl = document.getElementById("selected-date");
 
+    document.addEventListener('click', function (e) {
+    if (e.target && e.target.id === 'save') {
+        saveBookings();
+      }
+    });
+
+
     let today = new Date();
     let currentYear = today.getFullYear();
     let currentMonth = today.getMonth();
@@ -2561,7 +2568,7 @@ try {
           </div>
         `;
 
-        document.getElementById('save').addEventListener('click', saveBookings);
+        
 
         bookedEl.innerHTML += `<h3><strong>已預約</strong></h3>`;
         for (let date in existingBookings) {
