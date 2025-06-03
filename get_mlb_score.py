@@ -20,8 +20,8 @@ def get_mlb_score(date):
     #輸入年月日
     
     #url="C:/Users/cbes1/Desktop/MLB%20Scores_%20Scoreboard,%20Results%20and%20Highlights.mhtml"
-    date_obj = datetime.datetime.strptime(date, "%Y-%m-%d") - datetime.timedelta(days=1)
-    date = date_obj.strftime("%Y-%m-%d")
+    #date_obj = datetime.datetime.strptime(date, "%Y-%m-%d") - datetime.timedelta(days=1)
+    #date = date_obj.strftime("%Y-%m-%d")
     url=f"file:///home/cbes100070/Desktop/website_all/SQL_final_project/MLB{date}.html"
     driver.get(url)
 
