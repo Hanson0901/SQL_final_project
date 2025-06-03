@@ -256,8 +256,7 @@ for link in player_links:
     )
     id += 1
 
-# 儲存資料到 JSON 檔案（若檔案已存在則覆寫）
 with open("Player_info/player_info.json", "w", encoding="utf-8") as f:
     json.dump(player_info, f, ensure_ascii=False, indent=4)
-# 關閉瀏覽器
+
 driver.quit()

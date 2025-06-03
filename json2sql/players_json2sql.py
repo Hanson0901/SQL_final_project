@@ -5,7 +5,7 @@ import re
 from geopy.geocoders import Nominatim # type: ignore
 
 def city_to_country(city_name):
-    geolocator = Nominatim(user_agent="your_app_name")
+    geolocator = Nominatim(user_agent="player_data_importer")
     location = geolocator.geocode(city_name, language="en")
     if location:
         # location.address 會是 "城市, 州/省, 國家"
