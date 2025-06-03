@@ -69,9 +69,10 @@ def get_live_data():
         'last_updated': datetime.datetime.now().strftime("%H:%M:%S"),
         'data': df.to_dict(orient='records')
     })
-
+n=1
 @app.route('/MLB_living', methods=['GET', 'POST'])
 def mlb_living():
+    global n
     if request.method == 'POST':
         mlb_year = int(request.form['year'])
         mlb_month = int(request.form['month'])
@@ -81,13 +82,20 @@ def mlb_living():
         mlb_date = datetime.date.today() - datetime.timedelta(days=0)
     
     mlb_date_str = mlb_date.strftime("%Y-%m-%d")
-    mlb_games = get_mlb_score(mlb_date_str)
+    #mlb_games = get_mlb_score(mlb_date_str)
+    mlb_games = get_mlb_score(n)
     return render_template('MLB_living.html', games=mlb_games, date=mlb_date_str)
 
 @app.route('/api/mlb_games')
 def mlb_api_games():
+    global n
+    if n>10:
+        n=1
+    else:
+        n += 1
     mlb_date_str = request.args.get('date', datetime.date.today().strftime("%Y-%m-%d"))
-    mlb_games = get_mlb_score(mlb_date_str)
+    #mlb_games = get_mlb_score(mlb_date_str)
+    mlb_games = get_mlb_score(n)
     return jsonify(games=mlb_games)  # 直接返回序列化後的數據
 
 @app.route('/CPBL_living', methods=['GET', 'POST'])
