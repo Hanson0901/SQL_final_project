@@ -22,7 +22,7 @@ def get_cpbl_score(date):
     #輸入年月日
     
     #url="C:/Users/cbes1/Desktop/MLB%20Scores_%20Scoreboard,%20Results%20and%20Highlights.mhtml"
-    url="https://www.cpbl.com.tw/box"
+    url="file:///home/cbes100070/Desktop/website_all/SQL_final_project/CPBL.html"
     driver.get(url)
     time.sleep(1)  # 確保動態內容載入
     try:
