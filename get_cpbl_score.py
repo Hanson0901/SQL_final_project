@@ -20,9 +20,9 @@ def get_cpbl_score(date):
     chrome_options.add_argument("--headless=new")  # 推薦用這個
     driver = webdriver.Chrome(options=chrome_options)
     #輸入年月日
-    
     #url="C:/Users/cbes1/Desktop/MLB%20Scores_%20Scoreboard,%20Results%20and%20Highlights.mhtml"
-    url="file:///home/cbes100070/Desktop/website_all/SQL_final_project/CPBL.html"
+    url="https://www.cpbl.com.tw/box/index?gameSno=136&year=2025&kindCode=A"
+    # url="https://www.cpbl.com.tw/box"
     driver.get(url)
     time.sleep(1)  # 確保動態內容載入
     try:
@@ -42,8 +42,8 @@ def get_cpbl_score(date):
             #rhe_info = game.select("div[class^='GameInfoLayoutstyle__GameInfoWrapper-sc'] tbody tr")
             time_info_element = game.select("li[class^='item']")
             Date=soup.select_one("div[class='date']").text
-            if Date!= datetime.datetime.now().strftime("%Y/%m/%d"):
-                return []  # 如果日期不符合，返回空列表
+            '''if Date!= datetime.datetime.now().strftime("%Y/%m/%d"):
+                return []  # 如果日期不符合，返回空列表'''
             for times in time_info_element:
                 img=[]
                 teams=[]
@@ -74,7 +74,7 @@ def get_cpbl_score(date):
                     rhe_url = times.find("a").get("href")
                     rhe_data = get_rhe_info(rhe_url)
                     games.append({
-                    'Date': Date,
+                    'Date': '2025/06/03',
                     'time': time_info,
                     'img': img,
                     'teams': teams,
@@ -89,7 +89,7 @@ def get_cpbl_score(date):
                        'home': {'R': "", 'H': "", 'E': ""}
                     }
                     games.append({
-                    'Date': Date,
+                    'Date': '2025/06/03',
                     'time': time_info,
                     'img': img,
                     'teams': teams,
