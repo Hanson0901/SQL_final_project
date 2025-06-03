@@ -1829,7 +1829,7 @@ try {
     const resultDiv = document.getElementById("searchResult");
     const extraFields = document.getElementById("extra-fields");
 
-    // ✅ 頁面載入時初始化狀態
+    // 頁面載入時初始化狀態
     window.addEventListener("DOMContentLoaded", () => {
       sportTypeSelect.value = "";
       querySelect.value = "";
@@ -1841,6 +1841,19 @@ try {
       resultDiv.innerHTML = "";
       extraFields.style.display = "none";
     });
+
+    function updateSearchButtonState() {
+      const sport = sportTypeSelect.value;
+      const type = querySelect.value;
+      const keyword = keywordSelect.value;
+      const date = dateInput?.value;
+
+      const hasSport = !!sport;
+      const hasDate = !!date?.trim();
+      const hasTeamOrPlayer = (type === "team" || type === "player") && keyword && keyword.trim();
+
+      searchBtn.disabled = !(hasSport && (hasDate || hasTeamOrPlayer));
+    }
 
     // ✅ 當選擇運動種類時
     sportTypeSelect.addEventListener("change", () => {
@@ -1856,24 +1869,26 @@ try {
       keywordSelect.innerHTML = `<option value="">請先選擇查詢方式</option>`;
 
       if (sport === "2") {
-        // ✅ F1
+        // F1
         querySelect.style.display = "none";
         keywordSelect.style.display = "none";
         extraFields.style.display = "none";
         searchBtn.disabled = false;
       } else if (sport) {
-        // ✅ 其他運動
+        // 其他運動
         querySelect.style.display = "";
         keywordSelect.style.display = "";
         extraFields.style.display = "";
         querySelect.disabled = false;
         // keyword 仍是 disabled，直到查詢方式選擇後觸發載入
       } else {
-        // ❌ 清空狀態
+        // 清空狀態
         querySelect.style.display = "";
         keywordSelect.style.display = "";
         extraFields.style.display = "none";
       }
+
+      updateSearchButtonState();
     });
     
     querySelect.addEventListener("change", () => {
@@ -1881,16 +1896,19 @@ try {
       keywordSelect.disabled = true;
       resultDiv.innerHTML = "";
       updateKeywordOptions();
+      updateSearchButtonState();
     });
 
     keywordSelect.addEventListener("change", () => {
       const keyword = keywordSelect.value;
       resultDiv.innerHTML = "";
       searchBtn.disabled = !keyword;
+      updateSearchButtonState();
     });
 
     dateInput.addEventListener("change", () =>{
       resultDiv.innerHTML = "";
+      updateSearchButtonState();
     });
 
 
@@ -1989,8 +2007,14 @@ try {
           alert("請選擇運動種類");
           return;
         }
-        if (sport !== "2" && (!type || !keyword)) {
-          alert("請選擇查詢方式與關鍵字");
+
+        const hasDate = !!date?.trim();
+        const hasKeyword = !!keyword?.trim();
+        const hasTeamOrPlayer = (type === "team" || type === "player") && hasKeyword;
+
+        // 非 F1 的情況下，必須有 日期 或 關鍵字 查詢條件
+        if (sport !== "2" && !hasDate && !hasTeamOrPlayer) {
+          alert("請輸入日期 或 選擇隊伍/選手");
           return;
         }
 

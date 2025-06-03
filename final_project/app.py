@@ -166,6 +166,15 @@ def search_matches():
     keyword = request.args.get('keyword')
     date = request.args.get('date')
 
+    if not sport:
+        return jsonify({"error": "請選擇運動類別"}), 400
+
+    has_date = bool(date and date.strip())
+    has_team_or_player = query_type in ["player", "team"] and keyword and keyword.strip()
+
+    if not (has_date or has_team_or_player):
+        return jsonify({"error": "請輸入日期 或 選擇隊伍/選手查詢"}), 400
+    
     try:
         with connection.cursor(pymysql.cursors.DictCursor) as cursor:
             team_info = None
