@@ -2555,6 +2555,12 @@ try {
             }
         }
 
+        bookedEl.innerHTML += `
+          <div class="bottom_button" style="text-align:center; margin: 20px 0;">
+            <button id="save">儲存預約資料</button>
+          </div>
+        `;
+
         bookedEl.innerHTML += `<h3><strong>已預約</strong></h3>`;
         for (let date in existingBookings) {
           const merged = {};
