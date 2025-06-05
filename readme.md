@@ -204,6 +204,9 @@ _Below is an example of how you can instruct your audience on installing and set
 
 3. 專案內的website部分專案需修改IP相關的數值為己身的數值，勿使用與本專案案例中相同之IP與domain
 
+使用方法:
+1. 
+
 <p align="right">(<a href="#readme-top">回到最上面</a>)</p>
 
 
