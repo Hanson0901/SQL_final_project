@@ -198,7 +198,11 @@ _Below is an example of how you can instruct your audience on installing and set
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-完成前置步驟後，即可連入我們的GCP
+完成前置步驟後，可使用以下方式配置linebot與website:
+1. 使用GCP、AWS、OCI等線上sever執行本次專案所需檔案
+2. 本地端配置，並用ngrok等工具開放端口給外部使用
+
+3. 專案內的website部分專案需修改IP相關的數值為己身的數值，勿使用與本專案案例中相同之IP與domain
 
 <p align="right">(<a href="#readme-top">回到最上面</a>)</p>
 
@@ -206,17 +210,18 @@ _Below is an example of how you can instruct your audience on installing and set
 
 <!-- ROADMAP -->
 ## Roadmap
-- [ ] 第一階段
+- [x] 第一階段
   - [x] 從網頁上爬蟲賽事資料
   - [x] 將資料轉為JSON
-  - [ ] 建立更新日誌
-  - [ ] 完成web UI設計與回傳後端
-  - [ ] 額外功能
-      - [ ] 查詢比分
-      - [ ] 意見回饋
-- [ ] 第二階段
-  - [ ] Linebot設計與使用
-  - [ ] 實現所有功能
+  - [x] 完成web UI設計與回傳後端
+  - [x] 額外功能
+      - [x] 查詢比分
+      - [x] 意見回饋
+- [x] 第二階段
+  - [x] Linebot richmenu設計
+  - [x] Linebot 訊息反饋與追蹤設置
+  - [x] 使用line-liff連結UID至website
+  - [x] 實現所有第一階段功能於Linebot
 
 請參閱未解決的問題以取得提議的功能[現有問題](https://github.com/Hanson0901/SQL_final_project/issues)的完整清單。
 
@@ -227,7 +232,7 @@ _Below is an example of how you can instruct your audience on installing and set
 <!-- CONTRIBUTING -->
 ## Contributing
 
-此項專案由以下開發者完成。若您在名單內，您所做的任何貢獻都將受到**極大的感謝**。
+此項專案『主要』由以下開發者完成。若您在名單內，您所做的任何貢獻都將受到**極大的感謝**。
 
 如果您有任何建議可以讓這個專案變得更好，請 fork 此 repo 並建立一個 pull request。您也可以直接開啟一個帶有 "enhancement" 標籤的 issue。
 別忘了給這個專案點個星星！再次感謝您的支持！
