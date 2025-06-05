@@ -1,0 +1,58 @@
+:root {
+    --f1-red: #E10600;
+    --f1-dark: #000000;
+    --f1-gray: #38383F;
+}
+html, body {
+    background: var(--f1-dark) !important;
+    color: #fff !important;
+    font-family: 'Titillium Web', sans-serif;
+}
+
+.f1-header {
+    background: var(--f1-red);
+    padding: 0.5rem;
+    font-weight: bold;
+}
+
+.timing-table {
+    background: var(--f1-gray);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.table-dark th, .table-dark td {
+    background: var(--f1-gray) !important;
+    color: #fff !important;
+    vertical-align: middle;
+}
+
+.driver-row:hover {
+    background: #2A2A32 !important;
+}
+
+.tyre-indicator {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.gap-leader {
+    color: #00D2BE;
+    font-weight: bold;
+}
+
+.team-color-bar {
+    display: inline-block;
+    width: 6px;
+    height: 22px;
+    border-radius: 2px;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+td, th {
+    vertical-align: middle !important;
+    text-align: left !important;
+}

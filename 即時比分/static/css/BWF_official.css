@@ -1,0 +1,378 @@
+body,
+html {
+  height: 100%;
+  margin: 0;
+  font-family: "Arial", "微軟正黑體", sans-serif;
+}
+
+.container {
+  display: flex;
+  min-height: 100vh;
+  height: 100vh;
+  width: 100vw;
+  background: url("../img/BWF/CGU.jpg") no-repeat center center fixed;
+  background-size: cover;
+  position: relative;
+}
+
+.container::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 10, 20, 0.7);
+  z-index: 0;
+}
+
+.main-area {
+  flex: 1 1 0;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.header {
+  margin-top: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bwf-logo {
+  height: 48px;
+  margin-right: 12px;
+}
+
+.match-centre {
+  color: #fff;
+  font-weight: bold;
+  font-size: 20px;
+  letter-spacing: 2px;
+}
+
+.main-content {
+  margin-top: 80px;
+  text-align: center;
+}
+
+.center-logo img {
+  width: 200px;
+  margin-bottom: 24px;
+}
+
+.tournament-title {
+  font-size: 32px;
+  font-weight: bold;
+  color: #fff;
+  margin-bottom: 8px;
+}
+
+.tournament-date {
+  font-size: 18px;
+  color: #ccc;
+}
+
+.main-underline {
+  width: 320px;
+  height: 3px;
+  background: #e53935;
+  margin: 32px auto 0 auto;
+  border-radius: 2px;
+}
+
+.side-panel {
+  width: 400px;
+  background: rgba(20, 20, 30, 0.92);
+  padding: 32px 32px 24px 32px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 1;
+  position: relative;
+  min-height: 100vh;
+  height: 100vh;
+  box-shadow: -2px 0 16px rgba(0, 0, 0, 0.18);
+}
+
+.side-logo img {
+  width: 70px;
+  display: block;
+  margin: 0 auto 12px auto;
+}
+
+.side-title {
+  font-size: 22px;
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 6px;
+  color: #fff;
+}
+
+.side-date {
+  font-size: 16px;
+  text-align: center;
+  color: #bbb;
+  margin-bottom: 18px;
+}
+
+.order-play {
+  background: #e53935;
+  color: #fff;
+  font-size: 18px;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 28px;
+  margin-bottom: 22px;
+  cursor: pointer;
+  transition: background 0.2s;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  position: relative;
+}
+.order-play::after {
+  content: "";
+  display: block;
+  height: 3px;
+  width: 100%;
+  background: #e53935;
+  margin-top: 8px;
+  border-radius: 2px;
+}
+
+.order-play:hover {
+  background: #b71c1c;
+}
+
+.match-card {
+  background: #fff;
+  color: #222;
+  border-radius: 12px;
+  padding: 16px 20px;
+  margin-bottom: 18px;
+  width: 85%;
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+}
+
+.row {
+  display: flex;
+  justify-content: space-between; /* 左右分散 */
+  align-items: center; /* 垂直置中，可依需求調整 */
+  width: 100%; /* 父容器寬度，依需求調整 */
+}
+.court-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+  font-size: 15px;
+  margin-bottom: 8px;
+}
+
+.timer {
+  color: #222;
+  font-size: 13px;
+  background: #eee;
+  padding: 2px 10px;
+  border-radius: 8px;
+  font-weight: normal;
+}
+
+.player-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+/* .flag {
+  display: inline-block;
+  width: 22px;
+  height: 15px;
+  background-size: cover;
+  margin-right: 10px;
+  border-radius: 2px;
+  border: 1px solid #ddd;
+}
+
+.flag.th {
+  background-image: url("flag-th.png");
+}
+.flag.sg {
+  background-image: url("flag-sg.png");
+} */
+
+.player {
+  flex: 1;
+  font-size: 15px;
+}
+
+.score {
+  font-weight: bold;
+  font-size: 15px;
+  margin-left: 10px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-left: 8px;
+  display: inline-block;
+}
+.dot.green {
+  background: #2ecc40;
+}
+
+.match-status {
+  font-size: 13px;
+  color: #666;
+  margin-top: 7px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.in-progress {
+  color: #e53935;
+  font-weight: bold;
+  font-size: 13px;
+}
+/* svg 預覽區塊 */
+.svg-preview {
+  margin-top: 8px;
+  margin-right: 16px;
+  border: 1px solid #ccc;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background: #fafafa;
+  border-radius: 8px;
+  transition: box-shadow 0.15s, border-color 0.15s;
+}
+.svg-preview:hover {
+  box-shadow: 0 2px 8px rgba(21, 111, 245, 0.15);
+  border-color: #156ff5;
+}
+.round-details-text {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* 垂直置中，可依需求調整 */
+  width: 100%;
+}
+
+/* 新增：svg-preview 內 img 滿版顯示且維持比例 */
+.svg-preview img {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  border-radius: 4px;
+  display: block;
+}
+
+/* Modal 遮罩 */
+.svg-modal {
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+/* Modal 內容 */
+.svg-modal .modal-content {
+  background: #fff;
+  padding: 24px;
+  border-radius: 8px;
+  max-width: 90vw;
+  max-height: 80vh;
+  overflow: auto;
+}
+
+/* logo 選擇區 */
+.svg-modal .logo-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+/* logo 圖片樣式 */
+.svg-modal img {
+  width: 80px;
+  height: 80px;
+  cursor: pointer;
+  border: 2px solid #eee;
+  border-radius: 8px;
+  object-fit: contain;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.svg-modal img:hover {
+  border-color: #e53935;
+  box-shadow: 0 0 8px #e53935;
+}
+
+/* Modal 關閉按鈕區 */
+.svg-modal .close-btn-area {
+  text-align: right;
+  margin-top: 12px;
+}
+
+.team1-name .team2-name {
+  text-align: center;
+  font-size: 14px;
+  margin-top: 4px;
+  color: #222;
+}
+ul {
+  text-align: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+ul li {
+  display: inline-block;
+}
+
+@media (max-width: 1100px) {
+  .side-panel {
+    width: 100vw;
+    min-height: unset;
+    height: auto;
+    position: static;
+    box-shadow: none;
+    margin-top: 32px;
+  }
+  .container {
+    flex-direction: column;
+  }
+}
+@media (max-width: 900px) {
+  .main-content {
+    flex-direction: column;
+  }
+  .side-panel {
+    flex-direction: row;
+    gap: 16px;
+  }
+}
+@media (max-width: 700px) {
+  .game-card {
+    flex-direction: column;
+    gap: 16px;
+  }
+  .main-content {
+    gap: 16px;
+  }
+  .container {
+    padding: 0 4px;
+  }
+}
