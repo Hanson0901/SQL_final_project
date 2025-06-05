@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel = "stylesheet" href = "{{ url_for('static', filename = 'admin.css') }}">
+  <title>管理者介面</title>
+</head>
+<body data-page="UI">
+  <header>
+    <h1>管理員後台介面</h1>
+  </header>
+
+  <div class="dashboard-container">
+    <div class="btn-block">
+      <h2>賽事資料管理操作區</h2>
+      <p>進行對賽事資料的基本操作與檢視。</p>
+      <button id="sqlBtn">進入賽事資料管理區</button>
+    </div>
+
+    <div class="btn-block">
+      <h2>公告與提醒管理</h2>
+      <p>管理者可編輯並發佈系統公告，將內容透過 LINE 通知使用者，例如賽事延後、平台維護等。</p>
+      <button id="announcementsBtn">進入公告管理</button>
+    </div>
+
+    <div class="btn-block">
+      <h2>意見回饋 FeedBack 功能</h2>
+      <p>查看並回應使用者意見。可標記處理狀態並透過 LINE 通知使用者。</p>
+      <button id="feedbackBtn">查看意見回饋</button>
+    </div>
+
+    {% if is_super %}
+    <div class="btn-block">
+      <h2>最高權限管理區</h2>
+      <p>僅限擁有最高權限的管理員可進入，用於管理其他管理員帳號。</p>
+      <button onclick="location.href='/admin/super'">進入最高權限管理</button>
+    </div>
+    {% endif %}
+
+    <div class="corner-buttons">
+      <button id="back-btn" onclick="location.href='/Tasuketettesakenderudakedetodokanakutekanashikute'">回到登入介面</button>
+    </div>
+  </div>
+</body>
+<script src = "{{ url_for('static', filename = 'script.js') }}"></script>
+</html>

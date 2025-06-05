@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>近期比賽</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='c_styles.css') }}">
+</head>
+<body data-page="recent_match">
+  <h1>近期比賽查詢</h1>
+  <div class="clock-container">
+    現在時間：<span id="now-time"></span>
+  </div>
+
+  <div class="calendar-controls">
+    <button id="PrevMonthBtn">上個月</button>
+    <span id="current-month"></span>
+    <button id="NextMonthBtn">下個月</button>
+  </div>
+
+  <div id="calendar" class="calendar-grid"></div>
+
+  <div id="matchInfo" class="match-info-box">
+    <h2 id="selected-date">請點選日期</h2>
+    
+    <ul id="match-list"></ul>
+
+    <h3>我的預約清單</h3><p id="booking-count"></p>
+    <div id="booked-matches"></div>
+
+    <div class="bottom_button">
+      <button id="cancel">清除所有預約</button>
+    </div>
+  </div>
+  <div id="recommend-platform" style="margin-top: 1rem; margin-bottom: 1rem; text-align: center; font-weight: bold; font-size: 1.1rem;"></div>
+  <div id="recommend-platform" style="margin-top: 1.5rem;"></div>
+  <div class="backbtn">
+    <button onclick = history.back();>返回上一頁</button>
+  </div>
+  
+</body>
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</html>
+

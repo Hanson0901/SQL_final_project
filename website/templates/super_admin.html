@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel = "stylesheet" href = "{{ url_for('static', filename = 'super_admin.css') }}">
+  <title>最高權限管理</title>
+</head>
+<body data-page="super_admin">
+
+  <h2>最高權限管理區</h2>
+  <div class="panel">
+    <p style="text-align: center;">用於管理所有管理員帳號。僅限最高權限管理員可見本頁。</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>帳號</th>
+          <th>密碼</th>
+          <th>權限等級</th>
+          <th>操作</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for admin in admins %}
+        <tr>
+          <td>{{ admin.admin_id }}</td>
+          <td>
+            {% if admin.admin_id == session['admin_id'] or admin.permission_level == 1 %}
+              <input type="text" value="{{ admin.user_name }}" data-id="{{ admin.admin_id }}" class="edit-username">
+            {% else %}
+              {{ admin.user_name }}
+            {% endif %}
+          </td>
+          <td>
+            {% if admin.admin_id == session['admin_id'] or admin.permission_level == 1 %}
+              <input type="text" value="{{ admin.password }}" data-id="{{ admin.admin_id }}" class="edit-password">
+            {% else %}
+              *****
+            {% endif %}
+          </td>
+          <td>{{ admin.permission_level }}</td>
+          <td>
+            <button class="update" onclick="updateAdmin({{ admin.admin_id }})">修改</button>
+            {% if admin.admin_id != session['admin_id'] %}
+              <button class="delete" onclick="deleteAdmin({{ admin.admin_id }})">刪除</button>
+              {% if admin.permission_level == 1 %}
+                <button class="upgrade" onclick="upgradeAdmin({{ admin.admin_id }})">升級權限</button>
+              {% elif admin.permission_level == 2 %}
+                <button class="downgrade" onclick="downgradeAdmin({{ admin.admin_id }})">降級權限</button>
+              {% endif %}
+            {% endif %}
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+  <div class="back-button">
+    <button onclick="location.href='/control_panel'">返回管理介面</button>
+  </div>
+
+  <script src = "{{ url_for('static', filename = 'script.js') }}"></script>
+</body>
+</html>

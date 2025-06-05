@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel = "stylesheet" href = "{{ url_for('static', filename = 'sql.css') }}"
+</head>
+
+<body data-page="sql">
+  <header>
+    <h1>賽事資料操作區</h1>
+  </header>
+
+  <div class="sql-container">
+    <div class="sql-card">
+        <h2>查詢比賽</h2>
+        <p>選擇條件查詢比賽</p>
+
+        <label for="search-sport"><strong>運動類別</strong></label>
+        <select id="search-sport"></select>
+
+        <label for="search-date"><strong>日期</strong></label>
+        <input type="date" id="search-date">
+
+        <label for="search-team-a"><strong>隊伍 / 名稱</strong></label>
+        <select id="search-team-a"></select>
+
+        <div id="team-b-wrapper">
+          <label for="search-team-b"></label>
+          <select id="search-team-b"></select>
+        </div>
+
+        <button id="SearchBtn">查詢</button>
+        <!-- 查詢結果區域 -->
+        <div id="searchResult" style="margin-top: 1rem;"></div>
+
+    </div>
+
+    <div class="sql-card">
+        <h2>新增賽事</h2>
+        <p>手動新增多筆比賽</p>
+        <table id="addTable">
+          <thead>
+            <tr>
+              <th>運動類別</th>
+              <th>比賽名稱 / 隊伍資訊</th>
+              <th>比賽日期</th>
+              <th>開始時間</th>
+              <th>比分（僅限非 F1 類別）</th>
+              <th>播放平台（可複選）</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td>
+            <select class="sport-type">
+              <option value="">請選擇</option>
+              <option value="1">NBA</option>
+              <option value="2">F1</option>
+              <option value="3">MLB</option>
+              <option value="4">CPBL</option>
+              <option value="5">BWF</option>
+            </select>
+          </td>
+          <td>
+            <select class="team-a">
+              <option value="">請先選類別</option>
+            </select>
+          </td>
+          <td>
+            <select class="team-b">
+              <option value="">請先選類別</option>
+            </select>
+          </td>
+          <td>
+            <input type="date" class="date-input">
+          </td>
+          <td><input type="text" placeholder="HH:MM" class="time-input"></td>
+          <td><input type="text" placeholder="比分" class="point-input"></td>
+        </tr>
+      </tbody>
+        </table>
+        
+        
+        <div class="btns">
+            <div class="add-btn">
+                <button id="AddBtn">增加一行</button>
+            </div>
+            <div class="right-btn">
+              <button id="SendAddBtn">送出新增</button>
+            </div>
+          </div>
+      
+        <div id="addStatus" style="margin-top: 1rem;"></div>
+      </div>
+
+      
+    <div class="back_btn">
+        <button onclick="history.back();">返回上一頁</button>
+    </div>
+      
+  </div>
+
+  <script src = "{{ url_for('static', filename = 'script.js') }}"></script>
+</body>
+</html>

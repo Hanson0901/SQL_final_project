@@ -1,0 +1,96 @@
+body {
+      font-family: 'Microsoft JhengHei', sans-serif;
+      background-color: #fff0f0;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h2 {
+      text-align: center;
+      color: #d94e5c;
+    }
+
+    .panel {
+      background-color: #ffd9d9;
+      padding: 20px;
+      border-radius: 12px;
+      max-width: 960px;
+      margin: 0 auto;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      background-color: white;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    th, td {
+      padding: 12px;
+      border: 1px solid #f5b9b9;
+      text-align: center;
+    }
+
+    th {
+      background-color: #ffe0e0;
+      color: #333;
+    }
+
+    input[type="text"], input[type="password"] {
+      width: 90%;
+      padding: 6px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    button {
+      padding: 8px 12px;
+      margin: 2px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    button:hover {
+      opacity: 0.9;
+    }
+
+    button.update {
+      background-color: #84bcf9;
+      color: white;
+    }
+
+    button.delete {
+      background-color: #fd9593;
+      color: white;
+    }
+
+    button.upgrade {
+      background-color: #78de89;
+      color: white;
+    }
+
+    button.downgrade {
+      background-color: #c1bfbc;
+      color: white;
+    }
+
+    .back-button {
+      display: block;
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .back-button button {
+      background-color: #888;
+      color: white;
+      padding: 10px 20px;
+    }
+
+    .back-button button:hover {
+      background-color: #666;
+    }

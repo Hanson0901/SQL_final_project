@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="{{ url_for('static', filename='ms_styles.css') }}">
+  <title>綜合查詢</title>
+</head>
+<body data-page="mix_search">
+
+  <h1>綜合查詢系統</h1>
+
+  <div class="form-card">
+    <!-- 運動種類 -->
+     <div id = "sport-type-wrapper">
+      <label for="sport-type">運動種類</label>
+      <select id="sport-type">
+        <option value="">請選擇</option>
+        <option value="1">NBA</option>
+        <option value="2">F1</option>
+        <option value="3">MLB</option>
+        <option value="4">CPBL</option>
+        <option value="5">BWF</option>
+      </select>
+     </div>
+
+     <!-- 查詢選項 -->
+    <label for="query-type">選擇查詢類型（請先選擇上方選項）</label>
+    <select id="query-type">
+      <option value="">請選擇</option>
+      <option value="player">選手名稱</option>
+      <option value="team">隊伍名稱</option>
+      <option value="event">賽事名稱</option>
+    </select>
+    
+    <!-- 關鍵字輸入 -->
+    <label for="keyword">關鍵字（請先選擇上方選項）</label>
+    <select id="keyword" disabled>
+      <option value="">請選擇</option>
+    </select>
+
+    <!-- 查詢按鈕 -->
+    <div class="button-wrapper">
+      <button id="SearchBtn">查詢</button>
+      <button id="ResetBtn" class="reset">重設</button>
+    </div>
+  </div>
+
+  <hr />
+  <h3>查詢結果</h3>
+  <div id="mix-result-area"></div>
+
+  <div>
+    <button class="backbtn" onclick="history.back();">返回上一頁</button>
+  </div>
+
+</body>
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <title>入口大門</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://static.line-scdn.net/liff/edge/2.1/sdk.js"></script>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #EFE4DD;
+      color: #6F6A69;
+      margin: 0;
+      padding: 40px 20px;
+      box-sizing: border-box;
+    }
+
+    h2 {
+      color: #6F6A69;
+      font-size: 2em;
+      text-align: center;
+      margin-top: 40px;
+      margin-bottom: 20px;
+    }
+
+    .section {
+      max-width: 500px;
+      margin: 0 auto 60px auto;
+      text-align: center;
+    }
+
+    a button,
+    button {
+      background-color: #A8D4D1;
+      color: #fff;
+      border: none;
+      padding: 16px 32px;
+      margin-top: 20px;
+      border-radius: 8px;
+      font-size: 1.2em;
+      cursor: pointer;
+      width: 100%;
+      max-width: 300px;
+      transition: background-color 0.2s ease;
+    }
+
+    a button:hover,
+    button:hover {
+      background-color: #7FB9B3;
+    }
+
+    input[type="password"] {
+      padding: 14px;
+      font-size: 1.1em;
+      border: 1px solid #DAD4CE;
+      border-radius: 6px;
+      margin-top: 10px;
+      width: 100%;
+      max-width: 300px;
+      background-color: #fff;
+      color: #6F6A69;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="section">
+    <h2>我是使用者</h2>
+    <button onclick="window.location.href = '/foruser'">我是使用者</button>
+  </div>
+
+  <div class="section">
+    <h2>我是管理者</h2>
+    <input type="password" id="admin_key" placeholder="請輸入進入密碼">
+    <button onclick="enterAdmin()">我是管理員</button>
+  </div>
+
+  <script>
+    function enterAdmin() {
+      const key = document.getElementById("admin_key").value;
+
+      fetch("/admin_entry", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ admin_key: key })
+      })
+        .then(res => res.json())
+        .then(data => {
+          if (data.success) {
+            window.location.href = "/Tasuketettesakenderudakedetodokanakutekanashikute";
+          } else {
+            alert("❌ 密碼錯誤，請再試一次！");
+          }
+        });
+    }
+  </script>
+</body>
+</html>

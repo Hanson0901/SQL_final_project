@@ -1,0 +1,124 @@
+:root {
+    --color-1: #D3A28B; /* 淺棕 */
+    --color-2: #FCDDDD; /* 淺粉 */
+    --color-3: #4A4040; /* 深灰 */
+    --color-4: #9C8282; /* 紫棕 */
+  }
+
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #fff;
+    margin: 0;
+    padding: 0;
+  }
+
+  header {
+    background-color: var(--color-3);
+    color: white;
+    padding: 1rem;
+    text-align: center;
+  }
+
+  .title{
+    display: flex;
+    align-items: center;
+    gap: 55%;
+    margin-top: 5px;
+    text-align: center;
+  }
+
+  nav {
+    display: flex;
+    justify-content: space-around;
+    background-color: var(--color-4);
+    padding: 0.5rem;
+  }
+
+  nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+  section {
+    padding: 2rem;
+  }
+
+  .card {
+    background-color: var(--color-2);
+    border-left: 6px solid var(--color-1);
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    border-radius: 8px;
+  }
+
+  .card h2 {
+    margin-top: 0;
+    color: var(--color-3);
+  }
+
+  button {
+    background-color: var(--color-1);
+    color: white;
+    font-size: 15px;
+    border: none;
+    padding: 0.3rem 0.3rem;
+    margin-top: 0.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+
+
+  .login-container {
+    max-width: 400px;
+    margin: 50px auto;
+    background-color: var(--color-2);
+    padding: 0.1rem;
+    border-radius: 10px;
+    border-left: 6px solid var(--color-3);
+  }
+
+  .login-container h2 {
+    font-size: 20px;
+    text-align: center;
+    color: var(--color-3);
+  }
+
+  .login-container label {
+    display: block;
+    margin-top: 0.3rem;
+    color: var(--color-3);
+  }
+
+  .login-container input[type="text"],
+  .login-container input[type="password"] {
+    padding: 0.5rem;
+    margin-top: 0.3rem;
+    width: 95%;
+    border: 1px solid var(--color-4);
+    border-radius: 4px;
+  }
+
+  .login-container input[type="submit"] {
+    background-color: var(--color-1);
+    color: white;
+    border: none;
+    padding: 0.7rem;
+    margin-bottom: 0.5rem;
+    margin-top: 0.5rem;
+    width:20%;               /* ✅ 可以讓它大一點，比如 50% */
+    display: block;           /* ✅ 變成區塊元素 */
+    margin-left: auto;        /* ✅ 自動置中 */
+    margin-right: auto;       /* ✅ 自動置中 */
+    border-radius: 12px;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+
+  .login-container input[type="submit"]:hover {
+    background-color: var(--color-4);
+  }
+
+  input, select, textarea {
+    font-size: 16px;
+  }

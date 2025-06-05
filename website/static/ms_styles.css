@@ -1,0 +1,91 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 16px;
+    background-color: #FFFFF3;
+    color: #566270;
+  }
+  
+  h1 {
+    text-align: center;
+    margin-bottom: 24px;
+    color: rgb(104, 149, 216);
+  }
+  
+  label {
+    font-weight: bold;
+    color: #566270;
+  }
+  
+  input, select {
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #2e2e2e;
+    border-radius: 8px;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 16px;
+    background-color: #E0E3DA;
+    color: #2f2f2f;
+  }
+  
+  input:focus, select:focus {
+    border-color: #2e2e2e;
+    outline: none;
+    box-shadow: 0 0 6px rgba(147, 187, 224, 0.6);
+  }
+  
+  .button-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 20px;
+  }
+  
+  .button-wrapper button {
+    min-width: 140px;
+    padding: 12px 24px;
+    background-color: #93d0e0;
+    color: rgb(255, 255, 255);
+    font-size: 18px;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .button-wrapper button:hover {
+    background-color: #96e3e6;
+  }
+  
+  .button-wrapper .reset {
+    background-color: #70767d;
+  }
+  
+  .button-wrapper .reset:hover {
+    background-color: #3d4550;
+  }
+  
+  .form-card {
+    background-color: #ffffff;
+    padding: 24px;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .backbtn {
+    display: flex;
+    padding: 8px 16px;
+    color: #ffffff;
+    border: none;
+    margin: auto;
+    margin-top: 10%;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    background-color:#93d0e0;
+  }

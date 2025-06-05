@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://static.line-scdn.net/liff/edge/2.1/sdk.js"></script>
+  <title>比賽大門</title>
+  <style>
+    body {
+      font-family: "Microsoft JhengHei", sans-serif;
+      text-align: center;
+      background: linear-gradient(to right, #ffffff, #FFFFF3);
+      height: 100vh;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    h1 {
+      font-size: 1.9em;
+      margin-bottom: 1em;
+    }
+
+    .nav-buttons a {
+      display: inline-block;
+      margin: 1em;
+      padding: 1em 2em;
+      font-size: 1.2em;
+      background-color: #8eb0f4;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: background-color 0.3s;
+    }
+
+    .nav-buttons a:hover {
+      background-color: #4b9aea;
+    }
+  </style>
+</head>
+<body data-page="door">
+  <h1 id="welcome-text">歡迎來到使用者介面</h1>
+
+  <div class="nav-buttons">
+    <a href="{{ url_for('recent_match') }}">比賽預約</a>
+    <a href="{{ url_for('match_search') }}">比賽搜尋</a>
+    <a href="{{ url_for('mix_search') }}">混合查詢</a>
+    <a href="{{ url_for('public_announcements') }}">最新公告</a>  
+  </div>
+</body>
+<script>
+  function enterAdmin() {
+      const key = document.getElementById("admin_key").value;
+
+      fetch("/admin_entry", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ admin_key: key })
+      })
+        .then(res => res.json())
+        .then(data => {
+          if (data.success) {
+            window.location.href = "/Tasuketettesakenderudakedetodokanakutekanashikute";
+          } else {
+            alert("❌ 密碼錯誤，請再試一次！");
+          }
+        });
+    }
+
+    
+
+    async function initLIFF() {
+      await liff.init({ liffId: "2007488459-579gR2Qz" });
+
+      if (!liff.isLoggedIn()) {
+        liff.login({ redirectUri: window.location.href });
+        return;
+      }
+
+      const profile = await liff.getProfile();
+      const uid = profile.userId;
+      const name = profile.displayName;
+
+      // 顯示歡迎文字
+      const welcomeEl = document.getElementById("welcome-text");
+      if (welcomeEl) {
+        welcomeEl.textContent = `歡迎 ~ ${name}`;
+      }
+
+      fetch("/set_uid", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ uid: uid })
+      })
+    }
+    initLIFF();
+</script>
+</html> 
