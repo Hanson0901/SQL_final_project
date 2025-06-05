@@ -144,6 +144,7 @@
 * [![pymysql][pymysql]][pymysql-url]
 * [![GCP][GCP]][GCP-url]
 * [![JQuery][JQuery.com]][JQuery-url]
+* [![selenium][Selenium]][selenium-url]
 
 <p align="right">(<a href="#readme-top">回到最上面</a>)</p>
 
@@ -164,6 +165,14 @@
   pip install pymysql
   pip isntall line-bot-sdk
   pip install selenium
+  pip install pandas
+  pip install fastf1
+  pip install flask-cors
+  pip install fake-useragent
+  pip install certbot
+  pip install APScheduler
+  pip install pycountry
+  pip install permutations
   ```
 
 ### Installation
@@ -306,5 +315,7 @@ Use this space to list resources you find helpful and would like to give credit 
 [GCP]: https://img.shields.io/badge/Google%20Cloud%20Platform-4285F4?style=for-the-badge&logo=googlecloud&logoColor=FFFFFF
 [GCP-url]: https://console.cloud.google.com/?hl=zh-tw
 [JQuery.com]: https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white
-[JQuery-url]: https://jquery.com 
+[JQuery-url]: https://jquery.com
+[selenium]: https://img.shields.io/badge/Selenium-43B02A?logo=selenium&logoColor=fff
+[selenium-url]: https://www.selenium.dev/
 >>>>>>> 716d625 (FIX MD)
