@@ -204,8 +204,32 @@ _Below is an example of how you can instruct your audience on installing and set
 
 3. 專案內的website部分專案需修改IP相關的數值為己身的數值，勿使用與本專案案例中相同之IP與domain
 
-使用方法:
-1. 
+分支內容:
+1. main:
+    合併完後的整份專題程式碼
+
+2. Liao
+    廖奕翰
+
+3. forlinux
+    楊程宇負責管理的GCP檔案
+    包含假官網、即時比分
+
+4. hanson
+    楊程宇
+
+5. leo
+    呂昊宸
+
+6. linebot
+    楊程宇+呂昊宸+洪偉城
+
+7. uuri
+    林政維
+
+8. wei
+    洪偉城
+
 
 <p align="right">(<a href="#readme-top">回到最上面</a>)</p>
 
